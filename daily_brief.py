@@ -110,11 +110,12 @@ def load_positions(path):
 
 
 def price_now(symbol):
+    # Through exchange.py so an open position is still priced when Binance
+    # refuses the runner. "price unavailable" next to a live position is
+    # the one line in this brief that must never be a plumbing artifact.
     try:
-        r = requests.get("https://fapi.binance.com/fapi/v1/ticker/price",
-                         params={"symbol": symbol}, timeout=10)
-        r.raise_for_status()
-        return float(r.json()["price"])
+        import exchange
+        return exchange.price_anywhere(symbol)
     except Exception:
         return None
 

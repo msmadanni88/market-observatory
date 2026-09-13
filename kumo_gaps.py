@@ -107,11 +107,25 @@ def get_klines(symbol, tf, limit=600):
         try:
             lst = r["result"]["list"]
         except (TypeError, KeyError):
-            return None
-        if r.get("retCode") == 0 and len(lst) > 60:
+            lst = []
+        # Fall through to OKX rather than giving up - this used to return
+        # None here, which is why a blocked Bybit killed the whole column.
+        if lst and r.get("retCode") == 0 and len(lst) > 60:
             return [{"t": int(k[0]) // 1000, "o": float(k[1]), "h": float(k[2]),
                      "l": float(k[3]), "c": float(k[4]), "v": float(k[5])}
                     for k in reversed(lst)]
+    # Third try. On GitHub's runners neither of the first two answers -
+    # Binance returns 451 and Bybit's CDN blocks the country outright - so
+    # without this the gap column is simply absent from every brief.
+    try:
+        import exchange
+        raw = exchange.okx_klines(symbol, tf, limit)
+    except Exception:
+        return None
+    if len(raw) > 60:
+        return [{"t": int(k[0]) // 1000, "o": float(k[1]), "h": float(k[2]),
+                 "l": float(k[3]), "c": float(k[4]), "v": float(k[5])}
+                for k in raw]
     return None
 
 

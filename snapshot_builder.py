@@ -24,6 +24,8 @@ import time
 
 import requests
 
+import exchange
+
 FAPI = "https://fapi.binance.com"
 HTTP_TIMEOUT = 15
 HEADERS = {"User-Agent": "snapshot-builder/1.0"}
@@ -36,10 +38,8 @@ HTF_OF = {"5m": "1h", "15m": "1h", "30m": "4h", "1h": "4h",
 
 
 def get(path, params=None, base=FAPI):
-    r = requests.get(base + path, params=params, timeout=HTTP_TIMEOUT,
-                     headers=HEADERS)
-    r.raise_for_status()
-    return r.json()
+    # Binance first, OKX when Binance refuses. See exchange.py.
+    return exchange.get(path, params, base)
 
 
 def klines(symbol, tf, limit=320):
@@ -58,8 +58,14 @@ def klines(symbol, tf, limit=320):
 # data that did not exist in the real market.
 # ===========================================================================
 
+# These deliberately do NOT go through exchange.get. A venue check is only
+# worth anything if each quote comes from a different book - routing a
+# failed Binance call to OKX would count OKX twice and call it agreement.
+# A venue that will not answer simply drops out of the list.
 VENUE_TICKS = {
-    "binance": lambda s: float(get("/fapi/v1/ticker/price", {"symbol": s})["price"]),
+    "binance": lambda s: float(requests.get(
+        "https://fapi.binance.com/fapi/v1/ticker/price", params={"symbol": s},
+        timeout=HTTP_TIMEOUT, headers=HEADERS).json()["price"]),
     "binance-spot": lambda s: float(requests.get(
         "https://api.binance.com/api/v3/ticker/price", params={"symbol": s},
         timeout=HTTP_TIMEOUT, headers=HEADERS).json()["price"]),
@@ -76,6 +82,18 @@ VENUE_TICKS = {
         "https://api.gateio.ws/api/v4/futures/usdt/tickers",
         params={"contract": s[:-4] + "_USDT"},
         timeout=HTTP_TIMEOUT, headers=HEADERS).json()[0]["last"]),
+    # Added after the GitHub runner turned out to reach neither Binance nor
+    # Bybit. Without these, two of the five venues were all that answered
+    # from there, and min_venues is two - one timeout and a snapshot goes
+    # unverified for no good reason.
+    "bitget": lambda s: float(requests.get(
+        "https://api.bitget.com/api/v2/mix/market/ticker",
+        params={"symbol": s, "productType": "USDT-FUTURES"},
+        timeout=HTTP_TIMEOUT, headers=HEADERS).json()["data"][0]["lastPr"]),
+    "mexc": lambda s: float(requests.get(
+        "https://contract.mexc.com/api/v1/contract/ticker",
+        params={"symbol": s[:-4] + "_USDT"},
+        timeout=HTTP_TIMEOUT, headers=HEADERS).json()["data"]["lastPrice"]),
 }
 
 MAX_SPREAD_PCT = 0.60
@@ -376,9 +394,8 @@ def derivs(symbol):
         d["low24"] = float(t24["lowPrice"])
         perp_q = float(t24["quoteVolume"])
         d["vol_perp"] = perp_q
-        s24 = requests.get("https://api.binance.com/api/v3/ticker/24hr",
-                           params={"symbol": symbol}, timeout=HTTP_TIMEOUT,
-                           headers=HEADERS).json()
+        s24 = get("/api/v3/ticker/24hr", {"symbol": symbol},
+                  base="https://api.binance.com")
         spot_q = float(s24["quoteVolume"])
         d["vol_spot"] = spot_q
         d["spot"] = float(s24["lastPrice"])
@@ -452,7 +469,7 @@ def build_snapshot(symbol, tf, verify=True, with_derivs=True, htf_bias=None):
 
     return {
         "symbol": symbol, "tf": tf, "ts": time.time(),
-        "source": "binance-futures",
+        "source": exchange.source_name(),
         "price": price,
         "verified": v["verified"],
         "verify_text": v["verify_text"],

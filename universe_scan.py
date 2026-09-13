@@ -36,6 +36,8 @@ try:
 except ImportError:
     sys.exit("requests not installed.  pip install requests")
 
+import exchange
+
 
 # ===========================================================================
 # CONFIG
@@ -82,10 +84,10 @@ SECTORS = {
 # ===========================================================================
 
 def get(path, params=None, base=FAPI):
-    r = requests.get(base + path, params=params, timeout=HTTP_TIMEOUT,
-                     headers=HEADERS)
-    r.raise_for_status()
-    return r.json()
+    # Routed through exchange.py: Binance first, OKX when Binance refuses.
+    # GitHub's runners get 451 from Binance, and a scan that quietly returns
+    # nothing is worse than one that fails.
+    return exchange.get(path, params, base)
 
 
 # ===========================================================================
@@ -522,7 +524,7 @@ def main():
             "failed": len(failed),
             "quote_min": args.quote_min,
             "elapsed_sec": round(time.time() - t0, 1),
-            "source": "binance-futures",
+            "source": exchange.source_name(),
         },
         "sectors": sector_table(rows),
         "extended": topn("score_extension"),
