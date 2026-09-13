@@ -33,8 +33,8 @@
    "result": "open",
    "result_r": null,
    "resolve_note": "",
-   "mfe_r": 0.351,
-   "mae_r": 0.584,
+   "mfe_r": 0.361,
+   "mae_r": 0.586,
    "bars_to_activate": 1,
    "bars_to_resolve": null,
    "supports": [
@@ -107,15 +107,15 @@
    "republished": 1,
    "activated_ts": 1789311600,
    "activated_time_tehran": "2026-09-13 18:30 Tehran",
-   "resolved_ts": null,
-   "status": "active",
-   "result": "open",
-   "result_r": null,
-   "resolve_note": "",
-   "mfe_r": 0.413,
-   "mae_r": 0.504,
+   "resolved_ts": 1789315200,
+   "status": "loss",
+   "result": "stop",
+   "result_r": -1.0,
+   "resolve_note": "stop touched first",
+   "mfe_r": 0.45,
+   "mae_r": 1.092,
    "bars_to_activate": 2,
-   "bars_to_resolve": null,
+   "bars_to_resolve": 3,
    "supports": [
     "structure bearish",
     "below cloud",
@@ -247,16 +247,27 @@
  ],
  "tracking_since": "2026-09-13 19:37 Tehran",
  "overall": {
-  "trades": 0,
+  "trades": 1,
   "wins": 0,
-  "losses": 0,
-  "win_rate": null,
-  "expectancy_r": null,
-  "open": 2,
+  "losses": 1,
+  "win_rate": 0.0,
+  "expectancy_r": -1.0,
+  "open": 1,
   "expired": 0,
   "invalidated": 1
  },
  "by_symbol": [
+  {
+   "trades": 1,
+   "wins": 0,
+   "losses": 1,
+   "win_rate": 0.0,
+   "expectancy_r": -1.0,
+   "open": 0,
+   "expired": 0,
+   "invalidated": 0,
+   "name": "SOLUSDT"
+  },
   {
    "trades": 0,
    "wins": 0,
@@ -278,20 +289,20 @@
    "expired": 0,
    "invalidated": 0,
    "name": "HYPEUSDT"
-  },
-  {
-   "trades": 0,
-   "wins": 0,
-   "losses": 0,
-   "win_rate": null,
-   "expectancy_r": null,
-   "open": 1,
-   "expired": 0,
-   "invalidated": 0,
-   "name": "SOLUSDT"
   }
  ],
  "by_style": [
+  {
+   "trades": 1,
+   "wins": 0,
+   "losses": 1,
+   "win_rate": 0.0,
+   "expectancy_r": -1.0,
+   "open": 1,
+   "expired": 0,
+   "invalidated": 0,
+   "name": "30m"
+  },
   {
    "trades": 0,
    "wins": 0,
@@ -302,32 +313,21 @@
    "expired": 0,
    "invalidated": 1,
    "name": "15m"
-  },
-  {
-   "trades": 0,
-   "wins": 0,
-   "losses": 0,
-   "win_rate": null,
-   "expectancy_r": null,
-   "open": 2,
-   "expired": 0,
-   "invalidated": 0,
-   "name": "30m"
   }
  ],
  "by_strategy": [
   {
-   "trades": 0,
+   "trades": 1,
    "wins": 0,
-   "losses": 0,
-   "win_rate": null,
-   "expectancy_r": null,
-   "open": 2,
+   "losses": 1,
+   "win_rate": 0.0,
+   "expectancy_r": -1.0,
+   "open": 1,
    "expired": 0,
    "invalidated": 1,
    "name": "Trend Continuation"
   }
  ],
- "updated_tehran": "2026-09-13 19:37 Tehran",
- "updated_ts": 1789315633.401959
+ "updated_tehran": "2026-09-13 20:35 Tehran",
+ "updated_ts": 1789319140.0774903
 }
