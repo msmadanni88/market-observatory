@@ -2094,7 +2094,6 @@ function pulse(){
 }
 
 async function tickPrices(){
-  if(document.hidden)return;          // a hidden tab burns the venue's rate limit for nothing
   const before=lastPriceOk;
   await pollPrices();
   if(Object.keys(live).length)lastPriceOk=Date.now()/1000;
@@ -2112,7 +2111,15 @@ setInterval(()=>{
   document.querySelectorAll("[data-countdown]").forEach(el=>{
     el.textContent=barRemaining(el.dataset.countdown);});
 },1000);
-setInterval(()=>{void tickPrices();},1000);
+/* Every second when the page is being looked at, once every ten when it is
+   not. Deliberately NOT "stop when hidden": some embedded views report hidden
+   while perfectly visible, and a panel frozen behind a wrong reading is worse
+   than a few extra requests. */
+let _hiddenTick=0;
+setInterval(()=>{
+  if(document.hidden&&(++_hiddenTick%10))return;
+  void tickPrices();
+},1000);
 setInterval(()=>{
   if(document.hidden)return;
   const every=Math.max(5,Number(state.every)||20)*1000;
