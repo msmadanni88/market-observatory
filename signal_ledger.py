@@ -27,6 +27,7 @@ Nothing here is a prediction. It is a record of what already happened.
 
 import json
 import os
+import re
 import time
 
 import exchange
@@ -89,12 +90,32 @@ def _tehran(ts):
                          time.gmtime(ts + 3.5 * 3600)) + " Tehran"
 
 
+def _ref(sig, ts):
+    """Human-readable reference, identical here and in the dashboard.
+
+    MO-260913-1745-HYPE-30m-S. Derived from the publication minute and the
+    market, so the same signal always produces the same string in the ledger,
+    the CSV, the archive and the card - a trade can then be named out loud
+    without anyone having to match up a hash.
+    """
+    stamp = time.strftime("%y%m%d-%H%M", time.gmtime(ts + 3.5 * 3600))
+    # Strip only a TRAILING quote asset, exactly as the dashboard's coinBase
+    # does. A blanket replace would disagree with the page on any symbol that
+    # happens to contain the quote asset mid-string, and the two must never
+    # produce different codes for the same signal.
+    base = re.sub(r"(USDT|USDC|USD)$", "", str(sig.get("symbol") or ""),
+                  flags=re.I)
+    side = "L" if sig.get("side") == "long" else "S"
+    return "MO-%s-%s-%s-%s" % (stamp, base, sig.get("tf") or "", side)
+
+
 def _new_record(sig, ts):
     targets = [t for t in (sig.get("targets") or []) if isinstance(t, (int, float))]
     entry, stop = sig.get("entry"), sig.get("stop")
     risk = abs(entry - stop) if entry is not None and stop is not None else None
     return {
         "id": _key(sig) + "@" + str(int(ts)),
+        "ref": _ref(sig, ts),
         "key": _key(sig),
         "symbol": sig.get("symbol"),
         "tf": sig.get("tf"),
@@ -288,7 +309,7 @@ def _rate(records):
 # the label is what the market did afterwards, and nothing in between was
 # filled in by hand.
 CSV_COLUMNS = [
-    "id", "symbol", "tf", "side", "strategy", "confidence",
+    "ref", "id", "symbol", "tf", "side", "strategy", "confidence",
     "published_ts", "published_time_tehran",
     "entry", "stop", "tp1", "tp2", "rr", "atr", "risk_per_unit",
     "entry_distance_pct", "entry_distance_atr",
@@ -304,6 +325,7 @@ def _csv_row(r):
     c = r.get("context") or {}
     t = r.get("targets") or []
     return {
+        "ref": r.get("ref") or _ref(r, r.get("published_ts") or 0),
         "id": r.get("id"), "symbol": r.get("symbol"), "tf": r.get("tf"),
         "side": r.get("side"), "strategy": r.get("strategy"),
         "confidence": r.get("confidence"),
@@ -409,6 +431,14 @@ def update(signals, path="brief/signals.json", now=None, quiet=True,
     records = data.get("records") or []
     if not data.get("tracking_since"):
         data["tracking_since"] = _tehran(now)
+
+    # Backfill a reference onto anything filed before references existed.
+    # Derived from that record's OWN publication time, so it is the same code
+    # the record would have been given at the time - not today's date stamped
+    # onto last week's trade.
+    for r in records:
+        if not r.get("ref"):
+            r["ref"] = _ref(r, r.get("published_ts") or 0)
 
     by_key = {}
     for r in records:

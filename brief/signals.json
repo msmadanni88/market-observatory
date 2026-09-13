@@ -76,7 +76,8 @@
      "derived 2.5R",
      "derived 3.5R"
     ]
-   }
+   },
+   "ref": "MO-260913-1745-HYPE-30m-S"
   },
   {
    "id": "SOLUSDT|30m|short@1789308927",
@@ -160,7 +161,8 @@
      "derived 2.5R",
      "derived 3.5R"
     ]
-   }
+   },
+   "ref": "MO-260913-1745-SOL-30m-S"
   },
   {
    "id": "BTCUSDT|15m|short@1789308927",
@@ -242,7 +244,8 @@
      "observed structure",
      "derived 3.5R"
     ]
-   }
+   },
+   "ref": "MO-260913-1745-BTC-15m-S"
   }
  ],
  "tracking_since": "2026-09-13 19:37 Tehran",

@@ -174,8 +174,16 @@ html[data-theme="mono"]{color-scheme:light;
    fill to read as selected - it gets the inverse treatment instead. */
 html[data-theme="mono"] .tf.on{background:#111;color:#fff;border-color:#111}
 html[data-theme="mono"] button.pri{background:#111;color:#fff;border-color:#111}
-body{background:radial-gradient(circle at 12% -8%,color-mix(in srgb,var(--ac) 10%,transparent),transparent 30%),var(--bg);
-  transition:background .2s,color .2s}
+/* NO transition on body. This was the whole theme bug.
+   The page repaints on a one-second loop, and every repaint restarted the
+   background-color and color transitions before they had advanced a frame.
+   Both sat at currentTime 0 permanently, so BODY kept painting the previous
+   theme's ground and text while every child element - which reads var(--tx)
+   directly and has no transition - switched correctly. That is the half
+   changed, half stale look. A theme switch has to be instant. If a fade is
+   ever wanted back, it has to go on an element the render loop does not
+   touch, never on body. */
+body{background:radial-gradient(circle at 12% -8%,color-mix(in srgb,var(--ac) 10%,transparent),transparent 30%),var(--bg)}
 header{background:color-mix(in srgb,var(--head) 94%,transparent);backdrop-filter:blur(14px)}
 .card{box-shadow:var(--shadow)}
 thead th,tbody td{text-align:center}
@@ -290,12 +298,40 @@ tbody tr:hover td{background:var(--hover)}
 .setup-card-top{display:flex;align-items:center;gap:9px}
 .setup-rank{width:28px;height:28px;display:grid;place-items:center;border-radius:8px;
   background:color-mix(in srgb,var(--ac) 14%,var(--pn2));color:var(--ac);font-weight:900}
-.setup-market{display:grid;line-height:1.2}.setup-market b{font-size:14px}
-.setup-market span{color:var(--dm);font-size:10px}
+/* min-width:0 so a long reference code shrinks the text block instead of
+   stretching the flex row and squashing the ring next to it. */
+.setup-market{display:grid;line-height:1.2;min-width:0;flex:1 1 auto}
+.setup-market b{font-size:14px}
+.setup-market span{color:var(--dm);font-size:10px;overflow:hidden;text-overflow:ellipsis;
+  white-space:nowrap}
+.sig-ref{font-family:ui-monospace,"Cascadia Mono",monospace;font-size:9px !important;letter-spacing:.3px;
+  color:var(--ac) !important;cursor:pointer;opacity:.85;width:max-content;max-width:100%}
+.sig-ref:hover{opacity:1;text-decoration:underline}
+.sig-ref.copied{color:var(--up) !important;opacity:1}
+/* A signal carried over from an earlier round is visually separate from this
+   round's new ones: dashed frame, a tinted wash and a corner ribbon. */
+.setup-card.carried{border-style:dashed;
+  background:linear-gradient(155deg,color-mix(in srgb,var(--wn) 9%,var(--tile)),
+  color-mix(in srgb,var(--pn) 90%,var(--bg)))}
+.setup-card.carried:after{content:"CARRIED";position:absolute;top:7px;right:-30px;
+  transform:rotate(38deg);background:color-mix(in srgb,var(--wn) 82%,var(--bg));
+  color:var(--bg);font-size:7px;font-weight:900;letter-spacing:1px;
+  padding:2px 30px;pointer-events:none;z-index:2}
+/* The ribbon crosses the top-right corner, which is exactly where the
+   confidence ring sits. Pull the row in on a carried card so the two do not
+   overlap instead of hoping they miss each other. */
+.setup-card.carried .setup-card-top{padding-right:16px}
 .direction{margin-left:auto;padding:4px 9px;border-radius:999px;font-size:10px;font-weight:900}
 .direction.long{color:var(--up);background:color-mix(in srgb,var(--up) 12%,transparent);border:1px solid var(--up)}
 .direction.short{color:var(--dn);background:color-mix(in srgb,var(--dn) 12%,transparent);border:1px solid var(--dn)}
-.confidence{width:49px;height:49px;border-radius:50%;display:grid;place-items:center;margin-left:3px;
+/* flex:0 0 auto on all three. They sit in a flex row, and the moment the row
+   ran out of space the ring was squashed into an oval and the rank/icon went
+   with it. A circle that is only round at some widths is a bug waiting for a
+   narrow screen. aspect-ratio keeps it honest even if the sizes change. */
+.setup-card-top>.setup-rank,.setup-card-top>.coin-icon,.setup-card-top>.confidence,
+.setup-card-top>.direction{flex:0 0 auto}
+.confidence{width:49px;height:49px;aspect-ratio:1/1;border-radius:50%;display:grid;
+  place-items:center;margin-left:3px;
   background:conic-gradient(var(--ac) calc(var(--cf)*1%),var(--ln) 0);position:relative}
 .confidence:before{content:"";position:absolute;inset:4px;border-radius:50%;background:var(--tile)}
 .confidence b{position:relative;font-size:10px;font-variant-numeric:tabular-nums}
@@ -338,6 +374,26 @@ tbody tr:hover td{background:var(--hover)}
 .position-grid div{background:var(--pn2);padding:7px;text-align:center;min-width:0}
 .position-grid small{display:block;color:var(--dm);font-size:8.5px}
 .position-grid b{font-size:10.5px;font-variant-numeric:tabular-nums}
+/* The live read on an open position. Three numbers that move with the
+   market on every price tick: what the position is worth right now, how
+   volatile the market is right now, and what is still on the table to the
+   first target. Only rendered on a card that is actually open - a number
+   like this on a pending setup would be fiction. */
+.live-pnl{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:9px;
+  background:var(--ln);border:1px solid var(--ln);border-radius:9px;overflow:hidden}
+.live-pnl .lp{background:color-mix(in srgb,var(--ac) 6%,var(--pn2));padding:7px 6px;
+  text-align:center;min-width:0}
+.live-pnl small{display:block;color:var(--dm);font-size:8.5px;letter-spacing:.2px}
+.live-pnl b{font-size:13px;font-weight:800;font-variant-numeric:tabular-nums;
+  display:block;line-height:1.25}
+.live-pnl em{font-style:normal;display:block;color:var(--dm);font-size:9px;
+  font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden;
+  text-overflow:ellipsis}
+.live-pnl .live-dot{display:inline-block;width:5px;height:5px;border-radius:50%;
+  background:var(--up);margin-right:3px;vertical-align:middle;
+  animation:lpulse 1.6s ease-in-out infinite}
+@keyframes lpulse{0%,100%{opacity:.35}50%{opacity:1}}
+@media (prefers-reduced-motion:reduce){.live-pnl .live-dot{animation:none;opacity:.8}}
 .risk-readout{display:flex;justify-content:space-between;gap:8px;margin-top:8px;
   color:var(--dm);font-size:10px;flex-wrap:wrap}
 .risk-readout strong{color:var(--tx)}
@@ -509,6 +565,30 @@ let brief=null, ledger=null;
 let sortKey=null, sortDir=1;
 let refreshBusy=false, priceBusy=false;
 let venue=null, venueError=null, lastCandleSweep=0;
+// What the lab last rendered, keyed by card. The charts read from this rather
+// than looking the plan up again somewhere else.
+let labPlans={};
+
+/* One reference per signal, identical in the ledger, the CSV, the archive and
+   the card, so a trade can be talked about by name. Deterministic from the
+   publication minute and the market, so it never needs a counter and never
+   collides in practice: MO-260913-1745-HYPE-30m-S */
+function signalRef(symbol,tf,side,ts){
+  const d=new Date(((Number(ts)||0)+3.5*3600)*1000);
+  const p=n=>String(n).padStart(2,"0");
+  const stamp=String(d.getUTCFullYear()).slice(2)+p(d.getUTCMonth()+1)+
+    p(d.getUTCDate())+"-"+p(d.getUTCHours())+p(d.getUTCMinutes());
+  return "MO-"+stamp+"-"+coinBase(symbol)+"-"+tf+"-"+(side==="long"?"L":"S");
+}
+function fallbackCopy(txt,done){
+  try{
+    const ta=document.createElement("textarea");
+    ta.value=txt;ta.style.position="fixed";ta.style.opacity="0";
+    document.body.appendChild(ta);ta.select();
+    document.execCommand("copy");document.body.removeChild(ta);
+    done();
+  }catch(e){/* clipboard is simply unavailable here; the code is on screen */}
+}
 
 function load(){
   const base={symbols:["BTCUSDT","ETHUSDT","SOLUSDT"],tfs:["15m","1h","4h","1d"],
@@ -923,13 +1003,36 @@ function liveCandles(sym,tf){
 /* =====================================================================
    FETCHING
    ===================================================================== */
+
+/* Which markets need a live price. Not just the grid: a signal is very
+   often on a market the user has not added - HYPE on 30m while the grid
+   shows BTC, ETH and SOL - and that card still has to show a live price,
+   a live P/L and a live distance to target. The venue returns every
+   ticker in one request anyway, so widening this costs nothing and the
+   alternative is a card that shows a dash forever. */
+function pricedSymbols(){
+  const set=new Set(state.symbols||[]);
+  Object.keys(labPlans||{}).forEach(k=>{
+    const e=labPlans[k];
+    if(e&&e.sig&&e.sig.symbol)set.add(e.sig.symbol);
+  });
+  // The ledger's field is status, not state. They are not interchangeable:
+  // "state" on this page means the LIVE state the browser just replayed,
+  // "status" is what the pipeline last filed.
+  ((ledger&&ledger.records)||[]).forEach(r=>{
+    if(r&&r.symbol&&(r.status==="pending"||r.status==="active"))set.add(r.symbol);
+  });
+  ((brief&&brief.signals)||[]).forEach(s=>{if(s&&s.symbol)set.add(s.symbol);});
+  return [...set];
+}
+
 async function pollPrices(){
   if(priceBusy||!venue)return;
   priceBusy=true;
   try{
     const px=await venue.tickers();
     let any=false;
-    for(const s of state.symbols){
+    for(const s of pricedSymbols()){
       const p=px[s];
       if(p==null)continue;
       any=true;
@@ -1194,6 +1297,82 @@ function paintPrices(){
   });
   document.querySelectorAll("[data-countdown]").forEach(el=>{
     el.textContent=barRemaining(el.dataset.countdown);
+  });
+  paintLivePnl();
+}
+
+/* =====================================================================
+   LIVE P/L ON AN OPEN POSITION
+   ---------------------------------------------------------------------
+   Runs on the price tick, so these three move with the market every
+   second without the card being rebuilt underneath the user.
+
+   Nothing here is replayed from the brief. The price is whatever the
+   venue last returned, the ATR is recomputed from the candle series the
+   page is streaming, and the size is whatever the risk sliders currently
+   say. Change a slider and the money figure changes with it, because it
+   is the same position maths the rest of the card uses.
+
+   OPEN P/L NOW  - the move from entry in the trade's own direction, as a
+                   percent of entry, with the money on the sized position
+                   and the move in R underneath. R is the honest one: a
+                   position at +1.4R has earned 1.4 times what it risked.
+   ATR NOW       - the live ATR of this timeframe as a percent of price,
+                   which is how much this market is actually moving right
+                   now, with the percentile so "1.2%" can be read as calm
+                   or violent for this market rather than in a vacuum.
+   LEFT TO TP1   - how far the first target still is, in percent and in
+                   money. It shrinks as the trade works.
+   ===================================================================== */
+function paintLivePnl(){
+  document.querySelectorAll("[data-lpnl]").forEach(el=>{
+    const e=labPlans[el.dataset.lpnl];
+    if(!e)return;
+    const p=e.plan,sig=e.sig;
+    const L=live[sig.symbol],px=L&&L.price;
+    if(px==null||!isFinite(px)){
+      el.querySelectorAll("b").forEach(b=>b.textContent="··");
+      return;
+    }
+    const long=p.side!=="short";
+    const move=long?px-p.entry:p.entry-px;
+    const pct=move/p.entry*100;
+    const usd=move*p.qty;
+    const risk=Math.abs(p.entry-p.stop);
+    const r=risk>0?move/risk:null;
+    const tone=move>0?"g":(move<0?"r":"");
+
+    const b1=el.querySelector(".lp1"),e1=el.querySelector(".lp1b");
+    if(b1){b1.textContent=(pct>0?"+":"")+pct.toFixed(2)+"%";
+      b1.className="lp1 "+tone;}
+    if(e1)e1.textContent=(usd>0?"+":"")+money(usd)+" USDT"+
+      (r!=null?"  ·  "+(r>0?"+":"")+r.toFixed(2)+"R":"");
+
+    // Live ATR off the streaming series. Falls back to the ATR recorded
+    // when the signal was published only if the series has not arrived.
+    const k=sig.symbol+"|"+sig.tf;
+    const c=candles[k];
+    const ind=(c&&c.length)?indicatorsFor(k,c):null;
+    const atr=(ind&&isFinite(ind.atr))?ind.atr:p.atr;
+    const atrp=(ind&&isFinite(ind.atrp))?ind.atrp:null;
+    const b2=el.querySelector(".lp2"),e2=el.querySelector(".lp2b");
+    if(b2)b2.textContent=(atr&&isFinite(atr))?(atr/px*100).toFixed(2)+"%":"--";
+    if(e2)e2.textContent=(atrp!=null?Math.round(atrp)+"th pct":"")+
+      (risk>0&&atr?(atrp!=null?"  ·  ":"")+"stop "+(risk/atr).toFixed(2)+
+        " ATR":"");
+
+    const t1=(p.targets||[])[0];
+    const b3=el.querySelector(".lp3"),e3=el.querySelector(".lp3b");
+    if(t1!=null&&isFinite(t1)){
+      const left=long?t1-px:px-t1;
+      if(b3){b3.textContent=(left<=0?"hit":(left/px*100).toFixed(2)+"%");
+        b3.className="lp3"+(left<=0?" g":"");}
+      if(e3)e3.textContent=left<=0?"target reached":
+        money(Math.abs(left)*p.qty)+" USDT to go";
+    }else{
+      if(b3)b3.textContent="--";
+      if(e3)e3.textContent="no target";
+    }
   });
 }
 
@@ -1664,12 +1843,18 @@ function renderSetups(){
       '<span>Lower the confidence or R:R floor, or reset the tags above.</span></div>';
   }else h+='<div class="setup-grid">';
 
+  labPlans={};
   shown.forEach((x,i)=>{
-    const sig=x.sig,p=x.plan,key=sig.symbol+"|"+sig.tf;
+    const sig=x.sig,p=x.plan;
+    // Side is part of the key: a long and a short on the same market and
+    // timeframe are two different plans and must not share a card or a chart.
+    const key=sig.symbol+"|"+sig.tf+"|"+sig.side;
+    labPlans[key]={sig:sig,plan:p,pubTs:x.pubTs};
     // Prefer the ledger's id so a take survives into the archive; fall back to
     // a stable key for a signal the ledger has not filed yet.
     const lrec=ledgerRecordFor(sig);
-    const takeId=(lrec&&lrec.id)||(key+"|"+sig.side+"@"+(x.pubTs||0));
+    const takeId=(lrec&&lrec.id)||(key+"@"+(x.pubTs||0));
+    const ref=(lrec&&lrec.ref)||signalRef(sig.symbol,sig.tf,sig.side,x.pubTs);
     const mineNow=tookIt(takeId);
     const open=(s.open_details||[]).includes(key);
     const px=(live[sig.symbol]||{}).price;
@@ -1681,12 +1866,15 @@ function renderSetups(){
       (sig.blockers||[]).map(v=>
       '<div class="check warn"><b>&#9651; blocker</b>'+esc(v)+'</div>').join("");
     const tags=[sig.tf,sig.strategy].filter(Boolean);
-    h+='<article class="setup-card '+esc(p.side)+'" data-key="'+esc(key)+'">'+
+    h+='<article class="setup-card '+esc(p.side)+(x.carried?" carried":"")+
+      '" data-key="'+esc(key)+'">'+
       '<div class="setup-card-top"><div class="setup-rank">#'+(i+1)+'</div>'+
       coinIcon(sig.symbol,false)+
       '<div class="setup-market"><b>'+esc(coinBase(sig.symbol))+' &middot; '+esc(sig.tf)+'</b>'+
-      '<span>'+(x.carried?"still open from the ":"published in the ")+
-      esc(x.when)+(x.carried?" brief":" brief")+'</span></div>'+
+      '<span class="sig-ref" title="click to copy this reference" data-copy="'+
+      esc(ref)+'">'+esc(ref)+'</span>'+
+      '<span>'+(x.carried?"carried from ":"this round &middot; ")+
+      esc(x.when)+'</span></div>'+
       '<span class="direction '+esc(p.side)+'">'+esc(p.side.toUpperCase())+'</span>'+
       '<div class="confidence" style="--cf:'+Number(sig.confidence||0)+'"><b>'+
       Number(sig.confidence||0).toFixed(0)+'<small>%</small></b></div></div>'+
@@ -1702,6 +1890,16 @@ function renderSetups(){
       '</span>').join("")+'</div>'+
       '<div class="entry-condition '+(["win","loss"].includes(x.st)?"done":"")+'">'+
       esc(outcomeLine(x))+'</div>'+
+      /* Only on a position that is actually open. The values are left blank
+         here and filled by the price tick, so they update every second
+         without the card being re-rendered underneath the user. */
+      (x.st==="active"?'<div class="live-pnl" data-lpnl="'+esc(key)+'">'+
+        '<div class="lp"><small><span class="live-dot"></span>OPEN P/L NOW</small>'+
+        '<b class="lp1">&middot;&middot;</b><em class="lp1b"></em></div>'+
+        '<div class="lp"><small>ATR NOW</small>'+
+        '<b class="lp2">&middot;&middot;</b><em class="lp2b"></em></div>'+
+        '<div class="lp"><small>LEFT TO TP1</small>'+
+        '<b class="lp3">&middot;&middot;</b><em class="lp3b"></em></div></div>':'')+
       '<div class="level-grid"><div class="level entry"><small>Entry zone</small><b>'+
       FP((sig.entry_zone||[])[0])+' &ndash; '+FP((sig.entry_zone||[])[1])+'</b></div>'+
       '<div class="level sl"><small>Stop loss</small><b>'+FP(p.stop)+'</b></div>'+
@@ -1850,13 +2048,21 @@ function renderArchive(){
     h+='<div class="archive-empty">No signal matches these filters yet.</div>';
   else{
     h+='<div class="archive-scroll adv"><table class="archive-table"><thead><tr>'+
-      '<th>Published</th><th>Market</th><th>TF</th><th>Side</th><th>State</th>'+
+      '<th>Reference</th><th>Published</th><th>Market</th><th>TF</th><th>Side</th>'+
+      '<th>State</th>'+
       '<th>Result</th><th>R</th><th>Drawdown</th><th>Conf</th><th>Took it</th>'+
       '</tr></thead><tbody>';
     filtered.slice(0,400).forEach(r=>{
       const isOpen=openSet.has(r.id);
+      // Records filed before the reference scheme existed have no ref of their
+      // own, so it is recomputed here from the same inputs the ledger uses.
+      // Same signal, same code, whichever side produced it.
+      const rref=r.ref||signalRef(r.symbol,r.tf,r.side,r.published_ts||0);
       h+='<tr class="archive-row" data-ar="'+esc(r.id)+'" title="Click for the '+
-        'levels and the chart"><td>'+esc(r.published_time_tehran||"--")+'</td>'+
+        'levels and the chart">'+
+        '<td><span class="sig-ref" data-copy="'+esc(rref)+'" title="click to copy '+
+        'this reference">'+esc(rref)+'</span></td>'+
+        '<td>'+esc(r.published_time_tehran||"--")+'</td>'+
         '<td><b>'+esc(coinBase(r.symbol))+'</b></td><td>'+esc(r.tf||"")+'</td>'+
         '<td>'+esc(String(r.side||"--").toUpperCase())+'</td>'+
         '<td class="'+esc(r.live)+'"><b>'+esc(stateLabel(r.live))+'</b>'+
@@ -1870,7 +2076,7 @@ function renderArchive(){
         '<td><button class="take-btn'+(r.mine?" on":"")+'" data-take="'+esc(r.id)+
         '" title="Mark that you actually opened this position">'+
         (r.mine?"&#10003; mine":"take")+'</button></td></tr>'+
-        '<tr class="archive-detail"'+(isOpen?"":" hidden")+'><td colspan="10">'+
+        '<tr class="archive-detail"'+(isOpen?"":" hidden")+'><td colspan="11">'+
         '<div class="archive-signal-levels"><span>Entry <b>'+FP(r.entry)+'</b></span>'+
         '<span>SL <b class="r">'+FP(r.stop)+'</b></span>'+
         (r.targets||[]).map((v,i)=>'<span>TP'+(i+1)+' <b class="g">'+FP(v)+
@@ -1901,6 +2107,22 @@ function bindArchive(root){
     const id=b.dataset.take;
     setTake(id,!tookIt(id));
     renderSetups();
+  });
+  /* Reference codes copy on click. stopPropagation because the archive row
+     itself toggles open on click and copying a code should not also expand a
+     row. clipboard.writeText needs a secure context, so there is a textarea
+     fallback for anyone opening the file straight off disk. */
+  root.querySelectorAll("[data-copy]").forEach(el=>el.onclick=ev=>{
+    ev.stopPropagation();
+    const txt=el.dataset.copy||"";
+    const done=()=>{el.classList.add("copied");
+      const was=el.textContent;el.textContent="copied";
+      setTimeout(()=>{el.textContent=was;el.classList.remove("copied");},900);};
+    try{
+      if(navigator.clipboard&&navigator.clipboard.writeText)
+        navigator.clipboard.writeText(txt).then(done,()=>fallbackCopy(txt,done));
+      else fallbackCopy(txt,done);
+    }catch(e){fallbackCopy(txt,done);}
   });
   root.querySelectorAll("[data-ar]").forEach(row=>row.onclick=()=>{
     const set=new Set(state.setup.open_archive||[]),id=row.dataset.ar;
@@ -1965,11 +2187,21 @@ function drawSignalChart(cv,plan,symbol,tf,publishedTs){
     x.fillRect(X(i)-Math.max(1,bw*0.28),Math.min(Y(k.o),Y(k.c)),
       Math.max(1,bw*0.56),Math.max(1,Math.abs(Y(k.o)-Y(k.c))));
   });
+  /* The published candle. k.t is seconds everywhere the series is built, and
+     publishedTs is seconds too, so the comparison above is like for like - it
+     is the last bar that had already opened when the signal went out. The
+     marker is a dashed rule plus a solid arrowhead on the bar itself, because
+     a dashed line alone reads as just another level line. */
   if(pubIndex>=0){
-    x.strokeStyle="rgba(181,122,255,.75)";x.setLineDash([2,3]);
-    x.beginPath();x.moveTo(X(pubIndex),3);x.lineTo(X(pubIndex),h-3);x.stroke();
-    x.setLineDash([]);x.fillStyle="#b57aff";x.font="8px system-ui";
-    x.fillText("published",Math.min(w-48,X(pubIndex)+3),10);
+    const mx=X(pubIndex);
+    x.strokeStyle="rgba(181,122,255,.8)";x.setLineDash([2,3]);x.lineWidth=1;
+    x.beginPath();x.moveTo(mx,10);x.lineTo(mx,h-3);x.stroke();x.setLineDash([]);
+    x.fillStyle="#b57aff";
+    x.beginPath();x.moveTo(mx,12);x.lineTo(mx-4,4);x.lineTo(mx+4,4);
+    x.closePath();x.fill();
+    x.font="bold 8px system-ui";
+    const lbl="published",tw=x.measureText(lbl).width;
+    x.fillText(lbl,Math.max(2,Math.min(w-tw-2,mx-tw/2)),h-4);
   }
   const tx=getComputedStyle(document.body).getPropertyValue("--tx").trim()||"#fff";
   const lines=[[plan.stop,"SL","#ff5a6e"],[plan.entry,"ENTRY","#7aa2ff"]];
@@ -1988,12 +2220,17 @@ function drawSignalChart(cv,plan,symbol,tf,publishedTs){
 function paintSetupCharts(){
   const pulls=[];
   document.querySelectorAll("[data-sig]").forEach(cv=>{
-    const [symbol,tf]=cv.dataset.sig.split("|");
-    const sig=planFor(symbol,tf);if(!sig)return;
-    const p=scenario(sig);if(!p)return;
+    // Read from what the lab actually rendered, not from brief.signals. The
+    // card chart went blank the moment a signal was carried over from an
+    // earlier brief, because that signal is not in the current brief at all.
+    // Looking the plan up a second time from a different source is how the
+    // two drifted apart.
+    const e=labPlans[cv.dataset.sig];
+    if(!e)return;
+    const symbol=e.sig.symbol,tf=e.sig.tf;
     if(!candles[symbol+"|"+tf])pulls.push([symbol,tf]);
-    drawSignalChart(cv,{stop:p.stop,entry:p.entry,targets:p.targets,
-      zone:sig.entry_zone},symbol,tf,null);
+    drawSignalChart(cv,{stop:e.plan.stop,entry:e.plan.entry,
+      targets:e.plan.targets,zone:e.sig.entry_zone},symbol,tf,e.pubTs);
   });
   document.querySelectorAll("[data-arsig]").forEach(cv=>{
     const r=((ledger&&ledger.records)||[]).find(x=>x.id===cv.dataset.arsig);
