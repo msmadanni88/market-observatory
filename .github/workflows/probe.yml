@@ -1,0 +1,38 @@
+name: probe
+
+on:
+  workflow_dispatch:
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Which exchanges answer from this runner
+        run: |
+          check () {
+            code=$(curl -s -o /dev/null -w '%{http_code}' -m 15 "$1" || echo "ERR")
+            printf '%-6s %s\n' "$code" "$1"
+          }
+          check "https://fapi.binance.com/fapi/v1/ping"
+          check "https://api.binance.com/api/v3/ping"
+          check "https://api.bybit.com/v5/market/time"
+          check "https://www.okx.com/api/v5/public/time"
+          check "https://api.gateio.ws/api/v4/spot/time"
+          check "https://api.mexc.com/api/v3/ping"
+          check "https://api.bitget.com/api/v2/public/time"
+          check "https://open-api.bingx.com/openApi/swap/v2/server/time"
+          check "https://api.kucoin.com/api/v1/timestamp"
+          check "https://api.coingecko.com/api/v3/ping"
+          echo "--- hyperliquid (POST) ---"
+          curl -s -o /dev/null -w 'hyperliquid %{http_code}\n' -m 15 \
+            -X POST https://api.hyperliquid.xyz/info \
+            -H 'Content-Type: application/json' \
+            -d '{"type":"meta"}'
+          echo "--- sample payloads ---"
+          echo "bybit tickers:"
+          curl -s -m 15 "https://api.bybit.com/v5/market/tickers?category=linear" | head -c 300
+          echo ""
+          echo "okx tickers:"
+          curl -s -m 15 "https://www.okx.com/api/v5/market/tickers?instType=SWAP" | head -c 300
+          echo ""
