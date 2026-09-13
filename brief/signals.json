@@ -1,0 +1,86 @@
+{
+ "records": [
+  {
+   "id": "HYPEUSDT|30m|short|78.1625@1789310876",
+   "key": "HYPEUSDT|30m|short|78.1625",
+   "symbol": "HYPEUSDT",
+   "tf": "30m",
+   "side": "short",
+   "strategy": "Trend Continuation",
+   "trade_style": "30m",
+   "confidence": 63.7,
+   "entry": 78.16247456,
+   "entry_zone": [
+    78.10042614,
+    78.22452298
+   ],
+   "stop": 78.9380798,
+   "targets": [
+    76.22346145,
+    75.4478562
+   ],
+   "rr": 2.5,
+   "atr": 0.51707016,
+   "risk_per_unit": 0.7756052399999902,
+   "published_ts": 1789310876.4601536,
+   "published_time_tehran": "2026-09-13 18:17 Tehran",
+   "last_seen_ts": 1789310876.4601536,
+   "republished": 1,
+   "activated_ts": null,
+   "activated_time_tehran": null,
+   "resolved_ts": null,
+   "status": "pending",
+   "result": "open",
+   "result_r": null,
+   "resolve_note": ""
+  }
+ ],
+ "tracking_since": "2026-09-13 18:17 Tehran",
+ "overall": {
+  "trades": 0,
+  "wins": 0,
+  "losses": 0,
+  "win_rate": null,
+  "expectancy_r": null,
+  "open": 1,
+  "expired": 0
+ },
+ "by_symbol": [
+  {
+   "trades": 0,
+   "wins": 0,
+   "losses": 0,
+   "win_rate": null,
+   "expectancy_r": null,
+   "open": 1,
+   "expired": 0,
+   "name": "HYPEUSDT"
+  }
+ ],
+ "by_style": [
+  {
+   "trades": 0,
+   "wins": 0,
+   "losses": 0,
+   "win_rate": null,
+   "expectancy_r": null,
+   "open": 1,
+   "expired": 0,
+   "name": "30m"
+  }
+ ],
+ "by_strategy": [
+  {
+   "trades": 0,
+   "wins": 0,
+   "losses": 0,
+   "win_rate": null,
+   "expectancy_r": null,
+   "open": 1,
+   "expired": 0,
+   "name": "Trend Continuation"
+  }
+ ],
+ "updated_tehran": "2026-09-13 18:17 Tehran",
+ "updated_ts": 1789310876.4601536
+}

@@ -301,6 +301,18 @@ def enrich_with_gaps(rows, tenkan=50, quiet=True):
     return rows
 
 
+# Measured, not assumed. Backtest of 13 Sep 2026 over 24 symbols, Tenkan 50,
+# 50-bar horizon: 4h 55.9% of 422 gaps filled, 1d 45.8% of 428, 50.8% overall.
+# Printed on every brief so "gap 8% above" is never read as a forecast. The
+# samples overlap heavily across symbols that move together, so the effective
+# sample is far smaller than the counts suggest and 4h is not a proven edge.
+KUMO_BASE_RATE_NOTE = (
+    "GAP BASE RATE\n"
+    " measured 13 Sep 2026, 24 symbols, 50-bar horizon\n"
+    " 4h 55.9% of 422 gaps filled  |  1d 45.8% of 428  |  50.8% overall\n"
+    " near a coin flip. A gap is a destination, not a reason.\n")
+
+
 def gap_phrase(r):
     """One short clause describing the nearest gap, or empty."""
     g = r.get("gap")
@@ -590,6 +602,7 @@ def render_mechanical(digest, signals=None, rejected=None):
     blk("MOST EXTENDED", digest["most_extended"])
     blk("MOST COMPRESSED", digest["most_compressed"])
     blk("TRENDING WITH ROOM", digest["trending_with_room"])
+    L.append(KUMO_BASE_RATE_NOTE)
     return "\n".join(L)
 
 
@@ -655,9 +668,25 @@ def main():
 
     os.makedirs(args.out, exist_ok=True)
     stamp = now.strftime("%Y-%m-%d")
+
+    # The ledger is the only place a win rate can honestly come from. Each run
+    # files what it published and re-reads the candles to settle what the last
+    # run published. A dry run resolves and reports but writes nothing, so
+    # testing never contaminates the record.
+    archive = None
+    try:
+        import signal_ledger
+        archive = signal_ledger.update(
+            signals, path=os.path.join(args.out, "signals.json"),
+            now=time.time(), quiet=not getattr(args, "verbose", False),
+            dry_run=bool(args.dry_run))
+    except Exception as exc:
+        print(f"  ledger skipped: {type(exc).__name__}: {exc}")
+
     with open(os.path.join(args.out, "brief_latest.json"), "w",
               encoding="utf-8") as fh:
         json.dump({"digest": digest, "signals": signals,
+                   "archive_overall": (archive or {}).get("overall"),
                    "rejected": rejected[:40], "narrative": narrative,
                    "usage": usage, "ai_error": ai_err,
                    "no_signal_reason": (
