@@ -1582,8 +1582,35 @@ function renderSetups(){
     const plan=scenario(sig);
     if(!plan)return null;
     const res=liveState(sig,plan,pubTs);
-    return {sig:sig,plan:plan,st:res.state,res:res};
+    return {sig:sig,plan:plan,st:res.state,res:res,pubTs:pubTs,
+      when:d.generated_tehran||"the latest brief"};
   }).filter(Boolean);
+
+  /* A run that finds nothing does not mean you have nothing running. Without
+     this, a trade that was ACTIVE an hour ago vanished from the lab the moment
+     a later brief came back empty, and survived only as a row in the archive
+     table. A position you might be sitting in must not disappear from the main
+     view. Every still-open record from an earlier brief is carried forward
+     until it settles. */
+  const shownKeys=new Set(all.map(x=>x.sig.symbol+"|"+x.sig.tf+"|"+x.sig.side));
+  ((ledger&&ledger.records)||[]).forEach(rec=>{
+    const k=rec.symbol+"|"+rec.tf+"|"+rec.side;
+    if(shownKeys.has(k))return;
+    const lv=recordLive(rec);
+    if(!["pending","active"].includes(lv.state))return;
+    const sig={symbol:rec.symbol,tf:rec.tf,side:rec.side,strategy:rec.strategy,
+      confidence:rec.confidence,entry:rec.entry,entry_zone:rec.entry_zone,
+      stop:rec.stop,targets:rec.targets,rr:rec.rr,atr:rec.atr,
+      entry_distance_pct:rec.entry_distance_pct,
+      supports:rec.supports,warnings:rec.warnings,blockers:rec.blockers,
+      context:rec.context,carried:true};
+    const plan=scenario(sig);
+    if(!plan)return;
+    shownKeys.add(k);
+    all.push({sig:sig,plan:plan,st:lv.state,res:lv,pubTs:rec.published_ts,
+      when:rec.published_time_tehran||"an earlier brief",carried:true});
+  });
+  all.sort((a,b)=>(Number(b.sig.confidence)||0)-(Number(a.sig.confidence)||0));
 
   const s=state.setup;
   const count=k=>all.filter(x=>x.st===k).length;
@@ -1591,7 +1618,7 @@ function renderSetups(){
   const won=count("win"),lost=count("loss");
 
   let h='<div class="setup-summary">'+
-    '<span class="summary-pill"><strong>'+all.length+'</strong> published</span>'+
+    '<span class="summary-pill"><strong>'+all.length+'</strong> plans on the board</span>'+
     '<span class="summary-pill"><strong class="w">'+pending+'</strong> pending</span>'+
     '<span class="summary-pill"><strong class="g">'+active+'</strong> active</span>'+
     (won?'<span class="summary-pill"><strong class="g">'+won+'</strong> hit TP1</span>':'')+
@@ -1628,9 +1655,10 @@ function renderSetups(){
     (x.plan.rr==null||x.plan.rr>=(Number(s.min_rr)||0)));
 
   if(!all.length){
-    h+='<div class="setup-empty"><b>No setup cleared every gate in the last run</b>'+
+    h+='<div class="setup-empty"><b>Nothing is open and the last run found nothing</b>'+
       '<span>'+esc(brief.no_signal_reason||"The engine does not manufacture a plan "+
-      "when the entry, risk or calendar gates are not met.")+'</span></div>';
+      "when the entry, risk or calendar gates are not met.")+' Anything published '+
+      'earlier has already settled &mdash; the archive below has all of it.</span></div>';
   }else if(!shown.length){
     h+='<div class="setup-empty"><b>Nothing matches the current filters</b>'+
       '<span>Lower the confidence or R:R floor, or reset the tags above.</span></div>';
@@ -1641,7 +1669,7 @@ function renderSetups(){
     // Prefer the ledger's id so a take survives into the archive; fall back to
     // a stable key for a signal the ledger has not filed yet.
     const lrec=ledgerRecordFor(sig);
-    const takeId=(lrec&&lrec.id)||(key+"|"+sig.side+"@"+(pubTs||0));
+    const takeId=(lrec&&lrec.id)||(key+"|"+sig.side+"@"+(x.pubTs||0));
     const mineNow=tookIt(takeId);
     const open=(s.open_details||[]).includes(key);
     const px=(live[sig.symbol]||{}).price;
@@ -1657,7 +1685,8 @@ function renderSetups(){
       '<div class="setup-card-top"><div class="setup-rank">#'+(i+1)+'</div>'+
       coinIcon(sig.symbol,false)+
       '<div class="setup-market"><b>'+esc(coinBase(sig.symbol))+' &middot; '+esc(sig.tf)+'</b>'+
-      '<span>published in the '+esc(d.generated_tehran||"latest")+' brief</span></div>'+
+      '<span>'+(x.carried?"still open from the ":"published in the ")+
+      esc(x.when)+(x.carried?" brief":" brief")+'</span></div>'+
       '<span class="direction '+esc(p.side)+'">'+esc(p.side.toUpperCase())+'</span>'+
       '<div class="confidence" style="--cf:'+Number(sig.confidence||0)+'"><b>'+
       Number(sig.confidence||0).toFixed(0)+'<small>%</small></b></div></div>'+
