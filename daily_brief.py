@@ -355,6 +355,36 @@ def run_setups(events, margin, risk_pct, quiet=True):
     return approved, rejected, None
 
 
+def apply_publication_cap(approved, rejected, cap):
+    """Publish at most `cap` setups, and record every one that was cut.
+
+    `approved` arrives sorted by confidence, so the cut is by rank.
+
+    The setups that do not make the cut are APPENDED TO `rejected` IN
+    PLACE with their rank and confidence spelled out. That is the whole
+    point: a setup the engine approved and the run chose not to send is
+    still something the engine approved, and burying it would make the
+    published record flattering rather than true.
+
+    cap <= 0 means no cap.
+
+    Returns (published, over).
+    """
+    if cap is None or cap <= 0 or len(approved) <= cap:
+        return approved, []
+    total = len(approved)
+    over = approved[cap:]
+    for rank, c in enumerate(over, start=cap + 1):
+        rejected.append({
+            "symbol": getattr(c, "symbol", None),
+            "tf": getattr(c, "tf", None),
+            "reason": ("below the publication cap - ranked %d of %d approved "
+                       "at %.0f%% confidence, cap is %d per run"
+                       % (rank, total, getattr(c, "confidence", 0) or 0, cap)),
+        })
+    return approved[:cap], over
+
+
 def build_digest(scan, positions, evts):
     def slim(r):
         return {
@@ -642,9 +672,39 @@ def main():
         print(f"  setup engine: {se_err}")
 
     digest = build_digest(scan, positions, evts)
+
+    # ------------------------------------------------------------------
+    # HOW MANY SIGNALS A DAY.
+    #
+    # The gates decide what is a valid setup. They do not decide how many
+    # a person can actually act on, and those are different questions. On
+    # a trending day eight things can pass at once; taking eight is not a
+    # portfolio, it is one directional bet placed eight times, and each
+    # one still consumes attention while it waits for an entry.
+    #
+    # So the run publishes its best MAX_SIGNALS_PER_RUN and no more.
+    # Two runs a day means the daily ceiling is twice that. approved is
+    # already sorted by confidence, so the cut is by rank.
+    #
+    # What is cut is NOT hidden. It moves into the rejected list with its
+    # rank and its confidence, appears in the brief's rejection summary,
+    # and stays in the archive. The system is not allowed to quietly drop
+    # a setup it approved - "we only publish the good ones" is how a
+    # record stops meaning anything.
+    # ------------------------------------------------------------------
+    cap = int(os.environ.get("MAX_SIGNALS_PER_RUN", 3))
+    considered = len(approved) + len(rejected)
+    approved, over = apply_publication_cap(approved, rejected, cap)
+    if over:
+        print("  publication cap: %d approved, publishing the top %d"
+              % (len(approved) + len(over), cap))
+
     signals = [asdict(c) for c in approved]
-    digest["setups_considered"] = len(approved) + len(rejected)
-    digest["setups_approved"] = len(approved)
+    digest["setups_considered"] = considered
+    digest["setups_approved"] = len(approved) + len(over)
+    digest["setups_published"] = len(approved)
+    digest["publication_cap"] = cap
+    digest["setups_over_cap"] = len(over)
     mech = render_mechanical(digest, signals, rejected)
 
     narrative, ai_err, usage = None, None, None

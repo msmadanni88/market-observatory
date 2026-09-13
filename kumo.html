@@ -1,0 +1,910 @@
+<!doctype html>
+<html lang="en" data-theme="night">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Market Observatory - Kumo gaps</title>
+<!--
+  KUMO GAPS
+  ---------------------------------------------------------------------------
+  Senkou B is the midpoint of the highest high and the lowest low over N bars.
+  When an old extreme rolls out of that window the midpoint does not drift, it
+  JUMPS, and the cloud is drawn with a discontinuity. The same happens to
+  Senkou A when Tenkan or Kijun jumps. The band the cloud skipped over is a
+  kumo gap: a price zone the market crossed quickly and spent almost no time
+  inside.
+
+  The detection here is a direct port of kumo_gaps.py, the same code that
+  produced the backtest, so the browser and the command line find the same
+  gaps from the same settings. Defaults are 50 / 26 / 52 / 26 - the
+  non-standard Tenkan that makes these gaps legible - and every one of them
+  is editable.
+
+  WHAT THE MEASURED RATE ACTUALLY WAS, so nothing here reads as a promise:
+  over 850 gaps on 24 markets, 4h filled 55.9% of the time, 1d 45.8%, 50.8%
+  overall. That is a coin flip. A gap is a level worth knowing about, not an
+  edge on its own.
+-->
+<style>
+:root{--bg:#070a10;--pn:#0f151f;--pn2:#151c29;--pn3:#1b2432;--ln:#232d3f;
+  --tx:#e2e8f2;--dm:#7a879f;--up:#22e0a1;--dn:#ff5a6e;--wn:#ffb444;
+  --ac:#7aa2ff;--vi:#b57aff;--head:#101722;--tile:#151d2b;--row:#101824;
+  --hover:rgba(122,162,255,.08);--shadow:0 18px 50px rgba(0,0,0,.35);
+  --cloud-up:rgba(34,224,161,.13);--cloud-dn:rgba(255,90,110,.13)}
+html[data-theme="night"]{--bg:#070a10;--pn:#0f151f;--pn2:#151c29;--pn3:#1b2432;
+  --ln:#232d3f;--tx:#e2e8f2;--dm:#7a879f;--up:#22e0a1;--dn:#ff5a6e;--wn:#ffb444;
+  --ac:#7aa2ff;--vi:#b57aff;--head:#101722;--tile:#141b28;--row:#111927;
+  --hover:rgba(122,162,255,.10);--shadow:0 18px 50px rgba(0,0,0,.35);
+  --cloud-up:rgba(34,224,161,.13);--cloud-dn:rgba(255,90,110,.13)}
+html[data-theme="day"]{color-scheme:light;
+  --bg:#eef1f6;--pn:#ffffff;--pn2:#f3f6fa;--pn3:#e6ebf3;--ln:#ced7e4;
+  --tx:#141a24;--dm:#5d6a7d;--up:#0a7a57;--dn:#c92a43;--wn:#95650a;
+  --ac:#2c62d6;--vi:#6b4fd0;--head:#ffffff;--tile:#ffffff;--row:#f7f9fc;
+  --hover:rgba(44,98,214,.08);--shadow:0 14px 34px rgba(35,50,75,.10);
+  --cloud-up:rgba(10,122,87,.12);--cloud-dn:rgba(201,42,67,.12)}
+html[data-theme="brown"]{color-scheme:dark;
+  --bg:#1a1008;--pn:#2a1c0f;--pn2:#352413;--pn3:#3f2c18;--ln:#553c22;
+  --tx:#f5e9da;--dm:#b39a7d;--up:#4ad6a0;--dn:#ff7a6b;--wn:#f5b942;
+  --ac:#e8a850;--vi:#c79bff;--head:#241608;--tile:#31210f;--row:#2f2011;
+  --hover:rgba(232,168,80,.12);--shadow:0 18px 44px rgba(0,0,0,.45);
+  --cloud-up:rgba(74,214,160,.12);--cloud-dn:rgba(255,122,107,.12)}
+html[data-theme="mono"]{color-scheme:light;
+  --bg:#f2f2f2;--pn:#ffffff;--pn2:#f7f7f7;--pn3:#e8e8e8;--ln:#c9c9c9;
+  --tx:#101010;--dm:#5e5e5e;--up:#1d6b46;--dn:#a32232;--wn:#7a5c00;
+  --ac:#111111;--vi:#4a4a4a;--head:#ffffff;--tile:#ffffff;--row:#fafafa;
+  --hover:rgba(0,0,0,.05);--shadow:0 12px 28px rgba(0,0,0,.12);
+  --cloud-up:rgba(0,0,0,.07);--cloud-dn:rgba(0,0,0,.12)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);
+  font:13px/1.45 "Segoe UI",system-ui,sans-serif}
+a{color:var(--ac)}
+header{display:flex;flex-wrap:wrap;gap:9px;align-items:center;padding:10px 14px;
+  background:color-mix(in srgb,var(--head) 94%,transparent);
+  border-bottom:1px solid var(--ln);position:sticky;top:0;z-index:40;
+  backdrop-filter:blur(14px)}
+h1{font-size:15px;margin:0;font-weight:800}
+.sub{color:var(--dm);font-size:11px}
+button,select,input{background:var(--pn2);color:var(--tx);border:1px solid var(--ln);
+  border-radius:8px;padding:5px 9px;font:inherit;font-size:11.5px}
+button{cursor:pointer}
+button:hover{border-color:var(--ac)}
+button.pri{background:var(--ac);color:var(--bg);border-color:var(--ac);font-weight:700}
+.palette{display:flex;gap:5px}
+.palette button{width:20px;height:20px;padding:0;border-radius:50%}
+.palette [data-theme="night"]{background:linear-gradient(135deg,#101623 50%,#7aa2ff 50%)}
+.palette [data-theme="day"]{background:linear-gradient(135deg,#fff 50%,#2c62d6 50%)}
+.palette [data-theme="brown"]{background:linear-gradient(135deg,#2a1c0f 50%,#e8a850 50%)}
+.palette [data-theme="mono"]{background:linear-gradient(135deg,#fff 50%,#111 50%)}
+main{padding:14px;max-width:1500px;margin:0 auto}
+.card{background:var(--pn);border:1px solid var(--ln);border-radius:13px;
+  padding:13px;margin-bottom:12px;box-shadow:var(--shadow)}
+.card>h2{font-size:11px;text-transform:uppercase;letter-spacing:.7px;margin:0 0 10px;
+  color:var(--dm);font-weight:800;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.card>h2 .hint{text-transform:none;letter-spacing:0;font-weight:400;font-size:10.5px}
+.settings{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));
+  gap:9px}
+.set{background:var(--tile);border:1px solid var(--ln);border-radius:10px;padding:8px 9px}
+.set label{display:block;color:var(--dm);font-size:9px;text-transform:uppercase;
+  letter-spacing:.4px;margin-bottom:4px}
+.set input,.set select{width:100%}
+.set .why{color:var(--dm);font-size:9.5px;margin-top:4px;line-height:1.35}
+.row{display:flex;gap:7px;flex-wrap:wrap;align-items:center;margin-top:10px}
+.chips{display:flex;gap:5px;flex-wrap:wrap}
+.chip{padding:4px 10px;border-radius:999px;border:1px solid var(--ln);
+  background:var(--pn2);cursor:pointer;font-size:11px}
+.chip.on{background:color-mix(in srgb,var(--ac) 18%,var(--pn2));border-color:var(--ac);
+  color:var(--ac);font-weight:700}
+.tfhead{display:flex;justify-content:space-between;align-items:baseline;gap:9px;
+  flex-wrap:wrap;margin-bottom:7px}
+.tfhead b{font-size:13px}
+.tfhead .m{color:var(--dm);font-size:10.5px}
+canvas{display:block;width:100%;border-radius:8px;background:var(--pn2)}
+.legend{display:flex;gap:12px;flex-wrap:wrap;color:var(--dm);font-size:10.5px;
+  margin-top:7px;align-items:center}
+.legend i{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:4px}
+.heatbar{display:inline-block;width:96px;height:9px;border-radius:2px;
+  background:linear-gradient(90deg,rgba(122,162,255,.18),rgba(122,162,255,1))}
+.tw{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:11.5px;min-width:820px}
+th,td{padding:6px 8px;border-bottom:1px solid var(--ln);text-align:center;
+  white-space:nowrap}
+th{color:var(--dm);font-size:9.5px;text-transform:uppercase;letter-spacing:.4px;
+  background:var(--pn2)}
+tbody tr:nth-child(even) td{background:var(--row)}
+tbody tr:hover td{background:var(--hover)}
+td.lft{text-align:left}
+.g{color:var(--up)}.r{color:var(--dn)}.w{color:var(--wn)}.d{color:var(--dm)}
+.v{color:var(--vi)}
+.pill{display:inline-block;padding:2px 7px;border-radius:999px;font-size:9px;
+  font-weight:800}
+.pill.open{background:color-mix(in srgb,var(--ac) 16%,transparent);color:var(--ac);
+  border:1px solid var(--ac)}
+.pill.filled{background:var(--pn3);color:var(--dm);border:1px solid var(--ln)}
+.pill.up{background:color-mix(in srgb,var(--up) 16%,transparent);color:var(--up);
+  border:1px solid var(--up)}
+.pill.down{background:color-mix(in srgb,var(--dn) 16%,transparent);color:var(--dn);
+  border:1px solid var(--dn)}
+.empty{color:var(--dm);padding:16px;text-align:center;border:1px dashed var(--ln);
+  border-radius:10px;font-size:12px}
+.note{color:var(--dm);font-size:10.5px;margin-top:8px;line-height:1.55}
+.err{background:color-mix(in srgb,var(--dn) 12%,transparent);border:1px solid var(--dn);
+  color:var(--dn);padding:9px 11px;border-radius:9px;margin-bottom:12px;font-size:12px}
+.warnbox{background:color-mix(in srgb,var(--wn) 10%,transparent);
+  border:1px solid color-mix(in srgb,var(--wn) 55%,var(--ln));
+  border-radius:10px;padding:10px 12px;color:var(--tx);font-size:11.5px;
+  line-height:1.6;margin-bottom:12px}
+.conf{display:grid;gap:6px}
+.confrow{display:grid;grid-template-columns:150px 1fr 112px;gap:8px;
+  align-items:center;font-size:11px}
+.confrow .tr{background:var(--pn3);border-radius:999px;height:15px;
+  position:relative;overflow:hidden}
+.confrow .fl{position:absolute;inset:0 auto 0 0;border-radius:999px;
+  background:var(--ac)}
+.confrow .vv{text-align:right;color:var(--dm);font-size:10.5px}
+#busy{color:var(--ac);font-size:11px}
+@media (max-width:560px){.confrow{grid-template-columns:104px 1fr 84px}}
+</style>
+
+<header>
+  <h1>Market Observatory</h1>
+  <span class="sub">Kumo gaps &middot; Tenkan 50 by default, all of it editable</span>
+  <span style="flex:1"></span>
+  <span id="busy"></span>
+  <a href="index.html" style="text-decoration:none"><button>&#8592; Live panel</button></a>
+  <a href="analytics.html" style="text-decoration:none"><button>Analytics</button></a>
+  <span class="palette">
+    <button type="button" data-theme="night" title="Night"></button>
+    <button type="button" data-theme="day" title="Day"></button>
+    <button type="button" data-theme="brown" title="Brown"></button>
+    <button type="button" data-theme="mono" title="Black and white"></button>
+  </span>
+</header>
+
+<main>
+  <div id="err"></div>
+
+  <div class="warnbox">
+    <b>Read this once.</b> Measured over 850 gaps on 24 markets: 4h filled
+    55.9 percent of the time, 1d filled 45.8 percent, 50.8 percent overall.
+    That is a coin flip. A kumo gap is a <b>level</b> &mdash; a price band the
+    market crossed without trading in &mdash; not a signal and not a forecast.
+    It is worth knowing where these bands are, and worth nothing on its own.
+  </div>
+
+  <section class="card">
+    <h2>Settings <span class="hint">these are the numbers the gaps come
+      from; change one and everything below is recomputed</span></h2>
+    <div class="settings">
+      <div class="set"><label>Tenkan</label>
+        <input id="sTenkan" type="number" min="2" max="400" step="1">
+        <div class="why">Your setting is 50, not the standard 9. The long
+          window is what makes the jumps large enough to read.</div></div>
+      <div class="set"><label>Kijun</label>
+        <input id="sKijun" type="number" min="2" max="400" step="1">
+        <div class="why">Feeds Senkou A together with Tenkan.</div></div>
+      <div class="set"><label>Senkou B</label>
+        <input id="sSenkou" type="number" min="2" max="600" step="1">
+        <div class="why">The long midpoint. Most jumps start here.</div></div>
+      <div class="set"><label>Displacement</label>
+        <input id="sDisp" type="number" min="0" max="200" step="1">
+        <div class="why">How far forward the cloud is drawn. Moves where the
+          band appears on the chart, never the band itself.</div></div>
+      <div class="set"><label>Minimum gap size, percent</label>
+        <input id="sMin" type="number" min="0" max="20" step="0.05">
+        <div class="why">Hairline jumps are noise. Below this they are
+          dropped.</div></div>
+      <div class="set"><label>Bars per timeframe</label>
+        <input id="sBars" type="number" min="120" max="1000" step="10">
+        <div class="why">More bars means older gaps are still visible.</div></div>
+      <div class="set"><label>Maximum distance from price, percent</label>
+        <input id="sDist" type="number" min="0" max="100" step="1">
+        <div class="why">Hide bands too far away to matter. Set 0 to show
+          every one of them.</div></div>
+      <div class="set"><label>Show</label>
+        <select id="sShow">
+          <option value="open">unfilled only</option>
+          <option value="all">unfilled and filled</option>
+        </select>
+        <div class="why">A filled gap is history. It is kept so the hit rate
+          on screen is not only the survivors.</div></div>
+    </div>
+    <div class="row">
+      <span class="sub">Market</span>
+      <input id="sym" list="symlist" style="width:132px" placeholder="BTCUSDT">
+      <datalist id="symlist"></datalist>
+      <span class="chips" id="tfChips"></span>
+      <button type="button" class="pri" id="run">Scan</button>
+      <button type="button" id="reset">Reset to your defaults</button>
+      <span class="sub" id="venueNote"></span>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Confluence <span class="hint">price bands where gaps from more than
+      one timeframe overlap</span></h2>
+    <div class="conf" id="confluence"></div>
+    <div class="note">A band that shows up on the 4h and again on the 1d is
+      the same unfinished area seen at two scales. Those are the ones worth
+      marking. A band that appears on one timeframe only is thinner evidence,
+      whatever its size.</div>
+  </section>
+
+  <div id="charts"></div>
+
+  <section class="card">
+    <h2>Every gap found</h2>
+    <div class="tw"><table id="tbl"></table></div>
+  </section>
+
+  <section class="card">
+    <h2>How to read the heat</h2>
+    <div class="note" id="method"></div>
+  </section>
+</main>
+
+<script>
+"use strict";
+/* =====================================================================
+   STATE
+   ===================================================================== */
+const LS="market_observatory_panel_v1";
+const KLS="market_observatory_kumo_v1";
+const ALL_TFS=["1h","2h","4h","6h","12h","1d","1w"];
+const DEFAULTS={tenkan:50,kijun:26,senkou:52,disp:26,min:0.35,bars:600,
+  dist:15,show:"open",symbol:"BTCUSDT",tfs:["4h","12h","1d"]};
+let S=Object.assign({},DEFAULTS);
+let venue=null, series={}, results={}, lastPrice=null;
+
+const esc=s=>String(s==null?"":s).replace(/[&<>"']/g,
+  c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const F2=(v,d)=>(v==null||!isFinite(v))?"--":Number(v).toFixed(d==null?2:d);
+const coinBase=s=>String(s||"").replace(/USDT$|USDC$|USD$/i,"");
+function FP(v){
+  if(v==null||!isFinite(v))return "--";
+  const a=Math.abs(v);
+  return v.toFixed(a>=1000?1:a>=100?2:a>=1?3:a>=0.01?5:7);
+}
+function cssVar(n){
+  return getComputedStyle(document.body).getPropertyValue(n).trim()||"#888";
+}
+function saveS(){try{localStorage.setItem(KLS,JSON.stringify(S));}catch(e){}}
+function loadS(){
+  try{const v=JSON.parse(localStorage.getItem(KLS));
+    if(v&&typeof v==="object")S=Object.assign({},DEFAULTS,v);}catch(e){}
+  if(!Array.isArray(S.tfs)||!S.tfs.length)S.tfs=DEFAULTS.tfs.slice();
+}
+function theme(){
+  try{const s=JSON.parse(localStorage.getItem(LS));
+    return (s&&s.theme)||"night";}catch(e){return "night";}
+}
+function setTheme(t){
+  document.documentElement.setAttribute("data-theme",t);
+  document.body.setAttribute("data-theme",t);
+  try{const s=JSON.parse(localStorage.getItem(LS))||{};s.theme=t;
+    localStorage.setItem(LS,JSON.stringify(s));}catch(e){}
+  paintAll();
+}
+
+/* =====================================================================
+   ICHIMOKU AND GAP DETECTION
+   ---------------------------------------------------------------------
+   A direct port of kumo_gaps.py. Same midpoint window, same jump test,
+   same minimum size, same fill test - so a gap found here is the same
+   gap the command line finds from the same settings. If these two ever
+   disagree, one of them is wrong and it matters which.
+   ===================================================================== */
+
+/* Midpoint of the highest high and lowest low over `length` bars ending
+   at i. This rolling window is exactly what produces the jumps: when an
+   old extreme falls out of it the midpoint does not drift, it steps. */
+function midSeries(c,length){
+  const n=c.length,out=new Array(n).fill(null);
+  // Monotonic deques, so this is O(n) rather than O(n*length). The values
+  // are identical to the naive scan; only the cost differs.
+  const maxQ=[],minQ=[];
+  for(let i=0;i<n;i++){
+    while(maxQ.length&&c[maxQ[maxQ.length-1]].h<=c[i].h)maxQ.pop();
+    maxQ.push(i);
+    while(minQ.length&&c[minQ[minQ.length-1]].l>=c[i].l)minQ.pop();
+    minQ.push(i);
+    const from=i-length+1;
+    while(maxQ[0]<from)maxQ.shift();
+    while(minQ[0]<from)minQ.shift();
+    if(from<0){out[i]=null;continue;}
+    out[i]=(c[maxQ[0]].h+c[minQ[0]].l)/2;
+  }
+  return out;
+}
+
+/* Raw, undisplaced spanA and spanB. Index i means: this is the cloud that
+   will be PLOTTED at i + displacement. */
+function cloudSeries(c,tenkanP,kijunP,senkouP){
+  const T=midSeries(c,tenkanP),K=midSeries(c,kijunP),B=midSeries(c,senkouP);
+  const A=c.map((_,i)=>(T[i]!=null&&K[i]!=null)?(T[i]+K[i])/2:null);
+  return {A:A,B:B};
+}
+
+/* Discontinuities where consecutive cloud bands do not overlap. */
+function findGaps(c,p){
+  const {A,B}=cloudSeries(c,p.tenkan,p.kijun,p.senkou);
+  const n=c.length,gaps=[];
+  const step=n>1?(c[1].t-c[0].t):0;
+  for(let i=1;i<n;i++){
+    const a0=A[i-1],b0=B[i-1],a1=A[i],b1=B[i];
+    if(a0==null||b0==null||a1==null||b1==null)continue;
+    const prevLo=Math.min(a0,b0),prevHi=Math.max(a0,b0);
+    const curLo=Math.min(a1,b1),curHi=Math.max(a1,b1);
+    let lo,hi,d;
+    if(curLo>prevHi){lo=prevHi;hi=curLo;d="up";}
+    else if(curHi<prevLo){lo=curHi;hi=prevLo;d="down";}
+    else continue;
+    const ref=c[i].c;
+    const sizePct=ref?(hi-lo)/ref*100:0;
+    if(sizePct<p.min)continue;
+    gaps.push({lo:lo,hi:hi,mid:(lo+hi)/2,dir:d,i:i,t:c[i].t,
+      plotT:c[i].t+p.disp*step,sizePct:sizePct});
+  }
+  return gaps;
+}
+
+/* Has price traded inside the band since it appeared? The gap becomes
+   visible at bar i, so that is where the search starts. */
+function gapFilled(c,gap){
+  for(let j=gap.i;j<c.length;j++){
+    if(c[j].l<=gap.hi&&c[j].h>=gap.lo)return {filled:true,bars:j-gap.i};
+  }
+  return {filled:false,bars:c.length-1-gap.i};
+}
+
+/* =====================================================================
+   HEAT
+   ---------------------------------------------------------------------
+   Three things the eye should be able to read at a glance, combined into
+   one intensity and reported separately in the table so it is never a
+   number out of nowhere.
+
+     THICKNESS  a wide band is a bigger unfinished area - the market
+                crossed more ground without trading in it
+     CONFLUENCE the same band showing up on another timeframe is the same
+                unfinished area seen twice, which is stronger evidence
+                than one timeframe alone
+     FRESHNESS  a recent gap has had less time to be revisited; an old one
+                that is still open has been refused
+
+   Thickness leads because it is the only one measured directly from the
+   price series. Nothing here is fitted to an outcome.
+   ===================================================================== */
+function scoreGaps(all){
+  const flat=[];
+  Object.keys(all).forEach(tf=>all[tf].forEach(g=>flat.push(g)));
+  if(!flat.length)return;
+  const sizes=flat.map(g=>g.sizePct);
+  const maxSize=Math.max.apply(null,sizes)||1;
+  flat.forEach(g=>{
+    // Overlap with bands on OTHER timeframes only. A timeframe agreeing
+    // with itself is not confluence.
+    let conf=0;
+    flat.forEach(o=>{
+      if(o===g||o.tf===g.tf)return;
+      if(o.lo<=g.hi&&o.hi>=g.lo)conf++;
+    });
+    g.conf=conf;
+    g.sizeN=Math.min(1,g.sizePct/maxSize);
+    g.freshN=g.ageBars==null?0.5:
+      Math.max(0,Math.min(1,1-g.ageBars/Math.max(1,g.totalBars)));
+    g.confN=Math.min(1,conf/3);
+    g.heat=Math.max(0,Math.min(1,
+      g.sizeN*0.5+g.confN*0.3+g.freshN*0.2));
+  });
+}
+
+/* =====================================================================
+   DATA
+   ===================================================================== */
+const TF_MS={"1h":3600e3,"2h":7200e3,"4h":14400e3,"6h":21600e3,
+  "12h":43200e3,"1d":86400e3,"1w":604800e3};
+const VENUES=[
+  {name:"binance",
+   klines:async(s,tf,n)=>{
+     const r=await fetch("https://fapi.binance.com/fapi/v1/klines?symbol="+s+
+       "&interval="+tf+"&limit="+Math.min(1000,n));
+     if(!r.ok)throw new Error(r.status);
+     return (await r.json()).map(k=>({t:Math.floor(k[0]/1000),o:+k[1],h:+k[2],
+       l:+k[3],c:+k[4]}));}},
+  {name:"okx",
+   klines:async(s,tf,n)=>{
+     const bar={"1h":"1H","2h":"2H","4h":"4H","6h":"6Hutc","12h":"12H",
+       "1d":"1Dutc","1w":"1Wutc"}[tf]||"4H";
+     const inst=coinBase(s)+"-USDT-SWAP";
+     // OKX pages 300 at a time and returns newest first.
+     let out=[],after="";
+     while(out.length<n){
+       const u="https://www.okx.com/api/v5/market/candles?instId="+inst+
+         "&bar="+bar+"&limit=300"+(after?"&after="+after:"");
+       const r=await fetch(u);
+       if(!r.ok)throw new Error(r.status);
+       const j=await r.json();
+       const rows=j.data||[];
+       if(!rows.length)break;
+       out=out.concat(rows);
+       after=rows[rows.length-1][0];
+       if(rows.length<300)break;
+     }
+     return out.slice().reverse().map(k=>({t:Math.floor(+k[0]/1000),o:+k[1],
+       h:+k[2],l:+k[3],c:+k[4]}));}},
+  {name:"bybit",
+   klines:async(s,tf,n)=>{
+     const iv={"1h":"60","2h":"120","4h":"240","6h":"360","12h":"720",
+       "1d":"D","1w":"W"}[tf]||"240";
+     const r=await fetch("https://api.bybit.com/v5/market/kline?category="+
+       "linear&symbol="+s+"&interval="+iv+"&limit="+Math.min(1000,n));
+     if(!r.ok)throw new Error(r.status);
+     const j=await r.json();
+     const list=((j.result||{}).list||[]).slice().reverse();
+     return list.map(k=>({t:Math.floor(+k[0]/1000),o:+k[1],h:+k[2],l:+k[3],
+       c:+k[4]}));}}
+];
+
+async function pullSeries(symbol,tf,bars){
+  const order=venue?[venue].concat(VENUES.filter(v=>v!==venue)):VENUES;
+  for(const v of order){
+    try{
+      const c=await v.klines(symbol,tf,bars);
+      if(c&&c.length>60){venue=v;return c;}
+    }catch(e){/* next venue */}
+  }
+  return null;
+}
+
+/* =====================================================================
+   SCAN
+   ===================================================================== */
+let scanning=false;
+async function scan(){
+  if(scanning)return;
+  scanning=true;
+  document.getElementById("busy").textContent="scanning "+S.symbol+" ...";
+  document.getElementById("err").innerHTML="";
+  series={};results={};lastPrice=null;
+  const bad=[];
+  for(const tf of S.tfs){
+    const c=await pullSeries(S.symbol,tf,S.bars);
+    if(!c){bad.push(tf);continue;}
+    series[tf]=c;
+    lastPrice=c[c.length-1].c;
+    const gs=findGaps(c,S);
+    gs.forEach(g=>{
+      const f=gapFilled(c,g);
+      g.tf=tf;
+      g.filled=f.filled;
+      g.barsToFill=f.filled?f.bars:null;
+      // len - i, matching kumo_gaps.py exactly, so the age printed on the
+      // command line and the age on this page are the same number.
+      g.ageBars=c.length-g.i;
+      g.totalBars=c.length;
+      g.distPct=lastPrice?
+        (lastPrice>=g.hi?(lastPrice-g.hi)/lastPrice*100:
+         lastPrice<=g.lo?(g.lo-lastPrice)/lastPrice*100:0):null;
+      g.above=lastPrice!=null&&g.lo>lastPrice;
+      g.inside=lastPrice!=null&&lastPrice>=g.lo&&lastPrice<=g.hi;
+    });
+    results[tf]=gs;
+  }
+  document.getElementById("busy").textContent="";
+  document.getElementById("venueNote").textContent=
+    venue?("data from "+venue.name):"";
+  if(bad.length)
+    document.getElementById("err").innerHTML='<div class="err">No venue '+
+      'returned candles for '+esc(S.symbol)+' on '+esc(bad.join(", "))+
+      '. The market may not be listed there, or the timeframe is not '+
+      'offered. Everything else below is unaffected.</div>';
+  scoreGaps(results);
+  render();
+  scanning=false;
+}
+
+function visible(gs){
+  return gs.filter(g=>{
+    if(S.show==="open"&&g.filled)return false;
+    if(S.dist>0&&g.distPct!=null&&g.distPct>S.dist)return false;
+    return true;
+  });
+}
+
+/* =====================================================================
+   RENDER
+   ===================================================================== */
+function render(){
+  renderConfluence();
+  renderCharts();
+  renderTable();
+}
+
+/* Bands that overlap across timeframes, merged into one zone. */
+function renderConfluence(){
+  const flat=[];
+  Object.keys(results).forEach(tf=>visible(results[tf]).forEach(g=>flat.push(g)));
+  const el=document.getElementById("confluence");
+  if(!flat.length){
+    el.innerHTML='<div class="empty">No gap in view. Widen the distance '+
+      'filter, lower the minimum size, or add a timeframe.</div>';
+    return;
+  }
+  // Merge overlapping bands into zones, then keep the ones seen on more
+  // than one timeframe.
+  const sorted=flat.slice().sort((a,b)=>a.lo-b.lo);
+  const zones=[];
+  sorted.forEach(g=>{
+    const z=zones[zones.length-1];
+    if(z&&g.lo<=z.hi){z.hi=Math.max(z.hi,g.hi);z.members.push(g);}
+    else zones.push({lo:g.lo,hi:g.hi,members:[g]});
+  });
+  const multi=zones.map(z=>{
+    z.tfs=[...new Set(z.members.map(m=>m.tf))];
+    z.heat=Math.max.apply(null,z.members.map(m=>m.heat));
+    z.open=z.members.some(m=>!m.filled);
+    z.dist=lastPrice?(lastPrice>=z.hi?(lastPrice-z.hi)/lastPrice*100:
+      lastPrice<=z.lo?(z.lo-lastPrice)/lastPrice*100:0):null;
+    return z;
+  }).filter(z=>z.tfs.length>1).sort((a,b)=>b.heat-a.heat);
+  if(!multi.length){
+    el.innerHTML='<div class="empty">No band overlaps across timeframes in '+
+      'this view. Every gap found stands on one timeframe alone.</div>';
+    return;
+  }
+  el.innerHTML=multi.slice(0,10).map(z=>
+    '<div class="confrow"><span>'+FP(z.lo)+' &ndash; '+FP(z.hi)+'</span>'+
+    '<span class="tr"><i class="fl" style="width:'+(z.heat*100).toFixed(1)+
+      '%;opacity:'+(0.35+z.heat*0.65).toFixed(2)+'"></i></span>'+
+    '<span class="vv">'+z.tfs.join(" + ")+' &middot; '+
+      (z.dist==null?"--":F2(z.dist,1)+"% away")+'</span></div>').join("");
+}
+
+function renderCharts(){
+  const wrap=document.getElementById("charts");
+  const tfs=S.tfs.filter(tf=>series[tf]);
+  if(!tfs.length){wrap.innerHTML="";return;}
+  wrap.innerHTML=tfs.map(tf=>{
+    const gs=visible(results[tf]||[]);
+    const open=gs.filter(g=>!g.filled).length;
+    return '<section class="card"><div class="tfhead">'+
+      '<b>'+esc(coinBase(S.symbol))+' &middot; '+esc(tf)+'</b>'+
+      '<span class="m">'+gs.length+' gap'+(gs.length===1?"":"s")+' in view'+
+      ' &middot; '+open+' still unfilled &middot; '+
+      (series[tf]||[]).length+' bars</span></div>'+
+      '<canvas data-tf="'+esc(tf)+'" height="330"></canvas>'+
+      '<div class="legend">'+
+      '<span><i style="background:var(--up)"></i>cloud bullish</span>'+
+      '<span><i style="background:var(--dn)"></i>cloud bearish</span>'+
+      '<span><i style="background:var(--ac)"></i>gap band</span>'+
+      '<span>weak <span class="heatbar"></span> strong</span>'+
+      '<span>the column on the right is the gap profile: how much unfinished '+
+      'business sits at each price</span></div></section>';
+  }).join("");
+  paintAll();
+}
+
+function paintAll(){
+  document.querySelectorAll("canvas[data-tf]").forEach(cv=>{
+    const tf=cv.dataset.tf;
+    if(series[tf])drawChart(cv,tf);
+  });
+}
+
+function drawChart(cv,tf){
+  const c=series[tf],gs=visible(results[tf]||[]);
+  const w=cv.clientWidth||900,h=330,dpr=window.devicePixelRatio||1;
+  cv.width=w*dpr;cv.height=h*dpr;
+  const x=cv.getContext("2d");x.setTransform(dpr,0,0,dpr,0,0);
+  x.clearRect(0,0,w,h);
+
+  // The profile column lives on the right, the price axis on the left.
+  const PROF=Math.max(70,Math.min(150,w*0.16));
+  const L=46,T=8,B=20,R=PROF+10;
+  const plotW=w-L-R;
+  // Only the visible tail is drawn, or 600 candles become one smear.
+  const show=Math.min(c.length,Math.max(120,Math.floor(plotW/2.6)));
+  const cc=c.slice(-show);
+  const {A,B:BB}=cloudSeries(c,S.tenkan,S.kijun,S.senkou);
+  const off=c.length-show;
+
+  const prices=[];
+  cc.forEach(k=>{prices.push(k.h,k.l);});
+  gs.forEach(g=>{
+    // Only let a band stretch the axis if it is near the traded range.
+    if(g.distPct!=null&&g.distPct<40){prices.push(g.lo,g.hi);}
+  });
+  // The displaced cloud that lands inside the window.
+  for(let i=off-S.disp;i<c.length;i++){
+    if(i<0)continue;
+    if(A[i]!=null)prices.push(A[i]);
+    if(BB[i]!=null)prices.push(BB[i]);
+  }
+  let lo=Math.min.apply(null,prices),hi=Math.max.apply(null,prices);
+  if(!isFinite(lo)||!isFinite(hi)||hi<=lo){lo=0;hi=1;}
+  const pad=(hi-lo)*0.05;lo-=pad;hi+=pad;
+  const Y=v=>T+(hi-v)/(hi-lo)*(h-T-B);
+  const bw=plotW/show;
+  const X=i=>L+(i+0.5)*bw;
+
+  // ---- cloud, drawn first so candles sit on top of it
+  x.beginPath();
+  let started=false;
+  const cloudPts=[];
+  for(let p=0;p<show;p++){
+    const src=off+p-S.disp;
+    if(src<0||A[src]==null||BB[src]==null)continue;
+    cloudPts.push({p:p,a:A[src],b:BB[src]});
+  }
+  for(let q=0;q<cloudPts.length-1;q++){
+    const p0=cloudPts[q],p1=cloudPts[q+1];
+    if(p1.p!==p0.p+1)continue;
+    x.beginPath();
+    x.moveTo(X(p0.p),Y(p0.a));x.lineTo(X(p1.p),Y(p1.a));
+    x.lineTo(X(p1.p),Y(p1.b));x.lineTo(X(p0.p),Y(p0.b));
+    x.closePath();
+    x.fillStyle=(p0.a>=p0.b)?cssVar("--cloud-up"):cssVar("--cloud-dn");
+    x.fill();
+  }
+  started=true;
+
+  // ---- gap bands, alpha by heat, drawn from where they appeared to the edge
+  const accent=hexToRgb(cssVar("--ac"))||{r:122,g:162,b:255};
+  gs.forEach(g=>{
+    const y0=Y(g.hi),y1=Y(g.lo);
+    if(y1<T-40||y0>h-B+40)return;
+    const px=Math.max(L,X(Math.max(0,g.i-off)));
+    const a=0.10+g.heat*0.42;
+    x.fillStyle="rgba("+accent.r+","+accent.g+","+accent.b+","+
+      (g.filled?a*0.35:a).toFixed(3)+")";
+    x.fillRect(px,Math.min(y0,y1),Math.max(2,w-R-px),
+      Math.max(1.5,Math.abs(y1-y0)));
+    // The edges of the band, brighter for a stronger one.
+    x.strokeStyle="rgba("+accent.r+","+accent.g+","+accent.b+","+
+      (g.filled?0.25:0.35+g.heat*0.45).toFixed(3)+")";
+    x.lineWidth=1;
+    if(g.filled)x.setLineDash([3,3]);
+    x.beginPath();x.moveTo(px,y0);x.lineTo(w-R,y0);x.stroke();
+    x.beginPath();x.moveTo(px,y1);x.lineTo(w-R,y1);x.stroke();
+    x.setLineDash([]);
+  });
+
+  // ---- candles
+  cc.forEach((k,i)=>{
+    const up=k.c>=k.o;
+    x.strokeStyle=x.fillStyle=up?cssVar("--up"):cssVar("--dn");
+    x.lineWidth=1;
+    x.beginPath();x.moveTo(X(i),Y(k.h));x.lineTo(X(i),Y(k.l));x.stroke();
+    x.fillRect(X(i)-Math.max(0.5,bw*0.3),Math.min(Y(k.o),Y(k.c)),
+      Math.max(1,bw*0.6),Math.max(1,Math.abs(Y(k.o)-Y(k.c))));
+  });
+
+  // ---- last price
+  if(lastPrice!=null){
+    x.strokeStyle=cssVar("--tx");x.setLineDash([2,2]);x.lineWidth=1;
+    x.beginPath();x.moveTo(L,Y(lastPrice));x.lineTo(w-R,Y(lastPrice));x.stroke();
+    x.setLineDash([]);
+    x.fillStyle=cssVar("--tx");x.font="bold 9px system-ui";
+    x.fillText(FP(lastPrice),2,Math.max(9,Y(lastPrice)-2));
+  }
+
+  // ---- price axis
+  x.fillStyle=cssVar("--dm");x.font="9px system-ui";
+  for(let s=0;s<=4;s++){
+    const v=lo+(hi-lo)*s/4;
+    x.fillText(FP(v),2,Y(v)+(s===4?8:s===0?-1:3));
+  }
+
+  // ---- the profile: how much unfinished business sits at each price
+  drawProfile(x,gs,{L:w-PROF-4,W:PROF,T:T,H:h-T-B,lo:lo,hi:hi,Y:Y},accent);
+}
+
+/* A volume-profile style column: price sliced into buckets, each bucket's
+   bar as long as the total gap weight sitting at that price. Weight is
+   heat multiplied by how much of the band falls in the bucket, so a thick
+   strong band contributes across more of the column than a hairline. */
+function drawProfile(x,gs,box,accent){
+  const N=64;
+  const buckets=new Array(N).fill(0);
+  const openB=new Array(N).fill(0);
+  const step=(box.hi-box.lo)/N;
+  if(!(step>0))return;
+  gs.forEach(g=>{
+    const i0=Math.max(0,Math.floor((g.lo-box.lo)/step));
+    const i1=Math.min(N-1,Math.floor((g.hi-box.lo)/step));
+    for(let i=i0;i<=i1;i++){
+      const w=g.heat*(g.filled?0.3:1);
+      buckets[i]+=w;
+      if(!g.filled)openB[i]+=w;
+    }
+  });
+  const mx=Math.max.apply(null,buckets)||1;
+  const bh=box.H/N;
+  x.fillStyle=cssVar("--pn3");
+  x.fillRect(box.L,box.T,box.W,box.H);
+  for(let i=0;i<N;i++){
+    if(!buckets[i])continue;
+    const frac=buckets[i]/mx;
+    const y=box.T+box.H-(i+1)*bh;
+    const wpx=Math.max(1,frac*(box.W-4));
+    // Intensity carries the strength; length carries the accumulation.
+    x.fillStyle="rgba("+accent.r+","+accent.g+","+accent.b+","+
+      (0.20+frac*0.75).toFixed(3)+")";
+    x.fillRect(box.L+2,y,wpx,Math.max(1,bh-0.5));
+    if(openB[i]>0&&frac>0.55){
+      x.fillStyle="rgba("+accent.r+","+accent.g+","+accent.b+",1)";
+      x.fillRect(box.L+2,y,2,Math.max(1,bh-0.5));
+    }
+  }
+  x.strokeStyle=cssVar("--ln");x.lineWidth=1;
+  x.strokeRect(box.L,box.T,box.W,box.H);
+  x.fillStyle=cssVar("--dm");x.font="8px system-ui";
+  x.fillText("gap profile",box.L+3,box.T+9);
+}
+
+function hexToRgb(h){
+  const m=/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(String(h).trim());
+  if(!m)return null;
+  return {r:parseInt(m[1],16),g:parseInt(m[2],16),b:parseInt(m[3],16)};
+}
+
+function renderTable(){
+  const flat=[];
+  Object.keys(results).forEach(tf=>visible(results[tf]).forEach(g=>flat.push(g)));
+  flat.sort((a,b)=>b.heat-a.heat);
+  const el=document.getElementById("tbl");
+  if(!flat.length){
+    el.innerHTML='<tbody><tr><td class="d" style="padding:16px">'+
+      'No gap in view.</td></tr></tbody>';
+    return;
+  }
+  el.innerHTML='<thead><tr><th>TF</th><th>Band</th><th>Where</th>'+
+    '<th>Direction</th><th>Thickness</th><th>Distance</th><th>Age</th>'+
+    '<th>Confluence</th><th>State</th><th>Heat</th></tr></thead><tbody>'+
+    flat.slice(0,300).map(g=>
+    '<tr><td><b>'+esc(g.tf)+'</b></td>'+
+    '<td>'+FP(g.lo)+' &ndash; '+FP(g.hi)+'</td>'+
+    '<td class="'+(g.inside?"w":(g.above?"g":"r"))+'">'+
+      (g.inside?"price is inside":(g.above?"above price":"below price"))+'</td>'+
+    '<td><span class="pill '+(g.dir==="up"?"up":"down")+'">'+
+      esc(g.dir.toUpperCase())+'</span></td>'+
+    '<td>'+F2(g.sizePct,2)+'%</td>'+
+    '<td>'+(g.distPct==null?"--":F2(g.distPct,2)+"%")+'</td>'+
+    '<td>'+g.ageBars+' bars</td>'+
+    '<td>'+(g.conf?'<b class="v">'+g.conf+'</b>':'<span class="d">0</span>')+'</td>'+
+    '<td>'+(g.filled?'<span class="pill filled">FILLED in '+g.barsToFill+
+      '</span>':'<span class="pill open">OPEN</span>')+'</td>'+
+    '<td><span style="display:inline-block;width:52px;height:8px;'+
+      'border-radius:2px;background:var(--ac);opacity:'+
+      (0.2+g.heat*0.8).toFixed(2)+'"></span> '+F2(g.heat*100,0)+'</td>'+
+    '</tr>').join("")+'</tbody>';
+}
+
+/* =====================================================================
+   CONTROLS
+   ===================================================================== */
+function syncInputs(){
+  const set=(id,v)=>{const e=document.getElementById(id);if(e)e.value=v;};
+  set("sTenkan",S.tenkan);set("sKijun",S.kijun);set("sSenkou",S.senkou);
+  set("sDisp",S.disp);set("sMin",S.min);set("sBars",S.bars);
+  set("sDist",S.dist);set("sShow",S.show);set("sym",S.symbol);
+  document.getElementById("tfChips").innerHTML=ALL_TFS.map(tf=>
+    '<span class="chip'+(S.tfs.includes(tf)?" on":"")+'" data-tf="'+tf+'">'+
+    tf+'</span>').join("");
+  document.querySelectorAll("#tfChips .chip").forEach(ch=>ch.onclick=()=>{
+    const tf=ch.dataset.tf;
+    if(S.tfs.includes(tf)){
+      if(S.tfs.length===1)return;   // never leave the page with nothing
+      S.tfs=S.tfs.filter(v=>v!==tf);
+    }else S.tfs=ALL_TFS.filter(v=>S.tfs.includes(v)||v===tf);
+    saveS();syncInputs();void scan();
+  });
+}
+
+function bindControls(){
+  document.querySelectorAll(".palette button").forEach(b=>
+    b.onclick=()=>setTheme(b.dataset.theme));
+  const num=(id,key,min,max)=>{
+    const e=document.getElementById(id);
+    e.onchange=()=>{
+      let v=parseFloat(e.value);
+      if(!isFinite(v))v=DEFAULTS[key];
+      v=Math.max(min,Math.min(max,v));
+      // The window lengths are bar counts, so they must be whole numbers.
+      if(key!=="min"&&key!=="dist")v=Math.round(v);
+      S[key]=v;e.value=v;saveS();
+      // Changing a window length means new gaps, which means a new scan.
+      if(["tenkan","kijun","senkou","bars"].includes(key))void scan();
+      else{scoreGaps(results);render();}
+    };
+  };
+  num("sTenkan","tenkan",2,400);num("sKijun","kijun",2,400);
+  num("sSenkou","senkou",2,600);num("sDisp","disp",0,200);
+  num("sMin","min",0,20);num("sBars","bars",120,1000);
+  num("sDist","dist",0,100);
+  document.getElementById("sShow").onchange=e=>{
+    S.show=e.target.value;saveS();render();};
+  document.getElementById("sym").onchange=e=>{
+    let v=String(e.target.value||"").trim().toUpperCase();
+    if(!v)return;
+    if(!/USDT$|USDC$|USD$/.test(v))v+="USDT";
+    S.symbol=v;e.target.value=v;saveS();void scan();};
+  document.getElementById("run").onclick=()=>void scan();
+  document.getElementById("reset").onclick=()=>{
+    S=Object.assign({},DEFAULTS);S.tfs=DEFAULTS.tfs.slice();
+    saveS();syncInputs();void scan();};
+  // Changing min size does not need new candles, only a new pass.
+  document.getElementById("sMin").addEventListener("change",()=>{
+    Object.keys(series).forEach(tf=>{
+      const c=series[tf];
+      const gs=findGaps(c,S);
+      gs.forEach(g=>{
+        const f=gapFilled(c,g);
+        g.tf=tf;g.filled=f.filled;g.barsToFill=f.filled?f.bars:null;
+        g.ageBars=c.length-g.i;g.totalBars=c.length;
+        g.distPct=lastPrice?
+          (lastPrice>=g.hi?(lastPrice-g.hi)/lastPrice*100:
+           lastPrice<=g.lo?(g.lo-lastPrice)/lastPrice*100:0):null;
+        g.above=lastPrice!=null&&g.lo>lastPrice;
+        g.inside=lastPrice!=null&&lastPrice>=g.lo&&lastPrice<=g.hi;
+      });
+      results[tf]=gs;
+    });
+    scoreGaps(results);render();
+  });
+  window.addEventListener("resize",()=>paintAll());
+}
+
+function methodText(){
+  document.getElementById("method").innerHTML=
+    "<b>Thickness</b> is the band height as a percent of price. It is the "+
+    "only component measured straight off the price series, so it carries "+
+    "the most weight. A thick band means the market crossed a lot of ground "+
+    "without trading in it; a hairline means the cloud barely stepped.<br><br>"+
+    "<b>Confluence</b> counts bands on OTHER timeframes that overlap this "+
+    "one. Two timeframes showing the same zone is the same unfinished area "+
+    "seen at two scales, which is stronger than one timeframe alone. A "+
+    "timeframe agreeing with itself is not counted.<br><br>"+
+    "<b>Age</b> is how many bars ago the gap appeared. A fresh one has had "+
+    "less time to be revisited; an old one that is still open has been "+
+    "refused repeatedly, which is information of a different kind.<br><br>"+
+    "<b>Heat</b> combines them: half thickness, three tenths confluence, two "+
+    "tenths freshness. The weights are a reading aid, not a fitted model - "+
+    "nothing here was tuned against outcomes, and the table shows every "+
+    "component separately so you can disagree with the blend.<br><br>"+
+    "<b>The profile column</b> on the right of each chart slices price into "+
+    "64 buckets and draws, for each one, the total heat of every band "+
+    "covering it. Where bands stack the column runs long and bright; a lone "+
+    "hairline barely registers. Filled bands are counted at 30 percent so "+
+    "history shows without drowning what is still open.<br><br>"+
+    "<b>Filled</b> means price has since traded anywhere inside the band. "+
+    "That test starts at the bar where the gap appeared, exactly as the "+
+    "command line tool does it, so the two agree.";
+}
+
+/* =====================================================================
+   BOOT
+   ===================================================================== */
+async function boot(){
+  loadS();
+  setTheme(theme());
+  syncInputs();
+  bindControls();
+  methodText();
+  // Offer whatever markets the ledger has seen, so the list is not a
+  // guess about what is worth looking at.
+  try{
+    const r=await fetch("brief/signals.json?t="+Date.now());
+    if(r.ok){
+      const j=await r.json();
+      const syms=[...new Set(((j.records)||[]).map(x=>x.symbol))].sort();
+      document.getElementById("symlist").innerHTML=
+        ["BTCUSDT","ETHUSDT","SOLUSDT"].concat(syms)
+          .filter((v,i,a)=>a.indexOf(v)===i)
+          .map(s=>'<option value="'+esc(s)+'">').join("");
+    }
+  }catch(e){/* the list is a convenience, not a requirement */}
+  await scan();
+}
+boot();
+</script>
+</html>

@@ -455,6 +455,10 @@ tbody tr:hover td{background:var(--hover)}
   <span id="clock">--</span>
   <span class="mini" id="clocksrc"></span>
   <span style="flex:1"></span>
+  <a href="analytics.html" style="text-decoration:none"><button
+    title="every signal, every outcome, searchable">&#9783; Analytics</button></a>
+  <a href="kumo.html" style="text-decoration:none"><button
+    title="kumo cloud gaps by timeframe">&#9776; Kumo gaps</button></a>
   <span class="fld"><label title="seconds between full candle refreshes">cycle</label>
     <input id="every" value="20"><span class="mini">s</span></span>
   <span class="fld"><label title="bars pulled per timeframe">bars</label>
@@ -1708,6 +1712,40 @@ function setTake(id,on,meta){
 }
 function tookIt(id){return !!takes()[id];}
 
+/* Everything the analytics page will need about a position you actually
+   opened, captured at the moment you say so. The signal's entry is not your
+   fill and the sliders move, so none of this can be recovered later. */
+function takeMeta(id){
+  const rec=((ledger&&ledger.records)||[]).find(r=>r.id===id);
+  let e=null;
+  Object.keys(labPlans||{}).forEach(k=>{
+    const v=labPlans[k];
+    if(!v)return;
+    if(rec){if(v.sig.symbol===rec.symbol&&v.sig.tf===rec.tf&&v.sig.side===rec.side)e=v;}
+    else if(id.indexOf(k+"@")===0)e=v;
+  });
+  const sig=e?e.sig:rec;
+  const p=e?e.plan:null;
+  const px=sig?((live[sig.symbol]||{}).price):null;
+  return {
+    ref:(rec&&rec.ref)||(sig?signalRef(sig.symbol,sig.tf,sig.side,
+      (e&&e.pubTs)||(rec&&rec.published_ts)||0):null),
+    symbol:sig?sig.symbol:null, tf:sig?sig.tf:null, side:sig?sig.side:null,
+    strategy:sig?sig.strategy:null,
+    // The price on screen when you pressed it. Your real fill, as close as
+    // this page can honestly know it.
+    fill:(px!=null&&isFinite(px))?px:(p?p.entry:null),
+    plan_entry:p?p.entry:(rec?rec.entry:null),
+    stop:p?p.stop:(rec?rec.stop:null),
+    targets:p?p.targets:(rec?rec.targets:null),
+    qty:p?p.qty:null, notional:p?p.notional:null,
+    leverage:p?p.usedLeverage:null,
+    margin:Number(state.setup.margin)||null,
+    risk_pct:Number(state.setup.risk_pct)||null,
+    risk_usd:p?p.riskBudget:null
+  };
+}
+
 function stateLabel(v){return String(v||"pending").replace(/_/g," ").toUpperCase();}
 function outcomeLine(x){
   const r=x.res||{};
@@ -2102,10 +2140,14 @@ function bindArchive(root){
   bind("arSym","archive_symbol");bind("arSt","archive_status");bind("arTf","archive_style");
   const mine=root.querySelector("#arMine");
   if(mine)mine.onchange=()=>{state.setup.mine_only=mine.checked;save();renderSetups();};
+  /* Taking a position records WHAT WAS TRUE WHEN YOU TOOK IT, not just a
+     flag. Your fill is not the signal's entry, your leverage is whatever the
+     sliders said at that moment, and the analytics page cannot reconstruct
+     either after the fact. Recorded once, at the click, or it is lost. */
   root.querySelectorAll("[data-take]").forEach(b=>b.onclick=ev=>{
     ev.stopPropagation();
     const id=b.dataset.take;
-    setTake(id,!tookIt(id));
+    setTake(id,!tookIt(id),takeMeta(id));
     renderSetups();
   });
   /* Reference codes copy on click. stopPropagation because the archive row

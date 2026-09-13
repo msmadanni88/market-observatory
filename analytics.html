@@ -1,0 +1,1114 @@
+<!doctype html>
+<html lang="en" data-theme="night">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Market Observatory - Analytics</title>
+<!--
+  ANALYTICS
+  ---------------------------------------------------------------------------
+  Every number on this page is computed from brief/signals.json - the ledger
+  the pipeline writes - and from the positions you marked as taken, which live
+  in this browser. Nothing here is estimated and nothing is smoothed.
+
+  Two populations, kept apart on purpose:
+
+    ALL SIGNALS  - everything the system published. This is its own record and
+                   it includes the losses. It is the honest measure of the
+                   engine.
+    MINE         - only the signals you pressed "I took this" on, priced with
+                   the fill, size and leverage recorded at that moment. This is
+                   the measure of YOUR trading, which is a different question.
+
+  R is the unit throughout. One R is what the trade risked - the distance from
+  entry to stop. A win of +2.5R means it made two and a half times what it put
+  at risk. Money figures are R multiplied by the risk budget recorded with the
+  signal, so they follow the sizing that was actually in force.
+
+  Open positions are never counted in a win rate. They appear in their own
+  section with an unrealised figure priced off the live market.
+-->
+<style>
+:root{--bg:#070a10;--pn:#0f151f;--pn2:#151c29;--pn3:#1b2432;--ln:#232d3f;
+  --tx:#e2e8f2;--dm:#7a879f;--up:#22e0a1;--dn:#ff5a6e;--wn:#ffb444;
+  --ac:#7aa2ff;--vi:#b57aff;--head:#101722;--tile:#151d2b;--row:#101824;
+  --hover:rgba(122,162,255,.08);--shadow:0 18px 50px rgba(0,0,0,.35)}
+html[data-theme="night"]{--bg:#070a10;--pn:#0f151f;--pn2:#151c29;--pn3:#1b2432;
+  --ln:#232d3f;--tx:#e2e8f2;--dm:#7a879f;--up:#22e0a1;--dn:#ff5a6e;--wn:#ffb444;
+  --ac:#7aa2ff;--vi:#b57aff;--head:#101722;--tile:#141b28;--row:#111927;
+  --hover:rgba(122,162,255,.10);--shadow:0 18px 50px rgba(0,0,0,.35)}
+html[data-theme="day"]{color-scheme:light;
+  --bg:#eef1f6;--pn:#ffffff;--pn2:#f3f6fa;--pn3:#e6ebf3;--ln:#ced7e4;
+  --tx:#141a24;--dm:#5d6a7d;--up:#0a7a57;--dn:#c92a43;--wn:#95650a;
+  --ac:#2c62d6;--vi:#6b4fd0;--head:#ffffff;--tile:#ffffff;--row:#f7f9fc;
+  --hover:rgba(44,98,214,.08);--shadow:0 14px 34px rgba(35,50,75,.10)}
+html[data-theme="brown"]{color-scheme:dark;
+  --bg:#1a1008;--pn:#2a1c0f;--pn2:#352413;--pn3:#3f2c18;--ln:#553c22;
+  --tx:#f5e9da;--dm:#b39a7d;--up:#4ad6a0;--dn:#ff7a6b;--wn:#f5b942;
+  --ac:#e8a850;--vi:#c79bff;--head:#241608;--tile:#31210f;--row:#2f2011;
+  --hover:rgba(232,168,80,.12);--shadow:0 18px 44px rgba(0,0,0,.45)}
+html[data-theme="mono"]{color-scheme:light;
+  --bg:#f2f2f2;--pn:#ffffff;--pn2:#f7f7f7;--pn3:#e8e8e8;--ln:#c9c9c9;
+  --tx:#101010;--dm:#5e5e5e;--up:#1d6b46;--dn:#a32232;--wn:#7a5c00;
+  --ac:#111111;--vi:#4a4a4a;--head:#ffffff;--tile:#ffffff;--row:#fafafa;
+  --hover:rgba(0,0,0,.05);--shadow:0 12px 28px rgba(0,0,0,.12)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);
+  font:13px/1.45 "Segoe UI",system-ui,sans-serif}
+a{color:var(--ac)}
+header{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:10px 14px;
+  background:color-mix(in srgb,var(--head) 94%,transparent);
+  border-bottom:1px solid var(--ln);position:sticky;top:0;z-index:40;
+  backdrop-filter:blur(14px)}
+h1{font-size:15px;margin:0;font-weight:800}
+.sub{color:var(--dm);font-size:11px}
+.spacer{margin-left:auto}
+button,select,input{background:var(--pn2);color:var(--tx);border:1px solid var(--ln);
+  border-radius:8px;padding:5px 9px;font:inherit;font-size:11.5px}
+button{cursor:pointer}
+button:hover{border-color:var(--ac)}
+button.on{background:color-mix(in srgb,var(--ac) 18%,var(--pn2));border-color:var(--ac);
+  color:var(--ac);font-weight:700}
+.palette{display:flex;gap:5px}
+.palette button{width:20px;height:20px;padding:0;border-radius:50%}
+.palette [data-theme="night"]{background:linear-gradient(135deg,#101623 50%,#7aa2ff 50%)}
+.palette [data-theme="day"]{background:linear-gradient(135deg,#fff 50%,#2c62d6 50%)}
+.palette [data-theme="brown"]{background:linear-gradient(135deg,#2a1c0f 50%,#e8a850 50%)}
+.palette [data-theme="mono"]{background:linear-gradient(135deg,#fff 50%,#111 50%)}
+main{padding:14px;max-width:1500px;margin:0 auto}
+.card{background:var(--pn);border:1px solid var(--ln);border-radius:13px;
+  padding:13px;margin-bottom:12px;box-shadow:var(--shadow)}
+.card>h2{font-size:11px;text-transform:uppercase;letter-spacing:.7px;margin:0 0 10px;
+  color:var(--dm);font-weight:800;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.card>h2 .hint{text-transform:none;letter-spacing:0;font-weight:400;color:var(--dm);
+  font-size:10.5px}
+.filters{display:flex;flex-wrap:wrap;gap:7px;align-items:center}
+.filters label{color:var(--dm);font-size:10.5px;display:flex;align-items:center;gap:5px}
+#q{min-width:210px}
+.seg{display:flex;border:1px solid var(--ln);border-radius:999px;overflow:hidden}
+.seg button{border:0;border-radius:0;padding:5px 13px;background:var(--pn2)}
+.seg button.on{background:var(--ac);color:var(--bg);font-weight:800}
+.kpis{display:grid;grid-template-columns:repeat(auto-fill,minmax(152px,1fr));gap:8px}
+.kpi{background:var(--tile);border:1px solid var(--ln);border-radius:11px;padding:10px 11px}
+.kpi small{display:block;color:var(--dm);font-size:9px;text-transform:uppercase;
+  letter-spacing:.5px;margin-bottom:3px}
+.kpi b{font-size:19px;font-weight:800;font-variant-numeric:tabular-nums;
+  display:block;line-height:1.15}
+.kpi em{font-style:normal;color:var(--dm);font-size:9.5px;display:block;margin-top:2px;
+  font-variant-numeric:tabular-nums}
+.g{color:var(--up)}.r{color:var(--dn)}.w{color:var(--wn)}.d{color:var(--dm)}
+.v{color:var(--vi)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:12px}
+.bars{display:grid;gap:6px}
+.bar{display:grid;grid-template-columns:104px 1fr 124px;gap:8px;align-items:center;
+  font-size:11px}
+.bar .nm{color:var(--tx);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bar .tr{background:var(--pn3);border-radius:999px;height:16px;position:relative;
+  overflow:hidden}
+.bar .fl{position:absolute;inset:0 auto 0 0;border-radius:999px}
+.bar .fl.win{background:color-mix(in srgb,var(--up) 70%,transparent)}
+.bar .fl.loss{background:color-mix(in srgb,var(--dn) 70%,transparent)}
+.bar .fl.inv{background:color-mix(in srgb,var(--wn) 62%,transparent)}
+.bar .vv{text-align:right;color:var(--dm);font-variant-numeric:tabular-nums;
+  font-size:10.5px}
+.split{display:flex;height:18px;border-radius:999px;overflow:hidden;
+  border:1px solid var(--ln)}
+.split i{display:block;height:100%}
+.split .w1{background:var(--up)}.split .l1{background:var(--dn)}
+.split .i1{background:var(--wn)}.split .e1{background:var(--dm)}
+.legend{display:flex;gap:11px;flex-wrap:wrap;margin-top:7px;color:var(--dm);
+  font-size:10.5px}
+.legend i{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:4px}
+canvas{display:block;width:100%;border-radius:8px}
+.tw{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:11.5px;min-width:980px}
+th,td{padding:6px 8px;border-bottom:1px solid var(--ln);text-align:center;
+  white-space:nowrap}
+th{color:var(--dm);font-size:9.5px;text-transform:uppercase;letter-spacing:.4px;
+  cursor:pointer;user-select:none;background:var(--pn2)}
+th.act{background:color-mix(in srgb,var(--ac) 12%,var(--pn2));color:var(--ac)}
+tbody tr:nth-child(even) td{background:var(--row)}
+tbody tr:hover td{background:var(--hover)}
+td.lft{text-align:left}
+.ref{font-family:ui-monospace,"Cascadia Mono",monospace;font-size:9.5px;color:var(--ac);
+  cursor:pointer}
+.ref:hover{text-decoration:underline}
+.ref.copied{color:var(--up)}
+.pill{display:inline-block;padding:2px 7px;border-radius:999px;font-size:9px;
+  font-weight:800;letter-spacing:.3px}
+.pill.win{background:color-mix(in srgb,var(--up) 16%,transparent);color:var(--up);
+  border:1px solid var(--up)}
+.pill.loss{background:color-mix(in srgb,var(--dn) 16%,transparent);color:var(--dn);
+  border:1px solid var(--dn)}
+.pill.invalidated{background:color-mix(in srgb,var(--wn) 16%,transparent);color:var(--wn);
+  border:1px solid var(--wn)}
+.pill.expired{background:var(--pn3);color:var(--dm);border:1px solid var(--ln)}
+.pill.active,.pill.pending{background:color-mix(in srgb,var(--ac) 16%,transparent);
+  color:var(--ac);border:1px solid var(--ac)}
+.pill.mine{background:color-mix(in srgb,var(--vi) 18%,transparent);color:var(--vi);
+  border:1px solid var(--vi)}
+.empty{color:var(--dm);padding:16px;text-align:center;border:1px dashed var(--ln);
+  border-radius:10px;font-size:12px}
+.note{color:var(--dm);font-size:10.5px;margin-top:8px;line-height:1.5}
+.err{background:color-mix(in srgb,var(--dn) 12%,transparent);border:1px solid var(--dn);
+  color:var(--dn);padding:9px 11px;border-radius:9px;margin-bottom:12px;font-size:12px}
+@media (max-width:560px){
+  .bar{grid-template-columns:78px 1fr 92px}
+  .kpi b{font-size:16px}
+}
+</style>
+
+<header>
+  <h1>Market Observatory</h1>
+  <span class="sub">Analytics &middot; every signal, every outcome</span>
+  <span class="spacer"></span>
+  <a href="index.html"><button type="button">&#8592; Live panel</button></a>
+  <span id="updated" class="sub"></span>
+  <span class="palette">
+    <button type="button" data-theme="night" title="Night"></button>
+    <button type="button" data-theme="day" title="Day"></button>
+    <button type="button" data-theme="brown" title="Brown"></button>
+    <button type="button" data-theme="mono" title="Black and white"></button>
+  </span>
+</header>
+
+<main>
+  <div id="err"></div>
+
+  <section class="card">
+    <h2>Filters <span class="hint">everything below reacts to these</span></h2>
+    <div class="filters">
+      <span class="seg" id="popSeg">
+        <button type="button" data-pop="all" class="on">All signals</button>
+        <button type="button" data-pop="mine">Only mine</button>
+      </span>
+      <input id="q" type="search" placeholder="search reference, market, strategy">
+      <label>from <input id="from" type="date"></label>
+      <label>to <input id="to" type="date"></label>
+      <select id="fSide"><option value="all">both sides</option>
+        <option value="long">long only</option><option value="short">short only</option></select>
+      <select id="fTf"><option value="all">all timeframes</option></select>
+      <select id="fStrat"><option value="all">all strategies</option></select>
+      <select id="fSym"><option value="all">all markets</option></select>
+      <select id="fStatus"><option value="all">all outcomes</option>
+        <option value="closed">closed only</option>
+        <option value="open">open only</option>
+        <option value="win">win</option><option value="loss">loss</option>
+        <option value="invalidated">invalidated</option>
+        <option value="expired">expired</option></select>
+      <button type="button" id="reset">reset</button>
+      <span id="count" class="sub"></span>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Headline <span class="hint" id="popNote"></span></h2>
+    <div class="kpis" id="kpis"></div>
+    <div class="note" id="headNote"></div>
+  </section>
+
+  <div class="grid2">
+    <section class="card">
+      <h2>Outcome split</h2>
+      <div class="split" id="split"></div>
+      <div class="legend" id="splitLegend"></div>
+      <div class="note">Invalidated means price passed the stop without ever
+        trading through the entry zone. There was no fill, so it is not a loss
+        &mdash; counting it as one would understate the engine, counting it as
+        a win would flatter it. It is its own outcome.</div>
+    </section>
+    <section class="card">
+      <h2>Exit route <span class="hint">how closed trades actually ended</span></h2>
+      <div class="bars" id="exitBars"></div>
+    </section>
+  </div>
+
+  <section class="card">
+    <h2>Cumulative R <span class="hint">closed trades in publication order</span></h2>
+    <canvas id="equity" height="210"></canvas>
+    <div class="note" id="eqNote"></div>
+  </section>
+
+  <div class="grid2">
+    <section class="card">
+      <h2>Daily result</h2>
+      <canvas id="daily" height="170"></canvas>
+      <div class="note" id="dailyNote"></div>
+    </section>
+    <section class="card">
+      <h2>By period</h2>
+      <div class="tw"><table id="periods" style="min-width:0"></table></div>
+    </section>
+  </div>
+
+  <section class="card">
+    <h2>Drawdown <span class="hint">how far into loss a position went before it
+      resolved, measured in R</span></h2>
+    <div class="kpis" id="ddKpis"></div>
+    <div class="note">MAE is the worst point a trade reached against you; MFE is
+      the best point it reached in your favour. A winner with a deep MAE was a
+      trade you would have been shaken out of. A loser with a high MFE was a
+      trade that was working and was given back.</div>
+  </section>
+
+  <div class="grid2">
+    <section class="card"><h2>Long vs short</h2><div class="bars" id="bySide"></div></section>
+    <section class="card"><h2>By timeframe</h2><div class="bars" id="byTf"></div></section>
+    <section class="card"><h2>By strategy</h2><div class="bars" id="byStrat"></div></section>
+    <section class="card"><h2>By market</h2><div class="bars" id="bySym"></div></section>
+    <section class="card">
+      <h2>By leverage <span class="hint">as recorded when taken</span></h2>
+      <div class="bars" id="byLev"></div>
+    </section>
+    <section class="card">
+      <h2>Confidence calibration
+        <span class="hint">does a higher score actually win more often?</span></h2>
+      <div class="bars" id="byConf"></div>
+      <div class="note">This is the one table worth reading twice. If the high
+        confidence band does not win more than the low band, the score is not
+        measuring what it claims to.</div>
+    </section>
+  </div>
+
+  <section class="card">
+    <h2>Open right now <span class="hint">priced against the live market,
+      never counted in a win rate</span></h2>
+    <div id="openList"></div>
+  </section>
+
+  <section class="card">
+    <h2>Every signal <span class="hint">click a column to sort, click a
+      reference to copy it</span></h2>
+    <div class="tw"><table id="tbl"></table></div>
+  </section>
+
+  <section class="card">
+    <h2>What these numbers are</h2>
+    <div class="note" id="method"></div>
+  </section>
+</main>
+
+<script>
+"use strict";
+/* =====================================================================
+   STATE
+   ===================================================================== */
+const LS="market_observatory_panel_v1";
+let ledger=null, recs=[], live={}, venue=null;
+let sortKey="published_ts", sortDir=-1;
+const F={pop:"all",q:"",from:"",to:"",side:"all",tf:"all",strat:"all",
+  sym:"all",status:"all"};
+
+const esc=s=>String(s==null?"":s).replace(/[&<>"']/g,
+  c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const F2=(v,d)=>(v==null||!isFinite(v))?"--":Number(v).toFixed(d==null?2:d);
+const pct=(v,d)=>(v==null||!isFinite(v))?"--":Number(v).toFixed(d==null?1:d)+"%";
+const money=v=>(v==null||!isFinite(v))?"--":
+  (Math.abs(v)>=1000?Math.round(v).toLocaleString("en-US"):v.toFixed(2));
+const coinBase=s=>String(s||"").replace(/USDT$|USDC$|USD$/i,"");
+const sgn=v=>(v>0?"+":"");
+const tone=v=>(v==null||!isFinite(v))?"d":(v>0?"g":(v<0?"r":"d"));
+
+/* Tehran is UTC+3:30 and has no daylight saving, so a fixed offset is
+   correct here and does not drift. Every date bucket on this page is a
+   Tehran day, because that is the day the user actually traded. */
+const TZ=3.5*3600;
+function tehran(ts){return new Date(((Number(ts)||0)+TZ)*1000);}
+function dayKey(ts){const d=tehran(ts);
+  return d.getUTCFullYear()+"-"+String(d.getUTCMonth()+1).padStart(2,"0")+"-"+
+    String(d.getUTCDate()).padStart(2,"0");}
+function monthKey(ts){return dayKey(ts).slice(0,7);}
+/* ISO week, so a week is Monday to Sunday rather than "seven days back". */
+function weekKey(ts){
+  const d=tehran(ts);
+  const t=Date.UTC(d.getUTCFullYear(),d.getUTCMonth(),d.getUTCDate());
+  const dt=new Date(t);
+  const dow=(dt.getUTCDay()+6)%7;
+  dt.setUTCDate(dt.getUTCDate()-dow+3);
+  const first=new Date(Date.UTC(dt.getUTCFullYear(),0,4));
+  const wk=1+Math.round(((dt-first)/86400000-3+((first.getUTCDay()+6)%7))/7);
+  return dt.getUTCFullYear()+"-W"+String(wk).padStart(2,"0");
+}
+function ymd(ts){return dayKey(ts);}
+function hm(ts){const d=tehran(ts);
+  return String(d.getUTCHours()).padStart(2,"0")+":"+
+    String(d.getUTCMinutes()).padStart(2,"0");}
+
+function takesMap(){
+  try{return JSON.parse(localStorage.getItem(LS+"_takes"))||{};}catch(e){return {};}
+}
+function theme(){
+  try{const s=JSON.parse(localStorage.getItem(LS));
+    return (s&&s.theme)||"night";}catch(e){return "night";}
+}
+function setTheme(t){
+  document.documentElement.setAttribute("data-theme",t);
+  document.body.setAttribute("data-theme",t);
+  try{const s=JSON.parse(localStorage.getItem(LS))||{};s.theme=t;
+    localStorage.setItem(LS,JSON.stringify(s));}catch(e){}
+  paintCharts();
+}
+function cssVar(n){
+  return getComputedStyle(document.body).getPropertyValue(n).trim()||"#888";
+}
+
+/* =====================================================================
+   LOADING
+   ---------------------------------------------------------------------
+   The ledger is the source of truth. Live prices are only used to price
+   positions that are still open, and their absence degrades one section
+   rather than the page.
+   ===================================================================== */
+const VENUES=[
+  {name:"binance",tickers:async()=>{
+    const r=await fetch("https://fapi.binance.com/fapi/v1/ticker/price");
+    if(!r.ok)throw new Error(r.status);
+    const j=await r.json();const o={};j.forEach(t=>o[t.symbol]=+t.price);return o;}},
+  {name:"okx",tickers:async()=>{
+    const r=await fetch("https://www.okx.com/api/v5/market/tickers?instType=SWAP");
+    if(!r.ok)throw new Error(r.status);
+    const j=await r.json();const o={};
+    (j.data||[]).forEach(t=>{
+      const m=/^([A-Z0-9]+)-USDT-SWAP$/.exec(t.instId);
+      if(m)o[m[1]+"USDT"]=+t.last;});
+    return o;}},
+  {name:"bybit",tickers:async()=>{
+    const r=await fetch("https://api.bybit.com/v5/market/tickers?category=linear");
+    if(!r.ok)throw new Error(r.status);
+    const j=await r.json();const o={};
+    ((j.result||{}).list||[]).forEach(t=>o[t.symbol]=+t.lastPrice);return o;}},
+  {name:"gate",tickers:async()=>{
+    const r=await fetch("https://api.gateio.ws/api/v4/futures/usdt/tickers");
+    if(!r.ok)throw new Error(r.status);
+    const j=await r.json();const o={};
+    j.forEach(t=>o[String(t.contract).replace("_","")]=+t.last);return o;}}
+];
+
+async function loadLedger(){
+  const r=await fetch("brief/signals.json?t="+Date.now());
+  if(!r.ok)throw new Error("signals.json "+r.status);
+  return r.json();
+}
+async function pullPrices(){
+  for(const v of (venue?[venue].concat(VENUES.filter(x=>x!==venue)):VENUES)){
+    try{
+      const px=await v.tickers();
+      if(px&&Object.keys(px).length){venue=v;live=px;return true;}
+    }catch(e){/* next venue */}
+  }
+  return false;
+}
+
+/* =====================================================================
+   THE ROW MODEL
+   ---------------------------------------------------------------------
+   One row per published signal, with the personal take folded in where
+   one exists. Everything downstream reads these fields and nothing
+   downstream reaches back into the raw record, so there is exactly one
+   place where a field name can be wrong.
+   ===================================================================== */
+function buildRows(){
+  const tk=takesMap();
+  return (recs||[]).map(r=>{
+    const mine=tk[r.id]||null;
+    const status=r.status||"pending";
+    const open=(status==="pending"||status==="active");
+    const closed=!open;
+    // result_r is filed by the ledger when a trade resolves. A loss is
+    // -1R by construction, because the stop is what defined R.
+    let R=(r.result_r!=null&&isFinite(r.result_r))?r.result_r:null;
+    if(R==null&&status==="loss")R=-1;
+    if(R==null&&status==="invalidated")R=0;
+    if(R==null&&status==="expired")R=0;
+    // Risk in money. Prefer what you actually risked when you took it;
+    // fall back to what the pipeline sized the signal at.
+    const riskUsd=(mine&&isFinite(mine.risk_usd))?mine.risk_usd:
+      (((r.position_at_publish||{}).risk_usd)||null);
+    const pnl=(R!=null&&riskUsd!=null)?R*riskUsd:null;
+    const marginUsd=(mine&&isFinite(mine.margin))?mine.margin:
+      (((r.position_at_publish||{}).margin)||null);
+    const lev=(mine&&isFinite(mine.leverage))?mine.leverage:
+      (((r.position_at_publish||{}).leverage)||null);
+    // Unrealised, for open positions only, off the live market.
+    let liveR=null,livePnl=null,px=live[r.symbol];
+    if(open&&px!=null&&isFinite(px)&&r.entry!=null&&r.stop!=null){
+      const risk=Math.abs(r.entry-r.stop);
+      const fill=(mine&&isFinite(mine.fill))?mine.fill:r.entry;
+      const move=(r.side==="short")?(fill-px):(px-fill);
+      if(risk>0){liveR=move/risk;
+        if(riskUsd!=null)livePnl=liveR*riskUsd;}
+    }
+    return {
+      id:r.id, ref:r.ref||r.id, symbol:r.symbol, base:coinBase(r.symbol),
+      tf:r.tf, side:r.side, strategy:r.strategy||"--",
+      confidence:r.confidence, published_ts:r.published_ts||0,
+      published:r.published_time_tehran||"",
+      activated_ts:r.activated_ts, resolved_ts:r.resolved_ts,
+      status:status, open:open, closed:closed,
+      result:r.result||(open?"open":status),
+      resolve_note:r.resolve_note||"",
+      R:R, pnl:pnl, riskUsd:riskUsd, marginUsd:marginUsd, lev:lev,
+      mae:(r.mae_r!=null&&isFinite(r.mae_r))?r.mae_r:null,
+      mfe:(r.mfe_r!=null&&isFinite(r.mfe_r))?r.mfe_r:null,
+      barsToActivate:r.bars_to_activate, barsToResolve:r.bars_to_resolve,
+      rr:r.rr, entry:r.entry, stop:r.stop, targets:r.targets||[],
+      mine:!!mine, take:mine, liveR:liveR, livePnl:livePnl, px:px
+    };
+  });
+}
+
+function applyFilters(rows){
+  const q=F.q.trim().toLowerCase();
+  const fromTs=F.from?Date.parse(F.from+"T00:00:00Z")/1000-TZ:null;
+  const toTs=F.to?Date.parse(F.to+"T00:00:00Z")/1000-TZ+86400:null;
+  return rows.filter(r=>{
+    if(F.pop==="mine"&&!r.mine)return false;
+    if(F.side!=="all"&&r.side!==F.side)return false;
+    if(F.tf!=="all"&&r.tf!==F.tf)return false;
+    if(F.strat!=="all"&&r.strategy!==F.strat)return false;
+    if(F.sym!=="all"&&r.symbol!==F.sym)return false;
+    if(F.status==="closed"&&!r.closed)return false;
+    if(F.status==="open"&&!r.open)return false;
+    if(["win","loss","invalidated","expired"].includes(F.status)&&
+       r.status!==F.status)return false;
+    if(fromTs!=null&&r.published_ts<fromTs)return false;
+    if(toTs!=null&&r.published_ts>=toTs)return false;
+    if(q){
+      const hay=(r.ref+" "+r.symbol+" "+r.base+" "+r.tf+" "+r.side+" "+
+        r.strategy+" "+r.status+" "+r.published).toLowerCase();
+      if(hay.indexOf(q)<0)return false;
+    }
+    return true;
+  });
+}
+
+/* =====================================================================
+   STATISTICS
+   ---------------------------------------------------------------------
+   Rates are over CLOSED trades only, and the denominator is stated
+   everywhere it is used. A percentage without its sample size is how a
+   run of three becomes "a 67% win rate".
+   ===================================================================== */
+function stats(rows){
+  const closed=rows.filter(r=>r.closed);
+  const open=rows.filter(r=>r.open);
+  const wins=closed.filter(r=>r.status==="win");
+  const losses=closed.filter(r=>r.status==="loss");
+  const invalid=closed.filter(r=>r.status==="invalidated");
+  const expired=closed.filter(r=>r.status==="expired");
+  // Filled = trades that actually got a position. Invalidated and expired
+  // never did, so a win rate that includes them measures something else.
+  const filled=wins.length+losses.length;
+  const sum=a=>a.reduce((s,v)=>s+v,0);
+  const Rs=closed.map(r=>r.R).filter(v=>v!=null&&isFinite(v));
+  const totalR=sum(Rs);
+  const pnls=closed.map(r=>r.pnl).filter(v=>v!=null&&isFinite(v));
+  const totalPnl=pnls.length?sum(pnls):null;
+  const grossWin=sum(closed.filter(r=>r.R>0).map(r=>r.R));
+  const grossLoss=Math.abs(sum(closed.filter(r=>r.R<0).map(r=>r.R)));
+  const maes=closed.map(r=>r.mae).filter(v=>v!=null&&isFinite(v));
+  const mfes=closed.map(r=>r.mfe).filter(v=>v!=null&&isFinite(v));
+  const capital=closed.map(r=>r.marginUsd).filter(v=>v!=null&&isFinite(v));
+  return {
+    n:rows.length, closed:closed.length, open:open.length, filled:filled,
+    win:wins.length, loss:losses.length, invalid:invalid.length,
+    expired:expired.length,
+    winRate:filled?wins.length/filled*100:null,
+    lossRate:filled?losses.length/filled*100:null,
+    invalidRate:closed.length?invalid.length/closed.length*100:null,
+    expiredRate:closed.length?expired.length/closed.length*100:null,
+    fillRate:closed.length?filled/closed.length*100:null,
+    totalR:Rs.length?totalR:null,
+    avgR:Rs.length?totalR/Rs.length:null,
+    bestR:Rs.length?Math.max.apply(null,Rs):null,
+    worstR:Rs.length?Math.min.apply(null,Rs):null,
+    totalPnl:totalPnl,
+    pnlPct:(totalPnl!=null&&capital.length)?
+      totalPnl/(capital.reduce((s,v)=>s+v,0)/capital.length)*100:null,
+    profitFactor:grossLoss>0?grossWin/grossLoss:(grossWin>0?Infinity:null),
+    expectancy:Rs.length?totalR/Rs.length:null,
+    avgMae:maes.length?sum(maes)/maes.length:null,
+    worstMae:maes.length?Math.max.apply(null,maes):null,
+    totalMae:maes.length?sum(maes):null,
+    avgMfe:mfes.length?sum(mfes)/mfes.length:null,
+    // Of the trades that got filled, how many touched the stop.
+    stopRate:filled?losses.length/filled*100:null,
+    tpRate:filled?wins.length/filled*100:null,
+    avgBarsToActivate:avg(rows.map(r=>r.barsToActivate)),
+    avgBarsToResolve:avg(closed.map(r=>r.barsToResolve)),
+    openR:open.map(r=>r.liveR).filter(v=>v!=null&&isFinite(v)),
+    openPnl:open.map(r=>r.livePnl).filter(v=>v!=null&&isFinite(v)),
+    rows:rows, closedRows:closed, openRows:open
+  };
+}
+function avg(a){
+  const v=a.filter(x=>x!=null&&isFinite(x));
+  return v.length?v.reduce((s,x)=>s+x,0)/v.length:null;
+}
+
+/* Group by any key, returning a comparable summary per group. Sorted by
+   sample size so a one-trade group never leads the table. */
+function groupBy(rows,fn){
+  const m={};
+  rows.forEach(r=>{const k=fn(r);if(k==null)return;(m[k]=m[k]||[]).push(r);});
+  return Object.keys(m).map(k=>{
+    const s=stats(m[k]);
+    return {key:k,n:m[k].length,s:s};
+  }).sort((a,b)=>b.n-a.n);
+}
+
+/* =====================================================================
+   RENDER
+   ===================================================================== */
+function kpi(label,value,cls,sub){
+  return '<div class="kpi"><small>'+esc(label)+'</small><b class="'+(cls||"")+
+    '">'+value+'</b>'+(sub?'<em>'+sub+'</em>':'')+'</div>';
+}
+
+function renderKpis(s){
+  const pf=s.profitFactor;
+  document.getElementById("kpis").innerHTML=
+    kpi("Signals in view",s.n,"",s.closed+" closed &middot; "+s.open+" open")+
+    kpi("Win rate",s.winRate==null?"--":pct(s.winRate),
+        s.winRate==null?"d":(s.winRate>=50?"g":"r"),
+        s.filled?s.win+" of "+s.filled+" filled":"no filled trade yet")+
+    kpi("Loss rate",s.lossRate==null?"--":pct(s.lossRate),
+        s.lossRate==null?"d":"r",
+        s.filled?s.loss+" of "+s.filled+" filled":"&mdash;")+
+    kpi("Invalidated",s.invalidRate==null?"--":pct(s.invalidRate),"w",
+        s.invalid+" never filled")+
+    kpi("Total R",s.totalR==null?"--":sgn(s.totalR)+F2(s.totalR),tone(s.totalR),
+        "sum over "+s.closed+" closed")+
+    kpi("Total PnL",s.totalPnl==null?"--":sgn(s.totalPnl)+money(s.totalPnl),
+        tone(s.totalPnl),
+        s.totalPnl==null?"needs a sized trade":
+          "USDT"+(s.pnlPct!=null?" &middot; "+sgn(s.pnlPct)+pct(s.pnlPct,2)+
+            " of capital":""))+
+    kpi("Average R",s.avgR==null?"--":sgn(s.avgR)+F2(s.avgR),tone(s.avgR),
+        "expectancy per trade")+
+    kpi("Profit factor",pf==null?"--":(pf===Infinity?"&#8734;":F2(pf)),
+        pf==null?"d":(pf>=1?"g":"r"),"gross win over gross loss")+
+    kpi("Stop triggered",s.stopRate==null?"--":pct(s.stopRate),"r",
+        "of filled trades")+
+    kpi("Target reached",s.tpRate==null?"--":pct(s.tpRate),"g",
+        "of filled trades")+
+    kpi("Fill rate",s.fillRate==null?"--":pct(s.fillRate),"",
+        "closed signals that got a position")+
+    kpi("Open now",s.open,"v",
+        s.openR.length?sgn(sum(s.openR))+F2(sum(s.openR))+"R unrealised":
+          "no live price yet");
+
+  const note=[];
+  if(!s.closed)
+    note.push("Nothing has closed in this view yet, so no rate is shown. A "+
+      "win rate over zero trades is not a small number, it is not a number.");
+  else if(s.filled<10)
+    note.push("Only "+s.filled+" filled trade"+(s.filled===1?"":"s")+
+      " in this view. Treat every percentage here as a description of what "+
+      "happened, not as an estimate of what will happen - at this sample "+
+      "size one more result moves the win rate by "+
+      F2(100/(s.filled+1),0)+" points.");
+  if(F.pop==="mine")
+    note.push("Showing only positions you marked as taken, priced with the "+
+      "fill and leverage recorded at the moment you pressed the button.");
+  document.getElementById("headNote").innerHTML=note.join(" ");
+  document.getElementById("popNote").textContent=
+    F.pop==="mine"?"your positions":"everything the system published";
+}
+function sum(a){return a.reduce((s,v)=>s+v,0);}
+
+function renderSplit(s){
+  const total=s.win+s.loss+s.invalid+s.expired;
+  const el=document.getElementById("split");
+  if(!total){el.innerHTML="";
+    document.getElementById("splitLegend").innerHTML=
+      '<span class="d">nothing closed yet</span>';return;}
+  const w=v=>(v/total*100).toFixed(3)+"%";
+  el.innerHTML='<i class="w1" style="width:'+w(s.win)+'"></i>'+
+    '<i class="l1" style="width:'+w(s.loss)+'"></i>'+
+    '<i class="i1" style="width:'+w(s.invalid)+'"></i>'+
+    '<i class="e1" style="width:'+w(s.expired)+'"></i>';
+  document.getElementById("splitLegend").innerHTML=
+    '<span><i style="background:var(--up)"></i>win '+s.win+'</span>'+
+    '<span><i style="background:var(--dn)"></i>loss '+s.loss+'</span>'+
+    '<span><i style="background:var(--wn)"></i>invalidated '+s.invalid+'</span>'+
+    '<span><i style="background:var(--dm)"></i>expired '+s.expired+'</span>';
+}
+
+function renderExit(s){
+  const rows=[
+    ["Target reached",s.win,"win"],
+    ["Stop triggered",s.loss,"loss"],
+    ["Invalidated before fill",s.invalid,"inv"],
+    ["Expired unfilled",s.expired,"inv"]
+  ];
+  const total=s.closed||1;
+  document.getElementById("exitBars").innerHTML=rows.map(([nm,n,cls])=>
+    '<div class="bar"><span class="nm">'+esc(nm)+'</span>'+
+    '<span class="tr"><i class="fl '+cls+'" style="width:'+
+      (n/total*100).toFixed(2)+'%"></i></span>'+
+    '<span class="vv">'+n+' &middot; '+pct(n/total*100)+'</span></div>').join("")||
+    '<div class="empty">nothing closed yet</div>';
+}
+
+function renderGroup(id,groups,labelFn){
+  const el=document.getElementById(id);
+  if(!groups.length){el.innerHTML='<div class="empty">no data in this view</div>';return;}
+  const maxN=Math.max.apply(null,groups.map(g=>g.n));
+  el.innerHTML=groups.slice(0,12).map(g=>{
+    const s=g.s;
+    const wr=s.winRate;
+    const cls=wr==null?"inv":(wr>=50?"win":"loss");
+    const width=(g.n/maxN*100).toFixed(2);
+    return '<div class="bar"><span class="nm" title="'+esc(labelFn(g.key))+'">'+
+      esc(labelFn(g.key))+'</span>'+
+      '<span class="tr"><i class="fl '+cls+'" style="width:'+width+'%"></i></span>'+
+      '<span class="vv">'+g.n+' sig &middot; '+
+      (wr==null?'<span class="d">no close</span>':
+        '<b class="'+(wr>=50?"g":"r")+'">'+pct(wr,0)+'</b>')+
+      ' &middot; '+(s.totalR==null?"--":
+        '<b class="'+tone(s.totalR)+'">'+sgn(s.totalR)+F2(s.totalR,1)+'R</b>')+
+      '</span></div>';
+  }).join("");
+}
+
+function renderDrawdown(s){
+  document.getElementById("ddKpis").innerHTML=
+    kpi("Average drawdown",s.avgMae==null?"--":F2(s.avgMae)+"R","r",
+        "mean MAE across closed trades")+
+    kpi("Worst drawdown",s.worstMae==null?"--":F2(s.worstMae)+"R","r",
+        "deepest single trade")+
+    kpi("Aggregate drawdown",s.totalMae==null?"--":F2(s.totalMae)+"R","r",
+        "sum of every MAE")+
+    kpi("Average best move",s.avgMfe==null?"--":F2(s.avgMfe)+"R","g",
+        "mean MFE across closed trades")+
+    kpi("Given back",(s.avgMfe==null||s.avgR==null)?"--":
+        F2(Math.max(0,s.avgMfe-s.avgR))+"R","w",
+        "average MFE minus average result")+
+    kpi("Bars to activate",s.avgBarsToActivate==null?"--":
+        F2(s.avgBarsToActivate,1),"",
+        "how long entries waited")+
+    kpi("Bars to resolve",s.avgBarsToResolve==null?"--":
+        F2(s.avgBarsToResolve,1),"","how long trades ran");
+}
+
+function renderPeriods(rows){
+  const closed=rows.filter(r=>r.closed&&r.R!=null);
+  const mk=(name,keyFn)=>{
+    const m={};
+    closed.forEach(r=>{const k=keyFn(r.resolved_ts||r.published_ts);
+      m[k]=m[k]||{n:0,R:0,pnl:0,win:0,loss:0,hasPnl:false};
+      m[k].n++;m[k].R+=r.R;
+      if(r.pnl!=null){m[k].pnl+=r.pnl;m[k].hasPnl=true;}
+      if(r.status==="win")m[k].win++;
+      if(r.status==="loss")m[k].loss++;});
+    return {name:name,keys:Object.keys(m).sort().reverse().slice(0,8),m:m};
+  };
+  const blocks=[mk("Day",dayKey),mk("Week",weekKey),mk("Month",monthKey)];
+  let h='<thead><tr><th class="lft">Period</th><th>Trades</th><th>W</th>'+
+    '<th>L</th><th>R</th><th>PnL</th></tr></thead>';
+  blocks.forEach(b=>{
+    if(!b.keys.length)return;
+    h+='<tbody><tr><td class="lft d" colspan="6"><b>'+b.name+'</b></td></tr>';
+    b.keys.forEach(k=>{
+      const v=b.m[k];
+      h+='<tr><td class="lft">'+esc(k)+'</td><td>'+v.n+'</td>'+
+        '<td class="g">'+v.win+'</td><td class="r">'+v.loss+'</td>'+
+        '<td class="'+tone(v.R)+'">'+sgn(v.R)+F2(v.R)+'</td>'+
+        '<td class="'+tone(v.hasPnl?v.pnl:null)+'">'+
+        (v.hasPnl?sgn(v.pnl)+money(v.pnl):"--")+'</td></tr>';
+    });
+    h+='</tbody>';
+  });
+  const el=document.getElementById("periods");
+  el.innerHTML=blocks.some(b=>b.keys.length)?h:
+    '<tbody><tr><td class="d" style="padding:14px">nothing closed yet</td></tr></tbody>';
+}
+
+function renderOpen(rows){
+  const open=rows.filter(r=>r.open);
+  const el=document.getElementById("openList");
+  if(!open.length){el.innerHTML='<div class="empty">No open position in this view.</div>';return;}
+  el.innerHTML='<div class="tw"><table><thead><tr>'+
+    '<th class="lft">Reference</th><th>Market</th><th>TF</th><th>Side</th>'+
+    '<th>State</th><th>Entry</th><th>Live</th><th>Unrealised R</th>'+
+    '<th>Unrealised PnL</th><th>Worst so far</th><th>Mine</th>'+
+    '</tr></thead><tbody>'+open.map(r=>
+    '<tr><td class="lft"><span class="ref" data-copy="'+esc(r.ref)+'">'+
+      esc(r.ref)+'</span></td>'+
+    '<td><b>'+esc(r.base)+'</b></td><td>'+esc(r.tf)+'</td>'+
+    '<td>'+esc(String(r.side).toUpperCase())+'</td>'+
+    '<td><span class="pill '+esc(r.status)+'">'+esc(r.status.toUpperCase())+
+      '</span></td>'+
+    '<td>'+F2(r.entry,4)+'</td><td>'+(r.px==null?"--":F2(r.px,4))+'</td>'+
+    '<td class="'+tone(r.liveR)+'">'+(r.liveR==null?"--":sgn(r.liveR)+F2(r.liveR)+"R")+'</td>'+
+    '<td class="'+tone(r.livePnl)+'">'+(r.livePnl==null?"--":sgn(r.livePnl)+money(r.livePnl))+'</td>'+
+    '<td class="r">'+(r.mae==null?"--":F2(r.mae)+"R")+'</td>'+
+    '<td>'+(r.mine?'<span class="pill mine">MINE</span>':'<span class="d">&mdash;</span>')+'</td>'+
+    '</tr>').join("")+'</tbody></table></div>'+
+    '<div class="note">Unrealised is priced off '+
+    (venue?esc(venue.name):"no venue")+
+    ' and is not included in any win rate or total above. An open trade has '+
+    'no result yet.</div>';
+  bindCopy(el);
+}
+
+const COLS=[
+  ["ref","Reference"],["published_ts","Published"],["base","Market"],
+  ["tf","TF"],["side","Side"],["strategy","Strategy"],
+  ["confidence","Conf"],["status","Outcome"],["R","R"],["pnl","PnL"],
+  ["mae","Drawdown"],["mfe","Best"],["lev","Lev"],["mine","Mine"]
+];
+function renderTable(rows){
+  const sorted=rows.slice().sort((a,b)=>{
+    const x=a[sortKey],y=b[sortKey];
+    if(x==null&&y==null)return 0;
+    if(x==null)return 1;
+    if(y==null)return -1;
+    if(typeof x==="string")return x.localeCompare(y)*sortDir;
+    return (x-y)*sortDir;
+  });
+  let h='<thead><tr>'+COLS.map(c=>'<th data-k="'+c[0]+'" class="'+
+    (sortKey===c[0]?"act":"")+'">'+c[1]+(sortKey===c[0]?(sortDir>0?" &#9650;":" &#9660;"):"")+
+    '</th>').join("")+'</tr></thead><tbody>';
+  if(!sorted.length)
+    h+='<tr><td colspan="'+COLS.length+'" class="d" style="padding:16px">'+
+      'No signal matches these filters.</td></tr>';
+  sorted.slice(0,600).forEach(r=>{
+    h+='<tr><td class="lft"><span class="ref" data-copy="'+esc(r.ref)+'">'+
+      esc(r.ref)+'</span></td>'+
+      '<td>'+esc(ymd(r.published_ts))+' '+esc(hm(r.published_ts))+'</td>'+
+      '<td><b>'+esc(r.base)+'</b></td><td>'+esc(r.tf)+'</td>'+
+      '<td class="'+(r.side==="long"?"g":"r")+'">'+
+        esc(String(r.side).toUpperCase())+'</td>'+
+      '<td class="lft">'+esc(r.strategy)+'</td>'+
+      '<td>'+F2(r.confidence,0)+'</td>'+
+      '<td><span class="pill '+esc(r.status)+'">'+esc(r.status.toUpperCase())+
+        '</span></td>'+
+      '<td class="'+tone(r.open?r.liveR:r.R)+'">'+
+        (r.open?(r.liveR==null?"open":sgn(r.liveR)+F2(r.liveR)+"*"):
+          (r.R==null?"--":sgn(r.R)+F2(r.R)))+'</td>'+
+      '<td class="'+tone(r.open?r.livePnl:r.pnl)+'">'+
+        (r.open?(r.livePnl==null?"--":sgn(r.livePnl)+money(r.livePnl)+"*"):
+          (r.pnl==null?"--":sgn(r.pnl)+money(r.pnl)))+'</td>'+
+      '<td class="r">'+(r.mae==null?"--":F2(r.mae)+"R")+'</td>'+
+      '<td class="g">'+(r.mfe==null?"--":F2(r.mfe)+"R")+'</td>'+
+      '<td>'+(r.lev==null?"--":F2(r.lev,1)+"x")+'</td>'+
+      '<td>'+(r.mine?'<span class="pill mine">MINE</span>':
+        '<span class="d">&mdash;</span>')+'</td></tr>';
+  });
+  h+='</tbody>';
+  const el=document.getElementById("tbl");
+  el.innerHTML=h;
+  el.querySelectorAll("th[data-k]").forEach(th=>th.onclick=()=>{
+    const k=th.dataset.k;
+    if(sortKey===k)sortDir=-sortDir;else{sortKey=k;sortDir=-1;}
+    render();
+  });
+  bindCopy(el);
+  if(sorted.length>600)
+    el.insertAdjacentHTML("afterend",
+      '<div class="note">Showing the first 600 of '+sorted.length+
+      ' - narrow the filters to see the rest.</div>');
+}
+
+function bindCopy(root){
+  root.querySelectorAll("[data-copy]").forEach(el=>el.onclick=ev=>{
+    ev.stopPropagation();
+    const t=el.dataset.copy||"",was=el.textContent;
+    const done=()=>{el.classList.add("copied");el.textContent="copied";
+      setTimeout(()=>{el.textContent=was;el.classList.remove("copied");},900);};
+    try{
+      if(navigator.clipboard&&navigator.clipboard.writeText)
+        navigator.clipboard.writeText(t).then(done,()=>fallbackCopy(t,done));
+      else fallbackCopy(t,done);
+    }catch(e){fallbackCopy(t,done);}
+  });
+}
+function fallbackCopy(t,done){
+  try{
+    const ta=document.createElement("textarea");
+    ta.value=t;ta.style.position="fixed";ta.style.opacity="0";
+    document.body.appendChild(ta);ta.select();
+    document.execCommand("copy");document.body.removeChild(ta);done();
+  }catch(e){}
+}
+
+/* =====================================================================
+   CHARTS
+   ---------------------------------------------------------------------
+   Drawn by hand on a canvas. No library, so nothing to load, nothing to
+   go stale and nothing to break the page if a CDN is unreachable.
+   ===================================================================== */
+let lastRows=[];
+function paintCharts(){
+  drawEquity(lastRows);
+  drawDaily(lastRows);
+}
+
+function fit(cv,h){
+  const w=cv.clientWidth||600,dpr=window.devicePixelRatio||1;
+  cv.width=w*dpr;cv.height=h*dpr;
+  const x=cv.getContext("2d");x.setTransform(dpr,0,0,dpr,0,0);
+  x.clearRect(0,0,w,h);
+  return {x:x,w:w,h:h};
+}
+
+function drawEquity(rows){
+  const cv=document.getElementById("equity");
+  const closed=rows.filter(r=>r.closed&&r.R!=null)
+    .sort((a,b)=>(a.resolved_ts||a.published_ts)-(b.resolved_ts||b.published_ts));
+  const {x,w,h}=fit(cv,210);
+  const note=document.getElementById("eqNote");
+  if(closed.length<1){
+    x.fillStyle=cssVar("--dm");x.font="12px system-ui";
+    x.fillText("No closed trade in this view yet.",12,h/2);
+    note.textContent="";return;
+  }
+  let cum=0;const pts=[0];
+  closed.forEach(r=>{cum+=r.R;pts.push(cum);});
+  let lo=Math.min.apply(null,pts),hi=Math.max.apply(null,pts);
+  if(hi-lo<1){hi+=0.5;lo-=0.5;}
+  const pad=(hi-lo)*0.12;lo-=pad;hi+=pad;
+  const L=34,Rr=8,T=8,B=18;
+  const X=i=>L+(i/(pts.length-1||1))*(w-L-Rr);
+  const Y=v=>T+(hi-v)/(hi-lo)*(h-T-B);
+
+  // Zero line first, so the eye has a reference before the curve.
+  x.strokeStyle=cssVar("--ln");x.lineWidth=1;
+  x.beginPath();x.moveTo(L,Y(0));x.lineTo(w-Rr,Y(0));x.stroke();
+  // Axis labels, but only where they will not sit on top of each other.
+  // Two numbers overlapping is worse than one number missing.
+  x.fillStyle=cssVar("--dm");x.font="9px system-ui";
+  x.fillText("0R",4,Y(0)+3);
+  if(Math.abs(Y(hi)-Y(0))>13)x.fillText(F2(hi,1)+"R",4,Y(hi)+8);
+  if(Math.abs(Y(lo)-Y(0))>13)x.fillText(F2(lo,1)+"R",4,Y(lo)-2);
+
+  // Area under the curve, tinted by whether it finished up or down.
+  const up=cum>=0;
+  const g=x.createLinearGradient(0,T,0,h-B);
+  g.addColorStop(0,up?"rgba(34,224,161,.28)":"rgba(255,90,110,.28)");
+  g.addColorStop(1,"rgba(0,0,0,0)");
+  x.beginPath();x.moveTo(X(0),Y(0));
+  pts.forEach((v,i)=>x.lineTo(X(i),Y(v)));
+  x.lineTo(X(pts.length-1),Y(0));x.closePath();
+  x.fillStyle=g;x.fill();
+
+  x.beginPath();
+  pts.forEach((v,i)=>i?x.lineTo(X(i),Y(v)):x.moveTo(X(i),Y(v)));
+  x.strokeStyle=up?cssVar("--up"):cssVar("--dn");x.lineWidth=2;x.stroke();
+
+  // A dot per trade, coloured by that trade's own result.
+  closed.forEach((r,i)=>{
+    x.beginPath();x.arc(X(i+1),Y(pts[i+1]),2.6,0,Math.PI*2);
+    x.fillStyle=r.R>0?cssVar("--up"):(r.R<0?cssVar("--dn"):cssVar("--wn"));
+    x.fill();
+  });
+
+  let peak=-Infinity,maxDd=0;
+  pts.forEach(v=>{peak=Math.max(peak,v);maxDd=Math.max(maxDd,peak-v);});
+  note.innerHTML="Finished at <b class=\""+tone(cum)+"\">"+sgn(cum)+F2(cum)+
+    "R</b> over "+closed.length+" closed trade"+(closed.length===1?"":"s")+
+    ". Deepest fall from a high point on this curve: <b class=\"r\">"+
+    F2(maxDd)+"R</b>. This is the equity curve of the signals, not of an "+
+    "account - it assumes every one was taken at the size recorded with it.";
+}
+
+function drawDaily(rows){
+  const cv=document.getElementById("daily");
+  const closed=rows.filter(r=>r.closed&&r.R!=null);
+  const {x,w,h}=fit(cv,170);
+  const note=document.getElementById("dailyNote");
+  if(!closed.length){
+    x.fillStyle=cssVar("--dm");x.font="12px system-ui";
+    x.fillText("No closed trade in this view yet.",12,h/2);
+    note.textContent="";return;
+  }
+  const m={};
+  closed.forEach(r=>{const k=dayKey(r.resolved_ts||r.published_ts);
+    m[k]=(m[k]||0)+r.R;});
+  const keys=Object.keys(m).sort().slice(-30);
+  const vals=keys.map(k=>m[k]);
+  const mx=Math.max(0.5,Math.max.apply(null,vals.map(Math.abs)));
+  const L=30,T=8,B=26,Rr=6;
+  const bw=(w-L-Rr)/keys.length;
+  const Y=v=>T+(mx-v)/(mx*2)*(h-T-B);
+
+  x.strokeStyle=cssVar("--ln");x.lineWidth=1;
+  x.beginPath();x.moveTo(L,Y(0));x.lineTo(w-Rr,Y(0));x.stroke();
+  x.fillStyle=cssVar("--dm");x.font="9px system-ui";
+  x.fillText("+"+F2(mx,1),2,Y(mx)+8);
+  x.fillText("-"+F2(mx,1),2,Y(-mx)-2);
+
+  keys.forEach((k,i)=>{
+    const v=m[k];
+    const x0=L+i*bw+bw*0.18,bwid=Math.max(1.5,bw*0.64);
+    x.fillStyle=v>0?cssVar("--up"):(v<0?cssVar("--dn"):cssVar("--dm"));
+    const y0=Math.min(Y(0),Y(v)),hh=Math.max(1,Math.abs(Y(v)-Y(0)));
+    x.fillRect(x0,y0,bwid,hh);
+  });
+  // Only every other label when they would collide.
+  x.fillStyle=cssVar("--dm");x.font="8px system-ui";
+  const step=bw<30?Math.ceil(30/bw):1;
+  keys.forEach((k,i)=>{
+    if(i%step)return;
+    x.save();
+    x.translate(L+i*bw+bw/2,h-14);
+    x.rotate(-Math.PI/5);
+    x.fillText(k.slice(5),-14,0);
+    x.restore();
+  });
+  const best=Math.max.apply(null,vals),worst=Math.min.apply(null,vals);
+  note.innerHTML="Last "+keys.length+" day"+(keys.length===1?"":"s")+
+    " with a closed trade, in R. Best day <b class=\"g\">"+sgn(best)+F2(best)+
+    "R</b>, worst day <b class=\"r\">"+F2(worst)+"R</b>. Dated by the day the "+
+    "trade CLOSED, not the day it was published.";
+}
+
+/* =====================================================================
+   MAIN RENDER
+   ===================================================================== */
+function render(){
+  const all=buildRows();
+  const rows=applyFilters(all);
+  lastRows=rows;
+  const s=stats(rows);
+
+  document.getElementById("count").textContent=
+    rows.length+" of "+all.length+" signal"+(all.length===1?"":"s");
+
+  renderKpis(s);
+  renderSplit(s);
+  renderExit(s);
+  renderDrawdown(s);
+  renderPeriods(rows);
+  renderGroup("bySide",groupBy(rows,r=>r.side),k=>String(k).toUpperCase());
+  renderGroup("byTf",groupBy(rows,r=>r.tf),k=>k);
+  renderGroup("byStrat",groupBy(rows,r=>r.strategy),k=>k);
+  renderGroup("bySym",groupBy(rows,r=>r.base),k=>k);
+  renderGroup("byLev",groupBy(rows,r=>{
+    if(r.lev==null||!isFinite(r.lev))return null;
+    if(r.lev<1.5)return "1x to 1.5x";
+    if(r.lev<3)return "1.5x to 3x";
+    if(r.lev<5)return "3x to 5x";
+    if(r.lev<10)return "5x to 10x";
+    return "10x and above";
+  }),k=>k);
+  renderGroup("byConf",groupBy(rows,r=>{
+    const c=r.confidence;
+    if(c==null||!isFinite(c))return null;
+    if(c<60)return "under 60";
+    if(c<70)return "60 to 70";
+    if(c<80)return "70 to 80";
+    return "80 and above";
+  }),k=>k);
+  renderOpen(rows);
+  renderTable(rows);
+  paintCharts();
+}
+
+function fillSelect(id,values,cur){
+  const el=document.getElementById(id);
+  const first=el.options[0];
+  el.innerHTML="";
+  el.appendChild(first);
+  values.forEach(v=>{
+    const o=document.createElement("option");
+    o.value=v;o.textContent=v;
+    el.appendChild(o);
+  });
+  el.value=cur||"all";
+}
+
+function bindControls(){
+  document.querySelectorAll(".palette button").forEach(b=>
+    b.onclick=()=>setTheme(b.dataset.theme));
+  document.querySelectorAll("#popSeg button").forEach(b=>b.onclick=()=>{
+    F.pop=b.dataset.pop;
+    document.querySelectorAll("#popSeg button").forEach(o=>
+      o.classList.toggle("on",o===b));
+    render();
+  });
+  const q=document.getElementById("q");
+  let t=null;
+  q.oninput=()=>{clearTimeout(t);t=setTimeout(()=>{F.q=q.value;render();},180);};
+  const on=(id,key)=>{const el=document.getElementById(id);
+    el.onchange=()=>{F[key]=el.value;render();};};
+  on("from","from");on("to","to");on("fSide","side");on("fTf","tf");
+  on("fStrat","strat");on("fSym","sym");on("fStatus","status");
+  document.getElementById("reset").onclick=()=>{
+    F.q="";F.from="";F.to="";F.side="all";F.tf="all";F.strat="all";
+    F.sym="all";F.status="all";
+    q.value="";
+    ["from","to"].forEach(i=>document.getElementById(i).value="");
+    ["fSide","fTf","fStrat","fSym","fStatus"].forEach(i=>
+      document.getElementById(i).value="all");
+    render();
+  };
+  window.addEventListener("resize",()=>paintCharts());
+}
+
+function methodText(){
+  document.getElementById("method").innerHTML=
+    "<b>R</b> is the unit. One R is the distance from entry to stop &mdash; "+
+    "what the trade put at risk. A loss is &minus;1R by construction. "+
+    "<b>PnL</b> is R multiplied by the risk budget recorded with that signal, "+
+    "so it follows the sizing that was actually in force rather than a size "+
+    "invented now.<br><br>"+
+    "<b>Win rate</b> is over FILLED trades only &mdash; win divided by win "+
+    "plus loss. Invalidated and expired signals never got a position, so "+
+    "including them would measure something other than how the trades went. "+
+    "They are reported separately and the fill rate says how often a "+
+    "published signal became a position at all.<br><br>"+
+    "<b>Invalidated</b> means price passed the stop level without ever "+
+    "trading through the entry zone. There was no fill to lose on.<br><br>"+
+    "Where a single candle contains both the stop and the target, the "+
+    "pipeline scores it a <b>loss</b>. The candle does not say which came "+
+    "first, and assuming the good fill is how a measured win rate turns "+
+    "into fiction.<br><br>"+
+    "Open positions carry an asterisk in the table and are never counted in "+
+    "any rate or total. Their unrealised figure is priced off the live market "+
+    "and moves.<br><br>"+
+    "<b>Only mine</b> reads the positions you marked with the button on the "+
+    "live panel. Those marks live in this browser, so they are yours and "+
+    "they do not travel to another device.";
+}
+
+/* =====================================================================
+   BOOT
+   ===================================================================== */
+async function boot(){
+  setTheme(theme());
+  bindControls();
+  methodText();
+  try{
+    ledger=await loadLedger();
+    recs=(ledger&&ledger.records)||[];
+  }catch(e){
+    document.getElementById("err").innerHTML=
+      '<div class="err">Could not read the signal ledger: '+esc(e.message)+
+      '. Nothing on this page can be shown without it.</div>';
+    return;
+  }
+  document.getElementById("updated").textContent=
+    "ledger "+((ledger&&ledger.updated_tehran)||"");
+
+  const uniq=(f)=>[...new Set(recs.map(f).filter(Boolean))].sort();
+  fillSelect("fTf",uniq(r=>r.tf),"all");
+  fillSelect("fStrat",uniq(r=>r.strategy),"all");
+  fillSelect("fSym",uniq(r=>r.symbol),"all");
+
+  render();
+  // Prices are only needed to value open positions, so the page is
+  // complete before they arrive and simply sharpens when they do.
+  if(recs.some(r=>r.status==="pending"||r.status==="active")){
+    await pullPrices();
+    render();
+    setInterval(async()=>{
+      if(document.hidden)return;
+      if(await pullPrices())render();
+    },10000);
+  }
+}
+boot();
+</script>
+</html>

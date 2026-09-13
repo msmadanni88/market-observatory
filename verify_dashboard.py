@@ -31,6 +31,10 @@ import tempfile
 ROOT = os.path.dirname(os.path.abspath(__file__))
 HTML = os.path.join(ROOT, "index.html")
 
+# Every page that ships. Each one gets the syntax, theme and link checks;
+# index.html additionally gets the checks that are about the live panel.
+PAGES = ["index.html", "analytics.html", "kumo.html"]
+
 ok, bad, note = [], [], []
 
 
@@ -264,9 +268,13 @@ if os.path.isfile(lp):
                     r"(ledger\s*&&\s*ledger\.records|ledger\.records|"
                     r"archiveRecords\(\)|recordLive\()", js):
                 blocks.append(js[max(0, m.start() - 200):m.start() + 2500])
-            # Fields the browser computes and attaches to a record itself.
+            # Two shapes the page builds itself and which are NOT ledger
+            # records, even though they travel under the same variable
+            # names: the fields it attaches to a record, and the object
+            # resolveLive/recordLive return after replaying the candles.
             derived = {"live", "liveR", "liveMae", "liveMfe", "liveNote",
-                       "settled", "mine"}
+                       "settled", "mine",
+                       "state", "resolvedAt", "resultR", "mfe", "mae", "note"}
             read = set()
             for b in blocks:
                 read |= set(re.findall(r"\brec\.([a-z_][a-zA-Z0-9_]*)", b))
@@ -288,6 +296,23 @@ if os.path.isfile(lp):
             else:
                 good("every ledger field the page reads (%d of them) exists "
                      "on a real record" % len(read))
+
+            # The precise form of the bug that started this check. Wherever
+            # the page filters ledger records by whether they are still
+            # open, it must test .status - the ledger has no .state, and a
+            # missing field compares false forever without complaining.
+            for m in re.finditer(r"ledger\s*&&\s*ledger\.records|"
+                                 r"ledger\.records", js):
+                seg = js[m.start():m.start() + 400]
+                if ('"pending"' in seg or '"active"' in seg):
+                    if re.search(r"\.state\s*===?\s*\"(pending|active)\"", seg):
+                        fail("a ledger.records filter tests .state for "
+                             "pending/active - the field is .status, and "
+                             ".state is undefined on every record")
+                        break
+            else:
+                good("open-record filters test .status, the field that "
+                     "actually exists")
     except ValueError as e:
         fail("brief/signals.json is not valid JSON: %s" % e)
 else:
@@ -344,6 +369,183 @@ else:
         else:
             good("live P/L: 3 cells rendered on open cards and repainted on "
                  "every price tick")
+
+# ------------------------------------------------- 10. every other page
+# The same structural checks, for every page that ships. A second page is
+# a second place for a theme hole or a syntax error to hide.
+for page in PAGES:
+    p = os.path.join(ROOT, page)
+    if page == "index.html":
+        continue
+    if not os.path.isfile(p):
+        note.append("%s not built yet" % page)
+        continue
+    ptxt = open(p, encoding="utf-8").read()
+    pjs = "\n".join(re.findall(r"<script[^>]*>(.*?)</script>", ptxt, re.S))
+    pcss = "\n".join(re.findall(r"<style[^>]*>(.*?)</style>", ptxt, re.S))
+
+    with tempfile.NamedTemporaryFile("w", suffix=".js", delete=False,
+                                     encoding="utf-8") as fh:
+        fh.write(pjs)
+        pp = fh.name
+    r = subprocess.run(["node", "--check", pp], capture_output=True, text=True)
+    os.unlink(pp)
+    if r.returncode == 0:
+        good("%s javascript parses" % page)
+    else:
+        fail("JS SYNTAX in %s: %s" % (page, (r.stderr or r.stdout).strip()[:300]))
+
+    # Theme coverage on this page's own token blocks.
+    pth = dict()
+    for name, body in re.findall(
+            r"html\[data-theme=\"([a-z]+)\"\]\s*\{([^}]*)\}", pcss, re.S):
+        pth[name] = pth.get(name, "") + body
+    if not pth:
+        fail("%s declares no html[data-theme] blocks" % page)
+    else:
+        ov = set()
+        for body in pth.values():
+            ov |= set(re.findall(r"(--[a-z0-9-]+)\s*:", body))
+        holes = ["%s/%s missing %s" % (page, n, t)
+                 for t in sorted(ov) for n, b in pth.items()
+                 if not re.search(re.escape(t) + r"\s*:", b)]
+        if holes:
+            for hc in holes:
+                fail("THEME HOLE: " + hc)
+        else:
+            good("%s: all %d themed tokens defined by %s"
+                 % (page, len(ov), ", ".join(sorted(pth))))
+        if re.search(r"(?<![\w-])body\s*\{[^}]*transition", pcss):
+            fail("%s: body has a transition - the theme will half-apply"
+                 % page)
+
+    # Ledger field names, again. A second page reading r.state would be the
+    # same silent bug in a new place.
+    if os.path.isfile(lp):
+        try:
+            have2 = set((json.load(open(lp, encoding="utf-8")).get("records")
+                         or [{}])[0].keys())
+        except ValueError:
+            have2 = set()
+        if have2:
+            derived2 = {"live", "liveR", "livePnl", "liveNote", "settled",
+                        "mine", "base", "open", "closed", "take", "px",
+                        "published", "status", "result", "ref", "R", "pnl",
+                        "riskUsd", "marginUsd", "lev", "mae", "mfe",
+                        "barsToActivate", "barsToResolve"}
+            reads = set()
+            for m in re.finditer(r"\br\.([a-z_][a-zA-Z0-9_]*)", pjs):
+                reads.add(m.group(1))
+            # Only the loader touches raw records on this page.
+            loader = re.search(r"function buildRows\(\)\{.*?\n\}", pjs, re.S)
+            if loader:
+                raw = set(re.findall(r"\br\.([a-z_][a-zA-Z0-9_]*)",
+                                     loader.group(0)))
+                ghost2 = sorted(f for f in raw if f not in have2)
+                if ghost2:
+                    fail("%s reads ledger field(s) no record has: %s"
+                         % (page, ", ".join(ghost2)))
+                else:
+                    good("%s: every raw ledger field it reads exists" % page)
+
+    # Cross-links between pages must resolve to a file that exists.
+    for href in set(re.findall(r'href="([a-z0-9_\-]+\.html)"', ptxt)):
+        if not os.path.isfile(os.path.join(ROOT, href)):
+            fail("%s links to %s which does not exist" % (page, href))
+
+for href in set(re.findall(r'href="([a-z0-9_\-]+\.html)"', html)):
+    if not os.path.isfile(os.path.join(ROOT, href)):
+        fail("index.html links to %s which does not exist" % href)
+
+# --------------------------------------- 11. gap detection agreement
+# The kumo page reimplements kumo_gaps.py in javascript so the browser can
+# find gaps without a server. Two implementations of one definition is two
+# places for it to drift, and a drift here would be invisible: both sides
+# would keep producing plausible bands that quietly disagree. So both are
+# run against the SAME frozen candle series and every band is compared.
+fx = os.path.join(ROOT, "tests", "candles.json")
+kh = os.path.join(ROOT, "kumo.html")
+if not os.path.isfile(fx):
+    note.append("tests/candles.json missing - run tests/make_fixture.py to "
+                "enable the gap agreement check")
+elif not os.path.isfile(kh):
+    pass
+else:
+    try:
+        import kumo_gaps  # noqa: E402
+        fixture = json.load(open(fx, encoding="utf-8"))
+        cndl = fixture["candles"]
+        P = dict(tenkan_p=50, kijun_p=26, senkou_p=52, disp=26, min_pct=0.35)
+        pygaps = kumo_gaps.find_gaps(cndl, **P)
+
+        ktxt = open(kh, encoding="utf-8").read()
+        kjs = "\n".join(re.findall(r"<script[^>]*>(.*?)</script>", ktxt, re.S))
+        parts = []
+        for fn in ("function midSeries", "function cloudSeries",
+                   "function findGaps", "function gapFilled"):
+            m = re.search(re.escape(fn) + r"\(.*?\n\}", kjs, re.S)
+            if not m:
+                parts = None
+                break
+            parts.append(m.group(0))
+        if parts is None:
+            fail("could not lift the gap functions out of kumo.html")
+        else:
+            prog = ("const FX=require(" + json.dumps(fx.replace("\\", "/")) +
+                    ");\n" + "\n".join(parts) + "\n" +
+                    "const g=findGaps(FX.candles,{tenkan:50,kijun:26,"
+                    "senkou:52,disp:26,min:0.35});\n"
+                    "console.log(JSON.stringify(g.map(x=>[+x.lo.toFixed(6),"
+                    "+x.hi.toFixed(6),x.dir,x.i])));")
+            with tempfile.NamedTemporaryFile("w", suffix=".js", delete=False,
+                                             encoding="utf-8") as fh:
+                fh.write(prog)
+                gp = fh.name
+            r = subprocess.run(["node", gp], capture_output=True, text=True)
+            os.unlink(gp)
+            if r.returncode != 0:
+                fail("the javascript gap finder did not run: %s"
+                     % r.stderr.strip()[:300])
+            else:
+                jsg = json.loads(r.stdout.strip())
+                pyg = [[round(g["lo"], 6), round(g["hi"], 6), g["dir"], g["i"]]
+                       for g in pygaps]
+                if len(jsg) != len(pyg):
+                    fail("GAP MISMATCH: python found %d gaps, the page found "
+                         "%d on the same candles" % (len(pyg), len(jsg)))
+                else:
+                    diff = [(a, b) for a, b in zip(pyg, jsg)
+                            if abs(a[0] - b[0]) > 1e-6 or
+                            abs(a[1] - b[1]) > 1e-6 or
+                            a[2] != b[2] or a[3] != b[3]]
+                    if diff:
+                        fail("GAP MISMATCH on %d band(s), first: python %s "
+                             "vs page %s" % (len(diff), diff[0][0], diff[0][1]))
+                    else:
+                        good("gap detection: python and the page find the "
+                             "same %d bands on the same candles, to 6 "
+                             "decimal places" % len(pyg))
+    except Exception as e:
+        fail("gap agreement check could not run: %s: %s"
+             % (type(e).__name__, e))
+
+# ------------------------------------------------------- 12. unit tests
+# The logic tests run from here too, so one command is the whole gate and
+# there is no second thing to remember to run.
+tl = os.path.join(ROOT, "tests", "test_logic.py")
+if os.path.isfile(tl):
+    r = subprocess.run([sys.executable, tl], capture_output=True, text=True,
+                       cwd=ROOT)
+    if r.returncode == 0:
+        n = len(re.findall(r"^  ok    ", r.stdout, re.M))
+        good("unit tests: %d passing (tests/test_logic.py)" % n)
+    else:
+        for line in re.findall(r"^  FAIL  .*$", r.stdout, re.M):
+            fail("unit test" + line[6:])
+        if not re.search(r"^  FAIL  ", r.stdout, re.M):
+            fail("unit tests did not run: " + (r.stderr or r.stdout)[-300:])
+else:
+    note.append("tests/test_logic.py not present")
 
 # -------------------------------------------------------------- report
 print("=" * 70)
