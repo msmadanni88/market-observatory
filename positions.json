@@ -1,0 +1,12 @@
+[
+  {
+    "symbol": "XMRUSDT",
+    "side": "long",
+    "entry": 508,
+    "sl": 468,
+    "tp1": 598,
+    "tp2": 700,
+    "opened": "2026-09-08",
+    "note": "privacy laggard - RSI 72 while ZEC was 86"
+  }
+]

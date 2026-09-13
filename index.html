@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>رصدخانه بازار</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EDEFF1;
+  --panel:#F6F8F9;
+  --grid:#CBD3D9;
+  --rule:#B4C0C8;
+  --ink:#16232E;
+  --soft:#5A6B78;
+  --faint:#8A99A4;
+  --long:#2E6F5E;
+  --short:#7A3F6D;
+  --alert:#A32E2E;
+  --amber:#A87536;
+  --fresh:#2E6F5E;
+  --stale:#A87536;
+  --dead:#A32E2E;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  font-family:'Vazirmatn',system-ui,sans-serif;
+  background:var(--paper);
+  background-image:
+    linear-gradient(var(--grid) 1px,transparent 1px),
+    linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:28px 28px;
+  color:var(--ink);
+  line-height:1.65;
+  padding-bottom:64px;
+}
+.n{font-family:'IBM Plex Mono',monospace;font-variant-numeric:tabular-nums;
+   direction:ltr;unicode-bidi:isolate}
+.wrap{max-width:1120px;margin:0 auto;padding:0 18px}
+:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+
+/* ---------- masthead ---------- */
+header{padding:34px 0 0}
+.title{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+h1{font-size:clamp(21px,3.4vw,29px);font-weight:800;letter-spacing:-.01em}
+.sub{font-size:13.5px;color:var(--soft);font-weight:300}
+
+/* ---------- HERO: freshness ---------- */
+.freshness{
+  margin:20px 0 34px;border:2px solid var(--ink);background:var(--panel);
+}
+.fh{display:flex;justify-content:space-between;align-items:baseline;
+    gap:16px;flex-wrap:wrap;padding:15px 20px 12px}
+.fh b{font-size:15px;font-weight:700}
+.fh .when{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--soft)}
+.bars{display:grid;gap:1px;background:var(--rule);border-top:1px solid var(--rule)}
+.bar{background:var(--panel);padding:11px 20px;display:grid;
+     grid-template-columns:118px 1fr 86px;gap:14px;align-items:center}
+.bar .lbl{font-size:13px;color:var(--soft)}
+.track{height:9px;background:var(--grid);position:relative;overflow:hidden}
+.fill{height:100%;transition:width .5s ease}
+.bar .age{font-family:'IBM Plex Mono',monospace;font-size:12px;text-align:left}
+.verdict{padding:13px 20px;border-top:1px solid var(--rule);font-size:14px}
+.verdict.ok{background:rgba(46,111,94,.09);color:var(--long)}
+.verdict.warn{background:rgba(168,117,54,.11);color:var(--amber)}
+.verdict.bad{background:rgba(163,46,46,.10);color:var(--alert)}
+
+/* ---------- sections ---------- */
+section{margin-bottom:34px}
+h2{font-size:12.5px;font-weight:700;letter-spacing:.1em;
+   padding-bottom:7px;margin-bottom:16px;border-bottom:1px solid var(--ink)}
+
+.split{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:820px){.split{grid-template-columns:1fr}}
+
+/* ---------- today ---------- */
+.today{border:1px solid var(--rule);background:var(--panel);height:100%}
+.today .hd{padding:14px 18px;border-bottom:1px solid var(--rule);
+           font-size:13px;font-weight:700;letter-spacing:.06em}
+.sig{padding:16px 18px}
+.sig .pair{display:flex;align-items:baseline;gap:10px;margin-bottom:10px}
+.sig .sym{font-family:'IBM Plex Mono',monospace;font-size:20px;font-weight:700}
+.sig .dir{font-family:'IBM Plex Mono',monospace;font-size:11px;
+          letter-spacing:.1em;padding:3px 10px;color:#fff}
+.dir.long{background:var(--long)}.dir.short{background:var(--short)}
+.kv{display:flex;justify-content:space-between;padding:5px 0;
+    border-bottom:1px dotted var(--rule);font-size:13.5px}
+.kv:last-child{border-bottom:none}
+.kv b{font-family:'IBM Plex Mono',monospace;font-weight:600}
+.reasons{margin-top:12px;font-size:13px;color:var(--soft)}
+.reasons div{padding:2px 0}
+
+/* the empty state is an output, not a failure */
+.nothing{padding:26px 20px;text-align:center}
+.nothing .mark{font-family:'IBM Plex Mono',monospace;font-size:30px;
+               color:var(--rule);letter-spacing:.14em}
+.nothing p{margin-top:10px;font-size:14px;color:var(--soft);
+           max-width:44ch;margin-inline:auto}
+.nothing .why{margin-top:14px;font-size:12.5px;color:var(--faint)}
+
+/* ---------- positions ---------- */
+.pos{border:1px solid var(--rule);background:var(--panel);
+     border-right:4px solid var(--rule);padding:13px 16px;margin-bottom:10px}
+.pos.up{border-right-color:var(--long)}
+.pos.down{border-right-color:var(--alert)}
+.pos .top{display:flex;justify-content:space-between;align-items:baseline;
+          gap:10px;flex-wrap:wrap}
+.pos .sym{font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:700}
+.pos .pnl{font-family:'IBM Plex Mono',monospace;font-size:17px;font-weight:600}
+.pos .line{font-family:'IBM Plex Mono',monospace;font-size:12.5px;
+           color:var(--soft);margin-top:4px}
+.pos .flag{font-size:12.5px;color:var(--amber);margin-top:5px}
+.ladder{display:flex;height:5px;margin-top:9px;background:var(--grid)}
+.ladder i{display:block;height:100%}
+
+/* ---------- calendar ---------- */
+.ev{display:grid;grid-template-columns:74px 1fr auto;gap:14px;
+    padding:11px 16px;background:var(--panel);border:1px solid var(--rule);
+    margin-bottom:7px;align-items:baseline}
+.ev .cd{font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:600}
+.ev .cd small{font-size:10.5px;font-weight:400;color:var(--soft)}
+.ev .nm{font-size:13.5px}
+.ev .sev{font-family:'IBM Plex Mono',monospace;font-size:10px;
+         letter-spacing:.08em;padding:2px 8px;color:#fff}
+.sev.critical{background:var(--alert)}
+.sev.medium{background:var(--amber)}
+.sev.low{background:var(--faint)}
+
+/* ---------- tables ---------- */
+.tbl{width:100%;border-collapse:collapse;background:var(--panel);
+     font-size:13px;border:1px solid var(--rule)}
+.tbl th,.tbl td{padding:8px 11px;border-bottom:1px solid var(--grid);
+                text-align:right}
+.tbl th{background:rgba(203,211,217,.42);font-size:11.5px;font-weight:700;
+        letter-spacing:.03em}
+.tbl tr:last-child td{border-bottom:none}
+.tbl td.n{font-family:'IBM Plex Mono',monospace}
+.lag{color:var(--long);font-weight:600}
+
+.rank{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));
+      gap:16px}
+.col{border:1px solid var(--rule);background:var(--panel)}
+.col h3{font-size:12.5px;font-weight:700;padding:12px 15px;
+        border-bottom:1px solid var(--rule)}
+.row{padding:9px 15px;border-bottom:1px dotted var(--grid)}
+.row:last-child{border-bottom:none}
+.row .l1{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.row .s{font-family:'IBM Plex Mono',monospace;font-size:13.5px;font-weight:600}
+.row .m{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--soft)}
+.row .l2{font-size:12px;color:var(--faint);margin-top:2px}
+
+/* ---------- narrative ---------- */
+.read{border:1px solid var(--rule);background:var(--panel);padding:20px 22px;
+      font-size:14.2px;white-space:pre-wrap;line-height:1.8;
+      max-width:78ch}
+
+footer{margin-top:34px;padding-top:16px;border-top:1px solid var(--rule);
+       font-size:12.5px;color:var(--soft);font-weight:300}
+footer b{color:var(--ink);font-weight:600}
+
+.loading{padding:50px 0;text-align:center;color:var(--faint);font-size:14px}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+@media(max-width:560px){
+  .bar{grid-template-columns:92px 1fr 68px;gap:9px;padding:10px 14px}
+  .ev{grid-template-columns:64px 1fr;gap:9px}
+  .ev .sev{grid-column:2}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="title">
+    <h1>رصدخانه بازار</h1>
+    <span class="sub">هر عدد سنش را همراه دارد</span>
+  </div>
+</header>
+
+<div id="app"><div class="loading">در حال خواندن آخرین اجرا…</div></div>
+
+<footer>
+  <p><b>این توصیه معاملاتی نیست.</b> نقشه سطوح و تحلیل سناریو است. اعداد اطمینان، امتیاز هم‌گرایی تکنیکال‌اند نه احتمال برد — دفتر هنوز نمونه کافی برای واسنجی ندارد.</p>
+  <p id="src" style="margin-top:8px"></p>
+</footer>
+
+</div>
+
+<script>
+const AGE = [
+  {max: 60*60*6,  cls:'ok',   color:'var(--fresh)'},
+  {max: 60*60*24, cls:'warn', color:'var(--stale)'},
+  {max: Infinity, cls:'bad',  color:'var(--dead)'}
+];
+
+function ageBand(sec){ return AGE.find(a => sec <= a.max); }
+
+function humanAge(sec){
+  if (sec == null || !isFinite(sec)) return '—';
+  if (sec < 90) return Math.round(sec) + ' ثانیه';
+  if (sec < 5400) return Math.round(sec/60) + ' دقیقه';
+  if (sec < 172800) return Math.round(sec/3600) + ' ساعت';
+  return Math.round(sec/86400) + ' روز';
+}
+
+function esc(s){
+  return String(s == null ? '' : s)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function num(v, d){
+  if (v == null || !isFinite(v)) return '—';
+  return Number(v).toLocaleString('en-US',
+    {minimumFractionDigits:d, maximumFractionDigits:d});
+}
+
+async function load(path){
+  try{
+    const r = await fetch(path + '?t=' + Date.now(), {cache:'no-store'});
+    if(!r.ok) return null;
+    return await r.json();
+  }catch(e){ return null; }
+}
+
+function freshnessPanel(brief, uni){
+  const now = Date.now()/1000;
+  const sources = [];
+
+  const bts = brief?.digest?.generated_ts
+    ?? (brief?.digest?.generated_tehran ? Date.parse(
+         brief.digest.generated_tehran.replace(' ','T')+'+03:30')/1000 : null);
+  sources.push({name:'خلاصه روزانه', ts:bts});
+  sources.push({name:'اسکن بازار', ts:uni?.meta?.ts ?? null});
+
+  const pos = brief?.digest?.open_positions || [];
+  if (pos.length) sources.push({name:'قیمت پوزیشن‌ها', ts:bts});
+
+  let worst = 0;
+  const bars = sources.map(s => {
+    const age = s.ts ? Math.max(0, now - s.ts) : null;
+    if (age != null && age > worst) worst = age;
+    const band = ageBand(age ?? Infinity);
+    // bar shrinks as data ages: full at 0, empty at 24h
+    const pct = age == null ? 0 : Math.max(4, 100 - Math.min(100, age/(60*60*24)*100));
+    return `<div class="bar">
+      <span class="lbl">${esc(s.name)}</span>
+      <span class="track"><i class="fill" style="width:${pct}%;background:${band.color}"></i></span>
+      <span class="age">${humanAge(age)}</span>
+    </div>`;
+  }).join('');
+
+  const band = ageBand(worst);
+  const msg = band.cls === 'ok'
+    ? 'داده تازه است. اعداد پایین قابل خواندن‌اند.'
+    : band.cls === 'warn'
+      ? 'کهنه‌تر از یک چرخه. سطوح هنوز معنا دارند ولی قیمت لحظه‌ای را از صرافی خودت بگیر.'
+      : 'داده کهنه است. قبل از هر تصمیمی اجرای تازه بگیر.';
+
+  const when = brief?.digest?.generated_tehran || '—';
+
+  return `<div class="freshness">
+    <div class="fh">
+      <b>وضعیت ابزار</b>
+      <span class="when">آخرین اجرا ${esc(when)} تهران</span>
+    </div>
+    <div class="bars">${bars}</div>
+    <div class="verdict ${band.cls}">${msg}</div>
+  </div>`;
+}
+
+function todayPanel(brief){
+  const sig = (brief?.signals || [])[0];
+  if (!sig){
+    const why = brief?.no_signal_reason
+      || 'هیچ ستاپی از دروازه‌های ورود، ریسک و تقویم رد نشد.';
+    return `<div class="today">
+      <div class="hd">امروز</div>
+      <div class="nothing">
+        <div class="mark">— — —</div>
+        <p>امروز ستاپی وجود ندارد.</p>
+        <div class="why">${esc(why)}</div>
+      </div>
+    </div>`;
+  }
+  const p = sig.position || {};
+  const reasons = (sig.supports||[]).slice(0,4)
+    .map(x => `<div>+ ${esc(x)}</div>`).join('')
+    + (sig.blockers||[]).slice(0,2)
+    .map(x => `<div>− ${esc(x)}</div>`).join('');
+  return `<div class="today">
+    <div class="hd">امروز</div>
+    <div class="sig">
+      <div class="pair">
+        <span class="sym">${esc(sig.symbol)}</span>
+        <span class="dir ${sig.side}">${sig.side === 'long' ? 'LONG' : 'SHORT'}</span>
+        <span class="m n">${esc(sig.tf)}</span>
+      </div>
+      <div class="kv"><span>ورود</span><b>${num(sig.entry,4)}</b></div>
+      <div class="kv"><span>حد ضرر</span><b style="color:var(--alert)">${num(sig.stop,4)}</b></div>
+      <div class="kv"><span>هدف اول</span><b>${num((sig.targets||[])[0],4)}</b></div>
+      <div class="kv"><span>ریسک به ریوارد</span><b>1 : ${num(sig.rr,2)}</b></div>
+      <div class="kv"><span>اهرم محاسبه‌شده</span><b>${num(p.leverage,2)}x</b></div>
+      <div class="kv"><span>اطمینان هم‌گرایی</span><b>${num(sig.confidence,1)}</b></div>
+      <div class="reasons">${reasons}</div>
+    </div>
+  </div>`;
+}
+
+function positionsPanel(brief){
+  const pos = brief?.digest?.open_positions || [];
+  if (!pos.length){
+    return `<div><h2>پوزیشن‌ها</h2>
+      <div class="today"><div class="nothing">
+        <div class="mark">۰</div>
+        <p>پوزیشن بازی ثبت نشده.</p>
+        <div class="why">فایل positions.json را پر کن تا اینجا پایش شوند.</div>
+      </div></div></div>`;
+  }
+  const cards = pos.map(p => {
+    const pnl = p.pnl_pct;
+    const cls = pnl == null ? '' : (pnl >= 0 ? 'up' : 'down');
+    const col = pnl == null ? 'var(--soft)'
+      : (pnl >= 0 ? 'var(--long)' : 'var(--alert)');
+    // where price sits between stop and first target
+    let ladder = '';
+    if (p.price != null && p.sl != null && p.tp1 != null){
+      const lo = Math.min(+p.sl, +p.tp1), hi = Math.max(+p.sl, +p.tp1);
+      const frac = Math.max(0, Math.min(1, (+p.price - lo)/(hi - lo)));
+      const done = (p.side === 'long' ? frac : 1 - frac) * 100;
+      ladder = `<span class="ladder">
+        <i style="width:${done}%;background:${col}"></i></span>`;
+    }
+    const flags = (p.flags||[]).map(f =>
+      `<div class="flag">! ${esc(f)}</div>`).join('');
+    return `<div class="pos ${cls}">
+      <div class="top">
+        <span class="sym">${esc(p.symbol)} ${esc(p.side)}</span>
+        <span class="pnl" style="color:${col}">${pnl==null?'—':(pnl>=0?'+':'')+num(pnl,2)+'%'}</span>
+      </div>
+      <div class="line">ورود ${num(p.entry,4)} · الان ${num(p.price,4)}${
+        p.rr_remaining!=null?' · R:R باقی 1:'+num(p.rr_remaining,2):''}</div>
+      ${ladder}${flags}
+    </div>`;
+  }).join('');
+  return `<div><h2>پوزیشن‌ها</h2>${cards}</div>`;
+}
+
+function calendarPanel(brief){
+  const ev = brief?.digest?.events_next_14d || [];
+  if (!ev.length) return '';
+  return `<section><h2>تقویم</h2>${ev.map(e => `
+    <div class="ev">
+      <span class="cd">${e.days_away}<small> روز</small></span>
+      <span class="nm">${esc(e.label)}${e.note?' — '+esc(e.note):''}</span>
+      <span class="sev ${esc(e.severity)}">${
+        e.severity==='critical'?'بحرانی':e.severity==='medium'?'متوسط':'کم'}</span>
+    </div>`).join('')}</section>`;
+}
+
+function sectorPanel(brief){
+  const s = brief?.digest?.sectors || [];
+  if (!s.length) return '';
+  const rows = s.map(x => `<tr>
+    <td>${esc(x.sector)}</td>
+    <td class="n">${x.median_7d_pct>=0?'+':''}${num(x.median_7d_pct,1)}%</td>
+    <td class="n">${x.median_30d_pct>=0?'+':''}${num(x.median_30d_pct,1)}%</td>
+    <td class="n">${esc(x.leader)} <span class="m">${num(x.leader_rsi,0)}</span></td>
+    <td class="n lag">${esc(x.laggard||'—')} <span class="m">${num(x.laggard_rsi,0)}</span></td>
+  </tr>`).join('');
+  return `<section><h2>روتیشن سکتوری</h2>
+    <table class="tbl">
+      <thead><tr><th>سکتور</th><th>میانه ۷ روز</th><th>میانه ۳۰ روز</th>
+      <th>رهبر</th><th>عقب‌مانده</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table>
+    <p style="margin-top:9px;font-size:12.5px;color:var(--soft)">
+      ستون عقب‌مانده مهم‌ترین ستون این جدول است: عضوی که در روایت شرکت کرده
+      بدون اینکه عمودی شود.</p>
+  </section>`;
+}
+
+function rankPanel(brief){
+  const d = brief?.digest || {};
+  const blocks = [
+    ['کشیده‌ترین', d.most_extended],
+    ['فشرده‌ترین', d.most_compressed],
+    ['روند با فضا', d.trending_with_room]
+  ].filter(b => (b[1]||[]).length);
+  if (!blocks.length) return '';
+  return `<section><h2>رتبه‌بندی بازار</h2><div class="rank">${
+    blocks.map(([title, rows]) => `<div class="col">
+      <h3>${title}</h3>
+      ${rows.slice(0,6).map(r => {
+        const gap = r.gap ? ` · ${esc(r.gap.tf)} gap ${r.gap.dist_pct>=0?'+':''}${num(r.gap.dist_pct,1)}%` : '';
+        return `<div class="row">
+          <div class="l1"><span class="s">${esc(r.sym)}</span>
+          <span class="m">RSI ${num(r.rsi,0)} · ۷ر ${r.d7>=0?'+':''}${num(r.d7,1)}%</span></div>
+          <div class="l2">${esc((r.why||[])[0]||'')}${gap}</div>
+        </div>`;
+      }).join('')}
+    </div>`).join('')}</div></section>`;
+}
+
+function readPanel(brief){
+  const t = brief?.narrative;
+  if (!t){
+    const err = brief?.ai_error;
+    return err ? `<section><h2>خوانش</h2><div class="read"
+      style="color:var(--soft)">لایه قضاوت اجرا نشد: ${esc(err)}</div></section>` : '';
+  }
+  return `<section><h2>خوانش</h2><div class="read">${esc(t)}</div></section>`;
+}
+
+(async function(){
+  const [brief, uni] = await Promise.all([
+    load('brief/brief_latest.json'),
+    load('universe/universe_latest.json')
+  ]);
+
+  const app = document.getElementById('app');
+
+  if (!brief && !uni){
+    app.innerHTML = `<div class="freshness">
+      <div class="fh"><b>هیچ اجرایی پیدا نشد</b></div>
+      <div class="verdict bad">
+        فایل <span class="n">brief/brief_latest.json</span> در این مخزن نیست.
+        در تب Actions یک اجرا بزن، بعد این صفحه را تازه کن.
+      </div></div>`;
+    return;
+  }
+
+  app.innerHTML =
+      freshnessPanel(brief, uni)
+    + `<section><div class="split">`
+    +   todayPanel(brief)
+    +   positionsPanel(brief)
+    + `</div></section>`
+    + calendarPanel(brief)
+    + sectorPanel(brief)
+    + rankPanel(brief)
+    + readPanel(brief);
+
+  const scanned = uni?.meta?.scanned ?? brief?.digest?.scanned;
+  document.getElementById('src').textContent =
+    scanned ? `اسکن ${scanned} قرارداد دائمی از داده عمومی بایننس، تأییدشده در چند صرافی.`
+            : '';
+})();
+</script>
+</body>
+</html>

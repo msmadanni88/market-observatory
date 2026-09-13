@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.env
+.venv/
+venv/
+brief/history/
+universe/history/
+!brief/.gitkeep
+!universe/.gitkeep
+SETUP-RUNBOOK.md

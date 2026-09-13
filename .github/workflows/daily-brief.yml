@@ -1,0 +1,109 @@
+name: daily-brief
+
+# ===========================================================================
+# Runs the whole daily pipeline on GitHub's runners. No server, no cost.
+#
+# Schedule is UTC. Tehran is UTC+3:30, so:
+#   04:30 UTC = 08:00 Tehran   morning brief
+#   13:30 UTC = 17:00 Tehran   pre-US-close check
+#
+# Adjust or delete either line. GitHub skips a scheduled run if the repo has
+# had no activity for 60 days, so the committed history also keeps it alive.
+# ===========================================================================
+
+on:
+  schedule:
+    - cron: "30 4 * * *"
+    - cron: "30 13 * * *"
+  workflow_dispatch:          # lets you run it by hand from the Actions tab
+    inputs:
+      dry_run:
+        description: "Build the brief but send nothing"
+        type: boolean
+        default: false
+      no_ai:
+        description: "Skip the Anthropic call"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write             # needed to commit the archive back
+
+concurrency:
+  group: daily-brief
+  cancel-in-progress: false
+
+jobs:
+  brief:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install
+        run: pip install --quiet requests
+
+      - name: Verify secrets are present
+        env:
+          TG: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          CH: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          if [ -z "$TG" ] || [ -z "$CH" ]; then
+            echo "::error::TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID missing."
+            echo "Add them under Settings -> Secrets and variables -> Actions."
+            exit 1
+          fi
+          echo "secrets present"
+
+      - name: Run brief
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          BRIEF_OUT: ./brief
+        run: |
+          ARGS=""
+          if [ "${{ inputs.dry_run }}" = "true" ]; then ARGS="$ARGS --dry-run"; fi
+          if [ "${{ inputs.no_ai }}" = "true" ]; then ARGS="$ARGS --no-ai"; fi
+          python daily_brief.py $ARGS
+
+      # The committed archive is the append-only ledger from chapter 7.1 of
+      # the knowledge base. Git gives versioning and history for free.
+      - name: Commit archive
+        if: ${{ inputs.dry_run != true }}
+        run: |
+          git config user.name  "daily-brief"
+          git config user.email "actions@users.noreply.github.com"
+          git add brief/ || true
+          if git diff --staged --quiet; then
+            echo "nothing new"
+          else
+            git commit -m "brief $(date -u +%Y-%m-%d)"
+            git push
+          fi
+
+      - name: Upload artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: brief-${{ github.run_number }}
+          path: brief/
+          retention-days: 30
+          if-no-files-found: ignore
+
+      - name: Tell me if it broke
+        if: failure()
+        env:
+          TG: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          CH: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          curl -s -X POST "https://api.telegram.org/bot$TG/sendMessage" \
+            -d chat_id="$CH" \
+            -d text="daily-brief failed. Run ${{ github.run_number }}: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            > /dev/null || true
