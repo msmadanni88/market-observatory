@@ -140,14 +140,14 @@ td.n{font-variant-numeric:tabular-nums}
    fills; they have to be tuned per ground or the cloud swallows the candles. */
 
 /* NIGHT is the bare :root above. */
-body[data-theme="night"]{--bg:#070a10;--pn:#0f151f;--pn2:#151c29;--pn3:#1b2432;
+html[data-theme="night"]{--bg:#070a10;--pn:#0f151f;--pn2:#151c29;--pn3:#1b2432;
   --ln:#232d3f;--tx:#e2e8f2;--dm:#7a879f;--up:#22e0a1;--dn:#ff5a6e;--wn:#ffb444;
   --ac:#7aa2ff;--vi:#b57aff;--head:#101722;--tile:#141b28;--row:#111927;
   --hover:rgba(122,162,255,.10);--marker:#ffffff;
   --cloud-up:rgba(34,224,161,.13);--cloud-dn:rgba(255,90,110,.13);
   --shadow:0 18px 50px rgba(0,0,0,.35)}
 
-body[data-theme="day"]{color-scheme:light;
+html[data-theme="day"]{color-scheme:light;
   --bg:#eef1f6;--pn:#ffffff;--pn2:#f3f6fa;--pn3:#e6ebf3;--ln:#ced7e4;
   --tx:#141a24;--dm:#5d6a7d;--up:#0a7a57;--dn:#c92a43;--wn:#95650a;
   --ac:#2c62d6;--vi:#6b4fd0;--head:#ffffff;--tile:#ffffff;--row:#f7f9fc;
@@ -155,7 +155,7 @@ body[data-theme="day"]{color-scheme:light;
   --cloud-up:rgba(10,122,87,.12);--cloud-dn:rgba(201,42,67,.12);
   --shadow:0 14px 34px rgba(35,50,75,.10)}
 
-body[data-theme="brown"]{color-scheme:dark;
+html[data-theme="brown"]{color-scheme:dark;
   --bg:#1a1008;--pn:#2a1c0f;--pn2:#352413;--pn3:#3f2c18;--ln:#553c22;
   --tx:#f5e9da;--dm:#b39a7d;--up:#4ad6a0;--dn:#ff7a6b;--wn:#f5b942;
   --ac:#e8a850;--vi:#c79bff;--head:#241608;--tile:#31210f;--row:#2f2011;
@@ -163,7 +163,7 @@ body[data-theme="brown"]{color-scheme:dark;
   --cloud-up:rgba(74,214,160,.12);--cloud-dn:rgba(255,122,107,.12);
   --shadow:0 18px 44px rgba(0,0,0,.45)}
 
-body[data-theme="mono"]{color-scheme:light;
+html[data-theme="mono"]{color-scheme:light;
   --bg:#f2f2f2;--pn:#ffffff;--pn2:#f7f7f7;--pn3:#e8e8e8;--ln:#c9c9c9;
   --tx:#101010;--dm:#5e5e5e;--up:#1d6b46;--dn:#a32232;--wn:#7a5c00;
   --ac:#111111;--vi:#4a4a4a;--head:#ffffff;--tile:#ffffff;--row:#fafafa;
@@ -172,8 +172,8 @@ body[data-theme="mono"]{color-scheme:light;
   --shadow:0 12px 28px rgba(0,0,0,.12)}
 /* Mono's one accent is ink, so a selected timeframe cannot rely on a blue
    fill to read as selected - it gets the inverse treatment instead. */
-body[data-theme="mono"] .tf.on{background:#111;color:#fff;border-color:#111}
-body[data-theme="mono"] button.pri{background:#111;color:#fff;border-color:#111}
+html[data-theme="mono"] .tf.on{background:#111;color:#fff;border-color:#111}
+html[data-theme="mono"] button.pri{background:#111;color:#fff;border-color:#111}
 body{background:radial-gradient(circle at 12% -8%,color-mix(in srgb,var(--ac) 10%,transparent),transparent 30%),var(--bg);
   transition:background .2s,color .2s}
 header{background:color-mix(in srgb,var(--head) 94%,transparent);backdrop-filter:blur(14px)}
@@ -214,6 +214,17 @@ tbody tr:hover td{background:var(--hover)}
 .palette-picker [data-theme="day"]{background:linear-gradient(135deg,#fff 50%,#2c62d6 50%)}
 .palette-picker [data-theme="brown"]{background:linear-gradient(135deg,#2a1c0f 50%,#e8a850 50%)}
 .palette-picker [data-theme="mono"]{background:linear-gradient(135deg,#fff 50%,#111 50%)}
+
+/* ---- took-it marker ---- */
+.take-btn{font-size:9px;padding:3px 8px;border-radius:999px;background:var(--pn2);
+  border:1px solid var(--ln);color:var(--dm);cursor:pointer;white-space:nowrap}
+.take-btn:hover{border-color:var(--ac);color:var(--ac)}
+.take-btn.on{background:color-mix(in srgb,var(--ac) 16%,var(--pn2));
+  border-color:var(--ac);color:var(--ac);font-weight:800}
+.take-row{display:flex;align-items:center;gap:8px;margin-top:9px;flex-wrap:wrap;
+  padding-top:8px;border-top:1px solid var(--ln)}
+.take-row .take-btn{font-size:10.5px;padding:5px 12px}
+.take-note{color:var(--dm);font-size:9.5px}
 
 /* ---- simple view ---- */
 #setupLab.simple .adv{display:none!important}
@@ -268,7 +279,11 @@ tbody tr:hover td{background:var(--hover)}
 .summary-pill{padding:5px 9px;border:1px solid var(--ln);border-radius:999px;
   background:var(--pn2);color:var(--dm);font-size:10.5px}
 .summary-pill strong{color:var(--tx);font-variant-numeric:tabular-nums}
-.setup-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:10px}
+/* auto-fill, not auto-fit. With auto-fit a single card swallows the whole row
+   and every level box stretches into a distorted banner; auto-fill keeps the
+   empty tracks so one card is the same width as one of four. */
+.setup-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));
+  gap:10px;align-items:start}
 .setup-card{position:relative;overflow:hidden;padding:13px;border:1px solid var(--ln);
   border-radius:12px;background:linear-gradient(155deg,var(--tile),color-mix(in srgb,var(--pn) 90%,var(--bg)))}
 .setup-card.long{border-top:2px solid var(--up)}.setup-card.short{border-top:2px solid var(--dn)}
@@ -395,8 +410,7 @@ tbody tr:hover td{background:var(--hover)}
     <button data-theme="mono" title="Black and white"></button>
   </div>
   <button id="precision" title="toggle extra price decimals">.00</button>
-  <label class="mini"><input type="checkbox" id="auto" checked> auto</label>
-  <button id="refresh">Refresh</button>
+  <span class="mini" id="pulse" title="the page refreshes itself; this is the last time it heard from the venue">live</span>
 </header>
 
 <main>
@@ -1000,8 +1014,6 @@ async function loadBrief(){
 async function refresh(){
   if(refreshBusy)return;
   refreshBusy=true;
-  const btn=document.getElementById("refresh");
-  btn.disabled=true;btn.textContent="...";
   try{
     if(!venue)await pickVenue();
     await Promise.allSettled([sweepCandles(false),loadBrief()]);
@@ -1009,7 +1021,7 @@ async function refresh(){
     await pollFunding();
     renderTable();renderTiles();renderStatus();renderSetups();
   }catch(e){}
-  finally{btn.disabled=false;btn.textContent="Refresh";refreshBusy=false;}
+  finally{refreshBusy=false;}
 }
 
 /* =====================================================================
@@ -1187,7 +1199,7 @@ function paintPrices(){
 
 let _cssCache={},_cssTheme=null;
 function cssVar(name){
-  if(_cssTheme!==document.body.dataset.theme){_cssCache={};_cssTheme=document.body.dataset.theme;}
+  if(_cssTheme!==document.documentElement.dataset.theme){_cssCache={};_cssTheme=document.documentElement.dataset.theme;}
   if(_cssCache[name]==null)
     _cssCache[name]=getComputedStyle(document.body).getPropertyValue(name).trim();
   return _cssCache[name];
@@ -1483,6 +1495,40 @@ function liveState(sig,plan,publishedTs){
   if(r.state==="pending"&&rec&&rec.status==="active")r.state="active";
   return r;
 }
+/* The committed ledger is only as fresh as the last run, which is up to
+   twelve hours old. Replaying each open record against the candles here is
+   what stops the archive from insisting a signal is PENDING hours after the
+   market already settled it. The file stays the record of truth; this is the
+   same arithmetic run forward to now. */
+function recordLive(rec){
+  if(["win","loss","expired","invalidated"].includes(rec.status))
+    return {state:rec.status,resultR:rec.result_r,mfe:rec.mfe_r,mae:rec.mae_r,
+      note:rec.resolve_note||"",settled:true};
+  const plan={side:rec.side,entry:rec.entry,stop:rec.stop,
+    targets:rec.targets||[]};
+  const r=resolveLive({symbol:rec.symbol,tf:rec.tf,entry_zone:rec.entry_zone},
+    plan,rec.published_ts);
+  if(r.state==="pending"&&rec.status==="active")r.state="active";
+  r.settled=false;
+  if(r.mae==null&&rec.mae_r!=null)r.mae=rec.mae_r;
+  if(r.mfe==null&&rec.mfe_r!=null)r.mfe=rec.mfe_r;
+  return r;
+}
+
+/* Who actually took the trade. Kept per viewer in this browser: a page served
+   as static files has nowhere shared to write, so this counts YOUR takes
+   honestly rather than inventing a crowd number it cannot know. */
+function takes(){
+  try{return JSON.parse(localStorage.getItem(LS+"_takes"))||{};}catch(e){return {};}
+}
+function setTake(id,on,meta){
+  const t=takes();
+  if(on)t[id]=Object.assign({ts:Date.now()/1000},meta||{});
+  else delete t[id];
+  try{localStorage.setItem(LS+"_takes",JSON.stringify(t));}catch(e){}
+}
+function tookIt(id){return !!takes()[id];}
+
 function stateLabel(v){return String(v||"pending").replace(/_/g," ").toUpperCase();}
 function outcomeLine(x){
   const r=x.res||{};
@@ -1592,6 +1638,11 @@ function renderSetups(){
 
   shown.forEach((x,i)=>{
     const sig=x.sig,p=x.plan,key=sig.symbol+"|"+sig.tf;
+    // Prefer the ledger's id so a take survives into the archive; fall back to
+    // a stable key for a signal the ledger has not filed yet.
+    const lrec=ledgerRecordFor(sig);
+    const takeId=(lrec&&lrec.id)||(key+"|"+sig.side+"@"+(pubTs||0));
+    const mineNow=tookIt(takeId);
     const open=(s.open_details||[]).includes(key);
     const px=(live[sig.symbol]||{}).price;
     const dist=(px!=null)?Math.abs(p.entry-px)/px*100:sig.entry_distance_pct;
@@ -1643,6 +1694,13 @@ function renderSetups(){
       'x</strong></span></div>'+
       (p.capped?'<div class="setup-warning">&#9888; Size capped by the margin and '+
       'leverage budget, so the real risk is below the one requested.</div>':'')+
+      '<div class="take-row"><button class="take-btn'+(mineNow?" on":"")+
+      '" data-take="'+esc(takeId)+'">'+(mineNow?"&#10003; I took this":"I took this")+
+      '</button><span class="take-note">'+
+      (x.res&&x.res.mae!=null?'drawdown so far <b class="r">'+x.res.mae.toFixed(2)+
+        'R</b> against'+(x.res.mfe!=null?' &middot; best '+x.res.mfe.toFixed(2)+'R in favour':'')
+       :'no drawdown yet &mdash; the entry has not been touched')+
+      '</span></div>'+
       '<div class="signal-chart-wrap adv"><div class="signal-chart-head">'+
       '<span>Live chart &middot; entry, stop and target against the market now</span><b>'+
       esc(stateLabel(x.st))+'</b></div>'+
@@ -1681,66 +1739,120 @@ function renderArchive(){
     return '<section class="signal-archive"><div class="archive-empty">'+
       'The ledger has not been written yet. It appears after the first real run.'+
       '</div></section>';
-  const recs=ledger.records||[],af=state.setup;
+  const af=state.setup;
+  // Every record is replayed to now before anything is counted or filtered.
+  const recs=(ledger.records||[]).map(r=>{
+    const live=recordLive(r);
+    return Object.assign({},r,{live:live.state,liveR:live.resultR,
+      liveMfe:live.mfe,liveMae:live.mae,liveNote:live.note||r.resolve_note||"",
+      settled:live.settled,mine:tookIt(r.id)});
+  });
+  // Anything still open needs its candles to settle; pull them once, quietly.
+  const need=recs.filter(r=>!r.settled&&!candles[r.symbol+"|"+r.tf]);
+  if(need.length)Promise.all(need.slice(0,8).map(r=>ensureSeries(r.symbol,r.tf)))
+    .then(got=>{if(got.some(Boolean))renderSetups();});
+
   const symbols=[...new Set(recs.map(r=>r.symbol).filter(Boolean))].sort();
   const styles=[...new Set(recs.map(r=>r.tf).filter(Boolean))].sort();
   const opt=(v,label,sel)=>'<option value="'+esc(v)+'"'+(v===sel?" selected":"")+'>'+
     esc(label)+'</option>';
   const filtered=recs.filter(r=>
     (af.archive_symbol==="all"||r.symbol===af.archive_symbol)&&
-    (af.archive_status==="all"||r.status===af.archive_status)&&
-    (af.archive_style==="all"||r.tf===af.archive_style));
+    (af.archive_status==="all"||r.live===af.archive_status)&&
+    (af.archive_style==="all"||r.tf===af.archive_style)&&
+    (!af.mine_only||r.mine));
   const openSet=new Set(af.open_archive||[]);
-  const card=(label,row)=>'<div class="winrate-card"><small>'+esc(label)+'</small><b>'+
-    rateText(row&&row.win_rate)+'</b><span>'+Number((row&&row.wins)||0)+'W / '+
-    Number((row&&row.losses)||0)+'L</span></div>';
+
+  const rate=list=>{
+    const w=list.filter(r=>r.live==="win").length;
+    const l=list.filter(r=>r.live==="loss").length;
+    const rs=list.filter(r=>r.liveR!=null&&["win","loss"].includes(r.live))
+      .map(r=>r.liveR);
+    const dd=list.filter(r=>r.liveMae!=null).map(r=>r.liveMae);
+    return {wins:w,losses:l,trades:w+l,
+      win_rate:(w+l)?w/(w+l)*100:null,
+      expectancy:rs.length?rs.reduce((a,b)=>a+b,0)/rs.length:null,
+      worstDD:dd.length?Math.max.apply(null,dd):null,
+      avgDD:dd.length?dd.reduce((a,b)=>a+b,0)/dd.length:null};
+  };
+  const overall=rate(recs), mine=rate(recs.filter(r=>r.mine));
+  const card=(label,row,hint)=>'<div class="winrate-card"><small>'+esc(label)+
+    '</small><b>'+rateText(row.win_rate)+'</b><span>'+row.wins+'W / '+row.losses+
+    'L'+(hint?' · '+esc(hint):'')+'</span></div>';
 
   let h='<section class="signal-archive"><div class="archive-head">'+
     '<div><h4>Signal archive &amp; measured win rate</h4>'+
     '<div class="mini">Tracking since '+esc(ledger.tracking_since||"the first run")+
-    ' &middot; first target versus stop, after the entry was actually touched</div></div>'+
+    ' &middot; every published signal stays here until it settles into a win, a '+
+    'loss, or a plan that was never fillable</div></div>'+
     '<div class="archive-filters adv">'+
+    '<label class="sound-toggle"><input type="checkbox" id="arMine"'+
+    (af.mine_only?" checked":"")+'> only the ones I took</label>'+
     '<select id="arSym">'+opt("all","All currencies",af.archive_symbol)+
       symbols.map(v=>opt(v,coinBase(v),af.archive_symbol)).join("")+'</select>'+
     '<select id="arSt">'+["all","pending","active","win","loss","invalidated","expired"]
-      .map(v=>opt(v,v==="all"?"All states":stateLabel(v),af.archive_status)).join("")+'</select>'+
+      .map(v=>opt(v,v==="all"?"All states":stateLabel(v),af.archive_status)).join("")+
+    '</select>'+
     '<select id="arTf">'+opt("all","All timeframes",af.archive_style)+
       styles.map(v=>opt(v,v,af.archive_style)).join("")+'</select></div></div>';
 
-  const o=ledger.overall||{};
-  h+='<div class="winrate-grid">'+card("Overall",o);
-  (ledger.by_symbol||[]).filter(x=>x.trades).slice(0,4).forEach(x=>h+=card(coinBase(x.name),x));
-  (ledger.by_style||[]).filter(x=>x.trades).slice(0,3).forEach(x=>h+=card(x.name,x));
+  h+='<div class="winrate-grid">'+card("Every signal",overall)+
+    card("Only the ones I took",mine,mine.trades?"":"none closed yet")+
+    '<div class="winrate-card"><small>Worst drawdown</small><b>'+
+    (overall.worstDD==null?"--":overall.worstDD.toFixed(2)+"R")+
+    '</b><span>deepest move against an entry</span></div>'+
+    '<div class="winrate-card"><small>Average drawdown</small><b>'+
+    (overall.avgDD==null?"--":overall.avgDD.toFixed(2)+"R")+
+    '</b><span>across every activated signal</span></div>';
+  ["win","loss","active","pending","invalidated","expired"].forEach(k=>{
+    const n=recs.filter(r=>r.live===k).length;
+    if(n)h+='<div class="winrate-card"><small>'+esc(stateLabel(k))+
+      '</small><b>'+n+'</b><span>signals</span></div>';
+  });
   h+='</div>';
-  if(o.trades===0)
-    h+='<div class="archive-empty">'+Number(o.open||0)+' signal(s) are being tracked and '+
-      'none has resolved yet. A win rate needs closed trades, so none is shown &mdash; '+
-      'a bold number over an empty sample would be the most misleading thing here.</div>';
+
+  if(!overall.trades)
+    h+='<div class="archive-empty">'+recs.filter(r=>!r.settled).length+
+      ' signal(s) are still open and none has closed yet. A win rate needs '+
+      'closed trades, so none is shown &mdash; a bold number over an empty '+
+      'sample would be the most misleading thing here.</div>';
 
   if(!filtered.length)
-    h+='<div class="archive-empty">No archived signal matches these filters yet.</div>';
+    h+='<div class="archive-empty">No signal matches these filters yet.</div>';
   else{
     h+='<div class="archive-scroll adv"><table class="archive-table"><thead><tr>'+
-      '<th>Published</th><th>Market</th><th>TF</th><th>Strategy</th><th>Side</th>'+
-      '<th>State</th><th>Result</th><th>Confidence</th><th>R</th></tr></thead><tbody>';
-    filtered.slice(0,300).forEach(r=>{
+      '<th>Published</th><th>Market</th><th>TF</th><th>Side</th><th>State</th>'+
+      '<th>Result</th><th>R</th><th>Drawdown</th><th>Conf</th><th>Took it</th>'+
+      '</tr></thead><tbody>';
+    filtered.slice(0,400).forEach(r=>{
       const isOpen=openSet.has(r.id);
-      h+='<tr class="archive-row" data-ar="'+esc(r.id)+'" title="Click to see this signal '+
-        'on the live chart"><td>'+esc(r.published_time_tehran||"--")+'</td>'+
+      h+='<tr class="archive-row" data-ar="'+esc(r.id)+'" title="Click for the '+
+        'levels and the chart"><td>'+esc(r.published_time_tehran||"--")+'</td>'+
         '<td><b>'+esc(coinBase(r.symbol))+'</b></td><td>'+esc(r.tf||"")+'</td>'+
-        '<td>'+esc(r.strategy||"--")+'</td>'+
         '<td>'+esc(String(r.side||"--").toUpperCase())+'</td>'+
-        '<td class="'+esc(r.status||"")+'"><b>'+esc(stateLabel(r.status))+'</b></td>'+
-        '<td>'+esc(r.result||"open")+'</td><td>'+F(r.confidence,0)+'</td>'+
-        '<td>'+F(r.result_r,2)+'</td></tr>'+
-        '<tr class="archive-detail"'+(isOpen?"":" hidden")+'><td colspan="9">'+
+        '<td class="'+esc(r.live)+'"><b>'+esc(stateLabel(r.live))+'</b>'+
+        (r.settled?"":'<span class="d" title="settled here from the candles '+
+          'since the last run"> *</span>')+'</td>'+
+        '<td>'+esc(r.live==="pending"||r.live==="active"?"open":(r.result||"--"))+'</td>'+
+        '<td>'+F(r.liveR,2)+'</td>'+
+        '<td class="'+(r.liveMae>1?"r":"d")+'">'+
+        (r.liveMae==null?"--":r.liveMae.toFixed(2)+"R")+'</td>'+
+        '<td>'+F(r.confidence,0)+'</td>'+
+        '<td><button class="take-btn'+(r.mine?" on":"")+'" data-take="'+esc(r.id)+
+        '" title="Mark that you actually opened this position">'+
+        (r.mine?"&#10003; mine":"take")+'</button></td></tr>'+
+        '<tr class="archive-detail"'+(isOpen?"":" hidden")+'><td colspan="10">'+
         '<div class="archive-signal-levels"><span>Entry <b>'+FP(r.entry)+'</b></span>'+
         '<span>SL <b class="r">'+FP(r.stop)+'</b></span>'+
         (r.targets||[]).map((v,i)=>'<span>TP'+(i+1)+' <b class="g">'+FP(v)+
         '</b></span>').join("")+
-        (r.resolve_note?'<span class="d">'+esc(r.resolve_note)+'</span>':'')+'</div>'+
+        (r.liveMfe!=null?'<span>best <b class="g">'+r.liveMfe.toFixed(2)+
+          'R</b></span>':'')+
+        (r.liveMae!=null?'<span>drawdown <b class="r">'+r.liveMae.toFixed(2)+
+          'R</b></span>':'')+
+        (r.liveNote?'<span class="d">'+esc(r.liveNote)+'</span>':'')+'</div>'+
         '<div class="signal-chart-wrap"><div class="signal-chart-head">'+
-        '<span>Archived signal on the live chart</span><b>'+esc(stateLabel(r.status))+
+        '<span>This signal on the live chart</span><b>'+esc(stateLabel(r.live))+
         '</b></div><canvas class="signal-chart" data-arsig="'+esc(r.id)+
         '"></canvas></div></td></tr>';
     });
@@ -1753,6 +1865,14 @@ function bindArchive(root){
   const bind=(id,key)=>{const el=root.querySelector("#"+id);
     if(el)el.onchange=()=>{state.setup[key]=el.value;save();renderSetups();};};
   bind("arSym","archive_symbol");bind("arSt","archive_status");bind("arTf","archive_style");
+  const mine=root.querySelector("#arMine");
+  if(mine)mine.onchange=()=>{state.setup.mine_only=mine.checked;save();renderSetups();};
+  root.querySelectorAll("[data-take]").forEach(b=>b.onclick=ev=>{
+    ev.stopPropagation();
+    const id=b.dataset.take;
+    setTake(id,!tookIt(id));
+    renderSetups();
+  });
   root.querySelectorAll("[data-ar]").forEach(row=>row.onclick=()=>{
     const set=new Set(state.setup.open_archive||[]),id=row.dataset.ar;
     if(set.has(id))set.delete(id);else set.add(id);
@@ -1904,6 +2024,7 @@ document.getElementById("viewToggle").onclick=()=>{
 function applyTheme(name){
   const allowed=["night","day","brown","mono"];
   state.theme=allowed.includes(name)?name:"night";
+  document.documentElement.dataset.theme=state.theme;
   document.body.dataset.theme=state.theme;
   document.querySelectorAll("#palettePicker button").forEach(b=>
     b.classList.toggle("active",b.dataset.theme===state.theme));
@@ -1945,7 +2066,6 @@ document.getElementById("fromBrief").onclick=()=>{
   save();renderSymbols();renderTable();renderTiles();
   void sweepCandles(false).then(()=>{pollPrices();renderTable();renderTiles();});
 };
-document.getElementById("refresh").onclick=refresh;
 ["every","bars"].forEach(id=>{
   const el=document.getElementById(id);
   if(state[id]!=null)el.value=state[id];
@@ -1956,36 +2076,80 @@ window.addEventListener("resize",()=>{syncStickyTop();repaintCharts();});
 if(window.ResizeObserver)
   new ResizeObserver(syncStickyTop).observe(document.querySelector("body>header"));
 
-/* The three loops. Prices and the countdown run every second so the panel
-   feels alive; candles refresh on the cycle field; the brief is only
-   rewritten twice a day, so re-reading it every five minutes is plenty. */
+/* The loops. There is no auto checkbox and no Refresh button any more: a panel
+   you have to poke is a panel that is quietly wrong whenever you forget. It
+   runs itself, it says out loud when it last heard from the venue, and it
+   repairs itself when the connection comes back. */
+let lastTick=0, lastPriceOk=0;
+
+function pulse(){
+  const el=document.getElementById("pulse");
+  if(!el)return;
+  const age=lastPriceOk?Math.round(Date.now()/1000-lastPriceOk):null;
+  if(!venue){el.textContent="reconnecting";el.className="mini r";return;}
+  if(age==null){el.textContent="starting";el.className="mini d";return;}
+  if(age<=5){el.textContent="live";el.className="mini g";}
+  else if(age<30){el.textContent="live "+age+"s";el.className="mini w";}
+  else {el.textContent="stalled "+age+"s";el.className="mini r";}
+}
+
+async function tickPrices(){
+  if(document.hidden)return;          // a hidden tab burns the venue's rate limit for nothing
+  const before=lastPriceOk;
+  await pollPrices();
+  if(Object.keys(live).length)lastPriceOk=Date.now()/1000;
+  // No venue, or nothing has arrived for half a minute: re-probe rather than
+  // sit there showing a frozen price as if it were current.
+  if(!venue||(lastPriceOk===before&&Date.now()/1000-lastPriceOk>30)){
+    await pickVenue();
+    if(venue){renderTfs();await sweepCandles(true);renderTable();renderTiles();}
+  }
+  pulse();
+}
+
 setInterval(()=>{
-  tickClock();
+  tickClock();pulse();
   document.querySelectorAll("[data-countdown]").forEach(el=>{
     el.textContent=barRemaining(el.dataset.countdown);});
 },1000);
-setInterval(()=>{if(document.getElementById("auto").checked)void pollPrices();},1000);
+setInterval(()=>{void tickPrices();},1000);
 setInterval(()=>{
-  if(!document.getElementById("auto").checked)return;
+  if(document.hidden)return;
   const every=Math.max(5,Number(state.every)||20)*1000;
   if(Date.now()-lastCandleSweep<every)return;
   void sweepCandles(false).then(changed=>{
     if(changed){renderTable();renderTiles();}
   });
 },5000);
-setInterval(()=>{if(document.getElementById("auto").checked)void pollFunding();},120000);
+setInterval(()=>{if(!document.hidden)void pollFunding();},120000);
 setInterval(()=>{
-  if(!document.getElementById("auto").checked)return;
+  if(document.hidden)return;
   const was=((brief||{}).digest||{}).generated_ts;
   const wasLedger=(ledger||{}).updated_ts;
   void loadBrief().then(()=>{
     renderStatus();
-    // Only rebuild the lab when a new brief actually landed. Otherwise the
-    // filters, the open details and the scroll position all reset for nothing.
     if(((brief||{}).digest||{}).generated_ts!==was||(ledger||{}).updated_ts!==wasLedger)
       renderSetups();
   });
-},300000);
+},180000);
+// The open signals are re-settled against the candles every half minute, so a
+// stop that was hit ten minutes ago does not keep reading PENDING until the
+// next scheduled run writes it down.
+setInterval(()=>{if(!document.hidden&&brief)renderSetups();},30000);
+
+// Coming back from a sleeping laptop or a dropped connection is exactly when a
+// dashboard is most likely to be silently stale, so both are handled directly.
+document.addEventListener("visibilitychange",()=>{
+  if(!document.hidden)void (async()=>{
+    if(!venue)await pickVenue();
+    await tickPrices();await sweepCandles(false);
+    renderTable();renderTiles();renderSetups();renderStatus();
+  })();
+});
+window.addEventListener("online",()=>{void (async()=>{
+  await pickVenue();await sweepCandles(true);await tickPrices();
+  renderTable();renderTiles();renderStatus();
+})();});
 
 (async function boot(){
   applyTheme(state.theme);paintPrecisionButton();syncSetupControls();applyView();

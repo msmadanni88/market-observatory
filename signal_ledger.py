@@ -336,6 +336,36 @@ def _csv_row(r):
     }
 
 
+def _append_history(path, records):
+    """Append-only log of every signal that has reached a final state.
+
+    One JSON object per line, never rewritten, never reordered. The working
+    ledger is a view that can be trimmed; this file is the evidence. A record
+    is written once, the first time it settles - ids already present are
+    skipped, so re-running is safe.
+    """
+    settled = [r for r in records if r.get("status") not in OPEN_STATES]
+    if not settled:
+        return
+    seen = set()
+    if os.path.exists(path):
+        with open(path, "r", encoding="utf-8") as fh:
+            for line in fh:
+                line = line.strip()
+                if not line:
+                    continue
+                try:
+                    seen.add(json.loads(line).get("id"))
+                except ValueError:
+                    continue
+    fresh = [r for r in settled if r.get("id") not in seen]
+    if not fresh:
+        return
+    with open(path, "a", encoding="utf-8") as fh:
+        for r in sorted(fresh, key=lambda x: x.get("published_ts") or 0):
+            fh.write(json.dumps(r, ensure_ascii=False) + "\n")
+
+
 def _write_csv(path, records):
     import csv
     tmp = path + ".tmp"
@@ -360,13 +390,21 @@ def _grouped(records, field):
     return rows
 
 
-def update(signals, path="brief/signals.json", now=None, quiet=True, dry_run=False):
+def update(signals, path="brief/signals.json", now=None, quiet=True,
+           dry_run=False, published_ts=None):
     """Record this run's signals, resolve the open ones, return the archive.
 
     Called once per run. Safe to call on a dry run - it will resolve and report
     but write nothing, so a test never pollutes the record.
     """
     now = now or time.time()
+    # When the signal was PUBLISHED, which is not when the ledger happens to
+    # run. The dashboard replays each signal from the brief's own timestamp; if
+    # the ledger stamped its own clock instead, the two would replay different
+    # windows and disagree about the same trade - one saying LOSS and the other
+    # INVALIDATED, which is exactly the kind of quiet contradiction that makes
+    # a record worthless.
+    pub = float(published_ts or now)
     data = _load(path)
     records = data.get("records") or []
     if not data.get("tracking_since"):
@@ -390,7 +428,7 @@ def update(signals, path="brief/signals.json", now=None, quiet=True, dry_run=Fal
             rec["republished"] = int(rec.get("republished") or 1) + 1
             rec["confidence"] = sig.get("confidence", rec.get("confidence"))
             continue
-        rec = _new_record(sig, now)
+        rec = _new_record(sig, pub)
         records.append(rec)
         by_key[k] = rec
         added += 1
@@ -413,13 +451,23 @@ def update(signals, path="brief/signals.json", now=None, quiet=True, dry_run=Fal
             resolved += 1
 
     records.sort(key=lambda r: -(r.get("published_ts") or 0))
-    # Cap the file so the repo does not grow without bound. Open records are
-    # never dropped, however old - an unresolved trade is not noise.
+
+    # Nothing is ever thrown away. The working file is capped so the dashboard
+    # stays quick to load, but every record that settles is appended to an
+    # append-only log first. A published signal that quietly vanished from the
+    # history would make the whole win rate unfalsifiable.
+    if not dry_run:
+        try:
+            _append_history(os.path.join(os.path.dirname(path) or ".",
+                                         "history.jsonl"), records)
+        except OSError:
+            pass
+
     keep, closed = [], 0
     for r in records:
         if r.get("status") in OPEN_STATES:
             keep.append(r)
-        elif closed < 600:
+        elif closed < 2000:
             keep.append(r)
             closed += 1
     records = keep

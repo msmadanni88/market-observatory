@@ -678,7 +678,9 @@ def main():
         import signal_ledger
         archive = signal_ledger.update(
             signals, path=os.path.join(args.out, "signals.json"),
-            now=time.time(), quiet=not getattr(args, "verbose", False),
+            now=time.time(),
+            published_ts=digest.get("generated_ts"),
+            quiet=not getattr(args, "verbose", False),
             dry_run=bool(args.dry_run))
     except Exception as exc:
         print(f"  ledger skipped: {type(exc).__name__}: {exc}")

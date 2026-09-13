@@ -1,7 +1,7 @@
 {
  "records": [
   {
-   "id": "HYPEUSDT|30m|short@1789312487",
+   "id": "HYPEUSDT|30m|short@1789308927",
    "key": "HYPEUSDT|30m|short",
    "symbol": "HYPEUSDT",
    "tf": "30m",
@@ -22,20 +22,20 @@
    "rr": 2.5,
    "atr": 0.52099873,
    "risk_per_unit": 0.7814980999999932,
-   "published_ts": 1789312487.51539,
-   "published_time_tehran": "2026-09-13 18:44 Tehran",
-   "last_seen_ts": 1789312487.51539,
+   "published_ts": 1789308927.3207617,
+   "published_time_tehran": "2026-09-13 17:45 Tehran",
+   "last_seen_ts": 1789308927.3207617,
    "republished": 1,
-   "activated_ts": null,
-   "activated_time_tehran": null,
+   "activated_ts": 1789309800,
+   "activated_time_tehran": "2026-09-13 18:00 Tehran",
    "resolved_ts": null,
-   "status": "pending",
+   "status": "active",
    "result": "open",
    "result_r": null,
    "resolve_note": "",
-   "mfe_r": null,
-   "mae_r": null,
-   "bars_to_activate": null,
+   "mfe_r": 0.351,
+   "mae_r": 0.584,
+   "bars_to_activate": 1,
    "bars_to_resolve": null,
    "supports": [
     "structure bearish",
@@ -79,7 +79,7 @@
    }
   },
   {
-   "id": "SOLUSDT|30m|short@1789312487",
+   "id": "SOLUSDT|30m|short@1789308927",
    "key": "SOLUSDT|30m|short",
    "symbol": "SOLUSDT",
    "tf": "30m",
@@ -101,20 +101,20 @@
    "rr": 1.94,
    "atr": 0.36326771,
    "risk_per_unit": 0.5449015599999996,
-   "published_ts": 1789312487.51539,
-   "published_time_tehran": "2026-09-13 18:44 Tehran",
-   "last_seen_ts": 1789312487.51539,
+   "published_ts": 1789308927.3207617,
+   "published_time_tehran": "2026-09-13 17:45 Tehran",
+   "last_seen_ts": 1789308927.3207617,
    "republished": 1,
-   "activated_ts": null,
-   "activated_time_tehran": null,
+   "activated_ts": 1789311600,
+   "activated_time_tehran": "2026-09-13 18:30 Tehran",
    "resolved_ts": null,
-   "status": "pending",
+   "status": "active",
    "result": "open",
    "result_r": null,
    "resolve_note": "",
-   "mfe_r": null,
-   "mae_r": null,
-   "bars_to_activate": null,
+   "mfe_r": 0.413,
+   "mae_r": 0.504,
+   "bars_to_activate": 2,
    "bars_to_resolve": null,
    "supports": [
     "structure bearish",
@@ -163,7 +163,7 @@
    }
   },
   {
-   "id": "BTCUSDT|15m|short@1789312487",
+   "id": "BTCUSDT|15m|short@1789308927",
    "key": "BTCUSDT|15m|short",
    "symbol": "BTCUSDT",
    "tf": "15m",
@@ -185,21 +185,21 @@
    "rr": 2.5,
    "atr": 126.88138155,
    "risk_per_unit": 190.3220723400009,
-   "published_ts": 1789312487.51539,
-   "published_time_tehran": "2026-09-13 18:44 Tehran",
-   "last_seen_ts": 1789312487.51539,
+   "published_ts": 1789308927.3207617,
+   "published_time_tehran": "2026-09-13 17:45 Tehran",
+   "last_seen_ts": 1789308927.3207617,
    "republished": 1,
    "activated_ts": null,
    "activated_time_tehran": null,
-   "resolved_ts": null,
-   "status": "pending",
-   "result": "open",
+   "resolved_ts": 1789309800,
+   "status": "invalidated",
+   "result": "gapped past the entry",
    "result_r": null,
-   "resolve_note": "",
+   "resolve_note": "price passed the stop without ever trading through the entry zone",
    "mfe_r": null,
    "mae_r": null,
    "bars_to_activate": null,
-   "bars_to_resolve": null,
+   "bars_to_resolve": 0,
    "supports": [
     "below cloud",
     "future cloud red",
@@ -245,16 +245,16 @@
    }
   }
  ],
- "tracking_since": "2026-09-13 18:44 Tehran",
+ "tracking_since": "2026-09-13 19:37 Tehran",
  "overall": {
   "trades": 0,
   "wins": 0,
   "losses": 0,
   "win_rate": null,
   "expectancy_r": null,
-  "open": 3,
+  "open": 2,
   "expired": 0,
-  "invalidated": 0
+  "invalidated": 1
  },
  "by_symbol": [
   {
@@ -263,9 +263,9 @@
    "losses": 0,
    "win_rate": null,
    "expectancy_r": null,
-   "open": 1,
+   "open": 0,
    "expired": 0,
-   "invalidated": 0,
+   "invalidated": 1,
    "name": "BTCUSDT"
   },
   {
@@ -298,9 +298,9 @@
    "losses": 0,
    "win_rate": null,
    "expectancy_r": null,
-   "open": 1,
+   "open": 0,
    "expired": 0,
-   "invalidated": 0,
+   "invalidated": 1,
    "name": "15m"
   },
   {
@@ -322,12 +322,12 @@
    "losses": 0,
    "win_rate": null,
    "expectancy_r": null,
-   "open": 3,
+   "open": 2,
    "expired": 0,
-   "invalidated": 0,
+   "invalidated": 1,
    "name": "Trend Continuation"
   }
  ],
- "updated_tehran": "2026-09-13 18:44 Tehran",
- "updated_ts": 1789312487.51539
+ "updated_tehran": "2026-09-13 19:37 Tehran",
+ "updated_ts": 1789315633.401959
 }
