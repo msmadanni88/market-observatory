@@ -67,17 +67,21 @@ def _save(path, data):
 
 
 def _key(sig):
-    """Identifies the same setup across runs.
+    """Identifies the same idea across runs.
 
-    The engine re-publishes a live setup every run while it is still valid. The
-    entry is rounded because the level drifts a few ticks between runs as ATR
-    updates - without that, one setup would enter the ledger twice a day and
-    every rate would be computed over duplicates.
+    Market, timeframe and side - deliberately not the entry. The engine
+    re-publishes a live setup every run and the entry drifts a few ticks each
+    time as ATR updates; keying on it filed the same HYPE short twice and
+    every rate would then be computed over duplicates. You cannot hold two
+    shorts on the same market and timeframe at once, so one open record per
+    key is the honest model.
+
+    A republished setup keeps its ORIGINAL levels. Following the drift would
+    mean the outcome could not be attributed to anything that was actually
+    published.
     """
-    entry = sig.get("entry")
-    tag = "%.6g" % entry if isinstance(entry, (int, float)) else "?"
     return "|".join([str(sig.get("symbol")), str(sig.get("tf")),
-                     str(sig.get("side")), tag])
+                     str(sig.get("side"))])
 
 
 def _tehran(ts):
@@ -116,6 +120,23 @@ def _new_record(sig, ts):
         "result": "open",
         "result_r": None,
         "resolve_note": "",
+        # Excursions in R. The pair is what separates "the stop was badly
+        # placed" from "the idea was wrong": a trade that went 1.8R in favour
+        # before stopping out failed at management, not at entry.
+        "mfe_r": None,
+        "mae_r": None,
+        "bars_to_activate": None,
+        "bars_to_resolve": None,
+        # Everything the engine saw at publication time, kept verbatim. This is
+        # the feature row: without it the outcome column has nothing to learn
+        # from, and reconstructing the state afterwards is guesswork.
+        "supports": list(sig.get("supports") or []),
+        "warnings": list(sig.get("warnings") or []),
+        "blockers": list(sig.get("blockers") or []),
+        "entry_distance_pct": sig.get("entry_distance_pct"),
+        "entry_distance_atr": sig.get("entry_distance_atr"),
+        "context": dict(sig.get("context") or {}),
+        "position_at_publish": dict(sig.get("position") or {}),
     }
 
 
@@ -162,55 +183,83 @@ def _walk(rec, bars):
     if None in (lo_z, hi_z, stop) or tp1 is None:
         return rec
 
+    entry = rec.get("entry")
+    risk = rec.get("risk_per_unit") or abs(entry - stop)
     status = rec.get("status")
     activated = rec.get("activated_ts")
     seen = 0
+    live_bars = 0
+    best = rec.get("mfe_r")
+    worst = rec.get("mae_r")
+
+    def note_excursion(bar):
+        nonlocal best, worst
+        if not risk:
+            return
+        up = (bar["h"] - entry) if long else (entry - bar["l"])
+        dn = (entry - bar["l"]) if long else (bar["h"] - entry)
+        best = up / risk if best is None else max(best, up / risk)
+        worst = dn / risk if worst is None else max(worst, dn / risk)
+
+    def finish(state, result, note, bar, r_value):
+        rec["status"] = state
+        rec["result"] = result
+        rec["result_r"] = r_value
+        rec["resolved_ts"] = bar["t"]
+        rec["resolve_note"] = note
+        rec["mfe_r"] = None if best is None else round(best, 3)
+        rec["mae_r"] = None if worst is None else round(worst, 3)
+        rec["bars_to_resolve"] = live_bars
+        return rec
 
     for b in bars:
         seen += 1
         if status == "pending":
-            if b["l"] <= hi_z and b["h"] >= lo_z:
+            touched = b["l"] <= hi_z and b["h"] >= lo_z
+            if touched:
                 status, activated = "active", b["t"]
                 rec["activated_ts"] = activated
                 rec["activated_time_tehran"] = _tehran(activated)
-            elif seen >= EXPIRY_BARS:
-                rec["status"] = "expired"
-                rec["result"] = "never activated"
-                rec["resolved_ts"] = b["t"]
-                rec["resolve_note"] = ("price never reached the entry zone in %d bars"
-                                       % EXPIRY_BARS)
-                return rec
+                rec["bars_to_activate"] = seen
             else:
+                # A gap can jump the entry zone entirely and land beyond the
+                # stop. The trade was never enterable, so it is not a loss -
+                # counting it as one would punish the engine for a fill that
+                # never existed.
+                past_stop = (b["h"] >= stop) if not long else (b["l"] <= stop)
+                if past_stop:
+                    return finish("invalidated", "gapped past the entry",
+                                  "price passed the stop without ever trading "
+                                  "through the entry zone", b, None)
+                if seen >= EXPIRY_BARS:
+                    return finish("expired", "never activated",
+                                  "price never reached the entry zone in %d bars"
+                                  % EXPIRY_BARS, b, None)
                 continue
 
         if status == "active":
+            live_bars += 1
+            note_excursion(b)
             hit_stop = (b["l"] <= stop) if long else (b["h"] >= stop)
             hit_tp = (b["h"] >= tp1) if long else (b["l"] <= tp1)
             if hit_stop:
-                rec["status"] = "loss"
-                rec["result"] = "stop" if not hit_tp else "stop and target in one bar"
-                rec["result_r"] = -1.0
-                rec["resolved_ts"] = b["t"]
-                rec["resolve_note"] = ("both levels inside one bar, scored against "
-                                       "the trade" if hit_tp else "stop touched first")
-                return rec
+                return finish(
+                    "loss",
+                    "stop" if not hit_tp else "stop and target in one bar",
+                    ("both levels inside one bar, scored against the trade"
+                     if hit_tp else "stop touched first"), b, -1.0)
             if hit_tp:
-                risk = rec.get("risk_per_unit") or 0
-                rec["status"] = "win"
-                rec["result"] = "tp1"
-                rec["result_r"] = (abs(tp1 - rec["entry"]) / risk) if risk else None
-                rec["resolved_ts"] = b["t"]
-                rec["resolve_note"] = "first target touched"
-                return rec
-            if activated and (b["t"] - activated) / max(1, TF_SECONDS.get(rec["tf"], 60)) \
-                    >= RESOLVE_BARS:
-                rec["status"] = "expired"
-                rec["result"] = "unresolved after %d bars" % RESOLVE_BARS
-                rec["resolved_ts"] = b["t"]
-                rec["resolve_note"] = "neither level was reached in the window"
-                return rec
+                return finish("win", "tp1", "first target touched", b,
+                              (abs(tp1 - entry) / risk) if risk else None)
+            if activated and (b["t"] - activated) / max(
+                    1, TF_SECONDS.get(rec["tf"], 60)) >= RESOLVE_BARS:
+                return finish("expired",
+                              "unresolved after %d bars" % RESOLVE_BARS,
+                              "neither level was reached in the window", b, None)
 
     rec["status"] = status
+    rec["mfe_r"] = None if best is None else round(best, 3)
+    rec["mae_r"] = None if worst is None else round(worst, 3)
     return rec
 
 
@@ -230,7 +279,72 @@ def _rate(records):
         "expectancy_r": (sum(rs) / len(rs)) if rs else None,
         "open": sum(1 for r in records if r.get("status") in OPEN_STATES),
         "expired": sum(1 for r in records if r.get("status") == "expired"),
+        "invalidated": sum(1 for r in records if r.get("status") == "invalidated"),
     }
+
+
+# One row per signal, flat, outcome in the last column. This is the file to
+# point a model at: the features are what the engine saw when it published,
+# the label is what the market did afterwards, and nothing in between was
+# filled in by hand.
+CSV_COLUMNS = [
+    "id", "symbol", "tf", "side", "strategy", "confidence",
+    "published_ts", "published_time_tehran",
+    "entry", "stop", "tp1", "tp2", "rr", "atr", "risk_per_unit",
+    "entry_distance_pct", "entry_distance_atr",
+    "ctx_score", "ctx_other_side_score", "ctx_funding", "ctx_ls_top",
+    "ctx_oi_1h", "ctx_perp_spot_ratio", "ctx_adx", "ctx_rsi14",
+    "n_supports", "n_warnings", "n_blockers", "supports", "warnings",
+    "republished", "bars_to_activate", "bars_to_resolve",
+    "mfe_r", "mae_r", "status", "result", "result_r",
+]
+
+
+def _csv_row(r):
+    c = r.get("context") or {}
+    t = r.get("targets") or []
+    return {
+        "id": r.get("id"), "symbol": r.get("symbol"), "tf": r.get("tf"),
+        "side": r.get("side"), "strategy": r.get("strategy"),
+        "confidence": r.get("confidence"),
+        "published_ts": r.get("published_ts"),
+        "published_time_tehran": r.get("published_time_tehran"),
+        "entry": r.get("entry"), "stop": r.get("stop"),
+        "tp1": t[0] if len(t) > 0 else None,
+        "tp2": t[1] if len(t) > 1 else None,
+        "rr": r.get("rr"), "atr": r.get("atr"),
+        "risk_per_unit": r.get("risk_per_unit"),
+        "entry_distance_pct": r.get("entry_distance_pct"),
+        "entry_distance_atr": r.get("entry_distance_atr"),
+        "ctx_score": c.get("score"),
+        "ctx_other_side_score": c.get("other_side_score"),
+        "ctx_funding": c.get("funding"), "ctx_ls_top": c.get("ls_top"),
+        "ctx_oi_1h": c.get("oi_1h"),
+        "ctx_perp_spot_ratio": c.get("perp_spot_ratio"),
+        "ctx_adx": c.get("adx"), "ctx_rsi14": c.get("rsi14"),
+        "n_supports": len(r.get("supports") or []),
+        "n_warnings": len(r.get("warnings") or []),
+        "n_blockers": len(r.get("blockers") or []),
+        "supports": "; ".join(r.get("supports") or []),
+        "warnings": "; ".join(r.get("warnings") or []),
+        "republished": r.get("republished"),
+        "bars_to_activate": r.get("bars_to_activate"),
+        "bars_to_resolve": r.get("bars_to_resolve"),
+        "mfe_r": r.get("mfe_r"), "mae_r": r.get("mae_r"),
+        "status": r.get("status"), "result": r.get("result"),
+        "result_r": r.get("result_r"),
+    }
+
+
+def _write_csv(path, records):
+    import csv
+    tmp = path + ".tmp"
+    with open(tmp, "w", encoding="utf-8", newline="") as fh:
+        w = csv.DictWriter(fh, fieldnames=CSV_COLUMNS)
+        w.writeheader()
+        for r in records:
+            w.writerow(_csv_row(r))
+    os.replace(tmp, path)
 
 
 def _grouped(records, field):
@@ -321,6 +435,7 @@ def update(signals, path="brief/signals.json", now=None, quiet=True, dry_run=Fal
     if not dry_run:
         try:
             _save(path, data)
+            _write_csv(os.path.splitext(path)[0] + ".csv", records)
         except OSError as exc:
             if not quiet:
                 print("  ledger write failed: %s" % exc, flush=True)

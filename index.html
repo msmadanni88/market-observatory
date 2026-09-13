@@ -130,23 +130,50 @@ td.n{font-variant-numeric:tabular-nums}
 @keyframes sp{to{transform:rotate(360deg)}}
 </style>
 <style>
-/* ---- themes ---- */
-body[data-theme="midnight"]{--bg:#050816;--pn:#0b1225;--pn2:#101a31;--pn3:#16223c;
-  --ln:#263552;--tx:#edf3ff;--dm:#8594b2;--ac:#55b6ff;--vi:#9677ff;
-  --head:#0a1121;--tile:#101a30;--row:#0d1629;--hover:rgba(85,182,255,.09)}
-body[data-theme="forest"]{--bg:#06100e;--pn:#0d1b18;--pn2:#132620;--pn3:#193129;
-  --ln:#29463d;--tx:#e8f5ef;--dm:#819d92;--ac:#65d6a5;--vi:#d69d65;
-  --head:#0b1714;--tile:#12241f;--row:#10201c;--hover:rgba(101,214,165,.09)}
-body[data-theme="paper"]{color-scheme:light;--bg:#edf1f7;--pn:#ffffff;--pn2:#f4f7fb;
-  --pn3:#e9eef6;--ln:#d3dbe8;--tx:#172033;--dm:#647089;--up:#087f5b;
-  --dn:#d6334c;--wn:#a96600;--ac:#326fe5;--vi:#7654d8;--head:#ffffff;
-  --tile:#f8faff;--row:#ffffff;--hover:rgba(50,111,229,.07);--marker:#172033;
-  --shadow:0 16px 38px rgba(40,55,80,.09)}
-body[data-theme="sand"]{color-scheme:light;--bg:#f3eee5;--pn:#fffaf1;--pn2:#f8f0e3;
-  --pn3:#eee3d3;--ln:#dacbb8;--tx:#2d261f;--dm:#756959;--up:#13795b;
-  --dn:#c13e4b;--wn:#a46705;--ac:#9b5d28;--vi:#7957b2;--head:#fffaf1;
-  --tile:#fff8ec;--row:#fffaf1;--hover:rgba(155,93,40,.07);--marker:#2d261f;
-  --shadow:0 16px 38px rgba(80,57,30,.10)}
+/* ---- themes ----
+   Four, each checked rather than generated. The rule that was being broken
+   before: every theme must define the WHOLE token set, and the surface levels
+   (--bg page, --pn card, --pn2 inset, --pn3 header, --row stripe, --tile chart)
+   must stay visibly apart. When they collapse onto one another the panel turns
+   into a single flat sheet of colour with unreadable rows, which is exactly
+   what happened to the warm theme. --cloud-up / --cloud-dn are the Ichimoku
+   fills; they have to be tuned per ground or the cloud swallows the candles. */
+
+/* NIGHT is the bare :root above. */
+body[data-theme="night"]{--bg:#070a10;--pn:#0f151f;--pn2:#151c29;--pn3:#1b2432;
+  --ln:#232d3f;--tx:#e2e8f2;--dm:#7a879f;--up:#22e0a1;--dn:#ff5a6e;--wn:#ffb444;
+  --ac:#7aa2ff;--vi:#b57aff;--head:#101722;--tile:#141b28;--row:#111927;
+  --hover:rgba(122,162,255,.10);--marker:#ffffff;
+  --cloud-up:rgba(34,224,161,.13);--cloud-dn:rgba(255,90,110,.13);
+  --shadow:0 18px 50px rgba(0,0,0,.35)}
+
+body[data-theme="day"]{color-scheme:light;
+  --bg:#eef1f6;--pn:#ffffff;--pn2:#f3f6fa;--pn3:#e6ebf3;--ln:#ced7e4;
+  --tx:#141a24;--dm:#5d6a7d;--up:#0a7a57;--dn:#c92a43;--wn:#95650a;
+  --ac:#2c62d6;--vi:#6b4fd0;--head:#ffffff;--tile:#ffffff;--row:#f7f9fc;
+  --hover:rgba(44,98,214,.08);--marker:#141a24;
+  --cloud-up:rgba(10,122,87,.12);--cloud-dn:rgba(201,42,67,.12);
+  --shadow:0 14px 34px rgba(35,50,75,.10)}
+
+body[data-theme="brown"]{color-scheme:dark;
+  --bg:#1a1008;--pn:#2a1c0f;--pn2:#352413;--pn3:#3f2c18;--ln:#553c22;
+  --tx:#f5e9da;--dm:#b39a7d;--up:#4ad6a0;--dn:#ff7a6b;--wn:#f5b942;
+  --ac:#e8a850;--vi:#c79bff;--head:#241608;--tile:#31210f;--row:#2f2011;
+  --hover:rgba(232,168,80,.12);--marker:#fff4e3;
+  --cloud-up:rgba(74,214,160,.12);--cloud-dn:rgba(255,122,107,.12);
+  --shadow:0 18px 44px rgba(0,0,0,.45)}
+
+body[data-theme="mono"]{color-scheme:light;
+  --bg:#f2f2f2;--pn:#ffffff;--pn2:#f7f7f7;--pn3:#e8e8e8;--ln:#c9c9c9;
+  --tx:#101010;--dm:#5e5e5e;--up:#1d6b46;--dn:#a32232;--wn:#7a5c00;
+  --ac:#111111;--vi:#4a4a4a;--head:#ffffff;--tile:#ffffff;--row:#fafafa;
+  --hover:rgba(0,0,0,.05);--marker:#000000;
+  --cloud-up:rgba(0,0,0,.07);--cloud-dn:rgba(0,0,0,.12);
+  --shadow:0 12px 28px rgba(0,0,0,.12)}
+/* Mono's one accent is ink, so a selected timeframe cannot rely on a blue
+   fill to read as selected - it gets the inverse treatment instead. */
+body[data-theme="mono"] .tf.on{background:#111;color:#fff;border-color:#111}
+body[data-theme="mono"] button.pri{background:#111;color:#fff;border-color:#111}
 body{background:radial-gradient(circle at 12% -8%,color-mix(in srgb,var(--ac) 10%,transparent),transparent 30%),var(--bg);
   transition:background .2s,color .2s}
 header{background:color-mix(in srgb,var(--head) 94%,transparent);backdrop-filter:blur(14px)}
@@ -183,11 +210,17 @@ tbody tr:hover td{background:var(--hover)}
 .palette-picker button{width:16px;height:16px;padding:0;border-radius:50%;border:2px solid transparent;
   box-shadow:inset 0 0 0 1px rgba(255,255,255,.28)}
 .palette-picker button.active{border-color:var(--tx);transform:scale(1.12)}
-.palette-picker [data-theme="obsidian"]{background:linear-gradient(135deg,#101623 50%,#7aa2ff 50%)}
-.palette-picker [data-theme="midnight"]{background:linear-gradient(135deg,#08112a 50%,#55b6ff 50%)}
-.palette-picker [data-theme="forest"]{background:linear-gradient(135deg,#10231d 50%,#65d6a5 50%)}
-.palette-picker [data-theme="paper"]{background:linear-gradient(135deg,#fff 50%,#326fe5 50%)}
-.palette-picker [data-theme="sand"]{background:linear-gradient(135deg,#fff5e6 50%,#9b5d28 50%)}
+.palette-picker [data-theme="night"]{background:linear-gradient(135deg,#101623 50%,#7aa2ff 50%)}
+.palette-picker [data-theme="day"]{background:linear-gradient(135deg,#fff 50%,#2c62d6 50%)}
+.palette-picker [data-theme="brown"]{background:linear-gradient(135deg,#2a1c0f 50%,#e8a850 50%)}
+.palette-picker [data-theme="mono"]{background:linear-gradient(135deg,#fff 50%,#111 50%)}
+
+/* ---- simple view ---- */
+#setupLab.simple .adv{display:none!important}
+#viewToggle.on{color:var(--ac);border-color:var(--ac);
+  background:color-mix(in srgb,var(--ac) 12%,var(--pn2))}
+.entry-condition.done{border-left-color:var(--ac);
+  background:color-mix(in srgb,var(--ac) 8%,transparent);color:var(--tx)}
 #precision.on{color:var(--ac);border-color:var(--ac);background:color-mix(in srgb,var(--ac) 10%,var(--pn2))}
 
 /* ---- chart matrix ---- */
@@ -261,6 +294,9 @@ tbody tr:hover td{background:var(--hover)}
 .signal-state.active{color:var(--up)!important;border-color:var(--up)!important;
   box-shadow:0 0 9px color-mix(in srgb,var(--up) 25%,transparent)}
 .signal-state.win{color:var(--up)!important}.signal-state.loss{color:var(--dn)!important}
+.signal-state.invalidated,.signal-state.expired{color:var(--dm)!important;
+  border-color:var(--ln)!important}
+.archive-table .invalidated,.archive-table .expired{color:var(--dm)}
 .signal-time{color:var(--dm);font-size:9.5px;margin:0 0 8px;display:flex;flex-wrap:wrap;gap:10px}
 .signal-time b{color:var(--tx);font-variant-numeric:tabular-nums}
 .tag-bar{display:flex;align-items:center;flex-wrap:wrap;gap:5px;margin:9px 0}
@@ -353,11 +389,10 @@ tbody tr:hover td{background:var(--hover)}
   <span class="fld"><label title="bars pulled per timeframe">bars</label>
     <input id="bars" value="220"></span>
   <div class="palette-picker" id="palettePicker" aria-label="colour palette">
-    <button data-theme="obsidian" title="Obsidian dark"></button>
-    <button data-theme="midnight" title="Midnight dark"></button>
-    <button data-theme="forest" title="Forest dark"></button>
-    <button data-theme="paper" title="Paper light"></button>
-    <button data-theme="sand" title="Sand light"></button>
+    <button data-theme="night" title="Night"></button>
+    <button data-theme="day" title="Day"></button>
+    <button data-theme="brown" title="Brown"></button>
+    <button data-theme="mono" title="Black and white"></button>
   </div>
   <button id="precision" title="toggle extra price decimals">.00</button>
   <label class="mini"><input type="checkbox" id="auto" checked> auto</label>
@@ -404,6 +439,7 @@ tbody tr:hover td{background:var(--hover)}
         <div class="mini">Entry, stop, targets and position size update together when the scenario changes.</div>
       </div>
       <div class="engine-state busy" id="setupEngineState"><i></i><span>loading the latest brief</span></div>
+      <button id="viewToggle" title="Hide everything except the plan itself. Nothing is deleted — the detail comes straight back.">Simple view</button>
     </div>
     <div class="setup-body">
       <div class="setup-controls">
@@ -462,7 +498,7 @@ let venue=null, venueError=null, lastCandleSweep=0;
 
 function load(){
   const base={symbols:["BTCUSDT","ETHUSDT","SOLUSDT"],tfs:["15m","1h","4h","1d"],
-    every:20,bars:220,theme:"obsidian",precise:false,seededFromBrief:false,
+    every:20,bars:220,theme:"night",precise:false,seededFromBrief:false,
     setup:{margin:1000,risk_pct:1,leverage:3,model:"published",
       min_confidence:60,min_rr:1.5,
       filter_state:"all",filter_style:"all",filter_strategy:"all",
@@ -737,6 +773,21 @@ function rsiSeries(c,p){
   }
   return out;
 }
+/* Memoised on the shape of the series, because the charts redraw once a
+   second and recomputing Ichimoku plus ADX for every symbol and timeframe at
+   1Hz is real work on a laptop for no new information. The key changes the
+   moment the last price does, so nothing goes stale. */
+const _indCache={};
+function indicatorsFor(key,c){
+  if(!c||!c.length)return indicators(c);
+  const last=c[c.length-1];
+  const tag=c.length+":"+last.t+":"+last.c+":"+last.h+":"+last.l;
+  const hit=_indCache[key];
+  if(hit&&hit.tag===tag)return hit.val;
+  const val=indicators(c);
+  _indCache[key]={tag:tag,val:val};
+  return val;
+}
 function indicators(c){
   const blank={rsi:null,stoch:null,adx:null,atrp:null,atr:null,
     ema7:null,ema25:null,cloudTop:null,cloudBot:null,future:null};
@@ -980,7 +1031,7 @@ function rows(){
       continue;
     }
     const px=(live[s]&&live[s].price!=null)?live[s].price:c[c.length-1].c;
-    const ind=indicators(c);
+    const ind=indicatorsFor(key,c);
     const v=verdictOf(ind,px);
     const lv=swingLevels(c,5,180);
     const sr=structureRR(px,lv,v.bias);
@@ -1134,6 +1185,14 @@ function paintPrices(){
   });
 }
 
+let _cssCache={},_cssTheme=null;
+function cssVar(name){
+  if(_cssTheme!==document.body.dataset.theme){_cssCache={};_cssTheme=document.body.dataset.theme;}
+  if(_cssCache[name]==null)
+    _cssCache[name]=getComputedStyle(document.body).getPropertyValue(name).trim();
+  return _cssCache[name];
+}
+
 function planFor(symbol,tf){
   const sigs=(brief&&brief.signals)||[];
   return sigs.find(s=>s.symbol===symbol&&s.tf===tf)||null;
@@ -1205,7 +1264,10 @@ function drawTile(cv,r){
   const bw=(w-4)/c.length,X=i=>2+(i+0.5)*bw;
 
   if(r.ind.cloudTop!=null&&r.ind.cloudBot!=null){
-    x.fillStyle=r.ind.future==="green"?"rgba(34,224,161,.10)":"rgba(255,90,110,.10)";
+    // Cloud fill comes from the theme. Hard-coded alpha worked on the dark
+    // ground and turned the warm theme into a slab of mud.
+    x.fillStyle=cssVar(r.ind.future==="green"?"--cloud-up":"--cloud-dn")||
+      "rgba(128,128,128,.10)";
     x.fillRect(2,Y(r.ind.cloudTop),w-4,Math.max(1,Y(r.ind.cloudBot)-Y(r.ind.cloudTop)));
   }
   // Today's open: the reference every intraday move is measured from.
@@ -1342,17 +1404,102 @@ function ledgerRecordFor(sig){
   const recs=(ledger&&ledger.records)||[];
   return recs.find(r=>r.symbol===sig.symbol&&r.tf===sig.tf&&r.side===sig.side)||null;
 }
-function liveState(sig,plan){
+
+/* Replays the bars since the brief was published instead of asking where the
+   price happens to be this second. That question is why a BTC short showed
+   PENDING after the market had already run through the entry zone AND the
+   stop: it passed through, kept going, and by the time anyone looked it was
+   outside the zone again. A snapshot cannot see a path. */
+function resolveLive(sig,plan,publishedTs){
+  const out={state:"pending",resolvedAt:null,resultR:null,mfe:null,mae:null,
+    barsSeen:0,note:""};
+  const zone=(sig.entry_zone||[]).filter(isFinite);
+  const lo=zone.length===2?Math.min.apply(null,zone):plan.entry;
+  const hi=zone.length===2?Math.max.apply(null,zone):plan.entry;
+  const stop=plan.stop,tp1=(plan.targets||[])[0];
+  const long=plan.side==="long";
+  const risk=Math.abs(plan.entry-stop);
+  if(!publishedTs||!isFinite(stop)||!isFinite(tp1)||!(risk>0))return out;
+
+  const bars=liveCandles(sig.symbol,sig.tf).filter(b=>b.t>=publishedTs-1);
+  if(!bars.length)return out;
+  out.barsSeen=bars.length;
+
+  let state="pending",best=null,worst=null;
+  for(const b of bars){
+    if(state==="pending"){
+      if(b.l<=hi&&b.h>=lo){state="active";}
+      else{
+        // The entry can sit the far side of the market - a breakdown short
+        // waits for price to come DOWN to it. If price runs the other way and
+        // passes the stop without ever trading through the zone, the plan is
+        // dead but it is not a loss: there was never a fill to lose on.
+        // Calling that a stop-out would blame the engine for a trade nobody
+        // could have taken.
+        const pastStop=long?(b.l<=stop):(b.h>=stop);
+        if(pastStop){
+          out.state="invalidated";out.resolvedAt=b.t;
+          out.note="price passed the stop without trading through the entry zone";
+          return out;
+        }
+        continue;
+      }
+    }
+    // Excursions are measured from the entry, in R, once the trade is live.
+    const up=long?(b.h-plan.entry):(plan.entry-b.l);
+    const dn=long?(plan.entry-b.l):(b.h-plan.entry);
+    best=best==null?up:Math.max(best,up);
+    worst=worst==null?dn:Math.max(worst,dn);
+
+    const hitStop=long?(b.l<=stop):(b.h>=stop);
+    const hitTp=long?(b.h>=tp1):(b.l<=tp1);
+    if(hitStop){
+      out.state="loss";out.resolvedAt=b.t;out.resultR=-1;
+      out.note=hitTp?"stop and target inside one bar, scored against the trade"
+                    :"stop touched";
+      break;
+    }
+    if(hitTp){
+      out.state="win";out.resolvedAt=b.t;
+      out.resultR=Math.abs(tp1-plan.entry)/risk;
+      out.note="first target touched";
+      break;
+    }
+  }
+  if(!out.resolvedAt)out.state=state;
+  out.mfe=best==null?null:best/risk;
+  out.mae=worst==null?null:worst/risk;
+  return out;
+}
+
+function liveState(sig,plan,publishedTs){
+  // The committed ledger is authoritative for anything already closed; the
+  // browser only decides what has happened since the last run wrote it down.
   const rec=ledgerRecordFor(sig);
-  if(rec&&["win","loss","expired"].includes(rec.status))return rec.status;
-  const px=(live[sig.symbol]||{}).price;
-  const zone=(sig.entry_zone||[]).filter(v=>isFinite(v));
-  if(px==null||zone.length!==2)return (rec&&rec.status)||"pending";
-  const lo=Math.min.apply(null,zone),hi=Math.max.apply(null,zone);
-  if(rec&&rec.status==="active")return "active";
-  return (px>=lo&&px<=hi)?"active":"pending";
+  if(rec&&["win","loss","expired","invalidated"].includes(rec.status))
+    return {state:rec.status,resultR:rec.result_r,note:rec.resolve_note||"",
+      mfe:rec.mfe_r,mae:rec.mae_r};
+  const r=resolveLive(sig,plan,publishedTs);
+  if(r.state==="pending"&&rec&&rec.status==="active")r.state="active";
+  return r;
 }
 function stateLabel(v){return String(v||"pending").replace(/_/g," ").toUpperCase();}
+function outcomeLine(x){
+  const r=x.res||{};
+  if(x.st==="win")
+    return "Hit the first target. "+(r.note||"")+
+      (r.resultR!=null?"  Result +"+r.resultR.toFixed(2)+"R.":"");
+  if(x.st==="loss")
+    return "Stopped out. "+(r.note||"")+"  Result -1.00R."+
+      (r.mfe!=null&&r.mfe>0.3?"  It had gone "+r.mfe.toFixed(2)+
+        "R in favour first.":"");
+  if(x.st==="expired")return "Expired without ever reaching the entry zone.";
+  if(x.st==="invalidated")return "Invalidated: the stop was passed before the entry was.";
+  if(x.st==="active")
+    return "Price is in the entry zone."+
+      (r.mae!=null?"  Worst excursion so far "+r.mae.toFixed(2)+"R against.":"");
+  return "Waiting for price to reach the entry zone. No entry until it does.";
+}
 function money(v){return (v==null||!isFinite(v))?"--":
   Number(v).toLocaleString(undefined,{maximumFractionDigits:2});}
 function qtyFmt(v){
@@ -1384,19 +1531,25 @@ function renderSetups(){
   const d=brief.digest||{};
   engine.querySelector("span").textContent="published "+(d.generated_tehran||"--");
 
+  const pubTs=Number(d.generated_ts)||null;
   const all=(brief.signals||[]).map(sig=>{
     const plan=scenario(sig);
-    return plan?{sig:sig,plan:plan,st:liveState(sig,plan)}:null;
+    if(!plan)return null;
+    const res=liveState(sig,plan,pubTs);
+    return {sig:sig,plan:plan,st:res.state,res:res};
   }).filter(Boolean);
 
   const s=state.setup;
-  const pending=all.filter(x=>x.st==="pending").length;
-  const active=all.filter(x=>x.st==="active").length;
+  const count=k=>all.filter(x=>x.st===k).length;
+  const pending=count("pending"),active=count("active");
+  const won=count("win"),lost=count("loss");
 
   let h='<div class="setup-summary">'+
     '<span class="summary-pill"><strong>'+all.length+'</strong> published</span>'+
     '<span class="summary-pill"><strong class="w">'+pending+'</strong> pending</span>'+
     '<span class="summary-pill"><strong class="g">'+active+'</strong> active</span>'+
+    (won?'<span class="summary-pill"><strong class="g">'+won+'</strong> hit TP1</span>':'')+
+    (lost?'<span class="summary-pill"><strong class="r">'+lost+'</strong> stopped out</span>':'')+
     '<span class="summary-pill"><strong>'+Number(d.setups_considered||0)+
       '</strong> combinations checked</span>'+
     '<span class="summary-pill"><strong>'+Number(d.scanned||0)+'</strong> perps scanned</span>'+
@@ -1411,9 +1564,11 @@ function renderSetups(){
 
   const styles=[...new Set(all.map(x=>x.sig.tf).filter(Boolean))];
   const fams=[...new Set(all.map(x=>x.sig.strategy).filter(Boolean))];
-  h+='<div class="tag-bar"><span>Signal state</span>'+
+  h+='<div class="tag-bar adv"><span>Signal state</span>'+
     filterTag("state","all","All")+filterTag("state","pending","Pending","status-pending")+
     filterTag("state","active","Active","status-active")+
+    filterTag("state","win","Hit TP1")+filterTag("state","loss","Stopped")+
+    filterTag("state","invalidated","Never fillable")+
     '<span>Timeframe</span>'+filterTag("style","all","All")+
     styles.map(v=>filterTag("style",v,v)).join("")+
     '<span>Strategy</span>'+filterTag("strategy","all","All")+
@@ -1463,25 +1618,24 @@ function renderSetups(){
       '<div class="signal-time"><span>Entry sits <b>'+F(dist,2)+'%</b> from market</span>'+
       '<span>Live price <b data-px="'+esc(sig.symbol)+'"><span class="pxv">'+FP(px)+
       '</span><span class="arrow"></span></b></span></div>'+
-      '<div class="signal-tags">'+tags.map(t=>'<span class="signal-tag">#'+esc(t)+
+      '<div class="signal-tags adv">'+tags.map(t=>'<span class="signal-tag">#'+esc(t)+
       '</span>').join("")+'</div>'+
-      '<div class="entry-condition">'+esc(x.st==="active"
-        ?"Price is inside the entry zone now."
-        :"Waiting for price to reach the entry zone. No entry until it does.")+'</div>'+
+      '<div class="entry-condition '+(["win","loss"].includes(x.st)?"done":"")+'">'+
+      esc(outcomeLine(x))+'</div>'+
       '<div class="level-grid"><div class="level entry"><small>Entry zone</small><b>'+
       FP((sig.entry_zone||[])[0])+' &ndash; '+FP((sig.entry_zone||[])[1])+'</b></div>'+
       '<div class="level sl"><small>Stop loss</small><b>'+FP(p.stop)+'</b></div>'+
       p.targets.slice(0,2).map((t,ti)=>'<div class="level tp"><small>TP '+(ti+1)+
       '</small><b>'+FP(t)+'</b><em>+'+money(p.profits[ti])+' USDT</em></div>').join("")+
       '</div>'+
-      '<div class="position-grid"><div><small>Position notional</small><b>'+
+      '<div class="position-grid adv"><div><small>Position notional</small><b>'+
       money(p.notional)+' USDT</b></div>'+
       '<div><small>Quantity</small><b>'+qtyFmt(p.qty)+'</b></div>'+
       '<div><small>Margin used</small><b>'+money(p.marginUsed)+' USDT</b></div>'+
       '<div><small>Loss at SL</small><b class="r">'+money(p.lossAtStop)+' USDT</b></div>'+
       '<div><small>Leverage used</small><b>'+F(p.usedLeverage,2)+'x</b></div>'+
       '<div><small>Est. liquidation</small><b>'+FP(p.liquidation)+'</b></div></div>'+
-      '<div class="risk-readout"><span>risk budget <strong>'+money(p.riskBudget)+
+      '<div class="risk-readout adv"><span>risk budget <strong>'+money(p.riskBudget)+
       ' USDT</strong></span><span class="effective-help" title="Loss at the stop divided '+
       'by the margin budget. Lower than the requested risk when leverage or margin caps '+
       'the size.">effective account risk <strong>'+F(p.effectiveRiskPct,2)+
@@ -1489,11 +1643,11 @@ function renderSetups(){
       'x</strong></span></div>'+
       (p.capped?'<div class="setup-warning">&#9888; Size capped by the margin and '+
       'leverage budget, so the real risk is below the one requested.</div>':'')+
-      '<div class="signal-chart-wrap"><div class="signal-chart-head">'+
+      '<div class="signal-chart-wrap adv"><div class="signal-chart-head">'+
       '<span>Live chart &middot; entry, stop and target against the market now</span><b>'+
       esc(stateLabel(x.st))+'</b></div>'+
       '<canvas class="signal-chart" data-sig="'+esc(key)+'"></canvas></div>'+
-      '<details class="validation-details" '+(open?"open":"")+
+      '<details class="validation-details adv" '+(open?"open":"")+
       '><summary>Why this signal? &middot; what the engine checked</summary>'+
       '<div class="checks">'+(checks||'<div class="check">no notes recorded</div>')+
       '</div></details></article>';
@@ -1545,10 +1699,10 @@ function renderArchive(){
     '<div><h4>Signal archive &amp; measured win rate</h4>'+
     '<div class="mini">Tracking since '+esc(ledger.tracking_since||"the first run")+
     ' &middot; first target versus stop, after the entry was actually touched</div></div>'+
-    '<div class="archive-filters">'+
+    '<div class="archive-filters adv">'+
     '<select id="arSym">'+opt("all","All currencies",af.archive_symbol)+
       symbols.map(v=>opt(v,coinBase(v),af.archive_symbol)).join("")+'</select>'+
-    '<select id="arSt">'+["all","pending","active","win","loss","expired"]
+    '<select id="arSt">'+["all","pending","active","win","loss","invalidated","expired"]
       .map(v=>opt(v,v==="all"?"All states":stateLabel(v),af.archive_status)).join("")+'</select>'+
     '<select id="arTf">'+opt("all","All timeframes",af.archive_style)+
       styles.map(v=>opt(v,v,af.archive_style)).join("")+'</select></div></div>';
@@ -1566,7 +1720,7 @@ function renderArchive(){
   if(!filtered.length)
     h+='<div class="archive-empty">No archived signal matches these filters yet.</div>';
   else{
-    h+='<div class="archive-scroll"><table class="archive-table"><thead><tr>'+
+    h+='<div class="archive-scroll adv"><table class="archive-table"><thead><tr>'+
       '<th>Published</th><th>Market</th><th>TF</th><th>Strategy</th><th>Side</th>'+
       '<th>State</th><th>Result</th><th>Confidence</th><th>R</th></tr></thead><tbody>';
     filtered.slice(0,300).forEach(r=>{
@@ -1732,13 +1886,28 @@ function syncSetupControls(){
   model.onchange=()=>{state.setup.model=model.value;save();renderSetups();};
 }
 
+/* Simple view hides, it never deletes. Everything stays in the DOM and one
+   click brings it all back, because the reason to want a plain card is being
+   overwhelmed for a minute - not wanting to lose the analysis. */
+function applyView(){
+  const lab=document.getElementById("setupLab");
+  lab.classList.toggle("simple",!!state.setup.simple);
+  const b=document.getElementById("viewToggle");
+  b.textContent=state.setup.simple?"Full view":"Simple view";
+  b.classList.toggle("on",!!state.setup.simple);
+}
+document.getElementById("viewToggle").onclick=()=>{
+  state.setup.simple=!state.setup.simple;save();applyView();
+  if(!state.setup.simple)paintSetupCharts();
+};
+
 function applyTheme(name){
-  const allowed=["obsidian","midnight","forest","paper","sand"];
-  state.theme=allowed.includes(name)?name:"obsidian";
+  const allowed=["night","day","brown","mono"];
+  state.theme=allowed.includes(name)?name:"night";
   document.body.dataset.theme=state.theme;
   document.querySelectorAll("#palettePicker button").forEach(b=>
     b.classList.toggle("active",b.dataset.theme===state.theme));
-  save();repaintCharts();
+  save();renderTable();renderTiles();renderSetups();
 }
 document.querySelectorAll("#palettePicker button").forEach(b=>
   b.onclick=()=>applyTheme(b.dataset.theme));
@@ -1819,7 +1988,7 @@ setInterval(()=>{
 },300000);
 
 (async function boot(){
-  applyTheme(state.theme);paintPrecisionButton();syncSetupControls();
+  applyTheme(state.theme);paintPrecisionButton();syncSetupControls();applyView();
   renderSymbols();renderTfs();syncStickyTop();tickClock();
   renderTable();renderTiles();renderStatus();
   await loadBrief();
