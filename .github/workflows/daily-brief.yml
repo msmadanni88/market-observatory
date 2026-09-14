@@ -30,7 +30,9 @@ permissions:
   contents: write             # needed to commit the archive back
 
 concurrency:
-  group: daily-brief
+  # Shared with settle.yml. Both commit brief/, and two runs racing to push
+  # the same file is how a published signal gets lost.
+  group: ledger-writes
   cancel-in-progress: false
 
 jobs:
@@ -83,10 +85,19 @@ jobs:
           git add brief/ || true
           if git diff --staged --quiet; then
             echo "nothing new"
-          else
-            git commit -m "brief $(date -u +%Y-%m-%d)"
-            git push
+            exit 0
           fi
+          git commit -m "brief $(date -u +%Y-%m-%d)"
+          # settle.yml commits the same directory on the hour. The
+          # concurrency group keeps them from running together, but a push
+          # can still land behind one, so rebase rather than fail.
+          for i in 1 2 3; do
+            git pull --rebase --autostash && git push && exit 0
+            echo "push $i failed, retrying"
+            sleep 5
+          done
+          echo "::error::could not push the brief after 3 attempts"
+          exit 1
 
       - name: Upload artifact
         if: always()

@@ -87,10 +87,15 @@ try:
     # inputs. If these two ever drift the archive and the card would label
     # the same trade differently, which is exactly the kind of quiet wrong
     # this harness is for.
-    m = re.search(r"function signalRef\(symbol,tf,side,ts\)\{.*?\n\}", js, re.S)
-    cb = re.search(r"const coinBase=[^\n]+", js)
+    # Lifted from lib/resolve.js, which is the only copy now. The pages
+    # delegate to it, so testing it tests all of them.
+    lib = os.path.join(ROOT, "lib", "resolve.js")
+    libsrc = open(lib, encoding="utf-8").read() if os.path.isfile(lib) else ""
+    m = re.search(r"function signalRef\(symbol, tf, side, ts\) \{.*?\n  \}",
+                  libsrc, re.S)
+    cb = re.search(r"function coinBase\(s\) \{.*?\n  \}", libsrc, re.S)
     if not m or not cb:
-        fail("could not lift signalRef/coinBase out of index.html")
+        fail("could not lift signalRef/coinBase out of lib/resolve.js")
         ref_ok = False
     else:
         prog = (cb.group(0) + "\n" + m.group(0) + "\n" +
@@ -273,7 +278,7 @@ if os.path.isfile(lp):
             # names: the fields it attaches to a record, and the object
             # resolveLive/recordLive return after replaying the candles.
             derived = {"live", "liveR", "liveMae", "liveMfe", "liveNote",
-                       "settled", "mine",
+                       "settled", "mine", "source", "stale", "barsSeen",
                        "state", "resolvedAt", "resultR", "mfe", "mae", "note"}
             read = set()
             for b in blocks:
@@ -529,6 +534,51 @@ else:
         fail("gap agreement check could not run: %s: %s"
              % (type(e).__name__, e))
 
+# ------------------------------------------- 11b. one resolver, no copies
+# The whole reason lib/resolve.js exists: the panel and the analytics page
+# each had their own idea of what state a signal was in, and they disagreed
+# about a live trade. Every page must load the shared file, and no page may
+# carry a second copy of the walk.
+libp = os.path.join(ROOT, "lib", "resolve.js")
+if not os.path.isfile(libp):
+    fail("lib/resolve.js is missing - every page needs the shared resolver")
+else:
+    libtxt = open(libp, encoding="utf-8").read()
+    r = subprocess.run(["node", "--check", libp], capture_output=True,
+                       text=True)
+    if r.returncode != 0:
+        fail("JS SYNTAX in lib/resolve.js: " +
+             (r.stderr or r.stdout).strip()[:300])
+    else:
+        good("lib/resolve.js parses")
+
+    consumers = ["index.html", "analytics.html", "history.html"]
+    dup = []
+    for page in consumers:
+        pp = os.path.join(ROOT, page)
+        if not os.path.isfile(pp):
+            continue
+        ptxt = open(pp, encoding="utf-8").read()
+        if 'src="lib/resolve.js"' not in ptxt:
+            dup.append("%s does not load lib/resolve.js - it will have its "
+                       "own idea of signal state" % page)
+        pjs = "\n".join(re.findall(r"<script>(.*?)</script>", ptxt, re.S))
+        # The give-away of a second copy: the invalidation branch.
+        if "without trading through the entry zone" in pjs:
+            dup.append("%s carries its own copy of the resolver - that is "
+                       "how two pages came to disagree about one trade"
+                       % page)
+    if dup:
+        for d in dup:
+            fail(d)
+    else:
+        good("every page loads the one resolver and none carries a copy")
+
+    # The states themselves must be the same words everywhere.
+    for name in ("win", "loss", "invalidated", "expired"):
+        if '"%s"' % name not in libtxt:
+            fail("lib/resolve.js does not know the state %r" % name)
+
 # ------------------------------------------------------- 12. unit tests
 # The logic tests run from here too, so one command is the whole gate and
 # there is no second thing to remember to run.
@@ -546,6 +596,38 @@ if os.path.isfile(tl):
             fail("unit tests did not run: " + (r.stderr or r.stdout)[-300:])
 else:
     note.append("tests/test_logic.py not present")
+
+tr = os.path.join(ROOT, "tests", "test_resolve.js")
+if os.path.isfile(tr):
+    r = subprocess.run(["node", tr], capture_output=True, text=True, cwd=ROOT)
+    if r.returncode == 0:
+        n = len(re.findall(r"^  ok    ", r.stdout, re.M))
+        good("resolver tests: %d passing (tests/test_resolve.js)" % n)
+    else:
+        for line in re.findall(r"^  FAIL  .*$", r.stdout, re.M):
+            fail("resolver test" + line[6:])
+        if not re.search(r"^  FAIL  ", r.stdout, re.M):
+            fail("resolver tests did not run: " + (r.stderr or r.stdout)[-300:])
+else:
+    note.append("tests/test_resolve.js not present")
+
+# The one that matters most: the pipeline that WRITES history and the pages
+# that SHOW it must reach the same verdict on the same candles.
+ta = os.path.join(ROOT, "tests", "test_agreement.py")
+if os.path.isfile(ta):
+    r = subprocess.run([sys.executable, ta], capture_output=True, text=True,
+                       cwd=ROOT)
+    if r.returncode == 0:
+        n = len(re.findall(r"^  ok    ", r.stdout, re.M))
+        good("python and the browser resolve %d signal cases identically" % n)
+    else:
+        for line in re.findall(r"^  FAIL  .*$", r.stdout, re.M):
+            fail("resolution disagreement -" + line[6:])
+        if not re.search(r"^  FAIL  ", r.stdout, re.M):
+            fail("the agreement test did not run: " +
+                 (r.stderr or r.stdout)[-300:])
+else:
+    note.append("tests/test_agreement.py not present")
 
 # -------------------------------------------------------------- report
 print("=" * 70)

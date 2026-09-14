@@ -151,11 +151,27 @@ td.lft{text-align:left}
 .note{color:var(--dm);font-size:10.5px;margin-top:8px;line-height:1.5}
 .err{background:color-mix(in srgb,var(--dn) 12%,transparent);border:1px solid var(--dn);
   color:var(--dn);padding:9px 11px;border-radius:9px;margin-bottom:12px;font-size:12px}
+.warnrow{background:color-mix(in srgb,var(--wn) 10%,transparent);
+  border:1px solid color-mix(in srgb,var(--wn) 52%,var(--ln));color:var(--tx);
+  padding:9px 11px;border-radius:9px;margin-bottom:12px;font-size:11.5px;
+  line-height:1.55}
+.auditlist{color:var(--dm);font-size:10.5px;margin-top:6px;line-height:1.6}
+.src{font-size:8.5px;letter-spacing:.3px;padding:1px 5px;border-radius:4px;
+  border:1px solid var(--ln);color:var(--dm);margin-left:4px;
+  vertical-align:middle}
+.src.replay{color:var(--wn);border-color:color-mix(in srgb,var(--wn) 55%,var(--ln))}
+.src.observed{color:var(--vi);border-color:color-mix(in srgb,var(--vi) 55%,var(--ln))}
 @media (max-width:560px){
   .bar{grid-template-columns:78px 1fr 92px}
   .kpi b{font-size:16px}
 }
 </style>
+
+<!-- One resolver, shared with the panel. This page used to read the
+     committed status straight off the file, which is how it showed a trade
+     as ACTIVE while the panel, replaying the same candles, showed it as a
+     LOSS. Both were right about the question they were asking. -->
+<script src="lib/resolve.js"></script>
 
 <header>
   <h1>Market Observatory</h1>
@@ -173,6 +189,7 @@ td.lft{text-align:left}
 
 <main>
   <div id="err"></div>
+  <div id="audit"></div>
 
   <section class="card">
     <h2>Filters <span class="hint">everything below reacts to these</span></h2>
@@ -359,29 +376,99 @@ function cssVar(n){
    rather than the page.
    ===================================================================== */
 const VENUES=[
-  {name:"binance",tickers:async()=>{
+  {name:"binance",
+   tickers:async()=>{
     const r=await fetch("https://fapi.binance.com/fapi/v1/ticker/price");
     if(!r.ok)throw new Error(r.status);
-    const j=await r.json();const o={};j.forEach(t=>o[t.symbol]=+t.price);return o;}},
-  {name:"okx",tickers:async()=>{
+    const j=await r.json();const o={};j.forEach(t=>o[t.symbol]=+t.price);return o;},
+   klines:async(s,tf,n)=>{
+    const r=await fetch("https://fapi.binance.com/fapi/v1/klines?symbol="+s+
+      "&interval="+tf+"&limit="+Math.min(1000,n));
+    if(!r.ok)throw new Error(r.status);
+    return (await r.json()).map(k=>({t:Math.floor(k[0]/1000),o:+k[1],h:+k[2],
+      l:+k[3],c:+k[4]}));}},
+  {name:"okx",
+   tickers:async()=>{
     const r=await fetch("https://www.okx.com/api/v5/market/tickers?instType=SWAP");
     if(!r.ok)throw new Error(r.status);
     const j=await r.json();const o={};
     (j.data||[]).forEach(t=>{
       const m=/^([A-Z0-9]+)-USDT-SWAP$/.exec(t.instId);
       if(m)o[m[1]+"USDT"]=+t.last;});
-    return o;}},
-  {name:"bybit",tickers:async()=>{
+    return o;},
+   klines:async(s,tf,n)=>{
+    const bar={"1m":"1m","3m":"3m","5m":"5m","15m":"15m","30m":"30m","1h":"1H",
+      "2h":"2H","4h":"4H","6h":"6Hutc","12h":"12H","1d":"1Dutc","1w":"1Wutc",
+      "1M":"1Mutc"}[tf]||tf;
+    const inst=coinBase(s)+"-USDT-SWAP";
+    const r=await fetch("https://www.okx.com/api/v5/market/candles?instId="+
+      inst+"&bar="+bar+"&limit="+Math.min(300,n));
+    if(!r.ok)throw new Error(r.status);
+    const j=await r.json();
+    return (j.data||[]).slice().reverse().map(k=>({t:Math.floor(+k[0]/1000),
+      o:+k[1],h:+k[2],l:+k[3],c:+k[4]}));}},
+  {name:"bybit",
+   tickers:async()=>{
     const r=await fetch("https://api.bybit.com/v5/market/tickers?category=linear");
     if(!r.ok)throw new Error(r.status);
     const j=await r.json();const o={};
-    ((j.result||{}).list||[]).forEach(t=>o[t.symbol]=+t.lastPrice);return o;}},
-  {name:"gate",tickers:async()=>{
+    ((j.result||{}).list||[]).forEach(t=>o[t.symbol]=+t.lastPrice);return o;},
+   klines:async(s,tf,n)=>{
+    const iv={"1m":"1","3m":"3","5m":"5","15m":"15","30m":"30","1h":"60",
+      "2h":"120","4h":"240","6h":"360","12h":"720","1d":"D","1w":"W",
+      "1M":"M"}[tf]||"60";
+    const r=await fetch("https://api.bybit.com/v5/market/kline?category="+
+      "linear&symbol="+s+"&interval="+iv+"&limit="+Math.min(1000,n));
+    if(!r.ok)throw new Error(r.status);
+    const j=await r.json();
+    return (((j.result||{}).list)||[]).slice().reverse().map(k=>
+      ({t:Math.floor(+k[0]/1000),o:+k[1],h:+k[2],l:+k[3],c:+k[4]}));}},
+  {name:"gate",
+   tickers:async()=>{
     const r=await fetch("https://api.gateio.ws/api/v4/futures/usdt/tickers");
     if(!r.ok)throw new Error(r.status);
     const j=await r.json();const o={};
     j.forEach(t=>o[String(t.contract).replace("_","")]=+t.last);return o;}}
 ];
+
+/* Candles for the replay. Only the markets with an OPEN record are pulled,
+   because a closed record is settled in the ledger and needs no candles at
+   all - so this costs one request per live trade and nothing otherwise.
+   The live price is folded onto the newest bar so a stop hit seconds ago is
+   seen now rather than at the close of the bar. */
+const candles={};
+async function pullCandles(symbol,tf,bars){
+  const order=venue?[venue].concat(VENUES.filter(v=>v!==venue)):VENUES;
+  for(const v of order){
+    if(!v.klines)continue;
+    try{
+      const c=await v.klines(symbol,tf,bars||300);
+      if(c&&c.length){candles[symbol+"|"+tf]=c;return true;}
+    }catch(e){/* next venue */}
+  }
+  return false;
+}
+const TF_SEC={"1m":60,"3m":180,"5m":300,"15m":900,"30m":1800,"1h":3600,
+  "2h":7200,"4h":14400,"6h":21600,"8h":28800,"12h":43200,"1d":86400,
+  "1w":604800,"1M":2592000};
+function barsFor(symbol,tf){
+  const c=candles[symbol+"|"+tf];
+  if(!c||!c.length)return [];
+  const px=live[symbol];
+  if(px==null||!isFinite(px))return c;
+  const step=TF_SEC[tf]||3600;
+  const out=c.slice();
+  const last=out[out.length-1];
+  const bucket=Math.floor(Date.now()/1000/step)*step;
+  if(last&&last.t===bucket){
+    const b=Object.assign({},last);
+    b.h=Math.max(b.h,px);b.l=Math.min(b.l,px);b.c=px;
+    out[out.length-1]=b;
+  }else if(last&&bucket>last.t){
+    out.push({t:bucket,o:px,h:px,l:px,c:px});
+  }
+  return out;
+}
 
 async function loadLedger(){
   const r=await fetch("brief/signals.json?t="+Date.now());
@@ -410,12 +497,17 @@ function buildRows(){
   const tk=takesMap();
   return (recs||[]).map(r=>{
     const mine=tk[r.id]||null;
-    const status=r.status||"pending";
-    const open=(status==="pending"||status==="active");
-    const closed=!open;
-    // result_r is filed by the ledger when a trade resolves. A loss is
-    // -1R by construction, because the stop is what defined R.
-    let R=(r.result_r!=null&&isFinite(r.result_r))?r.result_r:null;
+    /* THE SETTLED VIEW, not the committed one. lib/resolve.js takes the
+       ledger where it has closed a trade, what this browser already saw
+       where it has not, and the live candle replay where neither can
+       answer. Reading r.status straight off the file is what had this
+       page calling a stopped-out short ACTIVE. */
+    const v=MO.resolveRecord(r,barsFor)||{state:r.status||"pending"};
+    const status=v.state;
+    const open=MO.isOpen(status);
+    const closed=MO.isClosed(status);
+    // A loss is -1R by construction, because the stop is what defined R.
+    let R=(v.resultR!=null&&isFinite(v.resultR))?v.resultR:null;
     if(R==null&&status==="loss")R=-1;
     if(R==null&&status==="invalidated")R=0;
     if(R==null&&status==="expired")R=0;
@@ -442,13 +534,20 @@ function buildRows(){
       tf:r.tf, side:r.side, strategy:r.strategy||"--",
       confidence:r.confidence, published_ts:r.published_ts||0,
       published:r.published_time_tehran||"",
-      activated_ts:r.activated_ts, resolved_ts:r.resolved_ts,
+      activated_ts:r.activated_ts,
+      resolved_ts:r.resolved_ts||v.resolvedAt||null,
       status:status, open:open, closed:closed,
-      result:r.result||(open?"open":status),
-      resolve_note:r.resolve_note||"",
+      result:open?"open":status,
+      resolve_note:v.note||r.resolve_note||"",
+      // Where this row's state came from, so the page can say so rather
+      // than presenting three different sources as one anonymous fact.
+      source:v.source||"ledger", settled:v.settled!==false, stale:!!v.stale,
+      ledgerStatus:r.status||null,
       R:R, pnl:pnl, riskUsd:riskUsd, marginUsd:marginUsd, lev:lev,
-      mae:(r.mae_r!=null&&isFinite(r.mae_r))?r.mae_r:null,
-      mfe:(r.mfe_r!=null&&isFinite(r.mfe_r))?r.mfe_r:null,
+      mae:(v.mae!=null&&isFinite(v.mae))?v.mae:
+        ((r.mae_r!=null&&isFinite(r.mae_r))?r.mae_r:null),
+      mfe:(v.mfe!=null&&isFinite(v.mfe))?v.mfe:
+        ((r.mfe_r!=null&&isFinite(r.mfe_r))?r.mfe_r:null),
       barsToActivate:r.bars_to_activate, barsToResolve:r.bars_to_resolve,
       rr:r.rr, entry:r.entry, stop:r.stop, targets:r.targets||[],
       mine:!!mine, take:mine, liveR:liveR, livePnl:livePnl, px:px
@@ -752,6 +851,23 @@ function renderOpen(rows){
   bindCopy(el);
 }
 
+/* Says where a state came from. A number with no provenance is a number
+   nobody can check. */
+function srcTag(r){
+  if(r.source==="replay"&&MO.isClosed(r.status))
+    return '<span class="src replay" title="settled here from the candles '+
+      'since the last pipeline run; the ledger still says '+
+      esc(r.ledgerStatus||"open")+'">from candles</span>';
+  if(r.source==="observed")
+    return '<span class="src observed" title="this browser recorded this '+
+      'outcome when the candles still covered it, and keeps it">recorded '+
+      'here</span>';
+  if(r.stale)
+    return '<span class="src" title="the candle window no longer reaches '+
+      'back to publication, so nothing here can re-check it">unverified</span>';
+  return "";
+}
+
 const COLS=[
   ["ref","Reference"],["published_ts","Published"],["base","Market"],
   ["tf","TF"],["side","Side"],["strategy","Strategy"],
@@ -783,7 +899,7 @@ function renderTable(rows){
       '<td class="lft">'+esc(r.strategy)+'</td>'+
       '<td>'+F2(r.confidence,0)+'</td>'+
       '<td><span class="pill '+esc(r.status)+'">'+esc(r.status.toUpperCase())+
-        '</span></td>'+
+        '</span>'+srcTag(r)+'</td>'+
       '<td class="'+tone(r.open?r.liveR:r.R)+'">'+
         (r.open?(r.liveR==null?"open":sgn(r.liveR)+F2(r.liveR)+"*"):
           (r.R==null?"--":sgn(r.R)+F2(r.R)))+'</td>'+
@@ -967,11 +1083,42 @@ function drawDaily(rows){
 /* =====================================================================
    MAIN RENDER
    ===================================================================== */
+/* Runs on every render, not once at boot. It is cheap, and the whole point
+   is that a disagreement between sources is SAID OUT LOUD rather than
+   resolved silently in favour of whichever one the code happened to read. */
+function renderAudit(){
+  const el=document.getElementById("audit");
+  const issues=MO.audit(recs,barsFor);
+  const bad=issues.filter(i=>i.level==="contradicts");
+  const behind=issues.filter(i=>i.level==="behind");
+  const unk=issues.filter(i=>i.level==="unknown");
+  let h="";
+  if(bad.length)
+    h+='<div class="err"><b>Sources disagree.</b> '+
+      bad.map(i=>esc(i.text)).join(" ")+'</div>';
+  if(behind.length)
+    h+='<div class="warnrow"><b>'+behind.length+' trade'+
+      (behind.length===1?"":"s")+' settled since the last pipeline run.</b> '+
+      'Shown here with the settled outcome, worked out from the candles. '+
+      'The committed file catches up on its next run, and this browser has '+
+      'already written the outcome down so it cannot be lost in between.'+
+      '<div class="auditlist">'+behind.map(i=>esc(i.text)).join("<br>")+
+      '</div></div>';
+  if(unk.length)
+    h+='<div class="warnrow"><b>'+unk.length+' signal'+
+      (unk.length===1?"":"s")+' cannot be resolved from anything available '+
+      'here.</b> Said rather than guessed.'+
+      '<div class="auditlist">'+unk.map(i=>esc(i.text)).join("<br>")+
+      '</div></div>';
+  el.innerHTML=h;
+}
+
 function render(){
   const all=buildRows();
   const rows=applyFilters(all);
   lastRows=rows;
   const s=stats(rows);
+  renderAudit();
 
   document.getElementById("count").textContent=
     rows.length+" of "+all.length+" signal"+(all.length===1?"":"s");
@@ -1098,16 +1245,58 @@ async function boot(){
   fillSelect("fSym",uniq(r=>r.symbol),"all");
 
   render();
-  // Prices are only needed to value open positions, so the page is
-  // complete before they arrive and simply sharpens when they do.
-  if(recs.some(r=>r.status==="pending"||r.status==="active")){
+
+  /* Everything the replay needs, then a re-render. Only markets with an
+     OPEN record are pulled - a closed record is settled in the ledger and
+     needs no candles - so a page with nothing open makes no extra request
+     at all. */
+  const openRecs=recs.filter(r=>MO.isOpen(r.status));
+  if(openRecs.length){
     await pullPrices();
+    const want=[...new Set(openRecs.map(r=>r.symbol+"|"+r.tf))];
+    await Promise.all(want.map(k=>{
+      const [s,t]=k.split("|");
+      return pullCandles(s,t,400);
+    }));
     render();
+
+    /* Re-checked continuously. The state on screen is recomputed from the
+       live price on every tick, so a stop hit thirty seconds ago shows as
+       a loss thirty seconds ago and not at the next pipeline run. Candles
+       are re-pulled less often because only the newest bar can change and
+       the live price already stands in for it. */
     setInterval(async()=>{
       if(document.hidden)return;
       if(await pullPrices())render();
-    },10000);
+    },5000);
+    setInterval(async()=>{
+      if(document.hidden)return;
+      const stillOpen=recs.filter(r=>MO.isOpen(r.status));
+      if(!stillOpen.length)return;
+      const keys=[...new Set(stillOpen.map(r=>r.symbol+"|"+r.tf))];
+      let got=false;
+      for(const k of keys){
+        const [s,t]=k.split("|");
+        if(await pullCandles(s,t,400))got=true;
+      }
+      if(got)render();
+    },60000);
   }
+
+  /* The ledger itself is re-read periodically, so a pipeline run that
+     lands while the page is open is picked up without a refresh. */
+  setInterval(async()=>{
+    if(document.hidden)return;
+    try{
+      const fresh=await loadLedger();
+      if(fresh&&fresh.updated_ts!==(ledger&&ledger.updated_ts)){
+        ledger=fresh;recs=(fresh.records)||[];
+        document.getElementById("updated").textContent=
+          "ledger "+(fresh.updated_tehran||"");
+        render();
+      }
+    }catch(e){/* the page keeps working on what it already has */}
+  },120000);
 }
 boot();
 </script>

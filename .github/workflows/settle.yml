@@ -1,0 +1,91 @@
+name: settle
+
+# ===========================================================================
+# Settles open signals every hour. Publishes nothing, sends nothing.
+#
+# The brief runs twice a day. Without this, a trade stopped out at 09:12 was
+# recorded as still open until 17:30, and the committed history was simply
+# wrong for eight hours. The dashboard hides that by replaying the candles in
+# the browser, but a browser nobody has open records nothing - so the file
+# itself has to be kept honest on a schedule.
+#
+# Cheap by construction: it touches only the markets with an open record, and
+# a run with nothing open does no network work at all and commits nothing.
+#
+# It shares a concurrency group with daily-brief so the two can never race
+# each other to commit the same file.
+# ===========================================================================
+
+on:
+  schedule:
+    - cron: "7 * * * *"       # every hour, off the hour to dodge the rush
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Work it out and print it, commit nothing"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ledger-writes        # shared with daily-brief: never both at once
+  cancel-in-progress: false
+
+jobs:
+  settle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install
+        run: pip install --quiet requests
+
+      - name: Settle open signals
+        id: settle
+        run: |
+          ARGS=""
+          if [ "${{ inputs.dry_run }}" = "true" ]; then ARGS="--dry-run"; fi
+          python settle.py $ARGS
+
+      # Rebase before pushing. The brief commits the same directory, and a
+      # settle run that clobbered a brief would lose published signals.
+      - name: Commit what settled
+        if: ${{ inputs.dry_run != true }}
+        run: |
+          git config user.name  "settle"
+          git config user.email "actions@users.noreply.github.com"
+          git add brief/ || true
+          if git diff --staged --quiet; then
+            echo "nothing settled, nothing to commit"
+            exit 0
+          fi
+          git commit -m "settle $(date -u +%Y-%m-%dT%H:%MZ)"
+          for i in 1 2 3; do
+            git pull --rebase --autostash && git push && exit 0
+            echo "push $i failed, retrying"
+            sleep 5
+          done
+          echo "::error::could not push the settled ledger after 3 attempts"
+          exit 1
+
+      # A settle run failing is not cosmetic: it means the recorded history
+      # is drifting away from what actually happened.
+      - name: Tell me if it broke
+        if: failure()
+        env:
+          TG: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          CH: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          curl -s -X POST "https://api.telegram.org/bot$TG/sendMessage" \
+            -d chat_id="$CH" \
+            -d text="settle failed - the ledger is drifting out of date. Run ${{ github.run_number }}: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            > /dev/null || true

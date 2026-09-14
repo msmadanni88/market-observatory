@@ -450,6 +450,10 @@ tbody tr:hover td{background:var(--hover)}
 </head>
 <body>
 
+<!-- One resolver, loaded by every page. Before this file existed each page
+     had its own copy and they disagreed about live trades. -->
+<script src="lib/resolve.js"></script>
+
 <header>
   <h1>Market Observatory <span style="font-size:10px;color:#41506a;font-weight:400">panel</span></h1>
   <span id="clock">--</span>
@@ -577,12 +581,10 @@ let labPlans={};
    the card, so a trade can be talked about by name. Deterministic from the
    publication minute and the market, so it never needs a counter and never
    collides in practice: MO-260913-1745-HYPE-30m-S */
+/* Delegates to lib/resolve.js. One implementation, so this page and the
+   archive and the analytics page cannot label the same trade differently. */
 function signalRef(symbol,tf,side,ts){
-  const d=new Date(((Number(ts)||0)+3.5*3600)*1000);
-  const p=n=>String(n).padStart(2,"0");
-  const stamp=String(d.getUTCFullYear()).slice(2)+p(d.getUTCMonth()+1)+
-    p(d.getUTCDate())+"-"+p(d.getUTCHours())+p(d.getUTCMinutes());
-  return "MO-"+stamp+"-"+coinBase(symbol)+"-"+tf+"-"+(side==="long"?"L":"S");
+  return MO.signalRef(symbol,tf,side,ts);
 }
 function fallbackCopy(txt,done){
   try{
@@ -1600,103 +1602,28 @@ function ledgerRecordFor(sig){
   return recs.find(r=>r.symbol===sig.symbol&&r.tf===sig.tf&&r.side===sig.side)||null;
 }
 
-/* Replays the bars since the brief was published instead of asking where the
-   price happens to be this second. That question is why a BTC short showed
-   PENDING after the market had already run through the entry zone AND the
-   stop: it passed through, kept going, and by the time anyone looked it was
-   outside the zone again. A snapshot cannot see a path. */
+/* The replay itself lives in lib/resolve.js and every page loads that same
+   file. It used to live here, privately, and the analytics page had its own
+   idea of state - which is how one HYPE short was LOSS on this page and
+   ACTIVE on that one at the same moment. Both were running correct code.
+   They were answering different questions. Now there is one answer. */
+function barsFor(symbol,tf){return liveCandles(symbol,tf);}
+
 function resolveLive(sig,plan,publishedTs){
-  const out={state:"pending",resolvedAt:null,resultR:null,mfe:null,mae:null,
-    barsSeen:0,note:""};
-  const zone=(sig.entry_zone||[]).filter(isFinite);
-  const lo=zone.length===2?Math.min.apply(null,zone):plan.entry;
-  const hi=zone.length===2?Math.max.apply(null,zone):plan.entry;
-  const stop=plan.stop,tp1=(plan.targets||[])[0];
-  const long=plan.side==="long";
-  const risk=Math.abs(plan.entry-stop);
-  if(!publishedTs||!isFinite(stop)||!isFinite(tp1)||!(risk>0))return out;
-
-  const bars=liveCandles(sig.symbol,sig.tf).filter(b=>b.t>=publishedTs-1);
-  if(!bars.length)return out;
-  out.barsSeen=bars.length;
-
-  let state="pending",best=null,worst=null;
-  for(const b of bars){
-    if(state==="pending"){
-      if(b.l<=hi&&b.h>=lo){state="active";}
-      else{
-        // The entry can sit the far side of the market - a breakdown short
-        // waits for price to come DOWN to it. If price runs the other way and
-        // passes the stop without ever trading through the zone, the plan is
-        // dead but it is not a loss: there was never a fill to lose on.
-        // Calling that a stop-out would blame the engine for a trade nobody
-        // could have taken.
-        const pastStop=long?(b.l<=stop):(b.h>=stop);
-        if(pastStop){
-          out.state="invalidated";out.resolvedAt=b.t;
-          out.note="price passed the stop without trading through the entry zone";
-          return out;
-        }
-        continue;
-      }
-    }
-    // Excursions are measured from the entry, in R, once the trade is live.
-    const up=long?(b.h-plan.entry):(plan.entry-b.l);
-    const dn=long?(plan.entry-b.l):(b.h-plan.entry);
-    best=best==null?up:Math.max(best,up);
-    worst=worst==null?dn:Math.max(worst,dn);
-
-    const hitStop=long?(b.l<=stop):(b.h>=stop);
-    const hitTp=long?(b.h>=tp1):(b.l<=tp1);
-    if(hitStop){
-      out.state="loss";out.resolvedAt=b.t;out.resultR=-1;
-      out.note=hitTp?"stop and target inside one bar, scored against the trade"
-                    :"stop touched";
-      break;
-    }
-    if(hitTp){
-      out.state="win";out.resolvedAt=b.t;
-      out.resultR=Math.abs(tp1-plan.entry)/risk;
-      out.note="first target touched";
-      break;
-    }
-  }
-  if(!out.resolvedAt)out.state=state;
-  out.mfe=best==null?null:best/risk;
-  out.mae=worst==null?null:worst/risk;
-  return out;
+  return MO.replay(sig,plan,publishedTs,liveCandles(sig.symbol,sig.tf));
 }
 
 function liveState(sig,plan,publishedTs){
-  // The committed ledger is authoritative for anything already closed; the
-  // browser only decides what has happened since the last run wrote it down.
   const rec=ledgerRecordFor(sig);
-  if(rec&&["win","loss","expired","invalidated"].includes(rec.status))
-    return {state:rec.status,resultR:rec.result_r,note:rec.resolve_note||"",
-      mfe:rec.mfe_r,mae:rec.mae_r};
-  const r=resolveLive(sig,plan,publishedTs);
-  if(r.state==="pending"&&rec&&rec.status==="active")r.state="active";
+  if(rec)return MO.resolveRecord(rec,barsFor);
+  // A signal in the brief the ledger has not filed yet - the first run after
+  // it was published. Replay is all there is, and that is enough.
+  const r=MO.replay(sig,plan,publishedTs,liveCandles(sig.symbol,sig.tf));
+  r.source="replay";
   return r;
 }
-/* The committed ledger is only as fresh as the last run, which is up to
-   twelve hours old. Replaying each open record against the candles here is
-   what stops the archive from insisting a signal is PENDING hours after the
-   market already settled it. The file stays the record of truth; this is the
-   same arithmetic run forward to now. */
-function recordLive(rec){
-  if(["win","loss","expired","invalidated"].includes(rec.status))
-    return {state:rec.status,resultR:rec.result_r,mfe:rec.mfe_r,mae:rec.mae_r,
-      note:rec.resolve_note||"",settled:true};
-  const plan={side:rec.side,entry:rec.entry,stop:rec.stop,
-    targets:rec.targets||[]};
-  const r=resolveLive({symbol:rec.symbol,tf:rec.tf,entry_zone:rec.entry_zone},
-    plan,rec.published_ts);
-  if(r.state==="pending"&&rec.status==="active")r.state="active";
-  r.settled=false;
-  if(r.mae==null&&rec.mae_r!=null)r.mae=rec.mae_r;
-  if(r.mfe==null&&rec.mfe_r!=null)r.mfe=rec.mfe_r;
-  return r;
-}
+
+function recordLive(rec){return MO.resolveRecord(rec,barsFor);}
 
 /* Who actually took the trade. Kept per viewer in this browser: a page served
    as static files has nowhere shared to write, so this counts YOUR takes
@@ -2008,8 +1935,15 @@ function renderArchive(){
   // Every record is replayed to now before anything is counted or filtered.
   const recs=(ledger.records||[]).map(r=>{
     const live=recordLive(r);
+    // liveResult, not r.result. The record's own result field is whatever
+    // the pipeline last wrote - "open" for a trade the candles have since
+    // closed - and printing that next to a LOSS badge is the same page
+    // contradicting itself in two adjacent columns.
+    const word=MO.isOpen(live.state)?"open":
+      (live.settled?(r.result||live.state):live.state);
     return Object.assign({},r,{live:live.state,liveR:live.resultR,
       liveMfe:live.mfe,liveMae:live.mae,liveNote:live.note||r.resolve_note||"",
+      liveResult:word,liveSource:live.source||"ledger",
       settled:live.settled,mine:tookIt(r.id)});
   });
   // Anything still open needs its candles to settle; pull them once, quietly.
@@ -2106,7 +2040,7 @@ function renderArchive(){
         '<td class="'+esc(r.live)+'"><b>'+esc(stateLabel(r.live))+'</b>'+
         (r.settled?"":'<span class="d" title="settled here from the candles '+
           'since the last run"> *</span>')+'</td>'+
-        '<td>'+esc(r.live==="pending"||r.live==="active"?"open":(r.result||"--"))+'</td>'+
+        '<td>'+esc(r.liveResult||"--")+'</td>'+
         '<td>'+F(r.liveR,2)+'</td>'+
         '<td class="'+(r.liveMae>1?"r":"d")+'">'+
         (r.liveMae==null?"--":r.liveMae.toFixed(2)+"R")+'</td>'+
