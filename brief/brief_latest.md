@@ -1,11 +1,11 @@
-MARKET BRIEF  2026-09-15 13:06 Tehran
-scanned 41 perps
+MARKET BRIEF  2026-09-15 21:20 Tehran
+scanned 120 perps
 
 SETUPS
  nothing cleared the gates. 35 combinations were checked.
-   15x  no trend
-   9x  support under 0.6 ATR away
-   2x  HTF bullish disagrees and there is no reversal trigger to justify fading it
+   11x  support under 0.6 ATR away
+   9x  no trend
+   3x  price inside the cloud
 
 CALENDAR
  !! 1d  FOMC decision + dot plot
@@ -14,52 +14,52 @@ CALENDAR
 
 POSITIONS
  XMRUSDT long @ 508
-   now 520.35  pnl +2.43%  status open
-   R:R from here 1:1.48
+   now 508.32  pnl +0.06%  status open
+   R:R from here 1:2.22
    ! FOMC decision + dot plot in 1d
 
 SECTOR ROTATION  7d median
- payments      -1.3%  lead XLM RSI 58.7  laggard BCH RSI 39.6
- l1_major      -2.0%  lead NEAR RSI 61.9  laggard SUI RSI 43.8
- defi          -2.9%  lead AAVE RSI 55.7  laggard ENA RSI 50.0
- privacy       -3.4%  lead ZEC RSI 61.5  laggard ZEC RSI 61.5
- exchange      -4.7%  lead BNB RSI 54.9  laggard BNB RSI 54.9
+ payments      -1.1%  lead XLM RSI 58.2  laggard BCH RSI 39.9
+ defi          -2.0%  lead PENDLE RSI 66.2  laggard ENA RSI 51.3
+ privacy       -4.0%  lead XMR RSI 55.8  laggard DASH RSI 54.2
+ exchange      -4.0%  lead BNB RSI 56.6  laggard BNB RSI 56.6
+ l2            -4.3%  lead OP RSI 52.8  laggard OP RSI 52.8
 
 MOST EXTENDED
- CAP     RSI 61.8  EMA20  +19.3%  7d  +38.2%
-   19% above EMA20, +38% in 7d
- USELESS RSI 57.4  EMA20  +10.7%  7d  -29.0%
-   56% above EMA50, 4h gap -6.5% down
- CL      RSI 67.2  EMA20   +6.8%  7d   +6.0%
-   volatility 25th pctile, 4h gap -5.3% down
- SKHYNIX RSI 48.1  EMA20   -2.6%  7d   -7.7%
-   funding crowded long, 4h gap -1.2% down
- ZEC     RSI 61.5  EMA20  +11.6%  7d   -3.4%
-   above rising 200, 4h gap -10.1% down
+ 龙虾      RSI 75.7  EMA20  +96.9%  7d +203.3%
+   RSI 76 overbought, 97% above EMA20
+ AIN     RSI 89.5  EMA20 +120.9%  7d +181.5%
+   RSI 89 extreme, 121% above EMA20
+ POWER   RSI 89.6  EMA20  +73.8%  7d +107.2%
+   RSI 90 extreme, 74% above EMA20
+ AKE     RSI 73.0  EMA20  +83.0%  7d  +65.9%
+   RSI 73 overbought, 83% above EMA20
+ SAGA    RSI 78.1  EMA20  +46.2%  7d  +64.5%
+   RSI 78 overbought, 46% above EMA20
 
 MOST COMPRESSED
- SNDK    RSI 45.9  EMA20   -3.7%  7d  -10.8%
-   RSI 46 neutral, volatility 2th pctile, 4h gap -9.6% down
- SKHYNIX RSI 48.1  EMA20   -2.6%  7d   -7.7%
-   funding crowded long, 4h gap -1.2% down
- MU      RSI 44.1  EMA20   -3.9%  7d   -7.5%
-   RSI 44 neutral, volatility 3th pctile, 4h gap +7.5% up
- SKHY    RSI 51.4  EMA20   -0.3%  7d   -5.0%
-   RSI 51 neutral, volatility 16th pctile, 4h gap -1.7% down
- XAG     RSI 40.4  EMA20   -3.5%  7d   -4.2%
-   RSI 40 neutral, volatility 0th pctile, 1d gap -1.5% down
+ INTC    RSI 50.9  EMA20   +0.2%  7d   -6.2%
+   RSI 51 neutral, volatility 7th pctile, 4h gap +3.2% up
+ RKLB    RSI 42.8  EMA20   -2.2%  7d   -5.2%
+   RSI 43 neutral, volatility 10th pctile
+ PLTR    RSI 53.9  EMA20   +2.0%  7d   +3.1%
+   RSI 54 neutral, volatility 24th pctile
+ TRX     RSI 47.6  EMA20   -0.6%  7d   -1.4%
+   RSI 48 neutral, hugging EMA20
+ SNDK    RSI 44.6  EMA20   -4.8%  7d  -11.9%
+   RSI 45 neutral, volatility 5th pctile, 4h gap -8.3% down
 
 TRENDING WITH ROOM
- ETH     RSI 56.9  EMA20   +1.3%  7d   -0.5%
-   RSI 57 neutral, hugging EMA20, 1d gap -9.3% down
- BTC     RSI 52.6  EMA20   -0.3%  7d   -2.0%
-   RSI 53 neutral, hugging EMA20, 1d gap -6.0% down
- SOL     RSI 54.1  EMA20   +0.7%  7d   -2.6%
-   RSI 54 neutral, hugging EMA20, 1d gap -10.0% down
- XRP     RSI 55.9  EMA20   +2.4%  7d   -1.3%
-   RSI 56 neutral, hugging EMA20, 4h gap -7.6% down
- FIL     RSI 61.5  EMA20   +9.9%  7d   +5.6%
-   +34% 30d, RSI still 62, above 200 with room
+ XLM     RSI 58.2  EMA20   +5.2%  7d   +2.2%
+   RSI 58 neutral, above rising 200, 4h gap -3.4% down
+ ASTR    RSI 69.7  EMA20  +17.5%  7d  +12.4%
+   volume 49.8x
+ CVC     RSI 67.6  EMA20  +20.0%  7d  +28.2%
+   20% above EMA20, +28% in 7d
+ ARK     RSI 65.1  EMA20  +18.7%  7d  +25.0%
+   19% above EMA20, +25% in 7d
+ ACE     RSI 47.4  EMA20   -5.8%  7d   -6.4%
+   RSI 47 neutral, mid-range
 
 GAP BASE RATE
  measured 13 Sep 2026, 24 symbols, 50-bar horizon
