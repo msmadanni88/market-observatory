@@ -1,6 +1,81 @@
 {
  "records": [
   {
+   "id": "ETHUSDT|15m|long@1789751613",
+   "ref": "MO-260918-2043-ETH-15m-L",
+   "key": "ETHUSDT|15m|long",
+   "symbol": "ETHUSDT",
+   "tf": "15m",
+   "side": "long",
+   "strategy": "Trend Continuation",
+   "trade_style": "15m",
+   "confidence": 63.7,
+   "entry": 2584.77990564,
+   "entry_zone": [
+    2583.00730185,
+    2586.55250942
+   ],
+   "stop": 2562.62235836,
+   "targets": [
+    2640.17377382,
+    2662.3313211
+   ],
+   "rr": 2.5,
+   "atr": 14.77169818,
+   "risk_per_unit": 22.157547280000017,
+   "published_ts": 1789751613.1426866,
+   "published_time_tehran": "2026-09-18 20:43 Tehran",
+   "last_seen_ts": 1789751613.1426866,
+   "republished": 1,
+   "activated_ts": null,
+   "activated_time_tehran": null,
+   "resolved_ts": null,
+   "status": "pending",
+   "result": "open",
+   "result_r": null,
+   "resolve_note": "",
+   "mfe_r": null,
+   "mae_r": null,
+   "bars_to_activate": null,
+   "bars_to_resolve": null,
+   "supports": [
+    "structure bullish",
+    "above cloud",
+    "future cloud green",
+    "ADX 56 aligned",
+    "RSI 69 washed out, not chasing",
+    "HTF bullish agrees"
+   ],
+   "warnings": [],
+   "blockers": [],
+   "entry_distance_pct": 0.2,
+   "entry_distance_atr": 0.35,
+   "context": {
+    "score": 10.0,
+    "other_side_score": -9.0,
+    "funding": 0.01,
+    "ls_top": 1.12,
+    "oi_1h": 0.373,
+    "perp_spot_ratio": 15.491,
+    "fng": null,
+    "adx": 55.573638569241616,
+    "rsi14": 68.990858295354
+   },
+   "position_at_publish": {
+    "margin": 1000.0,
+    "risk_pct": 1.0,
+    "risk_usd": 10.0,
+    "qty": 0.45131349,
+    "notional": 1166.55,
+    "leverage": 1.17,
+    "liquidation": 381.94907766,
+    "target_kinds": [
+     "derived 2.5R",
+     "derived 3.5R"
+    ]
+   }
+  },
+  {
    "id": "HYPEUSDT|15m|long@1789722799",
    "ref": "MO-260918-1243-HYPE-15m-L",
    "key": "HYPEUSDT|15m|long",
@@ -29,15 +104,15 @@
    "republished": 1,
    "activated_ts": null,
    "activated_time_tehran": null,
-   "resolved_ts": null,
-   "status": "pending",
-   "result": "open",
+   "resolved_ts": 1789743600,
+   "status": "expired",
+   "result": "never activated",
    "result_r": null,
-   "resolve_note": "",
+   "resolve_note": "price never reached the entry zone in 24 bars",
    "mfe_r": null,
    "mae_r": null,
    "bars_to_activate": null,
-   "bars_to_resolve": null,
+   "bars_to_resolve": 0,
    "supports": [
     "structure bullish",
     "above cloud",
@@ -331,7 +406,7 @@
   "win_rate": 0.0,
   "expectancy_r": -1.0,
   "open": 1,
-  "expired": 0,
+  "expired": 1,
   "invalidated": 1
  },
  "by_symbol": [
@@ -341,8 +416,8 @@
    "losses": 1,
    "win_rate": 0.0,
    "expectancy_r": -1.0,
-   "open": 1,
-   "expired": 0,
+   "open": 0,
+   "expired": 1,
    "invalidated": 0,
    "name": "HYPEUSDT"
   },
@@ -367,6 +442,17 @@
    "expired": 0,
    "invalidated": 1,
    "name": "BTCUSDT"
+  },
+  {
+   "trades": 0,
+   "wins": 0,
+   "losses": 0,
+   "win_rate": null,
+   "expectancy_r": null,
+   "open": 1,
+   "expired": 0,
+   "invalidated": 0,
+   "name": "ETHUSDT"
   }
  ],
  "by_style": [
@@ -388,7 +474,7 @@
    "win_rate": null,
    "expectancy_r": null,
    "open": 1,
-   "expired": 0,
+   "expired": 1,
    "invalidated": 1,
    "name": "15m"
   }
@@ -401,11 +487,11 @@
    "win_rate": 0.0,
    "expectancy_r": -1.0,
    "open": 1,
-   "expired": 0,
+   "expired": 1,
    "invalidated": 1,
    "name": "Trend Continuation"
   }
  ],
- "updated_tehran": "2026-09-18 17:49 Tehran",
- "updated_ts": 1789741141.8732107
+ "updated_tehran": "2026-09-18 20:43 Tehran",
+ "updated_ts": 1789751613.1476707
 }

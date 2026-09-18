@@ -1,11 +1,11 @@
-MARKET BRIEF  2026-09-18 12:43 Tehran
-scanned 45 perps
+MARKET BRIEF  2026-09-18 20:43 Tehran
+scanned 50 perps
 
 SETUPS
- LONG HYPEUSDT 15m   confidence 63.7
-   entry 88.3214  stop 87.6459  tp1 90.0101
-   R:R 1:2.5  leverage 1.31x  risk $10.0
-   entry sits 0.18% (0.35 ATR) from market
+ LONG ETHUSDT 15m   confidence 63.7
+   entry 2584.78  stop 2562.62  tp1 2640.17
+   R:R 1:2.5  leverage 1.17x  risk $10.0
+   entry sits 0.20% (0.35 ATR) from market
    + structure bullish
    + above cloud
    + future cloud green
@@ -15,51 +15,51 @@ CALENDAR
 
 POSITIONS
  XMRUSDT long @ 508
-   now 540.93  pnl +6.48%  status open
-   R:R from here 1:0.78
+   now 564.56  pnl +11.13%  status open
+   R:R from here 1:0.35
 
 SECTOR ROTATION  7d median
- l2           +49.6%  lead ARB RSI 75.0  laggard ARB RSI 75.0
- privacy      +26.3%  lead ZEC RSI 72.5  laggard DASH RSI 60.9
- defi         +19.7%  lead UNI RSI 78.0  laggard AAVE RSI 60.5
- meme         +11.9%  lead PEPE RSI 58.5  laggard DOGE RSI 53.7
- perp_dex     +11.8%  lead HYPE RSI 63.3  laggard HYPE RSI 63.3
+ l2           +55.2%  lead ARB RSI 76.2  laggard STRK RSI 69.0
+ privacy      +23.6%  lead ZEC RSI 70.5  laggard DASH RSI 57.5
+ defi         +16.6%  lead UNI RSI 77.5  laggard ENA RSI 60.1
+ meme         +14.9%  lead PEPE RSI 60.9  laggard DOGE RSI 56.8
+ perp_dex     +14.8%  lead HYPE RSI 65.4  laggard HYPE RSI 65.4
 
 MOST EXTENDED
- NEAR    RSI 80.1  EMA20  +40.7%  7d  +45.0%
-   RSI 80 extreme, 41% above EMA20
- ZEC     RSI 72.5  EMA20  +30.8%  7d  +26.3%
-   RSI 72 overbought, 31% above EMA20
- UNI     RSI 78.0  EMA20  +39.0%  7d  +48.5%
-   RSI 78 overbought, 39% above EMA20
- ARB     RSI 75.0  EMA20  +41.7%  7d  +49.6%
-   RSI 75 overbought, 42% above EMA20
- ONE     RSI 76.0  EMA20  +76.4%  7d +147.5%
-   RSI 76 overbought, 76% above EMA20
+ NEAR    RSI 82.3  EMA20  +49.0%  7d  +55.0%
+   RSI 82 extreme, 49% above EMA20
+ ONE     RSI 83.7  EMA20  +88.1%  7d +167.7%
+   RSI 84 extreme, 88% above EMA20
+ UNI     RSI 77.5  EMA20  +37.5%  7d  +46.6%
+   RSI 78 overbought, 37% above EMA20
+ ARB     RSI 76.2  EMA20  +46.4%  7d  +55.2%
+   RSI 76 overbought, 46% above EMA20
+ PIEVERSE RSI 74.4  EMA20  +34.0%  7d  +27.3%
+   RSI 74 overbought, 34% above EMA20, 4h gap -9.8% down
 
 MOST COMPRESSED
- BTC     RSI 57.6  EMA20   +1.9%  7d   +1.6%
-   RSI 58 neutral, volatility 20th pctile, 1d gap -7.8% down
- XAU     RSI 52.2  EMA20   +0.6%  7d   +1.1%
-   RSI 52 neutral, volatility 15th pctile, 1d gap -3.7% down
- SOXL    RSI 50.6  EMA20   +2.2%  7d   -3.2%
-   RSI 51 neutral, volatility 5th pctile
- CRCL    RSI 49.9  EMA20   -1.1%  7d   -2.3%
-   RSI 50 neutral, volatility 20th pctile, 4h gap +2.9% up
- SNXX    RSI 51.3  EMA20   +2.4%  7d   +0.2%
-   funding crowded long, 4h gap +7.6% up
+ CRCL    RSI 52.2  EMA20   +1.4%  7d   +0.4%
+   RSI 52 neutral, hugging EMA20
+ XAU     RSI 51.2  EMA20   +0.4%  7d   +0.8%
+   RSI 51 neutral, volatility 16th pctile, 1d gap -3.5% down
+ SOXL    RSI 50.3  EMA20   +2.1%  7d   -3.4%
+   RSI 50 neutral, volatility 6th pctile
+ SPCX    RSI 56.4  EMA20   +2.8%  7d   +1.0%
+   RSI 56 neutral, volatility 15th pctile, 4h gap -1.5% down
+ SKHYNIX RSI 56.0  EMA20   +3.8%  7d   -2.6%
+   RSI 56 neutral, volatility 0th pctile, 4h gap +0.9% up
 
 TRENDING WITH ROOM
- ETH     RSI 59.0  EMA20   +3.0%  7d   -0.1%
-   RSI 59 neutral, hugging EMA20, 4h gap +0.6% up
- BTC     RSI 57.6  EMA20   +1.9%  7d   +1.6%
-   RSI 58 neutral, volatility 20th pctile, 1d gap -7.8% down
- SOL     RSI 60.7  EMA20   +6.0%  7d   +3.8%
-   above rising 200, 1d gap +6.5% up
- XRP     RSI 50.7  EMA20   -0.4%  7d   -1.2%
-   RSI 51 neutral, hugging EMA20, 4h gap +2.2% up
- HYPE    RSI 63.3  EMA20   +9.8%  7d  +11.8%
-   volatility 22th pctile, above rising 200, 4h gap -7.7% down
+ BTC     RSI 63.3  EMA20   +4.6%  7d   +4.7%
+   hugging EMA20, above rising 200, 1d gap +5.1% up
+ SOL     RSI 65.3  EMA20  +10.7%  7d   +8.9%
+   above rising 200, 1d gap +1.4% up
+ WLD     RSI 55.7  EMA20   +5.6%  7d   +3.5%
+   RSI 56 neutral, mid-range, 4h gap -3.1% down
+ BNB     RSI 64.6  EMA20   +5.3%  7d   +4.2%
+   above rising 200, 4h gap -7.4% down
+ CRCL    RSI 52.2  EMA20   +1.4%  7d   +0.4%
+   RSI 52 neutral, hugging EMA20
 
 GAP BASE RATE
  measured 13 Sep 2026, 24 symbols, 50-bar horizon
