@@ -29,15 +29,15 @@
    "republished": 1,
    "activated_ts": 1789751700,
    "activated_time_tehran": "2026-09-18 20:45 Tehran",
-   "resolved_ts": null,
-   "status": "active",
-   "result": "open",
-   "result_r": null,
-   "resolve_note": "",
-   "mfe_r": 1.134,
+   "resolved_ts": 1789758900,
+   "status": "win",
+   "result": "tp1",
+   "result_r": 2.4999999990973722,
+   "resolve_note": "first target touched",
+   "mfe_r": 2.534,
    "mae_r": 0.035,
    "bars_to_activate": 1,
-   "bars_to_resolve": null,
+   "bars_to_resolve": 9,
    "supports": [
     "structure bullish",
     "above cloud",
@@ -400,16 +400,27 @@
  ],
  "tracking_since": "2026-09-13 19:37 Tehran",
  "overall": {
-  "trades": 2,
-  "wins": 0,
+  "trades": 3,
+  "wins": 1,
   "losses": 2,
-  "win_rate": 0.0,
-  "expectancy_r": -1.0,
-  "open": 1,
+  "win_rate": 33.33333333333333,
+  "expectancy_r": 0.16666666636579075,
+  "open": 0,
   "expired": 1,
   "invalidated": 1
  },
  "by_symbol": [
+  {
+   "trades": 1,
+   "wins": 1,
+   "losses": 0,
+   "win_rate": 100.0,
+   "expectancy_r": 2.4999999990973722,
+   "open": 0,
+   "expired": 0,
+   "invalidated": 0,
+   "name": "ETHUSDT"
+  },
   {
    "trades": 1,
    "wins": 0,
@@ -442,17 +453,6 @@
    "expired": 0,
    "invalidated": 1,
    "name": "BTCUSDT"
-  },
-  {
-   "trades": 0,
-   "wins": 0,
-   "losses": 0,
-   "win_rate": null,
-   "expectancy_r": null,
-   "open": 1,
-   "expired": 0,
-   "invalidated": 0,
-   "name": "ETHUSDT"
   }
  ],
  "by_style": [
@@ -468,12 +468,12 @@
    "name": "30m"
   },
   {
-   "trades": 0,
-   "wins": 0,
+   "trades": 1,
+   "wins": 1,
    "losses": 0,
-   "win_rate": null,
-   "expectancy_r": null,
-   "open": 1,
+   "win_rate": 100.0,
+   "expectancy_r": 2.4999999990973722,
+   "open": 0,
    "expired": 1,
    "invalidated": 1,
    "name": "15m"
@@ -481,17 +481,17 @@
  ],
  "by_strategy": [
   {
-   "trades": 2,
-   "wins": 0,
+   "trades": 3,
+   "wins": 1,
    "losses": 2,
-   "win_rate": 0.0,
-   "expectancy_r": -1.0,
-   "open": 1,
+   "win_rate": 33.33333333333333,
+   "expectancy_r": 0.16666666636579075,
+   "open": 0,
    "expired": 1,
    "invalidated": 1,
    "name": "Trend Continuation"
   }
  ],
- "updated_tehran": "2026-09-18 21:46 Tehran",
- "updated_ts": 1789755366.1683824
+ "updated_tehran": "2026-09-19 01:04 Tehran",
+ "updated_ts": 1789767260.713918
 }
