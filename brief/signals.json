@@ -1,6 +1,81 @@
 {
  "records": [
   {
+   "id": "HYPEUSDT|15m|long@1789722799",
+   "ref": "MO-260918-1243-HYPE-15m-L",
+   "key": "HYPEUSDT|15m|long",
+   "symbol": "HYPEUSDT",
+   "tf": "15m",
+   "side": "long",
+   "strategy": "Trend Continuation",
+   "trade_style": "15m",
+   "confidence": 63.7,
+   "entry": 88.32138224,
+   "entry_zone": [
+    88.26734186,
+    88.37542261
+   ],
+   "stop": 87.64587754,
+   "targets": [
+    90.01014398,
+    90.68564868
+   ],
+   "rr": 2.5,
+   "atr": 0.45033647,
+   "risk_per_unit": 0.6755047000000047,
+   "published_ts": 1789722799.1695874,
+   "published_time_tehran": "2026-09-18 12:43 Tehran",
+   "last_seen_ts": 1789722799.1695874,
+   "republished": 1,
+   "activated_ts": null,
+   "activated_time_tehran": null,
+   "resolved_ts": null,
+   "status": "pending",
+   "result": "open",
+   "result_r": null,
+   "resolve_note": "",
+   "mfe_r": null,
+   "mae_r": null,
+   "bars_to_activate": null,
+   "bars_to_resolve": null,
+   "supports": [
+    "structure bullish",
+    "above cloud",
+    "future cloud green",
+    "ADX 49 aligned",
+    "tape +29%",
+    "HTF bullish agrees"
+   ],
+   "warnings": [],
+   "blockers": [],
+   "entry_distance_pct": 0.178,
+   "entry_distance_atr": 0.35,
+   "context": {
+    "score": 10.0,
+    "other_side_score": -8.0,
+    "funding": -0.000461,
+    "ls_top": 1.17,
+    "oi_1h": 0.249,
+    "perp_spot_ratio": 6.808,
+    "fng": null,
+    "adx": 48.64324353341162,
+    "rsi14": 67.20643356376094
+   },
+   "position_at_publish": {
+    "margin": 1000.0,
+    "risk_pct": 1.0,
+    "risk_usd": 10.0,
+    "qty": 14.80374602,
+    "notional": 1307.49,
+    "leverage": 1.31,
+    "liquidation": 21.21251923,
+    "target_kinds": [
+     "derived 2.5R",
+     "derived 3.5R"
+    ]
+   }
+  },
+  {
    "id": "HYPEUSDT|30m|short@1789308927",
    "key": "HYPEUSDT|30m|short",
    "symbol": "HYPEUSDT",
@@ -255,7 +330,7 @@
   "losses": 2,
   "win_rate": 0.0,
   "expectancy_r": -1.0,
-  "open": 0,
+  "open": 1,
   "expired": 0,
   "invalidated": 1
  },
@@ -266,7 +341,7 @@
    "losses": 1,
    "win_rate": 0.0,
    "expectancy_r": -1.0,
-   "open": 0,
+   "open": 1,
    "expired": 0,
    "invalidated": 0,
    "name": "HYPEUSDT"
@@ -312,7 +387,7 @@
    "losses": 0,
    "win_rate": null,
    "expectancy_r": null,
-   "open": 0,
+   "open": 1,
    "expired": 0,
    "invalidated": 1,
    "name": "15m"
@@ -325,12 +400,12 @@
    "losses": 2,
    "win_rate": 0.0,
    "expectancy_r": -1.0,
-   "open": 0,
+   "open": 1,
    "expired": 0,
    "invalidated": 1,
    "name": "Trend Continuation"
   }
  ],
- "updated_tehran": "2026-09-17 21:15 Tehran",
- "updated_ts": 1789667155.575034
+ "updated_tehran": "2026-09-18 12:43 Tehran",
+ "updated_ts": 1789722799.1745262
 }
