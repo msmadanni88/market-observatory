@@ -28,16 +28,16 @@
    "published_time_tehran": "2026-09-19 20:15 Tehran",
    "last_seen_ts": 1789836318.101576,
    "republished": 1,
-   "activated_ts": null,
-   "activated_time_tehran": null,
+   "activated_ts": 1789837200,
+   "activated_time_tehran": "2026-09-19 20:30 Tehran",
    "resolved_ts": null,
-   "status": "pending",
+   "status": "active",
    "result": "open",
    "result_r": null,
    "resolve_note": "",
-   "mfe_r": null,
-   "mae_r": null,
-   "bars_to_activate": null,
+   "mfe_r": 0.759,
+   "mae_r": 0.637,
+   "bars_to_activate": 1,
    "bars_to_resolve": null,
    "supports": [
     "structure bullish",
@@ -582,6 +582,6 @@
    "name": "Trend Continuation"
   }
  ],
- "updated_tehran": "2026-09-19 20:37 Tehran",
- "updated_ts": 1789837673.8982382
+ "updated_tehran": "2026-09-19 23:56 Tehran",
+ "updated_ts": 1789849611.0315015
 }
