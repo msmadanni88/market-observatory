@@ -1,6 +1,85 @@
 {
  "records": [
   {
+   "id": "SOLUSDT|1h|long@1789836318",
+   "ref": "MO-260919-2015-SOL-1h-L",
+   "key": "SOLUSDT|1h|long",
+   "symbol": "SOLUSDT",
+   "tf": "1h",
+   "side": "long",
+   "strategy": "Trend Continuation",
+   "trade_style": "1h",
+   "confidence": 68.2,
+   "entry": 111.41747903,
+   "entry_zone": [
+    111.30861469,
+    111.52634336
+   ],
+   "stop": 110.05667485,
+   "targets": [
+    114.29,
+    114.81948946,
+    116.18029363
+   ],
+   "rr": 2.11,
+   "atr": 0.90720278,
+   "risk_per_unit": 1.3608041800000024,
+   "published_ts": 1789836318.101576,
+   "published_time_tehran": "2026-09-19 20:15 Tehran",
+   "last_seen_ts": 1789836318.101576,
+   "republished": 1,
+   "activated_ts": null,
+   "activated_time_tehran": null,
+   "resolved_ts": null,
+   "status": "pending",
+   "result": "open",
+   "result_r": null,
+   "resolve_note": "",
+   "mfe_r": null,
+   "mae_r": null,
+   "bars_to_activate": null,
+   "bars_to_resolve": null,
+   "supports": [
+    "structure bullish",
+    "above cloud",
+    "future cloud green",
+    "ADX 35 aligned",
+    "RSI 58 washed out, not chasing",
+    "room ratio 4.52",
+    "tape +15%",
+    "HTF bullish agrees"
+   ],
+   "warnings": [],
+   "blockers": [],
+   "entry_distance_pct": 0.284,
+   "entry_distance_atr": 0.35,
+   "context": {
+    "score": 12.0,
+    "other_side_score": -10.0,
+    "funding": 0.01,
+    "ls_top": 1.54,
+    "oi_1h": -0.351,
+    "perp_spot_ratio": 10.831,
+    "fng": null,
+    "adx": 35.384512658758176,
+    "rsi14": 57.51886195529822
+   },
+   "position_at_publish": {
+    "margin": 1000.0,
+    "risk_pct": 1.0,
+    "risk_usd": 10.0,
+    "qty": 7.34859592,
+    "notional": 818.76,
+    "leverage": 0.82,
+    "liquidation": null,
+    "target_kinds": [
+     "observed structure",
+     "derived 2.5R",
+     "derived 3.5R"
+    ]
+   }
+  },
+  {
    "id": "ETHUSDT|15m|long@1789751613",
    "ref": "MO-260918-2043-ETH-15m-L",
    "key": "ETHUSDT|15m|long",
@@ -405,7 +484,7 @@
   "losses": 2,
   "win_rate": 33.33333333333333,
   "expectancy_r": 0.16666666636579075,
-  "open": 0,
+  "open": 1,
   "expired": 1,
   "invalidated": 1
  },
@@ -438,7 +517,7 @@
    "losses": 1,
    "win_rate": 0.0,
    "expectancy_r": -1.0,
-   "open": 0,
+   "open": 1,
    "expired": 0,
    "invalidated": 0,
    "name": "SOLUSDT"
@@ -477,6 +556,17 @@
    "expired": 1,
    "invalidated": 1,
    "name": "15m"
+  },
+  {
+   "trades": 0,
+   "wins": 0,
+   "losses": 0,
+   "win_rate": null,
+   "expectancy_r": null,
+   "open": 1,
+   "expired": 0,
+   "invalidated": 0,
+   "name": "1h"
   }
  ],
  "by_strategy": [
@@ -486,12 +576,12 @@
    "losses": 2,
    "win_rate": 33.33333333333333,
    "expectancy_r": 0.16666666636579075,
-   "open": 0,
+   "open": 1,
    "expired": 1,
    "invalidated": 1,
    "name": "Trend Continuation"
   }
  ],
- "updated_tehran": "2026-09-19 12:30 Tehran",
- "updated_ts": 1789808459.6917462
+ "updated_tehran": "2026-09-19 20:15 Tehran",
+ "updated_ts": 1789836318.106882
 }
