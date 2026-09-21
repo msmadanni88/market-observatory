@@ -29,15 +29,15 @@
    "republished": 1,
    "activated_ts": 1789985700,
    "activated_time_tehran": "2026-09-21 13:45 Tehran",
-   "resolved_ts": null,
-   "status": "active",
-   "result": "open",
-   "result_r": null,
-   "resolve_note": "",
-   "mfe_r": 0.356,
-   "mae_r": 0.268,
+   "resolved_ts": 1789999200,
+   "status": "loss",
+   "result": "stop",
+   "result_r": -1.0,
+   "resolve_note": "stop touched first",
+   "mfe_r": 1.167,
+   "mae_r": 1.874,
    "bars_to_activate": 1,
-   "bars_to_resolve": null,
+   "bars_to_resolve": 16,
    "supports": [
     "structure bullish",
     "above cloud",
@@ -554,16 +554,27 @@
  ],
  "tracking_since": "2026-09-13 19:37 Tehran",
  "overall": {
-  "trades": 4,
+  "trades": 5,
   "wins": 1,
-  "losses": 3,
-  "win_rate": 25.0,
-  "expectancy_r": -0.12500000022565694,
-  "open": 1,
+  "losses": 4,
+  "win_rate": 20.0,
+  "expectancy_r": -0.30000000018052553,
+  "open": 0,
   "expired": 1,
   "invalidated": 1
  },
  "by_symbol": [
+  {
+   "trades": 2,
+   "wins": 0,
+   "losses": 2,
+   "win_rate": 0.0,
+   "expectancy_r": -1.0,
+   "open": 0,
+   "expired": 1,
+   "invalidated": 0,
+   "name": "HYPEUSDT"
+  },
   {
    "trades": 2,
    "wins": 0,
@@ -587,17 +598,6 @@
    "name": "ETHUSDT"
   },
   {
-   "trades": 1,
-   "wins": 0,
-   "losses": 1,
-   "win_rate": 0.0,
-   "expectancy_r": -1.0,
-   "open": 1,
-   "expired": 1,
-   "invalidated": 0,
-   "name": "HYPEUSDT"
-  },
-  {
    "trades": 0,
    "wins": 0,
    "losses": 0,
@@ -612,6 +612,17 @@
  "by_style": [
   {
    "trades": 2,
+   "wins": 1,
+   "losses": 1,
+   "win_rate": 50.0,
+   "expectancy_r": 0.7499999995486861,
+   "open": 0,
+   "expired": 1,
+   "invalidated": 1,
+   "name": "15m"
+  },
+  {
+   "trades": 2,
    "wins": 0,
    "losses": 2,
    "win_rate": 0.0,
@@ -620,17 +631,6 @@
    "expired": 0,
    "invalidated": 0,
    "name": "30m"
-  },
-  {
-   "trades": 1,
-   "wins": 1,
-   "losses": 0,
-   "win_rate": 100.0,
-   "expectancy_r": 2.4999999990973722,
-   "open": 1,
-   "expired": 1,
-   "invalidated": 1,
-   "name": "15m"
   },
   {
    "trades": 1,
@@ -657,17 +657,17 @@
    "name": "Trend Continuation"
   },
   {
-   "trades": 0,
+   "trades": 1,
    "wins": 0,
-   "losses": 0,
-   "win_rate": null,
-   "expectancy_r": null,
-   "open": 1,
+   "losses": 1,
+   "win_rate": 0.0,
+   "expectancy_r": -1.0,
+   "open": 0,
    "expired": 0,
    "invalidated": 0,
    "name": "Confirmed Breakout Retest"
   }
  ],
- "updated_tehran": "2026-09-21 14:05 Tehran",
- "updated_ts": 1789986900.0553133
+ "updated_tehran": "2026-09-21 20:27 Tehran",
+ "updated_ts": 1790009827.9556615
 }
