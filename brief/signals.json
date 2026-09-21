@@ -27,16 +27,16 @@
    "published_time_tehran": "2026-09-21 13:44 Tehran",
    "last_seen_ts": 1789985668.7639134,
    "republished": 1,
-   "activated_ts": null,
-   "activated_time_tehran": null,
+   "activated_ts": 1789985700,
+   "activated_time_tehran": "2026-09-21 13:45 Tehran",
    "resolved_ts": null,
-   "status": "pending",
+   "status": "active",
    "result": "open",
    "result_r": null,
    "resolve_note": "",
-   "mfe_r": null,
-   "mae_r": null,
-   "bars_to_activate": null,
+   "mfe_r": 0.356,
+   "mae_r": 0.268,
+   "bars_to_activate": 1,
    "bars_to_resolve": null,
    "supports": [
     "structure bullish",
@@ -668,6 +668,6 @@
    "name": "Confirmed Breakout Retest"
   }
  ],
- "updated_tehran": "2026-09-21 13:44 Tehran",
- "updated_ts": 1789985668.7686734
+ "updated_tehran": "2026-09-21 14:05 Tehran",
+ "updated_ts": 1789986900.0553133
 }
