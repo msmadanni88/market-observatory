@@ -1,62 +1,62 @@
-MARKET BRIEF  2026-09-21 22:26 Tehran
+MARKET BRIEF  2026-09-22 13:01 Tehran
 scanned 60 perps
 
 SETUPS
  nothing cleared the gates. 35 combinations were checked.
-   3x  confidence 49.8 below floor 62.0
-   2x  confidence 60.1 below floor 62.0
-   2x  confidence 57.1 below floor 62.0
+   5x  no trend
+   3x  resistance under 0.6 ATR away
+   2x  support under 0.6 ATR away
 
 CALENDAR
- - 8d  HYPE unlock, same size as August
+ - 7d  HYPE unlock, same size as August
 
 POSITIONS
  XMRUSDT long @ 508
-   now 570.33  pnl +12.27%  status open
-   R:R from here 1:0.27
+   now 568.15  pnl +11.84%  status open
+   R:R from here 1:0.3
 
 SECTOR ROTATION  7d median
- l2           +52.7%  lead ARB RSI 73.4  laggard OP RSI 67.4
- defi         +34.1%  lead ENA RSI 72.1  laggard AAVE RSI 64.9
- l1_major     +32.6%  lead NEAR RSI 77.8  laggard ADA RSI 68.7
- meme         +30.5%  lead PEPE RSI 76.6  laggard SHIB RSI 65.9
- privacy      +27.5%  lead ZEC RSI 68.0  laggard DASH RSI 57.8
+ ai           +46.2%  lead TAO RSI 75.4  laggard WLD RSI 60.5
+ l1_major     +44.7%  lead NEAR RSI 84.1  laggard SOL RSI 66.8
+ l2           +44.1%  lead ARB RSI 70.1  laggard OP RSI 66.7
+ meme         +42.2%  lead PEPE RSI 76.6  laggard SHIB RSI 67.2
+ defi         +38.0%  lead ENA RSI 71.1  laggard AAVE RSI 61.3
 
 MOST EXTENDED
- ONE     RSI 96.9  EMA20 +178.2%  7d +653.0%
-   RSI 97 extreme, 178% above EMA20
- ARB     RSI 73.4  EMA20  +35.9%  7d  +69.0%
-   RSI 73 overbought, 36% above EMA20
- ZAMA    RSI 83.7  EMA20  +60.6%  7d +107.3%
-   RSI 84 extreme, 61% above EMA20
- MUBARAK RSI 82.5  EMA20  +43.7%  7d  +47.4%
-   RSI 83 extreme, 44% above EMA20
- ZETA    RSI 87.7  EMA20  +63.3%  7d  +74.9%
-   RSI 88 extreme, 63% above EMA20
+ ONE     RSI 97.4  EMA20 +164.1%  7d +763.7%
+   RSI 97 extreme, 164% above EMA20
+ ZAMA    RSI 81.1  EMA20  +48.1%  7d +100.9%
+   RSI 81 extreme, 48% above EMA20
+ MUBARAK RSI 89.3  EMA20  +76.9%  7d  +95.6%
+   RSI 89 extreme, 77% above EMA20
+ NEAR    RSI 84.1  EMA20  +49.8%  7d  +94.4%
+   RSI 84 extreme, 50% above EMA20
+ ZETA    RSI 86.2  EMA20  +47.4%  7d  +72.5%
+   RSI 86 extreme, 47% above EMA20, 4h gap -11.6% down
 
 MOST COMPRESSED
- QQQ     RSI 68.8  EMA20   +3.2%  7d   +4.5%
-   volatility 18th pctile, hugging EMA20
- XAU     RSI 47.1  EMA20   -0.5%  7d   +1.4%
-   RSI 47 neutral, volatility 20th pctile, 1d gap -2.6% down
- SNDK    RSI 59.6  EMA20   +5.8%  7d  +12.6%
-   RSI 60 neutral, volatility 2th pctile, 1d gap +4.8% up
- SPCX    RSI 57.1  EMA20   +2.4%  7d   +2.6%
-   RSI 57 neutral, volatility 19th pctile, 4h gap -2.0% down
- CL      RSI 48.8  EMA20   -1.9%  7d   -5.5%
-   RSI 49 neutral, hugging EMA20, 1d gap -2.0% down
+ MU      RSI 59.3  EMA20   +4.5%  7d  +11.4%
+   RSI 59 neutral, volatility 0th pctile, 4h gap -4.7% down
+ XAU     RSI 43.7  EMA20   -1.1%  7d   +0.8%
+   RSI 44 neutral, volatility 20th pctile, 1d gap -1.9% down
+ XAG     RSI 49.1  EMA20   -0.4%  7d   +2.4%
+   RSI 49 neutral, volatility 6th pctile, 1d gap -5.1% down
+ CRCL    RSI 52.5  EMA20   +1.2%  7d   +8.4%
+   RSI 52 neutral, volatility 24th pctile
+ SNDK    RSI 59.2  EMA20   +5.0%  7d  +15.0%
+   volume fading into highs, 1d gap +5.0% up
 
 TRENDING WITH ROOM
- ETH     RSI 71.2  EMA20   +9.6%  7d   +9.4%
-   above rising 200, 1d gap +0.9% up
- DOGE    RSI 70.5  EMA20  +15.8%  7d  +19.2%
-   volume 2.2x, 1d gap +2.4% up
- XRP     RSI 63.8  EMA20   +9.8%  7d   +6.1%
-   above rising 200
- ADA     RSI 68.7  EMA20  +14.2%  7d  +17.3%
-   +8% 30d, RSI still 69, above 200 with room, 4h gap -10.3% down
- LINK    RSI 65.1  EMA20   +9.9%  7d  +12.4%
-   above rising 200, 4h gap -8.3% down
+ WIF     RSI 70.7  EMA20  +23.0%  7d  +42.2%
+   23% above EMA20, +42% in 7d
+ SHIB    RSI 67.2  EMA20  +12.2%  7d  +22.4%
+   +22% in 7d, 4h gap -11.1% down
+ BTC     RSI 70.9  EMA20   +8.0%  7d  +13.5%
+   above rising 200, 1d gap +4.2% up
+ ETH     RSI 68.3  EMA20   +8.0%  7d  +14.2%
+   above rising 200, 1d gap +2.7% up
+ SOL     RSI 66.8  EMA20  +10.8%  7d  +20.8%
+   volume fading into highs, 1d gap +4.8% up
 
 GAP BASE RATE
  measured 13 Sep 2026, 24 symbols, 50-bar horizon
