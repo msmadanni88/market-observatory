@@ -1,6 +1,86 @@
 {
  "records": [
   {
+   "id": "XRPUSDT|4h|long@1790186372",
+   "ref": "MO-260923-2129-XRP-4h-L",
+   "key": "XRPUSDT|4h|long",
+   "symbol": "XRPUSDT",
+   "tf": "4h",
+   "side": "long",
+   "strategy": "Trend Continuation",
+   "trade_style": "4h",
+   "confidence": 62.4,
+   "entry": 1.48617184,
+   "entry_zone": [
+    1.48074504,
+    1.49159864
+   ],
+   "stop": 1.41833687,
+   "targets": [
+    1.65575926,
+    1.72359423
+   ],
+   "rr": 2.5,
+   "atr": 0.04522331,
+   "risk_per_unit": 0.06783496999999983,
+   "published_ts": 1790186372.0728245,
+   "published_time_tehran": "2026-09-23 21:29 Tehran",
+   "last_seen_ts": 1790186372.0728245,
+   "republished": 1,
+   "activated_ts": null,
+   "activated_time_tehran": null,
+   "resolved_ts": null,
+   "status": "pending",
+   "result": "open",
+   "result_r": null,
+   "resolve_note": "",
+   "mfe_r": null,
+   "mae_r": null,
+   "bars_to_activate": null,
+   "bars_to_resolve": null,
+   "supports": [
+    "structure bullish",
+    "above cloud",
+    "future cloud green",
+    "ADX 48 aligned",
+    "RSI 51 washed out, not chasing",
+    "tape +63%",
+    "HTF bullish agrees"
+   ],
+   "warnings": [
+    "HYPE unlock, same size as August in 6d"
+   ],
+   "blockers": [
+    "top traders 2.52 long - crowded"
+   ],
+   "entry_distance_pct": 1.054,
+   "entry_distance_atr": 0.35,
+   "context": {
+    "score": 9.0,
+    "other_side_score": -9.0,
+    "funding": 0.01,
+    "ls_top": 2.52,
+    "oi_1h": -1.413,
+    "perp_spot_ratio": 5.773,
+    "fng": null,
+    "adx": 47.781620163223224,
+    "rsi14": 51.396314953985154
+   },
+   "position_at_publish": {
+    "margin": 1000.0,
+    "risk_pct": 1.0,
+    "risk_usd": 10.0,
+    "qty": 147.41659709,
+    "notional": 219.09,
+    "leverage": 0.22,
+    "liquidation": null,
+    "target_kinds": [
+     "derived 2.5R",
+     "derived 3.5R"
+    ]
+   }
+  },
+  {
    "id": "HYPEUSDT|30m|long@1790099191",
    "ref": "MO-260922-2116-HYPE-30m-L",
    "key": "HYPEUSDT|30m|long",
@@ -636,7 +716,7 @@
   "losses": 5,
   "win_rate": 16.666666666666664,
   "expectancy_r": -0.4166666668171046,
-  "open": 0,
+  "open": 1,
   "expired": 1,
   "invalidated": 1
  },
@@ -684,6 +764,17 @@
    "expired": 0,
    "invalidated": 1,
    "name": "BTCUSDT"
+  },
+  {
+   "trades": 0,
+   "wins": 0,
+   "losses": 0,
+   "win_rate": null,
+   "expectancy_r": null,
+   "open": 1,
+   "expired": 0,
+   "invalidated": 0,
+   "name": "XRPUSDT"
   }
  ],
  "by_style": [
@@ -719,6 +810,17 @@
    "expired": 0,
    "invalidated": 0,
    "name": "1h"
+  },
+  {
+   "trades": 0,
+   "wins": 0,
+   "losses": 0,
+   "win_rate": null,
+   "expectancy_r": null,
+   "open": 1,
+   "expired": 0,
+   "invalidated": 0,
+   "name": "4h"
   }
  ],
  "by_strategy": [
@@ -728,7 +830,7 @@
    "losses": 3,
    "win_rate": 25.0,
    "expectancy_r": -0.12500000022565694,
-   "open": 0,
+   "open": 1,
    "expired": 1,
    "invalidated": 1,
    "name": "Trend Continuation"
@@ -745,6 +847,6 @@
    "name": "Confirmed Breakout Retest"
   }
  ],
- "updated_tehran": "2026-09-23 20:10 Tehran",
- "updated_ts": 1790181641.2466478
+ "updated_tehran": "2026-09-23 21:29 Tehran",
+ "updated_ts": 1790186372.0781624
 }
