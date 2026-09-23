@@ -29,15 +29,15 @@
    "republished": 1,
    "activated_ts": 1790100000,
    "activated_time_tehran": "2026-09-22 21:30 Tehran",
-   "resolved_ts": null,
-   "status": "active",
-   "result": "open",
-   "result_r": null,
-   "resolve_note": "",
+   "resolved_ts": 1790161200,
+   "status": "loss",
+   "result": "stop",
+   "result_r": -1.0,
+   "resolve_note": "stop touched first",
    "mfe_r": 1.389,
-   "mae_r": 0.984,
+   "mae_r": 1.062,
    "bars_to_activate": 1,
-   "bars_to_resolve": null,
+   "bars_to_resolve": 35,
    "supports": [
     "structure bullish",
     "above cloud",
@@ -631,23 +631,23 @@
  ],
  "tracking_since": "2026-09-13 19:37 Tehran",
  "overall": {
-  "trades": 5,
+  "trades": 6,
   "wins": 1,
-  "losses": 4,
-  "win_rate": 20.0,
-  "expectancy_r": -0.30000000018052553,
-  "open": 1,
+  "losses": 5,
+  "win_rate": 16.666666666666664,
+  "expectancy_r": -0.4166666668171046,
+  "open": 0,
   "expired": 1,
   "invalidated": 1
  },
  "by_symbol": [
   {
-   "trades": 2,
+   "trades": 3,
    "wins": 0,
-   "losses": 2,
+   "losses": 3,
    "win_rate": 0.0,
    "expectancy_r": -1.0,
-   "open": 1,
+   "open": 0,
    "expired": 1,
    "invalidated": 0,
    "name": "HYPEUSDT"
@@ -688,6 +688,17 @@
  ],
  "by_style": [
   {
+   "trades": 3,
+   "wins": 0,
+   "losses": 3,
+   "win_rate": 0.0,
+   "expectancy_r": -1.0,
+   "open": 0,
+   "expired": 0,
+   "invalidated": 0,
+   "name": "30m"
+  },
+  {
    "trades": 2,
    "wins": 1,
    "losses": 1,
@@ -697,17 +708,6 @@
    "expired": 1,
    "invalidated": 1,
    "name": "15m"
-  },
-  {
-   "trades": 2,
-   "wins": 0,
-   "losses": 2,
-   "win_rate": 0.0,
-   "expectancy_r": -1.0,
-   "open": 1,
-   "expired": 0,
-   "invalidated": 0,
-   "name": "30m"
   },
   {
    "trades": 1,
@@ -734,17 +734,17 @@
    "name": "Trend Continuation"
   },
   {
-   "trades": 1,
+   "trades": 2,
    "wins": 0,
-   "losses": 1,
+   "losses": 2,
    "win_rate": 0.0,
    "expectancy_r": -1.0,
-   "open": 1,
+   "open": 0,
    "expired": 0,
    "invalidated": 0,
    "name": "Confirmed Breakout Retest"
   }
  ],
- "updated_tehran": "2026-09-23 14:48 Tehran",
- "updated_ts": 1790162325.0068603
+ "updated_tehran": "2026-09-23 20:10 Tehran",
+ "updated_ts": 1790181641.2466478
 }
