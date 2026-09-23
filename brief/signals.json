@@ -35,7 +35,7 @@
    "result_r": null,
    "resolve_note": "",
    "mfe_r": 1.389,
-   "mae_r": 0.515,
+   "mae_r": 0.679,
    "bars_to_activate": 1,
    "bars_to_resolve": null,
    "supports": [
@@ -745,6 +745,6 @@
    "name": "Confirmed Breakout Retest"
   }
  ],
- "updated_tehran": "2026-09-23 09:16 Tehran",
- "updated_ts": 1790142374.2003796
+ "updated_tehran": "2026-09-23 13:02 Tehran",
+ "updated_ts": 1790155978.5426893
 }
