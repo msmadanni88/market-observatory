@@ -34,7 +34,7 @@
    "result": "open",
    "result_r": null,
    "resolve_note": "",
-   "mfe_r": 1.096,
+   "mfe_r": 1.112,
    "mae_r": 0.514,
    "bars_to_activate": 1,
    "bars_to_resolve": null,
@@ -847,6 +847,6 @@
    "name": "Confirmed Breakout Retest"
   }
  ],
- "updated_tehran": "2026-09-25 11:03 Tehran",
- "updated_ts": 1790321609.905982
+ "updated_tehran": "2026-09-25 13:18 Tehran",
+ "updated_ts": 1790329703.0792286
 }

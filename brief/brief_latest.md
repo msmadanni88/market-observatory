@@ -1,62 +1,62 @@
-MARKET BRIEF  2026-09-24 21:29 Tehran
-scanned 54 perps
+MARKET BRIEF  2026-09-25 13:18 Tehran
+scanned 51 perps
 
 SETUPS
  nothing cleared the gates. 35 combinations were checked.
-   6x  price inside the cloud
-   4x  no trend
-   2x  best side scored 3
+   10x  resistance under 0.6 ATR away
+   8x  no trend
+   5x  price inside the cloud
 
 CALENDAR
- - 5d  HYPE unlock, same size as August
+ - 4d  HYPE unlock, same size as August
 
 POSITIONS
  XMRUSDT long @ 508
-   now 551.59  pnl +8.58%  status open
-   R:R from here 1:0.56
+   now 568.13  pnl +11.84%  status open
+   R:R from here 1:0.3
 
 SECTOR ROTATION  7d median
- oracle_rwa   +39.2%  lead ONDO RSI 71.6  laggard LINK RSI 60.4
- l1_major     +35.2%  lead NEAR RSI 82.6  laggard ETH RSI 61.8
- payments     +33.5%  lead BCH RSI 74.8  laggard XLM RSI 60.9
- ai           +25.3%  lead TAO RSI 62.5  laggard WLD RSI 55.9
- l2           +23.2%  lead ARB RSI 66.9  laggard ARB RSI 66.9
+ oracle_rwa   +40.5%  lead ONDO RSI 75.1  laggard LINK RSI 67.7
+ ai           +22.1%  lead TAO RSI 65.6  laggard WLD RSI 57.6
+ payments     +21.8%  lead BCH RSI 76.0  laggard XRP RSI 63.4
+ l1_major     +21.8%  lead NEAR RSI 84.9  laggard ETH RSI 64.4
+ meme         +17.4%  lead PEPE RSI 62.1  laggard DOGE RSI 62.1
 
 MOST EXTENDED
- NEAR    RSI 82.6  EMA20  +40.9%  7d  +47.2%
-   RSI 83 extreme, 41% above EMA20
- RAY     RSI 77.1  EMA20  +35.6%  7d  +41.3%
-   RSI 77 overbought, 36% above EMA20
- LTC     RSI 82.9  EMA20  +25.3%  7d  +33.5%
-   RSI 83 extreme, 25% above EMA20, 1d gap +6.3% up
- INJ     RSI 73.5  EMA20  +24.6%  7d  +45.9%
-   RSI 73 overbought, 25% above EMA20
- ARB     RSI 66.9  EMA20  +20.8%  7d  +23.2%
-   21% above EMA20, 53% above EMA50
+ NEAR    RSI 84.9  EMA20  +45.0%  7d  +32.7%
+   RSI 85 extreme, 45% above EMA20
+ ONDO    RSI 75.1  EMA20  +34.6%  7d  +40.5%
+   RSI 75 overbought, 35% above EMA20
+ ENA     RSI 71.8  EMA20  +23.3%  7d  +34.0%
+   23% above EMA20, 47% above EMA50
+ BCH     RSI 76.0  EMA20  +23.2%  7d  +32.6%
+   RSI 76 overbought, 23% above EMA20
+ SOXL    RSI 65.6  EMA20  +18.1%  7d  +24.3%
+   18% above EMA20, +24% in 7d
 
 MOST COMPRESSED
- SNDK    RSI 54.6  EMA20   +2.4%  7d   +7.8%
-   RSI 55 neutral, volatility 9th pctile, 4h gap -4.9% down
- XAG     RSI 42.7  EMA20   -2.8%  7d   -3.0%
-   RSI 43 neutral, volatility 2th pctile, 1d gap -2.6% down
- CL      RSI 55.3  EMA20   +1.9%  7d   -1.1%
-   RSI 55 neutral, hugging EMA20, 4h gap -10.8% down
- SPCX    RSI 49.3  EMA20   -1.0%  7d   -4.6%
-   RSI 49 neutral, volatility 7th pctile
- PUMP    RSI 48.2  EMA20   -3.7%  7d   -4.8%
-   RSI 48 neutral, hugging EMA20
+ SNDK    RSI 57.6  EMA20   +4.6%  7d   -0.2%
+   RSI 58 neutral, volatility 3th pctile, 4h gap -7.3% down
+ CL      RSI 50.0  EMA20   -0.8%  7d   -3.5%
+   RSI 50 neutral, hugging EMA20, 4h gap -8.3% down
+ XAU     RSI 42.7  EMA20   -1.2%  7d   -1.9%
+   RSI 43 neutral, volatility 1th pctile, 1d gap -1.3% down
+ XAG     RSI 47.2  EMA20   -1.0%  7d   -2.7%
+   RSI 47 neutral, volatility 0th pctile, 1d gap -4.2% down
+ SPCX    RSI 51.3  EMA20   -0.0%  7d   -2.1%
+   RSI 51 neutral, volatility 4th pctile
 
 TRENDING WITH ROOM
- ONDO    RSI 71.6  EMA20  +29.4%  7d  +39.2%
-   29% above EMA20, +39% in 7d
- ONE     RSI 49.9  EMA20  -11.7%  7d   +3.8%
-   funding crowded long, 4h gap -0.5% down
- ETC     RSI 68.7  EMA20  +19.3%  7d  +31.1%
-   19% above EMA20, +31% in 7d, 1d gap +8.8% up
- XPL     RSI 59.3  EMA20  +10.9%  7d  +14.3%
-   RSI 59 neutral
- PENGU   RSI 68.7  EMA20  +19.2%  7d  +37.3%
-   19% above EMA20, +37% in 7d
+ XPL     RSI 67.4  EMA20  +24.3%  7d  +23.8%
+   24% above EMA20, +24% in 7d, 4h gap -11.8% down
+ ONE     RSI 50.7  EMA20   -6.4%  7d   +0.8%
+   RSI 51 neutral
+ BTC     RSI 66.0  EMA20   +4.8%  7d   +4.6%
+   hugging EMA20, above rising 200, 4h gap -5.3% down
+ ETH     RSI 64.4  EMA20   +5.0%  7d   +3.6%
+   hugging EMA20, above rising 200, 1d gap +4.0% up
+ SOL     RSI 66.5  EMA20   +9.1%  7d   +5.0%
+   above rising 200, 1d gap +3.5% up
 
 GAP BASE RATE
  measured 13 Sep 2026, 24 symbols, 50-bar horizon
