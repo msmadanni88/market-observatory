@@ -1,62 +1,62 @@
-MARKET BRIEF  2026-09-30 22:04 Tehran
-scanned 58 perps
+MARKET BRIEF  2026-10-01 14:42 Tehran
+scanned 56 perps
 
 SETUPS
  nothing cleared the gates. 35 combinations were checked.
-   16x  no trend
-   7x  price inside the cloud
+   19x  no trend
+   8x  price inside the cloud
    4x  support under 0.6 ATR away
 
 CALENDAR
- !! 13d  September CPI
+ !! 12d  September CPI
 
 POSITIONS
  XMRUSDT long @ 508
-   now 547.1  pnl +7.70%  status open
-   R:R from here 1:0.64
+   now 541.02  pnl +6.50%  status open
+   R:R from here 1:0.78
 
 SECTOR ROTATION  7d median
- ai           +30.4%  lead WLD RSI 62.5  laggard TAO RSI 60.8
- oracle_rwa   +22.1%  lead ONDO RSI 59.5  laggard ONDO RSI 59.5
- defi         +19.4%  lead ENA RSI 70.7  laggard UNI RSI 59.9
- payments      +7.7%  lead XLM RSI 62.9  laggard XRP RSI 56.6
- l1_major      +7.1%  lead NEAR RSI 76.9  laggard ADA RSI 58.9
+ ai           +17.6%  lead WLD RSI 59.9  laggard WLD RSI 59.9
+ defi         +12.0%  lead ENA RSI 67.7  laggard UNI RSI 61.0
+ oracle_rwa    +8.1%  lead LINK RSI 62.1  laggard ONDO RSI 59.2
+ l1_major      +0.7%  lead SUI RSI 65.8  laggard ADA RSI 59.7
+ exchange      -0.9%  lead BNB RSI 58.0  laggard BNB RSI 58.0
 
 MOST EXTENDED
- SOON    RSI 89.7  EMA20  +91.9%  7d +160.1%
-   RSI 90 extreme, 92% above EMA20
- NIGHT   RSI 84.7  EMA20  +47.9%  7d  +67.1%
-   RSI 85 extreme, 48% above EMA20
- NEAR    RSI 76.9  EMA20  +33.1%  7d  +26.1%
-   RSI 77 overbought, 33% above EMA20
- GRASS   RSI 73.2  EMA20  +41.7%  7d  +56.2%
-   RSI 73 overbought, 42% above EMA20
- PUMP    RSI 70.4  EMA20  +29.8%  7d  +47.7%
-   30% above EMA20, 48% above EMA50
+ NIGHT   RSI 87.9  EMA20  +58.1%  7d  +79.8%
+   RSI 88 extreme, 58% above EMA20
+ SOON    RSI 78.6  EMA20  +61.2%  7d +126.9%
+   RSI 79 overbought, 61% above EMA20
+ GRASS   RSI 69.4  EMA20  +31.3%  7d  +53.7%
+   31% above EMA20, 58% above EMA50
+ CAP     RSI 69.9  EMA20  +33.7%  7d  +51.4%
+   34% above EMA20, +51% in 7d
+ PUMP    RSI 64.7  EMA20  +19.9%  7d  +45.0%
+   20% above EMA20, +45% in 7d
 
 MOST COMPRESSED
- SNDK    RSI 54.0  EMA20   +1.4%  7d   -3.9%
-   RSI 54 neutral, volatility 4th pctile, 4h gap -4.9% down
- MU      RSI 59.0  EMA20   +3.0%  7d   -0.3%
-   RSI 59 neutral, volatility 2th pctile, 4h gap -7.9% down
- CL      RSI 45.9  EMA20   -2.4%  7d   -1.6%
-   RSI 46 neutral, hugging EMA20, 4h gap -6.1% down
- ASTER   RSI 57.3  EMA20   +4.2%  7d   +8.8%
-   RSI 57 neutral, hugging EMA20
- LIT     RSI 41.1  EMA20  -12.1%  7d  -25.6%
-   RSI 41 neutral, mid-range
+ SNDK    RSI 55.4  EMA20   +2.2%  7d   +0.6%
+   RSI 55 neutral, volatility 2th pctile, 4h gap -6.0% down
+ MU      RSI 57.4  EMA20   +2.1%  7d   -1.2%
+   RSI 57 neutral, volatility 3th pctile, 4h gap -7.4% down
+ CL      RSI 49.5  EMA20   -0.7%  7d   -2.0%
+   RSI 50 neutral, hugging EMA20, 4h gap -7.6% down
+ KORU    RSI 41.9  EMA20   -3.3%  7d   +1.5%
+   RSI 42 neutral, volatility 3th pctile
+ HYPE    RSI 54.4  EMA20   +1.3%  7d   -2.7%
+   RSI 54 neutral, hugging EMA20, 4h gap -6.1% down
 
 TRENDING WITH ROOM
- WLD     RSI 62.5  EMA20  +15.7%  7d  +30.4%
-   +30% in 7d
- AAVE    RSI 63.6  EMA20  +10.5%  7d  +14.6%
-   above rising 200, 4h gap -3.0% down
- HBAR    RSI 62.6  EMA20  +16.3%  7d  +18.6%
-   +46% 30d, RSI still 63, above 200 with room
- MEW     RSI 65.8  EMA20  +10.7%  7d   +7.4%
-   volume 62.3x, 4h gap -10.7% down
- CRV     RSI 63.1  EMA20   +9.5%  7d  +19.4%
-   above rising 200, 4h gap -4.8% down
+ MON     RSI 67.1  EMA20  +18.5%  7d  +27.3%
+   19% above EMA20, +27% in 7d, 4h gap -9.1% down
+ BTC     RSI 62.0  EMA20   +2.1%  7d   -0.6%
+   hugging EMA20, above rising 200, 4h gap -4.5% down
+ ETH     RSI 63.4  EMA20   +2.7%  7d   +0.4%
+   volatility 25th pctile, hugging EMA20, 1d gap +4.2% up
+ SOL     RSI 61.1  EMA20   +3.7%  7d   +0.7%
+   hugging EMA20, above rising 200, 4h gap -9.6% down
+ SNDK    RSI 55.4  EMA20   +2.2%  7d   +0.6%
+   RSI 55 neutral, volatility 2th pctile, 4h gap -6.0% down
 
 GAP BASE RATE
  measured 13 Sep 2026, 24 symbols, 50-bar horizon
