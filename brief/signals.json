@@ -1,6 +1,81 @@
 {
  "records": [
   {
+   "id": "ETHUSDT|1h|long@1790937912",
+   "ref": "MO-261002-1415-ETH-1h-L",
+   "key": "ETHUSDT|1h|long",
+   "symbol": "ETHUSDT",
+   "tf": "1h",
+   "side": "long",
+   "strategy": "Confirmed Breakout Retest",
+   "trade_style": "1h",
+   "confidence": 62.2,
+   "entry": 2744.62567998,
+   "entry_zone": [
+    2742.26877026,
+    2746.9825897
+   ],
+   "stop": 2715.16430846,
+   "targets": [
+    2818.27910877,
+    2847.74048029
+   ],
+   "rr": 2.5,
+   "atr": 19.64091434,
+   "risk_per_unit": 29.46137151999983,
+   "published_ts": 1790937912.101071,
+   "published_time_tehran": "2026-10-02 14:15 Tehran",
+   "last_seen_ts": 1790937912.101071,
+   "republished": 1,
+   "activated_ts": null,
+   "activated_time_tehran": null,
+   "resolved_ts": null,
+   "status": "pending",
+   "result": "open",
+   "result_r": null,
+   "resolve_note": "",
+   "mfe_r": null,
+   "mae_r": null,
+   "bars_to_activate": null,
+   "bars_to_resolve": null,
+   "supports": [
+    "structure bullish",
+    "above cloud",
+    "future cloud green",
+    "ADX 28 aligned",
+    "tape +76%",
+    "HTF bullish agrees"
+   ],
+   "warnings": [],
+   "blockers": [],
+   "entry_distance_pct": 0.25,
+   "entry_distance_atr": 0.35,
+   "context": {
+    "score": 9.0,
+    "other_side_score": -7.0,
+    "funding": 0.008195,
+    "ls_top": 1.09,
+    "oi_1h": 0.584,
+    "perp_spot_ratio": 19.366,
+    "fng": null,
+    "adx": 27.51406597583853,
+    "rsi14": 65.50579998140924
+   },
+   "position_at_publish": {
+    "margin": 1000.0,
+    "risk_pct": 1.0,
+    "risk_usd": 10.0,
+    "qty": 0.33942751,
+    "notional": 931.6,
+    "leverage": 0.93,
+    "liquidation": null,
+    "target_kinds": [
+     "derived 2.5R",
+     "derived 3.5R"
+    ]
+   }
+  },
+  {
    "id": "ETHUSDT|30m|long@1790504039",
    "ref": "MO-260927-1343-ETH-30m-L",
    "key": "ETHUSDT|30m|long",
@@ -794,7 +869,7 @@
   "losses": 6,
   "win_rate": 14.285714285714285,
   "expectancy_r": -0.5000000001289469,
-  "open": 1,
+  "open": 2,
   "expired": 1,
   "invalidated": 1
  },
@@ -816,7 +891,7 @@
    "losses": 1,
    "win_rate": 50.0,
    "expectancy_r": 0.7499999995486861,
-   "open": 0,
+   "open": 1,
    "expired": 0,
    "invalidated": 0,
    "name": "ETHUSDT"
@@ -884,7 +959,7 @@
    "losses": 1,
    "win_rate": 0.0,
    "expectancy_r": -1.0,
-   "open": 0,
+   "open": 1,
    "expired": 0,
    "invalidated": 0,
    "name": "1h"
@@ -919,12 +994,12 @@
    "losses": 3,
    "win_rate": 0.0,
    "expectancy_r": -1.0,
-   "open": 0,
+   "open": 1,
    "expired": 0,
    "invalidated": 0,
    "name": "Confirmed Breakout Retest"
   }
  ],
- "updated_tehran": "2026-10-02 11:48 Tehran",
- "updated_ts": 1790929124.3152459
+ "updated_tehran": "2026-10-02 14:15 Tehran",
+ "updated_ts": 1790937912.106184
 }
