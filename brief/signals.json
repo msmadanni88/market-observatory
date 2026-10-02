@@ -27,17 +27,17 @@
    "published_time_tehran": "2026-10-02 14:15 Tehran",
    "last_seen_ts": 1790937912.101071,
    "republished": 1,
-   "activated_ts": null,
-   "activated_time_tehran": null,
-   "resolved_ts": null,
-   "status": "pending",
-   "result": "open",
-   "result_r": null,
-   "resolve_note": "",
-   "mfe_r": null,
-   "mae_r": null,
-   "bars_to_activate": null,
-   "bars_to_resolve": null,
+   "activated_ts": 1790938800,
+   "activated_time_tehran": "2026-10-02 14:30 Tehran",
+   "resolved_ts": 1790949600,
+   "status": "loss",
+   "result": "stop",
+   "result_r": -1.0,
+   "resolve_note": "stop touched first",
+   "mfe_r": 0.812,
+   "mae_r": 1.632,
+   "bars_to_activate": 1,
+   "bars_to_resolve": 4,
    "supports": [
     "structure bullish",
     "above cloud",
@@ -864,16 +864,27 @@
  ],
  "tracking_since": "2026-09-13 19:37 Tehran",
  "overall": {
-  "trades": 7,
+  "trades": 8,
   "wins": 1,
-  "losses": 6,
-  "win_rate": 14.285714285714285,
-  "expectancy_r": -0.5000000001289469,
-  "open": 2,
+  "losses": 7,
+  "win_rate": 12.5,
+  "expectancy_r": -0.5625000001128284,
+  "open": 1,
   "expired": 1,
   "invalidated": 1
  },
  "by_symbol": [
+  {
+   "trades": 3,
+   "wins": 1,
+   "losses": 2,
+   "win_rate": 33.33333333333333,
+   "expectancy_r": 0.16666666636579075,
+   "open": 0,
+   "expired": 0,
+   "invalidated": 0,
+   "name": "ETHUSDT"
+  },
   {
    "trades": 3,
    "wins": 0,
@@ -884,17 +895,6 @@
    "expired": 1,
    "invalidated": 0,
    "name": "HYPEUSDT"
-  },
-  {
-   "trades": 2,
-   "wins": 1,
-   "losses": 1,
-   "win_rate": 50.0,
-   "expectancy_r": 0.7499999995486861,
-   "open": 1,
-   "expired": 0,
-   "invalidated": 0,
-   "name": "ETHUSDT"
   },
   {
    "trades": 2,
@@ -954,12 +954,12 @@
    "name": "15m"
   },
   {
-   "trades": 1,
+   "trades": 2,
    "wins": 0,
-   "losses": 1,
+   "losses": 2,
    "win_rate": 0.0,
    "expectancy_r": -1.0,
-   "open": 1,
+   "open": 0,
    "expired": 0,
    "invalidated": 0,
    "name": "1h"
@@ -979,6 +979,17 @@
  "by_strategy": [
   {
    "trades": 4,
+   "wins": 0,
+   "losses": 4,
+   "win_rate": 0.0,
+   "expectancy_r": -1.0,
+   "open": 0,
+   "expired": 0,
+   "invalidated": 0,
+   "name": "Confirmed Breakout Retest"
+  },
+  {
+   "trades": 4,
    "wins": 1,
    "losses": 3,
    "win_rate": 25.0,
@@ -987,19 +998,8 @@
    "expired": 1,
    "invalidated": 1,
    "name": "Trend Continuation"
-  },
-  {
-   "trades": 3,
-   "wins": 0,
-   "losses": 3,
-   "win_rate": 0.0,
-   "expectancy_r": -1.0,
-   "open": 1,
-   "expired": 0,
-   "invalidated": 0,
-   "name": "Confirmed Breakout Retest"
   }
  ],
- "updated_tehran": "2026-10-02 14:15 Tehran",
- "updated_ts": 1790937912.106184
+ "updated_tehran": "2026-10-02 19:09 Tehran",
+ "updated_ts": 1790955558.4425356
 }
