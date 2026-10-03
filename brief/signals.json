@@ -29,15 +29,15 @@
    "republished": 1,
    "activated_ts": 1790966700,
    "activated_time_tehran": "2026-10-02 22:15 Tehran",
-   "resolved_ts": null,
-   "status": "active",
-   "result": "open",
-   "result_r": null,
-   "resolve_note": "",
+   "resolved_ts": 1790982000,
+   "status": "loss",
+   "result": "stop",
+   "result_r": -1.0,
+   "resolve_note": "stop touched first",
    "mfe_r": 1.05,
-   "mae_r": 0.679,
+   "mae_r": 1.002,
    "bars_to_activate": 1,
-   "bars_to_resolve": null,
+   "bars_to_resolve": 18,
    "supports": [
     "structure bearish",
     "below cloud",
@@ -1021,12 +1021,12 @@
  ],
  "tracking_since": "2026-09-13 19:37 Tehran",
  "overall": {
-  "trades": 8,
+  "trades": 9,
   "wins": 1,
-  "losses": 7,
-  "win_rate": 12.5,
-  "expectancy_r": -0.5625000001128284,
-  "open": 3,
+  "losses": 8,
+  "win_rate": 11.11111111111111,
+  "expectancy_r": -0.611111111211403,
+  "open": 2,
   "expired": 1,
   "invalidated": 1
  },
@@ -1065,6 +1065,17 @@
    "name": "SOLUSDT"
   },
   {
+   "trades": 1,
+   "wins": 0,
+   "losses": 1,
+   "win_rate": 0.0,
+   "expectancy_r": -1.0,
+   "open": 1,
+   "expired": 0,
+   "invalidated": 0,
+   "name": "XRPUSDT"
+  },
+  {
    "trades": 0,
    "wins": 0,
    "losses": 0,
@@ -1085,17 +1096,6 @@
    "expired": 0,
    "invalidated": 0,
    "name": "LINKUSDT"
-  },
-  {
-   "trades": 0,
-   "wins": 0,
-   "losses": 0,
-   "win_rate": null,
-   "expectancy_r": null,
-   "open": 2,
-   "expired": 0,
-   "invalidated": 0,
-   "name": "XRPUSDT"
   }
  ],
  "by_style": [
@@ -1111,12 +1111,12 @@
    "name": "30m"
   },
   {
-   "trades": 2,
+   "trades": 3,
    "wins": 1,
-   "losses": 1,
-   "win_rate": 50.0,
-   "expectancy_r": 0.7499999995486861,
-   "open": 2,
+   "losses": 2,
+   "win_rate": 33.33333333333333,
+   "expectancy_r": 0.16666666636579075,
+   "open": 1,
    "expired": 1,
    "invalidated": 1,
    "name": "15m"
@@ -1168,17 +1168,17 @@
    "name": "Trend Continuation"
   },
   {
-   "trades": 0,
+   "trades": 1,
    "wins": 0,
-   "losses": 0,
-   "win_rate": null,
-   "expectancy_r": null,
-   "open": 1,
+   "losses": 1,
+   "win_rate": 0.0,
+   "expectancy_r": -1.0,
+   "open": 0,
    "expired": 0,
    "invalidated": 0,
    "name": "Divergence Reversal"
   }
  ],
- "updated_tehran": "2026-10-03 00:05 Tehran",
- "updated_ts": 1790973338.2593637
+ "updated_tehran": "2026-10-03 03:50 Tehran",
+ "updated_ts": 1790986822.2673087
 }
