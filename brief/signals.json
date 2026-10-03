@@ -106,17 +106,17 @@
    "published_time_tehran": "2026-10-02 22:10 Tehran",
    "last_seen_ts": 1790966413.7106333,
    "republished": 1,
-   "activated_ts": null,
-   "activated_time_tehran": null,
-   "resolved_ts": null,
-   "status": "pending",
-   "result": "open",
-   "result_r": null,
-   "resolve_note": "",
-   "mfe_r": null,
-   "mae_r": null,
-   "bars_to_activate": null,
-   "bars_to_resolve": null,
+   "activated_ts": 1790986500,
+   "activated_time_tehran": "2026-10-03 03:45 Tehran",
+   "resolved_ts": 1791005400,
+   "status": "loss",
+   "result": "stop",
+   "result_r": -1.0,
+   "resolve_note": "stop touched first",
+   "mfe_r": 0.553,
+   "mae_r": 1.085,
+   "bars_to_activate": 23,
+   "bars_to_resolve": 22,
    "supports": [
     "structure bearish",
     "below cloud",
@@ -1021,12 +1021,12 @@
  ],
  "tracking_since": "2026-09-13 19:37 Tehran",
  "overall": {
-  "trades": 9,
+  "trades": 10,
   "wins": 1,
-  "losses": 8,
-  "win_rate": 11.11111111111111,
-  "expectancy_r": -0.611111111211403,
-  "open": 2,
+  "losses": 9,
+  "win_rate": 10.0,
+  "expectancy_r": -0.6500000000902627,
+  "open": 1,
   "expired": 1,
   "invalidated": 1
  },
@@ -1070,6 +1070,17 @@
    "losses": 1,
    "win_rate": 0.0,
    "expectancy_r": -1.0,
+   "open": 0,
+   "expired": 0,
+   "invalidated": 0,
+   "name": "LINKUSDT"
+  },
+  {
+   "trades": 1,
+   "wins": 0,
+   "losses": 1,
+   "win_rate": 0.0,
+   "expectancy_r": -1.0,
    "open": 1,
    "expired": 0,
    "invalidated": 0,
@@ -1085,20 +1096,20 @@
    "expired": 0,
    "invalidated": 1,
    "name": "BTCUSDT"
-  },
-  {
-   "trades": 0,
-   "wins": 0,
-   "losses": 0,
-   "win_rate": null,
-   "expectancy_r": null,
-   "open": 1,
-   "expired": 0,
-   "invalidated": 0,
-   "name": "LINKUSDT"
   }
  ],
  "by_style": [
+  {
+   "trades": 4,
+   "wins": 1,
+   "losses": 3,
+   "win_rate": 25.0,
+   "expectancy_r": -0.12500000022565694,
+   "open": 0,
+   "expired": 1,
+   "invalidated": 1,
+   "name": "15m"
+  },
   {
    "trades": 4,
    "wins": 0,
@@ -1109,17 +1120,6 @@
    "expired": 0,
    "invalidated": 0,
    "name": "30m"
-  },
-  {
-   "trades": 3,
-   "wins": 1,
-   "losses": 2,
-   "win_rate": 33.33333333333333,
-   "expectancy_r": 0.16666666636579075,
-   "open": 1,
-   "expired": 1,
-   "invalidated": 1,
-   "name": "15m"
   },
   {
    "trades": 2,
@@ -1146,12 +1146,12 @@
  ],
  "by_strategy": [
   {
-   "trades": 4,
+   "trades": 5,
    "wins": 0,
-   "losses": 4,
+   "losses": 5,
    "win_rate": 0.0,
    "expectancy_r": -1.0,
-   "open": 1,
+   "open": 0,
    "expired": 0,
    "invalidated": 0,
    "name": "Confirmed Breakout Retest"
@@ -1179,6 +1179,6 @@
    "name": "Divergence Reversal"
   }
  ],
- "updated_tehran": "2026-10-03 03:50 Tehran",
- "updated_ts": 1790986822.2673087
+ "updated_tehran": "2026-10-03 09:48 Tehran",
+ "updated_ts": 1791008291.8222396
 }
