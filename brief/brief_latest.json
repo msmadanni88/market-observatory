@@ -1,269 +1,254 @@
 {
   "digest": {
-    "generated_tehran": "2026-10-05 15:21",
-    "generated_ts": 1791201082.0578163,
-    "scanned": 41,
+    "generated_tehran": "2026-10-06 00:46",
+    "generated_ts": 1791234984.5683892,
+    "scanned": 50,
     "sectors": [
       {
         "sector": "l2",
-        "median_7d_pct": 36.04,
-        "median_30d_pct": 89.38,
+        "median_7d_pct": 26.83,
+        "median_30d_pct": 76.56,
         "leader": "STRK",
-        "leader_rsi": 73.9,
+        "leader_rsi": 66.6,
         "laggard": "ARB",
-        "laggard_rsi": 57.9
+        "laggard_rsi": 59.0
       },
       {
         "sector": "ai",
-        "median_7d_pct": 16.27,
-        "median_30d_pct": 43.78,
+        "median_7d_pct": 17.71,
+        "median_30d_pct": 45.57,
         "leader": "WLD",
-        "leader_rsi": 62.7,
+        "leader_rsi": 63.8,
         "laggard": "TAO",
-        "laggard_rsi": 59.5
-      },
-      {
-        "sector": "meme",
-        "median_7d_pct": 6.86,
-        "median_30d_pct": 24.56,
-        "leader": "PEPE",
-        "leader_rsi": 60.3,
-        "laggard": "DOGE",
-        "laggard_rsi": 58.7
+        "laggard_rsi": 60.2
       },
       {
         "sector": "exchange",
-        "median_7d_pct": 6.67,
-        "median_30d_pct": 11.95,
+        "median_7d_pct": 8.3,
+        "median_30d_pct": 13.67,
         "leader": "OKB",
-        "leader_rsi": 69.0,
+        "leader_rsi": 71.4,
         "laggard": "BNB",
-        "laggard_rsi": 62.3
+        "laggard_rsi": 60.7
       },
       {
         "sector": "perp_dex",
-        "median_7d_pct": 6.3,
-        "median_30d_pct": 8.89,
+        "median_7d_pct": 8.29,
+        "median_30d_pct": 10.92,
         "leader": "HYPE",
-        "leader_rsi": 59.2,
+        "leader_rsi": 61.3,
         "laggard": "HYPE",
-        "laggard_rsi": 59.2
+        "laggard_rsi": 61.3
       },
       {
-        "sector": "l1_major",
-        "median_7d_pct": 3.61,
-        "median_30d_pct": 24.62,
-        "leader": "ADA",
-        "leader_rsi": 69.7,
-        "laggard": "ETH",
-        "laggard_rsi": 62.3
+        "sector": "meme",
+        "median_7d_pct": 5.08,
+        "median_30d_pct": 22.48,
+        "leader": "PEPE",
+        "leader_rsi": 58.7,
+        "laggard": "DOGE",
+        "laggard_rsi": 57.6
       },
       {
         "sector": "defi",
-        "median_7d_pct": 2.26,
-        "median_30d_pct": 34.34,
+        "median_7d_pct": 4.07,
+        "median_30d_pct": 37.37,
         "leader": "AAVE",
-        "leader_rsi": 71.1,
+        "leader_rsi": 72.5,
         "laggard": "UNI",
-        "laggard_rsi": 60.5
+        "laggard_rsi": 62.5
+      },
+      {
+        "sector": "l1_major",
+        "median_7d_pct": 3.25,
+        "median_30d_pct": 23.29,
+        "leader": "NEAR",
+        "leader_rsi": 68.6,
+        "laggard": "ETH",
+        "laggard_rsi": 61.7
       },
       {
         "sector": "payments",
-        "median_7d_pct": 2.16,
-        "median_30d_pct": 23.71,
-        "leader": "LTC",
-        "leader_rsi": 71.0,
-        "laggard": "XRP",
-        "laggard_rsi": 58.1
+        "median_7d_pct": 1.46,
+        "median_30d_pct": 23.32,
+        "leader": "BCH",
+        "leader_rsi": 61.4,
+        "laggard": "XLM",
+        "laggard_rsi": 54.5
       }
     ],
     "most_extended": [
       {
         "sym": "NIGHT",
-        "px": 0.04757,
-        "rsi": 77.8,
-        "ema20": 40.96,
-        "d7": 65.91,
-        "d30": 113.01,
+        "px": 0.051076,
+        "rsi": 80.1,
+        "ema20": 49.82,
+        "d7": 78.13,
+        "d30": 128.71,
         "atr_ptl": 77.0,
-        "vol_surge": 0.6,
-        "fund": -5.44785335928e-05,
+        "vol_surge": 1.37,
+        "fund": -1.328994342e-06,
         "sector": null,
         "gap": null,
         "why": [
-          "RSI 78 overbought",
-          "41% above EMA20",
-          "72% above EMA50"
+          "RSI 80 extreme",
+          "50% above EMA20",
+          "84% above EMA50"
+        ]
+      },
+      {
+        "sym": "ZRO",
+        "px": 2.1284,
+        "rsi": 80.2,
+        "ema20": 32.71,
+        "d7": 36.53,
+        "d30": 100.94,
+        "atr_ptl": 86.0,
+        "vol_surge": 1.34,
+        "fund": 2.78294256258e-05,
+        "sector": null,
+        "gap": null,
+        "why": [
+          "RSI 80 extreme",
+          "33% above EMA20",
+          "61% above EMA50"
         ]
       },
       {
         "sym": "SAND",
-        "px": 0.07185,
-        "rsi": 78.0,
-        "ema20": 37.89,
-        "d7": 65.94,
-        "d30": 80.21,
+        "px": 0.06863,
+        "rsi": 72.6,
+        "ema20": 32.49,
+        "d7": 58.5,
+        "d30": 72.13,
         "atr_ptl": 99.0,
-        "vol_surge": 1.14,
-        "fund": -0.000601770348543,
+        "vol_surge": 2.04,
+        "fund": -0.0011869832663043,
         "sector": null,
-        "gap": null,
+        "gap": {
+          "tf": "4h",
+          "lo": 0.06196,
+          "hi": 0.062315,
+          "mid": 0.062137,
+          "side": "below",
+          "dist_pct": -9.2,
+          "size_pct": 0.46,
+          "age_bars": 17
+        },
         "why": [
-          "RSI 78 overbought",
-          "38% above EMA20",
-          "56% above EMA50"
-        ]
-      },
-      {
-        "sym": "STRK",
-        "px": 0.05689,
-        "rsi": 73.9,
-        "ema20": 30.44,
-        "d7": 36.04,
-        "d30": 89.38,
-        "atr_ptl": 58.0,
-        "vol_surge": 0.81,
-        "fund": 5e-05,
-        "sector": "l2",
-        "gap": null,
-        "why": [
-          "RSI 74 overbought",
-          "30% above EMA20",
-          "55% above EMA50"
-        ]
-      },
-      {
-        "sym": "PUMP",
-        "px": 0.006435,
-        "rsi": 69.0,
-        "ema20": 24.35,
-        "d7": 30.53,
-        "d30": 67.49,
-        "atr_ptl": 78.0,
-        "vol_surge": 0.51,
-        "fund": -7.4556671818e-06,
-        "sector": null,
-        "gap": null,
-        "why": [
-          "24% above EMA20",
-          "47% above EMA50",
-          "+31% in 7d"
+          "RSI 73 overbought",
+          "32% above EMA20",
+          "49% above EMA50"
         ]
       },
       {
         "sym": "MUBARAK",
-        "px": 0.078124,
-        "rsi": 71.2,
-        "ema20": 42.33,
-        "d7": 32.71,
-        "d30": 146.92,
-        "atr_ptl": 89.0,
-        "vol_surge": 1.18,
-        "fund": 7.07070136706e-05,
+        "px": 0.073435,
+        "rsi": 69.2,
+        "ema20": 34.87,
+        "d7": 24.75,
+        "d30": 132.1,
+        "atr_ptl": 92.0,
+        "vol_surge": 1.87,
+        "fund": 8.4308338596e-05,
         "sector": null,
         "gap": null,
         "why": [
-          "42% above EMA20",
-          "92% above EMA50",
-          "+33% in 7d"
+          "35% above EMA20",
+          "81% above EMA50",
+          "+25% in 7d"
         ]
       },
       {
-        "sym": "AAVE",
-        "px": 180.48,
-        "rsi": 71.1,
-        "ema20": 14.43,
-        "d7": 20.82,
-        "d30": 34.34,
-        "atr_ptl": 64.0,
-        "vol_surge": 0.37,
-        "fund": 5.93240461872e-05,
-        "sector": "defi",
-        "gap": {
-          "tf": "4h",
-          "lo": 158.685,
-          "hi": 161.285,
-          "mid": 159.985,
-          "side": "below",
-          "dist_pct": -10.74,
-          "size_pct": 1.41,
-          "age_bars": 20
-        },
+        "sym": "PUMP",
+        "px": 0.00664,
+        "rsi": 71.2,
+        "ema20": 27.81,
+        "d7": 34.69,
+        "d30": 72.83,
+        "atr_ptl": 76.0,
+        "vol_surge": 0.91,
+        "fund": 1.30867957851e-05,
+        "sector": null,
+        "gap": null,
         "why": [
-          "volume fading into highs"
+          "28% above EMA20",
+          "52% above EMA50",
+          "+35% in 7d"
         ]
       },
       {
         "sym": "NEAR",
-        "px": 5.001,
-        "rsi": 65.9,
-        "ema20": 13.8,
-        "d7": 3.8,
-        "d30": 128.36,
+        "px": 5.258,
+        "rsi": 68.6,
+        "ema20": 18.99,
+        "d7": 9.13,
+        "d30": 140.09,
         "atr_ptl": 86.0,
-        "vol_surge": 0.41,
+        "vol_surge": 0.71,
         "fund": 0.0001,
         "sector": "l1_major",
         "gap": null,
         "why": [
-          "45% above EMA50"
+          "19% above EMA20",
+          "52% above EMA50"
         ]
       },
       {
-        "sym": "SUI",
-        "px": 1.2343,
-        "rsi": 68.9,
-        "ema20": 14.77,
-        "d7": 5.76,
-        "d30": 55.24,
-        "atr_ptl": 85.0,
-        "vol_surge": 0.38,
-        "fund": 7.03659002919e-05,
-        "sector": "l1_major",
+        "sym": "AAVE",
+        "px": 184.55,
+        "rsi": 72.5,
+        "ema20": 16.73,
+        "d7": 23.54,
+        "d30": 37.37,
+        "atr_ptl": 64.0,
+        "vol_surge": 0.92,
+        "fund": 3.03605433569e-05,
+        "sector": "defi",
         "gap": null,
         "why": [
-          "above rising 200"
+          "RSI 73 overbought",
+          "+24% in 7d"
+        ]
+      },
+      {
+        "sym": "STRK",
+        "px": 0.05304,
+        "rsi": 66.6,
+        "ema20": 22.65,
+        "d7": 26.83,
+        "d30": 76.56,
+        "atr_ptl": 82.0,
+        "vol_surge": 1.45,
+        "fund": 5e-05,
+        "sector": "l2",
+        "gap": {
+          "tf": "4h",
+          "lo": 0.048183,
+          "hi": 0.049125,
+          "mid": 0.048654,
+          "side": "below",
+          "dist_pct": -7.38,
+          "size_pct": 1.64,
+          "age_bars": 9
+        },
+        "why": [
+          "23% above EMA20",
+          "+27% in 7d"
         ]
       }
     ],
     "most_compressed": [
       {
-        "sym": "HYPE",
-        "px": 92.963,
-        "rsi": 59.2,
-        "ema20": 4.44,
-        "d7": 6.3,
-        "d30": 8.89,
-        "atr_ptl": 12.0,
-        "vol_surge": 0.52,
-        "fund": 0.0001,
-        "sector": "perp_dex",
-        "gap": {
-          "tf": "4h",
-          "lo": 83.102,
-          "hi": 83.8965,
-          "mid": 83.49925,
-          "side": "below",
-          "dist_pct": -9.78,
-          "size_pct": 0.87,
-          "age_bars": 102
-        },
-        "why": [
-          "RSI 59 neutral",
-          "volatility 12th pctile",
-          "hugging EMA20"
-        ]
-      },
-      {
         "sym": "SNDK",
-        "px": 1725.4,
-        "rsi": 51.3,
-        "ema20": -0.13,
-        "d7": 0.72,
-        "d30": -2.13,
+        "px": 1705.6,
+        "rsi": 49.3,
+        "ema20": -1.17,
+        "d7": -0.44,
+        "d30": -3.25,
         "atr_ptl": 0.0,
-        "vol_surge": 0.13,
-        "fund": 0.0001987258042868,
+        "vol_surge": 0.82,
+        "fund": 7.49345132626e-05,
         "sector": null,
         "gap": {
           "tf": "4h",
@@ -271,53 +256,125 @@
           "hi": 1660.535,
           "mid": 1656.865,
           "side": "below",
-          "dist_pct": -3.78,
+          "dist_pct": -2.64,
           "size_pct": 0.41,
-          "age_bars": 87
+          "age_bars": 90
         },
         "why": [
-          "RSI 51 neutral",
+          "RSI 49 neutral",
           "volatility 0th pctile",
           "hugging EMA20"
         ]
       },
       {
-        "sym": "CL",
-        "px": 90.32,
-        "rsi": 45.6,
-        "ema20": -2.01,
-        "d7": -3.03,
-        "d30": -1.45,
-        "atr_ptl": 35.0,
-        "vol_surge": 0.61,
-        "fund": 0.0,
+        "sym": "MU",
+        "px": 1064.48,
+        "rsi": 55.4,
+        "ema20": 1.13,
+        "d7": 0.77,
+        "d30": 4.8,
+        "atr_ptl": 3.0,
+        "vol_surge": 0.62,
+        "fund": 5.82548565752e-05,
         "sector": null,
         "gap": {
           "tf": "4h",
-          "lo": 84.7075,
-          "hi": 85.13,
-          "mid": 84.91875,
+          "lo": 979.8775,
+          "hi": 984.345,
+          "mid": 982.11125,
           "side": "below",
-          "dist_pct": -5.81,
-          "size_pct": 0.47,
-          "age_bars": 203
+          "dist_pct": -7.52,
+          "size_pct": 0.43,
+          "age_bars": 87
         },
         "why": [
-          "RSI 46 neutral",
-          "hugging EMA20",
-          "mid-range"
+          "RSI 55 neutral",
+          "volatility 3th pctile",
+          "hugging EMA20"
+        ]
+      },
+      {
+        "sym": "INTC",
+        "px": 116.46,
+        "rsi": 54.5,
+        "ema20": 0.53,
+        "d7": 0.25,
+        "d30": 20.92,
+        "atr_ptl": 21.0,
+        "vol_surge": 1.09,
+        "fund": 4.21409852755e-05,
+        "sector": null,
+        "gap": {
+          "tf": "4h",
+          "lo": 106.9025,
+          "hi": 109.685,
+          "mid": 108.29375,
+          "side": "below",
+          "dist_pct": -5.82,
+          "size_pct": 2.24,
+          "age_bars": 87
+        },
+        "why": [
+          "RSI 55 neutral",
+          "volatility 21th pctile",
+          "hugging EMA20"
+        ]
+      },
+      {
+        "sym": "CRCL",
+        "px": 83.53,
+        "rsi": 43.7,
+        "ema20": -3.51,
+        "d7": -2.52,
+        "d30": -17.67,
+        "atr_ptl": 2.0,
+        "vol_surge": 0.92,
+        "fund": 2.82538527004e-05,
+        "sector": null,
+        "gap": {
+          "tf": "4h",
+          "lo": 76.1275,
+          "hi": 77.435,
+          "mid": 76.78125,
+          "side": "below",
+          "dist_pct": -7.29,
+          "size_pct": 1.57,
+          "age_bars": 280
+        },
+        "why": [
+          "RSI 44 neutral",
+          "volatility 2th pctile",
+          "hugging EMA20"
+        ]
+      },
+      {
+        "sym": "SNXX",
+        "px": 16.01,
+        "rsi": 47.5,
+        "ema20": -3.58,
+        "d7": -1.42,
+        "d30": -10.01,
+        "atr_ptl": 11.0,
+        "vol_surge": 0.75,
+        "fund": 0.0002553306859337,
+        "sector": null,
+        "gap": null,
+        "why": [
+          "RSI 47 neutral",
+          "volatility 11th pctile",
+          "hugging EMA20"
         ]
       },
       {
         "sym": "BTC",
-        "px": 86007.0,
-        "rsi": 66.0,
-        "ema20": 3.24,
-        "d7": 3.05,
-        "d30": 7.79,
-        "atr_ptl": 11.0,
-        "vol_surge": 0.48,
-        "fund": 7.90328172376e-05,
+        "px": 85681.5,
+        "rsi": 64.3,
+        "ema20": 2.89,
+        "d7": 2.66,
+        "d30": 7.38,
+        "atr_ptl": 13.0,
+        "vol_surge": 0.92,
+        "fund": 3.16923455071e-05,
         "sector": "l1_major",
         "gap": {
           "tf": "1d",
@@ -325,26 +382,26 @@
           "hi": 90601.2,
           "mid": 90005.125,
           "side": "above",
-          "dist_pct": 3.93,
+          "dist_pct": 4.36,
           "size_pct": 1.42,
           "age_bars": 249
         },
         "why": [
-          "volatility 11th pctile",
+          "volatility 13th pctile",
           "hugging EMA20",
           "above rising 200"
         ]
       },
       {
         "sym": "ETH",
-        "px": 2714.71,
-        "rsi": 62.3,
-        "ema20": 2.4,
-        "d7": 1.0,
-        "d30": 9.51,
+        "px": 2710.02,
+        "rsi": 61.7,
+        "ema20": 2.24,
+        "d7": 0.83,
+        "d30": 9.32,
         "atr_ptl": 4.0,
-        "vol_surge": 0.41,
-        "fund": 6.54059866021e-05,
+        "vol_surge": 0.74,
+        "fund": 3.44751453538e-05,
         "sector": "l1_major",
         "gap": {
           "tf": "1d",
@@ -352,7 +409,7 @@
           "hi": 2820.22,
           "mid": 2815.47,
           "side": "above",
-          "dist_pct": 3.52,
+          "dist_pct": 3.72,
           "size_pct": 0.42,
           "age_bars": 247
         },
@@ -363,108 +420,45 @@
         ]
       },
       {
-        "sym": "XAG",
-        "px": 61.68,
-        "rsi": 42.7,
-        "ema20": -1.81,
-        "d7": 1.28,
-        "d30": -6.86,
-        "atr_ptl": 0.0,
-        "vol_surge": 0.6,
-        "fund": 3.99085258753e-05,
-        "sector": null,
-        "gap": {
-          "tf": "4h",
-          "lo": 58.875,
-          "hi": 59.355,
-          "mid": 59.115,
-          "side": "below",
-          "dist_pct": -3.75,
-          "size_pct": 0.78,
-          "age_bars": 368
-        },
-        "why": [
-          "RSI 43 neutral",
-          "volatility 0th pctile",
-          "hugging EMA20"
-        ]
-      },
-      {
-        "sym": "ZEC",
-        "px": 1321.8,
-        "rsi": 49.7,
-        "ema20": -3.51,
-        "d7": -10.85,
-        "d30": 28.91,
+        "sym": "LIT",
+        "px": 4.0709,
+        "rsi": 47.6,
+        "ema20": -2.99,
+        "d7": -8.4,
+        "d30": -14.3,
         "atr_ptl": 59.0,
-        "vol_surge": 0.33,
-        "fund": 0.0001,
-        "sector": "privacy",
-        "gap": {
-          "tf": "4h",
-          "lo": 1219.715,
-          "hi": 1266.185,
-          "mid": 1242.95,
-          "side": "below",
-          "dist_pct": -4.3,
-          "size_pct": 3.14,
-          "age_bars": 108
-        },
+        "vol_surge": 1.29,
+        "fund": 5e-05,
+        "sector": null,
+        "gap": null,
         "why": [
-          "RSI 50 neutral",
+          "RSI 48 neutral",
           "hugging EMA20",
-          "above rising 200"
-        ]
-      },
-      {
-        "sym": "XRP",
-        "px": 1.5148,
-        "rsi": 58.1,
-        "ema20": 2.63,
-        "d7": 1.24,
-        "d30": 7.31,
-        "atr_ptl": 72.0,
-        "vol_surge": 0.29,
-        "fund": 0.0001,
-        "sector": "payments",
-        "gap": {
-          "tf": "4h",
-          "lo": 1.39055,
-          "hi": 1.4103,
-          "mid": 1.400425,
-          "side": "below",
-          "dist_pct": -6.92,
-          "size_pct": 1.29,
-          "age_bars": 82
-        },
-        "why": [
-          "RSI 58 neutral",
-          "hugging EMA20",
-          "above rising 200"
+          "mid-range"
         ]
       }
     ],
     "trending_with_room": [
       {
-        "sym": "OKB",
-        "px": 126.8,
-        "rsi": 69.0,
-        "ema20": 5.98,
-        "d7": 6.67,
-        "d30": 11.95,
-        "atr_ptl": 32.0,
+        "sym": "ADA",
+        "px": 0.2689,
+        "rsi": 68.7,
+        "ema20": 10.94,
+        "d7": 8.78,
+        "d30": 23.29,
+        "atr_ptl": 70.0,
         "vol_surge": 2.05,
-        "fund": 5e-05,
-        "sector": "exchange",
+        "fund": 0.0001,
+        "sector": "l1_major",
         "gap": {
           "tf": "4h",
-          "lo": 111.995,
-          "hi": 112.63,
-          "mid": 112.3125,
+          "lo": 0.25265,
+          "hi": 0.2545,
+          "mid": 0.253575,
           "side": "below",
-          "dist_pct": -11.17,
-          "size_pct": 0.55,
-          "age_bars": 102
+          "dist_pct": -5.28,
+          "size_pct": 0.69,
+          "age_bars": 6
         },
         "why": [
           "above rising 200",
@@ -472,15 +466,58 @@
         ]
       },
       {
+        "sym": "OKB",
+        "px": 128.74,
+        "rsi": 71.4,
+        "ema20": 7.43,
+        "d7": 8.3,
+        "d30": 13.67,
+        "atr_ptl": 32.0,
+        "vol_surge": 3.33,
+        "fund": 5e-05,
+        "sector": "exchange",
+        "gap": null,
+        "why": [
+          "above rising 200",
+          "volume 3.3x"
+        ]
+      },
+      {
+        "sym": "STRK",
+        "px": 0.05304,
+        "rsi": 66.6,
+        "ema20": 22.65,
+        "d7": 26.83,
+        "d30": 76.56,
+        "atr_ptl": 82.0,
+        "vol_surge": 1.45,
+        "fund": 5e-05,
+        "sector": "l2",
+        "gap": {
+          "tf": "4h",
+          "lo": 0.048183,
+          "hi": 0.049125,
+          "mid": 0.048654,
+          "side": "below",
+          "dist_pct": -7.38,
+          "size_pct": 1.64,
+          "age_bars": 9
+        },
+        "why": [
+          "23% above EMA20",
+          "+27% in 7d"
+        ]
+      },
+      {
         "sym": "BTC",
-        "px": 86007.0,
-        "rsi": 66.0,
-        "ema20": 3.24,
-        "d7": 3.05,
-        "d30": 7.79,
-        "atr_ptl": 11.0,
-        "vol_surge": 0.48,
-        "fund": 7.90328172376e-05,
+        "px": 85681.5,
+        "rsi": 64.3,
+        "ema20": 2.89,
+        "d7": 2.66,
+        "d30": 7.38,
+        "atr_ptl": 13.0,
+        "vol_surge": 0.92,
+        "fund": 3.16923455071e-05,
         "sector": "l1_major",
         "gap": {
           "tf": "1d",
@@ -488,26 +525,26 @@
           "hi": 90601.2,
           "mid": 90005.125,
           "side": "above",
-          "dist_pct": 3.93,
+          "dist_pct": 4.36,
           "size_pct": 1.42,
           "age_bars": 249
         },
         "why": [
-          "volatility 11th pctile",
+          "volatility 13th pctile",
           "hugging EMA20",
           "above rising 200"
         ]
       },
       {
         "sym": "ETH",
-        "px": 2714.71,
-        "rsi": 62.3,
-        "ema20": 2.4,
-        "d7": 1.0,
-        "d30": 9.51,
+        "px": 2710.02,
+        "rsi": 61.7,
+        "ema20": 2.24,
+        "d7": 0.83,
+        "d30": 9.32,
         "atr_ptl": 4.0,
-        "vol_surge": 0.41,
-        "fund": 6.54059866021e-05,
+        "vol_surge": 0.74,
+        "fund": 3.44751453538e-05,
         "sector": "l1_major",
         "gap": {
           "tf": "1d",
@@ -515,7 +552,7 @@
           "hi": 2820.22,
           "mid": 2815.47,
           "side": "above",
-          "dist_pct": 3.52,
+          "dist_pct": 3.72,
           "size_pct": 0.42,
           "age_bars": 247
         },
@@ -527,14 +564,14 @@
       },
       {
         "sym": "SOL",
-        "px": 120.56,
-        "rsi": 63.7,
-        "ema20": 4.13,
-        "d7": 1.46,
-        "d30": 16.92,
+        "px": 120.59,
+        "rsi": 63.8,
+        "ema20": 4.16,
+        "d7": 1.48,
+        "d30": 16.95,
         "atr_ptl": 28.0,
-        "vol_surge": 0.36,
-        "fund": 0.0001,
+        "vol_surge": 0.64,
+        "fund": -4.01624819394e-05,
         "sector": "l1_major",
         "gap": {
           "tf": "1d",
@@ -542,7 +579,7 @@
           "hi": 132.065,
           "mid": 131.1975,
           "side": "above",
-          "dist_pct": 8.01,
+          "dist_pct": 8.09,
           "size_pct": 1.48,
           "age_bars": 249
         },
@@ -552,41 +589,15 @@
         ]
       },
       {
-        "sym": "DOGE",
-        "px": 0.09609,
-        "rsi": 58.7,
-        "ema20": 3.49,
-        "d7": 2.33,
-        "d30": 7.21,
-        "atr_ptl": 79.0,
-        "vol_surge": 0.34,
-        "fund": 0.0001,
-        "sector": "meme",
-        "gap": {
-          "tf": "4h",
-          "lo": 0.089732,
-          "hi": 0.090195,
-          "mid": 0.089964,
-          "side": "below",
-          "dist_pct": -6.19,
-          "size_pct": 0.46,
-          "age_bars": 82
-        },
-        "why": [
-          "RSI 59 neutral",
-          "hugging EMA20"
-        ]
-      },
-      {
         "sym": "XRP",
-        "px": 1.5148,
-        "rsi": 58.1,
-        "ema20": 2.63,
-        "d7": 1.24,
-        "d30": 7.31,
-        "atr_ptl": 72.0,
-        "vol_surge": 0.29,
-        "fund": 0.0001,
+        "px": 1.5034,
+        "rsi": 56.5,
+        "ema20": 1.94,
+        "d7": 0.48,
+        "d30": 6.5,
+        "atr_ptl": 74.0,
+        "vol_surge": 0.53,
+        "fund": -3.557260287e-06,
         "sector": "payments",
         "gap": {
           "tf": "4h",
@@ -594,41 +605,25 @@
           "hi": 1.4103,
           "mid": 1.400425,
           "side": "below",
-          "dist_pct": -6.92,
+          "dist_pct": -6.17,
           "size_pct": 1.29,
-          "age_bars": 82
+          "age_bars": 85
         },
         "why": [
-          "RSI 58 neutral",
+          "RSI 56 neutral",
           "hugging EMA20",
           "above rising 200"
         ]
       },
       {
-        "sym": "SUI",
-        "px": 1.2343,
-        "rsi": 68.9,
-        "ema20": 14.77,
-        "d7": 5.76,
-        "d30": 55.24,
-        "atr_ptl": 85.0,
-        "vol_surge": 0.38,
-        "fund": 7.03659002919e-05,
-        "sector": "l1_major",
-        "gap": null,
-        "why": [
-          "above rising 200"
-        ]
-      },
-      {
         "sym": "HYPE",
-        "px": 92.963,
-        "rsi": 59.2,
-        "ema20": 4.44,
-        "d7": 6.3,
-        "d30": 8.89,
+        "px": 94.7,
+        "rsi": 61.3,
+        "ema20": 6.19,
+        "d7": 8.29,
+        "d30": 10.92,
         "atr_ptl": 12.0,
-        "vol_surge": 0.52,
+        "vol_surge": 1.15,
         "fund": 0.0001,
         "sector": "perp_dex",
         "gap": {
@@ -637,14 +632,13 @@
           "hi": 83.8965,
           "mid": 83.49925,
           "side": "below",
-          "dist_pct": -9.78,
+          "dist_pct": -11.39,
           "size_pct": 0.87,
-          "age_bars": 102
+          "age_bars": 105
         },
         "why": [
-          "RSI 59 neutral",
           "volatility 12th pctile",
-          "hugging EMA20"
+          "above rising 200"
         ]
       }
     ],
@@ -658,11 +652,13 @@
         "tp2": 700,
         "opened": "2026-09-08",
         "note": "privacy laggard - RSI 72 while ZEC was 86",
-        "price": 548.79,
-        "pnl_pct": 8.03,
-        "rr_remaining": 0.61,
+        "price": 559.5,
+        "pnl_pct": 10.14,
+        "rr_remaining": 0.42,
         "status": "open",
-        "flags": []
+        "flags": [
+          "September CPI in 7d"
+        ]
       }
     ],
     "events_next_14d": [
@@ -671,7 +667,7 @@
         "label": "September CPI",
         "severity": "critical",
         "scope": "all",
-        "days_away": 8
+        "days_away": 7
       }
     ],
     "setups_considered": 35,
@@ -700,52 +696,52 @@
     {
       "symbol": "BTCUSDT",
       "tf": "30m",
-      "reason": "first target R:R 1.21 below floor 1.8"
+      "reason": "no trend, ADX 15"
     },
     {
       "symbol": "BTCUSDT",
       "tf": "1h",
-      "reason": "first target R:R 1.75 below floor 1.8"
+      "reason": "no trend, ADX 17"
     },
     {
       "symbol": "BTCUSDT",
       "tf": "2h",
-      "reason": "first target R:R 1.47 below floor 1.8"
+      "reason": "first target R:R 1.80 below floor 1.8"
     },
     {
       "symbol": "BTCUSDT",
       "tf": "4h",
-      "reason": "first target R:R 1.34 below floor 1.8"
+      "reason": "first target R:R 1.37 below floor 1.8"
     },
     {
       "symbol": "ETHUSDT",
       "tf": "15m",
-      "reason": "price inside the cloud"
+      "reason": "no trend, ADX 13"
     },
     {
       "symbol": "ETHUSDT",
       "tf": "30m",
-      "reason": "price inside the cloud"
+      "reason": "no trend, ADX 14"
     },
     {
       "symbol": "ETHUSDT",
       "tf": "1h",
-      "reason": "resistance under 0.6 ATR away - no room to pay"
+      "reason": "no trend, ADX 15"
     },
     {
       "symbol": "ETHUSDT",
       "tf": "2h",
-      "reason": "resistance under 0.6 ATR away - no room to pay"
+      "reason": "price inside the cloud"
     },
     {
       "symbol": "ETHUSDT",
       "tf": "4h",
-      "reason": "resistance under 0.6 ATR away - no room to pay"
+      "reason": "no trend, ADX 18"
     },
     {
       "symbol": "SOLUSDT",
       "tf": "15m",
-      "reason": "no trend, ADX 15"
+      "reason": "price inside the cloud"
     },
     {
       "symbol": "SOLUSDT",
@@ -754,118 +750,118 @@
     },
     {
       "symbol": "SOLUSDT",
+      "tf": "1h",
+      "reason": "price inside the cloud"
+    },
+    {
+      "symbol": "SOLUSDT",
+      "tf": "2h",
+      "reason": "resistance under 0.6 ATR away - no room to pay"
+    },
+    {
+      "symbol": "SOLUSDT",
+      "tf": "4h",
+      "reason": "best side scored 2, floor is 4"
+    },
+    {
+      "symbol": "LINKUSDT",
+      "tf": "15m",
+      "reason": "confidence 58.5 below floor 62.0"
+    },
+    {
+      "symbol": "LINKUSDT",
+      "tf": "30m",
+      "reason": "first target R:R 0.87 below floor 1.8"
+    },
+    {
+      "symbol": "LINKUSDT",
+      "tf": "1h",
+      "reason": "price inside the cloud"
+    },
+    {
+      "symbol": "LINKUSDT",
+      "tf": "2h",
+      "reason": "no trend, ADX 15"
+    },
+    {
+      "symbol": "LINKUSDT",
+      "tf": "4h",
+      "reason": "price inside the cloud"
+    },
+    {
+      "symbol": "SUIUSDT",
+      "tf": "15m",
+      "reason": "best side scored 3, floor is 4"
+    },
+    {
+      "symbol": "SUIUSDT",
+      "tf": "30m",
+      "reason": "best side scored -1, floor is 4"
+    },
+    {
+      "symbol": "SUIUSDT",
+      "tf": "1h",
+      "reason": "best side scored 0, floor is 4"
+    },
+    {
+      "symbol": "SUIUSDT",
+      "tf": "2h",
+      "reason": "first target R:R 0.95 below floor 1.8"
+    },
+    {
+      "symbol": "SUIUSDT",
+      "tf": "4h",
+      "reason": "first target R:R 0.91 below floor 1.8"
+    },
+    {
+      "symbol": "HYPEUSDT",
+      "tf": "15m",
+      "reason": "best side scored 3, floor is 4"
+    },
+    {
+      "symbol": "HYPEUSDT",
+      "tf": "30m",
+      "reason": "confidence 52.8 below floor 62.0"
+    },
+    {
+      "symbol": "HYPEUSDT",
+      "tf": "1h",
+      "reason": "confidence 59.4 below floor 62.0"
+    },
+    {
+      "symbol": "HYPEUSDT",
+      "tf": "2h",
+      "reason": "resistance under 0.6 ATR away - no room to pay"
+    },
+    {
+      "symbol": "HYPEUSDT",
+      "tf": "4h",
+      "reason": "first target R:R 0.85 below floor 1.8"
+    },
+    {
+      "symbol": "XRPUSDT",
+      "tf": "15m",
+      "reason": "no trend, ADX 18"
+    },
+    {
+      "symbol": "XRPUSDT",
+      "tf": "30m",
+      "reason": "no trend, ADX 15"
+    },
+    {
+      "symbol": "XRPUSDT",
       "tf": "1h",
       "reason": "support under 0.6 ATR away - no room to pay"
     },
     {
-      "symbol": "SOLUSDT",
+      "symbol": "XRPUSDT",
       "tf": "2h",
-      "reason": "resistance under 0.6 ATR away - no room to pay"
-    },
-    {
-      "symbol": "SOLUSDT",
-      "tf": "4h",
-      "reason": "resistance under 0.6 ATR away - no room to pay"
-    },
-    {
-      "symbol": "LINKUSDT",
-      "tf": "15m",
-      "reason": "price inside the cloud"
-    },
-    {
-      "symbol": "LINKUSDT",
-      "tf": "30m",
-      "reason": "price inside the cloud"
-    },
-    {
-      "symbol": "LINKUSDT",
-      "tf": "1h",
       "reason": "no trend, ADX 20"
     },
     {
-      "symbol": "LINKUSDT",
-      "tf": "2h",
-      "reason": "price inside the cloud"
-    },
-    {
-      "symbol": "LINKUSDT",
-      "tf": "4h",
-      "reason": "price inside the cloud"
-    },
-    {
-      "symbol": "SUIUSDT",
-      "tf": "15m",
-      "reason": "no trend, ADX 16"
-    },
-    {
-      "symbol": "SUIUSDT",
-      "tf": "30m",
-      "reason": "first target R:R 0.88 below floor 1.8"
-    },
-    {
-      "symbol": "SUIUSDT",
-      "tf": "1h",
-      "reason": "first target R:R 0.68 below floor 1.8"
-    },
-    {
-      "symbol": "SUIUSDT",
-      "tf": "2h",
-      "reason": "first target R:R 0.87 below floor 1.8"
-    },
-    {
-      "symbol": "SUIUSDT",
-      "tf": "4h",
-      "reason": "first target R:R 0.66 below floor 1.8"
-    },
-    {
-      "symbol": "HYPEUSDT",
-      "tf": "15m",
-      "reason": "first target R:R 1.05 below floor 1.8"
-    },
-    {
-      "symbol": "HYPEUSDT",
-      "tf": "30m",
-      "reason": "first target R:R 0.84 below floor 1.8"
-    },
-    {
-      "symbol": "HYPEUSDT",
-      "tf": "1h",
-      "reason": "confidence 50.5 below floor 62.0"
-    },
-    {
-      "symbol": "HYPEUSDT",
-      "tf": "2h",
-      "reason": "first target R:R 0.73 below floor 1.8"
-    },
-    {
-      "symbol": "HYPEUSDT",
-      "tf": "4h",
-      "reason": "no trend, ADX 17"
-    },
-    {
-      "symbol": "XRPUSDT",
-      "tf": "15m",
-      "reason": "no trend, ADX 17"
-    },
-    {
-      "symbol": "XRPUSDT",
-      "tf": "30m",
-      "reason": "first target R:R 1.16 below floor 1.8"
-    },
-    {
-      "symbol": "XRPUSDT",
-      "tf": "1h",
-      "reason": "first target R:R 1.30 below floor 1.8"
-    },
-    {
-      "symbol": "XRPUSDT",
-      "tf": "2h",
-      "reason": "first target R:R 1.00 below floor 1.8"
-    },
-    {
       "symbol": "XRPUSDT",
       "tf": "4h",
-      "reason": "price inside the cloud"
+      "reason": "no trend, ADX 13"
     }
   ],
   "narrative": null,
