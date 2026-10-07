@@ -1,6 +1,88 @@
 {
  "records": [
   {
+   "id": "ETHUSDT|1h|short@1791372071",
+   "ref": "MO-261007-1451-ETH-1h-S",
+   "key": "ETHUSDT|1h|short",
+   "symbol": "ETHUSDT",
+   "tf": "1h",
+   "side": "short",
+   "strategy": "Divergence Reversal",
+   "trade_style": "1h",
+   "confidence": 62.6,
+   "entry": 2582.26475494,
+   "entry_zone": [
+    2580.34826753,
+    2584.18124235
+   ],
+   "stop": 2606.22084754,
+   "targets": [
+    2522.37452343,
+    2498.41843083
+   ],
+   "rr": 2.5,
+   "atr": 15.9707284,
+   "risk_per_unit": 23.95609259999992,
+   "published_ts": 1791372071.7440362,
+   "published_time_tehran": "2026-10-07 14:51 Tehran",
+   "last_seen_ts": 1791372071.7440362,
+   "republished": 1,
+   "activated_ts": null,
+   "activated_time_tehran": null,
+   "resolved_ts": null,
+   "status": "pending",
+   "result": "open",
+   "result_r": null,
+   "resolve_note": "",
+   "mfe_r": null,
+   "mae_r": null,
+   "bars_to_activate": null,
+   "bars_to_resolve": null,
+   "supports": [
+    "structure bearish",
+    "below cloud",
+    "future cloud red",
+    "ADX 49 aligned",
+    "bearish divergence",
+    "top traders 2.08 long - fuel below",
+    "perp/spot 13.6x - leverage driven, thin spot bid",
+    "HTF bearish agrees"
+   ],
+   "warnings": [
+    "September CPI in 6d"
+   ],
+   "blockers": [
+    "stretched low, RSI 17 - late",
+    "tape +86% against"
+   ],
+   "entry_distance_pct": 0.217,
+   "entry_distance_atr": 0.35,
+   "context": {
+    "score": 11.0,
+    "other_side_score": -9.0,
+    "funding": -0.00292,
+    "ls_top": 2.08,
+    "oi_1h": -0.921,
+    "perp_spot_ratio": 13.557,
+    "fng": null,
+    "adx": 48.60139548115954,
+    "rsi14": 16.528311806263602
+   },
+   "position_at_publish": {
+    "margin": 1000.0,
+    "risk_pct": 1.0,
+    "risk_usd": 10.0,
+    "qty": 0.41743034,
+    "notional": 1077.92,
+    "leverage": 1.08,
+    "liquidation": 4964.96269148,
+    "target_kinds": [
+     "derived 2.5R",
+     "derived 3.5R"
+    ]
+   }
+  },
+  {
    "id": "XRPUSDT|15m|short@1790966413",
    "ref": "MO-261002-2210-XRP-15m-S",
    "key": "XRPUSDT|15m|short",
@@ -1026,7 +1108,7 @@
   "losses": 9,
   "win_rate": 10.0,
   "expectancy_r": -0.6500000000902627,
-  "open": 1,
+  "open": 2,
   "expired": 1,
   "invalidated": 1
  },
@@ -1037,7 +1119,7 @@
    "losses": 2,
    "win_rate": 33.33333333333333,
    "expectancy_r": 0.16666666636579075,
-   "open": 0,
+   "open": 1,
    "expired": 0,
    "invalidated": 0,
    "name": "ETHUSDT"
@@ -1127,7 +1209,7 @@
    "losses": 2,
    "win_rate": 0.0,
    "expectancy_r": -1.0,
-   "open": 0,
+   "open": 1,
    "expired": 0,
    "invalidated": 0,
    "name": "1h"
@@ -1173,12 +1255,12 @@
    "losses": 1,
    "win_rate": 0.0,
    "expectancy_r": -1.0,
-   "open": 0,
+   "open": 1,
    "expired": 0,
    "invalidated": 0,
    "name": "Divergence Reversal"
   }
  ],
- "updated_tehran": "2026-10-07 11:59 Tehran",
- "updated_ts": 1791361751.2476232
+ "updated_tehran": "2026-10-07 14:51 Tehran",
+ "updated_ts": 1791372071.7492156
 }
