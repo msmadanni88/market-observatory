@@ -1,85 +1,85 @@
-MARKET BRIEF  2026-10-07 23:00 Tehran
-scanned 55 perps
+MARKET BRIEF  2026-10-08 15:07 Tehran
+scanned 57 perps
 
 SETUPS
- SHORT XRPUSDT 30m   confidence 67.5
-   entry 1.42836  stop 1.44062  tp1 1.39771
-   R:R 1:2.5  leverage 1.16x  risk $10.0
-   entry sits 0.20% (0.35 ATR) from market
+ SHORT BTCUSDT 2h   confidence 65.4
+   entry 82624.7  stop 83509.9  tp1 80411.5
+   R:R 1:2.5  leverage 0.93x  risk $10.0
+   entry sits 0.25% (0.35 ATR) from market
    + structure bearish
    + below cloud
    + future cloud red
-   ! September CPI in 6d
+   ! September CPI in 5d
 
- SHORT ETHUSDT 1h   confidence 67.0
-   entry 2571.61  stop 2597.48  tp1 2506.93
-   R:R 1:2.5  leverage 0.99x  risk $10.0
-   entry sits 0.23% (0.35 ATR) from market
+ SHORT SOLUSDT 1h   confidence 63.9
+   entry 113.725  stop 115.049  tp1 110.414
+   R:R 1:2.5  leverage 0.86x  risk $10.0
+   entry sits 0.27% (0.35 ATR) from market
    + structure bearish
    + below cloud
    + future cloud red
-   ! September CPI in 6d
+   ! September CPI in 5d
 
- SHORT XRPUSDT 1h   confidence 65.4
-   entry 1.42952  stop 1.44719  tp1 1.38535
-   R:R 1:2.5  leverage 0.81x  risk $10.0
-   entry sits 0.29% (0.35 ATR) from market
+ SHORT HYPEUSDT 15m   confidence 63.1
+   entry 85.7748  stop 86.3677  tp1 84.2928
+   R:R 1:2.5  leverage 1.45x  risk $10.0
+   entry sits 0.16% (0.35 ATR) from market
    + structure bearish
    + below cloud
    + future cloud red
-   ! September CPI in 6d
+   ! September CPI in 5d
 
 CALENDAR
- !! 6d  September CPI
+ !! 5d  September CPI
 
 POSITIONS
  XMRUSDT long @ 508
-   now 551.48  pnl +8.56%  status open
-   R:R from here 1:0.56
-   ! September CPI in 6d
+   now 552.49  pnl +8.76%  status open
+   R:R from here 1:0.54
+   ! September CPI in 5d
 
 SECTOR ROTATION  7d median
- exchange      +9.6%  lead OKB RSI 69.7  laggard BNB RSI 54.7
- l1_major      -0.0%  lead ADA RSI 59.7  laggard ETH RSI 44.8
- payments      -1.7%  lead BCH RSI 53.3  laggard XRP RSI 46.2
- perp_dex      -2.7%  lead HYPE RSI 50.6  laggard HYPE RSI 50.6
- ai            -3.8%  lead TAO RSI 51.7  laggard TAO RSI 51.7
+ l2           +42.9%  lead STRK RSI 69.0  laggard ARB RSI 47.3
+ exchange      +2.9%  lead OKB RSI 55.3  laggard BNB RSI 50.5
+ ai            +2.6%  lead WLD RSI 54.1  laggard TAO RSI 47.8
+ defi          -0.8%  lead CRV RSI 58.4  laggard UNI RSI 43.6
+ perp_dex      -1.9%  lead HYPE RSI 46.7  laggard HYPE RSI 46.7
 
 MOST EXTENDED
- SAND    RSI 76.3  EMA20  +42.0%  7d  +80.4%
-   RSI 76 overbought, 42% above EMA20
- MET     RSI 73.0  EMA20  +36.5%  7d  +34.0%
-   RSI 73 overbought, 36% above EMA20
- RAY     RSI 73.3  EMA20  +23.8%  7d  +23.9%
-   RSI 73 overbought, 24% above EMA20, 4h gap -8.9% down
- ZRO     RSI 78.4  EMA20  +27.8%  7d  +26.2%
-   RSI 78 overbought, 28% above EMA20
- MUBARAK RSI 65.3  EMA20  +23.5%  7d  +18.7%
-   23% above EMA20, 66% above EMA50, 4h gap -10.3% down
+ MET     RSI 77.3  EMA20  +45.8%  7d  +59.4%
+   RSI 77 overbought, 46% above EMA20
+ RAY     RSI 73.4  EMA20  +22.5%  7d  +31.1%
+   RSI 73 overbought, 23% above EMA20, 4h gap -10.2% down
+ STRK    RSI 69.0  EMA20  +30.1%  7d  +42.9%
+   30% above EMA20, 55% above EMA50
+ SAND    RSI 68.6  EMA20  +27.0%  7d  +61.6%
+   27% above EMA20, 48% above EMA50
+ W       RSI 70.8  EMA20  +18.2%  7d  +20.7%
+   18% above EMA20, 4h gap -3.0% down
 
 MOST COMPRESSED
- ETH     RSI 44.8  EMA20   -3.0%  7d   -4.4%
-   RSI 45 neutral, volatility 6th pctile, 1d gap +9.5% up
- BTC     RSI 53.6  EMA20   -0.0%  7d   -0.1%
-   RSI 54 neutral, volatility 12th pctile, 4h gap -4.0% down
- SNDK    RSI 49.3  EMA20   -1.0%  7d   -2.1%
-   RSI 49 neutral, volatility 0th pctile
- HYPE    RSI 50.6  EMA20   -0.9%  7d   -2.7%
-   RSI 51 neutral, volatility 15th pctile, 4h gap -5.1% down
- MU      RSI 57.8  EMA20   +2.5%  7d   +1.1%
-   RSI 58 neutral, volatility 2th pctile, 4h gap -8.9% down
+ SNDK    RSI 46.0  EMA20   -2.8%  7d   -6.5%
+   RSI 46 neutral, volatility 0th pctile
+ CL      RSI 51.5  EMA20   +0.7%  7d   -0.8%
+   RSI 52 neutral, volatility 22th pctile, 4h gap -7.8% down
+ INTC    RSI 45.0  EMA20   -4.0%  7d   -8.3%
+   RSI 45 neutral, volatility 17th pctile, 1d gap -2.3% down
+ BTC     RSI 49.7  EMA20   -1.1%  7d   -2.8%
+   RSI 50 neutral, volatility 10th pctile, 4h gap -2.7% down
+ ETH     RSI 42.0  EMA20   -3.8%  7d   -6.3%
+   RSI 42 neutral, volatility 6th pctile, 1d gap +11.1% up
 
 TRENDING WITH ROOM
- MU      RSI 57.8  EMA20   +2.5%  7d   +1.1%
-   RSI 58 neutral, volatility 2th pctile, 4h gap -8.9% down
- OKB     RSI 69.7  EMA20   +8.4%  7d   +9.6%
-   above rising 200, volume 2.3x, 4h gap -5.5% down
- MINA    RSI 36.0  EMA20  -30.5%  7d  -37.2%
-   mid-range, above rising 200, 1d gap -5.0% down
- INTC    RSI 48.5  EMA20   -2.2%  7d   -6.6%
-   RSI 48 neutral, hugging EMA20, 4h gap -2.7% down
- QQQ     RSI 68.3  EMA20   +1.9%  7d   +1.9%
-   volatility 8th pctile, hugging EMA20, 1d gap -3.3% down
+ W       RSI 70.8  EMA20  +18.2%  7d  +20.7%
+   18% above EMA20, 4h gap -3.0% down
+ MINA    RSI 33.9  EMA20  -34.1%  7d  -45.1%
+   mid-range, above rising 200, 1d gap -8.8% down
+ ALGO    RSI 62.9  EMA20  +10.3%  7d   +7.8%
+   above rising 200, volume 3.1x
+ BTC     RSI 49.7  EMA20   -1.1%  7d   -2.8%
+   RSI 50 neutral, volatility 10th pctile, 4h gap -2.7% down
+ ETH     RSI 42.0  EMA20   -3.8%  7d   -6.3%
+   RSI 42 neutral, volatility 6th pctile, 1d gap +11.1% up
 
 GAP BASE RATE
  measured 13 Sep 2026, 24 symbols, 50-bar horizon

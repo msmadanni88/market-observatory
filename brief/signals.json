@@ -1,6 +1,247 @@
 {
  "records": [
   {
+   "id": "BTCUSDT|2h|short@1791459464",
+   "ref": "MO-261008-1507-BTC-2h-S",
+   "key": "BTCUSDT|2h|short",
+   "symbol": "BTCUSDT",
+   "tf": "2h",
+   "side": "short",
+   "strategy": "Trend Continuation",
+   "trade_style": "2h",
+   "confidence": 65.4,
+   "entry": 82624.65747673,
+   "entry_zone": [
+    82553.83777042,
+    82695.47718304
+   ],
+   "stop": 83509.90380559,
+   "targets": [
+    80411.54165459,
+    79526.29532574
+   ],
+   "rr": 2.5,
+   "atr": 590.16421924,
+   "risk_per_unit": 885.2463288599974,
+   "published_ts": 1791459464.0905738,
+   "published_time_tehran": "2026-10-08 15:07 Tehran",
+   "last_seen_ts": 1791459464.0905738,
+   "republished": 1,
+   "activated_ts": null,
+   "activated_time_tehran": null,
+   "resolved_ts": null,
+   "status": "pending",
+   "result": "open",
+   "result_r": null,
+   "resolve_note": "",
+   "mfe_r": null,
+   "mae_r": null,
+   "bars_to_activate": null,
+   "bars_to_resolve": null,
+   "supports": [
+    "structure bearish",
+    "below cloud",
+    "future cloud red",
+    "ADX 40 aligned",
+    "top traders 1.73 long - fuel below",
+    "perp/spot 12.3x - leverage driven, thin spot bid",
+    "HTF bearish agrees"
+   ],
+   "warnings": [
+    "September CPI in 5d"
+   ],
+   "blockers": [
+    "tape +13% against"
+   ],
+   "entry_distance_pct": 0.251,
+   "entry_distance_atr": 0.35,
+   "context": {
+    "score": 11.0,
+    "other_side_score": -8.0,
+    "funding": 0.003433,
+    "ls_top": 1.73,
+    "oi_1h": -0.428,
+    "perp_spot_ratio": 12.308,
+    "fng": null,
+    "adx": 40.040968336323544,
+    "rsi14": 30.68058154388396
+   },
+   "position_at_publish": {
+    "margin": 1000.0,
+    "risk_pct": 1.0,
+    "risk_usd": 10.0,
+    "qty": 0.01129629,
+    "notional": 933.35,
+    "leverage": 0.93,
+    "liquidation": null,
+    "target_kinds": [
+     "derived 2.5R",
+     "derived 3.5R"
+    ]
+   }
+  },
+  {
+   "id": "SOLUSDT|1h|short@1791459464",
+   "ref": "MO-261008-1507-SOL-1h-S",
+   "key": "SOLUSDT|1h|short",
+   "symbol": "SOLUSDT",
+   "tf": "1h",
+   "side": "short",
+   "strategy": "Trend Continuation",
+   "trade_style": "1h",
+   "confidence": 63.9,
+   "entry": 113.72451827,
+   "entry_zone": [
+    113.61856915,
+    113.83046739
+   ],
+   "stop": 115.04888227,
+   "targets": [
+    110.41360826,
+    109.08924426
+   ],
+   "rr": 2.5,
+   "atr": 0.88290933,
+   "risk_per_unit": 1.3243639999999886,
+   "published_ts": 1791459464.0905738,
+   "published_time_tehran": "2026-10-08 15:07 Tehran",
+   "last_seen_ts": 1791459464.0905738,
+   "republished": 1,
+   "activated_ts": null,
+   "activated_time_tehran": null,
+   "resolved_ts": null,
+   "status": "pending",
+   "result": "open",
+   "result_r": null,
+   "resolve_note": "",
+   "mfe_r": null,
+   "mae_r": null,
+   "bars_to_activate": null,
+   "bars_to_resolve": null,
+   "supports": [
+    "structure bearish",
+    "below cloud",
+    "future cloud red",
+    "ADX 46 aligned",
+    "top traders 2.12 long - fuel below",
+    "perp/spot 13.1x - leverage driven, thin spot bid",
+    "HTF bearish agrees"
+   ],
+   "warnings": [
+    "September CPI in 5d"
+   ],
+   "blockers": [
+    "stretched low, RSI 27 - late"
+   ],
+   "entry_distance_pct": 0.272,
+   "entry_distance_atr": 0.35,
+   "context": {
+    "score": 10.0,
+    "other_side_score": -8.0,
+    "funding": 0.004586,
+    "ls_top": 2.12,
+    "oi_1h": -0.416,
+    "perp_spot_ratio": 13.054,
+    "fng": null,
+    "adx": 45.52240618667544,
+    "rsi14": 27.06348845887399
+   },
+   "position_at_publish": {
+    "margin": 1000.0,
+    "risk_pct": 1.0,
+    "risk_usd": 10.0,
+    "qty": 7.55079418,
+    "notional": 858.71,
+    "leverage": 0.86,
+    "liquidation": null,
+    "target_kinds": [
+     "derived 2.5R",
+     "derived 3.5R"
+    ]
+   }
+  },
+  {
+   "id": "HYPEUSDT|15m|short@1791459464",
+   "ref": "MO-261008-1507-HYPE-15m-S",
+   "key": "HYPEUSDT|15m|short",
+   "symbol": "HYPEUSDT",
+   "tf": "15m",
+   "side": "short",
+   "strategy": "Confirmed Breakout Retest",
+   "trade_style": "15m",
+   "confidence": 63.1,
+   "entry": 85.77482659,
+   "entry_zone": [
+    85.72740033,
+    85.82225285
+   ],
+   "stop": 86.36765484,
+   "targets": [
+    84.29275598,
+    83.69992773
+   ],
+   "rr": 2.5,
+   "atr": 0.39521883,
+   "risk_per_unit": 0.5928282499999966,
+   "published_ts": 1791459464.0905738,
+   "published_time_tehran": "2026-10-08 15:07 Tehran",
+   "last_seen_ts": 1791459464.0905738,
+   "republished": 1,
+   "activated_ts": null,
+   "activated_time_tehran": null,
+   "resolved_ts": null,
+   "status": "pending",
+   "result": "open",
+   "result_r": null,
+   "resolve_note": "",
+   "mfe_r": null,
+   "mae_r": null,
+   "bars_to_activate": null,
+   "bars_to_resolve": null,
+   "supports": [
+    "structure bearish",
+    "below cloud",
+    "future cloud red",
+    "ADX 34 aligned",
+    "tape -33%",
+    "top traders 1.74 long - fuel below",
+    "perp/spot 11.1x - leverage driven, thin spot bid",
+    "HTF bearish agrees"
+   ],
+   "warnings": [
+    "September CPI in 5d"
+   ],
+   "blockers": [
+    "stretched low, RSI 24 - late"
+   ],
+   "entry_distance_pct": 0.162,
+   "entry_distance_atr": 0.35,
+   "context": {
+    "score": 11.0,
+    "other_side_score": -9.0,
+    "funding": 0.005671,
+    "ls_top": 1.74,
+    "oi_1h": -0.462,
+    "perp_spot_ratio": 11.145,
+    "fng": null,
+    "adx": 33.72942891603769,
+    "rsi14": 23.85221357903336
+   },
+   "position_at_publish": {
+    "margin": 1000.0,
+    "risk_pct": 1.0,
+    "risk_usd": 10.0,
+    "qty": 16.86829209,
+    "notional": 1446.87,
+    "leverage": 1.45,
+    "liquidation": 144.62877697,
+    "target_kinds": [
+     "derived 2.5R",
+     "derived 3.5R"
+    ]
+   }
+  },
+  {
    "id": "XRPUSDT|30m|short@1791401458",
    "ref": "MO-261007-2300-XRP-30m-S",
    "key": "XRPUSDT|30m|short",
@@ -192,7 +433,7 @@
    "result": "open",
    "result_r": null,
    "resolve_note": "",
-   "mfe_r": 2.075,
+   "mfe_r": 2.365,
    "mae_r": 0.156,
    "bars_to_activate": 1,
    "bars_to_resolve": null,
@@ -1266,7 +1507,7 @@
   "losses": 10,
   "win_rate": 16.666666666666664,
   "expectancy_r": -0.41666666674188485,
-  "open": 2,
+  "open": 5,
   "expired": 1,
   "invalidated": 1
  },
@@ -1288,7 +1529,7 @@
    "losses": 3,
    "win_rate": 0.0,
    "expectancy_r": -1.0,
-   "open": 0,
+   "open": 1,
    "expired": 1,
    "invalidated": 0,
    "name": "HYPEUSDT"
@@ -1310,7 +1551,7 @@
    "losses": 2,
    "win_rate": 0.0,
    "expectancy_r": -1.0,
-   "open": 0,
+   "open": 1,
    "expired": 0,
    "invalidated": 0,
    "name": "SOLUSDT"
@@ -1332,7 +1573,7 @@
    "losses": 0,
    "win_rate": null,
    "expectancy_r": null,
-   "open": 0,
+   "open": 1,
    "expired": 0,
    "invalidated": 1,
    "name": "BTCUSDT"
@@ -1356,7 +1597,7 @@
    "losses": 3,
    "win_rate": 25.0,
    "expectancy_r": -0.12500000022565694,
-   "open": 0,
+   "open": 1,
    "expired": 1,
    "invalidated": 1,
    "name": "15m"
@@ -1367,7 +1608,7 @@
    "losses": 2,
    "win_rate": 0.0,
    "expectancy_r": -1.0,
-   "open": 2,
+   "open": 3,
    "expired": 0,
    "invalidated": 0,
    "name": "1h"
@@ -1382,6 +1623,17 @@
    "expired": 0,
    "invalidated": 0,
    "name": "4h"
+  },
+  {
+   "trades": 0,
+   "wins": 0,
+   "losses": 0,
+   "win_rate": null,
+   "expectancy_r": null,
+   "open": 1,
+   "expired": 0,
+   "invalidated": 0,
+   "name": "2h"
   }
  ],
  "by_strategy": [
@@ -1391,7 +1643,7 @@
    "losses": 4,
    "win_rate": 33.33333333333333,
    "expectancy_r": 0.1666666665162302,
-   "open": 0,
+   "open": 2,
    "expired": 1,
    "invalidated": 1,
    "name": "Trend Continuation"
@@ -1402,7 +1654,7 @@
    "losses": 5,
    "win_rate": 0.0,
    "expectancy_r": -1.0,
-   "open": 0,
+   "open": 1,
    "expired": 0,
    "invalidated": 0,
    "name": "Confirmed Breakout Retest"
@@ -1419,6 +1671,6 @@
    "name": "Divergence Reversal"
   }
  ],
- "updated_tehran": "2026-10-08 12:15 Tehran",
- "updated_ts": 1791449131.9784365
+ "updated_tehran": "2026-10-08 15:07 Tehran",
+ "updated_ts": 1791459464.0954103
 }
