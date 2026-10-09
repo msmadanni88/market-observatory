@@ -1,6 +1,257 @@
 {
  "records": [
   {
+   "id": "SOLUSDT|2h|short@1791545595",
+   "ref": "MO-261009-1503-SOL-2h-S",
+   "key": "SOLUSDT|2h|short",
+   "symbol": "SOLUSDT",
+   "tf": "2h",
+   "side": "short",
+   "strategy": "Divergence Reversal",
+   "trade_style": "2h",
+   "confidence": 70.8,
+   "entry": 110.55410631,
+   "entry_zone": [
+    110.37269843,
+    110.73551419
+   ],
+   "stop": 112.82170477,
+   "targets": [
+    105.61,
+    104.88511015,
+    102.61751168
+   ],
+   "rr": 2.18,
+   "atr": 1.51173231,
+   "risk_per_unit": 2.267598460000002,
+   "published_ts": 1791545595.8274338,
+   "published_time_tehran": "2026-10-09 15:03 Tehran",
+   "last_seen_ts": 1791545595.8274338,
+   "republished": 1,
+   "activated_ts": null,
+   "activated_time_tehran": null,
+   "resolved_ts": null,
+   "status": "pending",
+   "result": "open",
+   "result_r": null,
+   "resolve_note": "",
+   "mfe_r": null,
+   "mae_r": null,
+   "bars_to_activate": null,
+   "bars_to_resolve": null,
+   "supports": [
+    "structure bearish",
+    "below cloud",
+    "future cloud red",
+    "ADX 49 aligned",
+    "RSI 37 overbought, selling strength",
+    "bearish divergence",
+    "tape -32%",
+    "top traders 2.23 long - fuel below",
+    "perp/spot 10.7x - leverage driven, thin spot bid",
+    "HTF bearish agrees"
+   ],
+   "warnings": [
+    "September CPI in 4d"
+   ],
+   "blockers": [
+    "room ratio 0.46 against this side"
+   ],
+   "entry_distance_pct": 0.481,
+   "entry_distance_atr": 0.35,
+   "context": {
+    "score": 15.0,
+    "other_side_score": -13.0,
+    "funding": -0.003791,
+    "ls_top": 2.23,
+    "oi_1h": -1.702,
+    "perp_spot_ratio": 10.7,
+    "fng": null,
+    "adx": 49.204279554452434,
+    "rsi14": 36.90724875305815
+   },
+   "position_at_publish": {
+    "margin": 1000.0,
+    "risk_pct": 1.0,
+    "risk_usd": 10.0,
+    "qty": 4.40995183,
+    "notional": 487.54,
+    "leverage": 0.49,
+    "liquidation": null,
+    "target_kinds": [
+     "observed structure",
+     "derived 2.5R",
+     "derived 3.5R"
+    ]
+   }
+  },
+  {
+   "id": "ETHUSDT|2h|short@1791545595",
+   "ref": "MO-261009-1503-ETH-2h-S",
+   "key": "ETHUSDT|2h|short",
+   "symbol": "ETHUSDT",
+   "tf": "2h",
+   "side": "short",
+   "strategy": "Trend Continuation",
+   "trade_style": "2h",
+   "confidence": 70.0,
+   "entry": 2501.21803235,
+   "entry_zone": [
+    2498.17584983,
+    2504.26021487
+   ],
+   "stop": 2539.24531384,
+   "targets": [
+    2406.14982861,
+    2405.03,
+    2368.12254712
+   ],
+   "rr": 2.5,
+   "atr": 25.351521,
+   "risk_per_unit": 38.02728148999995,
+   "published_ts": 1791545595.8274338,
+   "published_time_tehran": "2026-10-09 15:03 Tehran",
+   "last_seen_ts": 1791545595.8274338,
+   "republished": 1,
+   "activated_ts": null,
+   "activated_time_tehran": null,
+   "resolved_ts": null,
+   "status": "pending",
+   "result": "open",
+   "result_r": null,
+   "resolve_note": "",
+   "mfe_r": null,
+   "mae_r": null,
+   "bars_to_activate": null,
+   "bars_to_resolve": null,
+   "supports": [
+    "structure bearish",
+    "below cloud",
+    "future cloud red",
+    "ADX 54 aligned",
+    "RSI 39 overbought, selling strength",
+    "tape -42%",
+    "top traders 1.82 long - fuel below",
+    "perp/spot 21.7x - leverage driven, thin spot bid",
+    "HTF bearish agrees"
+   ],
+   "warnings": [
+    "September CPI in 4d"
+   ],
+   "blockers": [
+    "room ratio 0.93 against this side"
+   ],
+   "entry_distance_pct": 0.356,
+   "entry_distance_atr": 0.35,
+   "context": {
+    "score": 13.0,
+    "other_side_score": -12.0,
+    "funding": -0.007018,
+    "ls_top": 1.82,
+    "oi_1h": -0.463,
+    "perp_spot_ratio": 21.741,
+    "fng": null,
+    "adx": 53.683871089047905,
+    "rsi14": 38.56763049369139
+   },
+   "position_at_publish": {
+    "margin": 1000.0,
+    "risk_pct": 1.0,
+    "risk_usd": 10.0,
+    "qty": 0.2629691,
+    "notional": 657.74,
+    "leverage": 0.66,
+    "liquidation": null,
+    "target_kinds": [
+     "derived 2.5R",
+     "observed structure",
+     "derived 3.5R"
+    ]
+   }
+  },
+  {
+   "id": "ETHUSDT|1h|short@1791545595",
+   "ref": "MO-261009-1503-ETH-1h-S",
+   "key": "ETHUSDT|1h|short",
+   "symbol": "ETHUSDT",
+   "tf": "1h",
+   "side": "short",
+   "strategy": "Confirmed Breakout Retest",
+   "trade_style": "1h",
+   "confidence": 62.4,
+   "entry": 2498.01324749,
+   "entry_zone": [
+    2496.07499121,
+    2499.95150377
+   ],
+   "stop": 2522.241451,
+   "targets": [
+    2437.4427387,
+    2413.21453518,
+    2405.03
+   ],
+   "rr": 2.5,
+   "atr": 16.15213568,
+   "risk_per_unit": 24.22820350999973,
+   "published_ts": 1791545595.8274338,
+   "published_time_tehran": "2026-10-09 15:03 Tehran",
+   "last_seen_ts": 1791545595.8274338,
+   "republished": 1,
+   "activated_ts": null,
+   "activated_time_tehran": null,
+   "resolved_ts": null,
+   "status": "pending",
+   "result": "open",
+   "result_r": null,
+   "resolve_note": "",
+   "mfe_r": null,
+   "mae_r": null,
+   "bars_to_activate": null,
+   "bars_to_resolve": null,
+   "supports": [
+    "structure bearish",
+    "below cloud",
+    "future cloud red",
+    "ADX 34 aligned",
+    "top traders 1.82 long - fuel below",
+    "perp/spot 21.7x - leverage driven, thin spot bid",
+    "HTF bearish agrees"
+   ],
+   "warnings": [
+    "September CPI in 4d"
+   ],
+   "blockers": [
+    "room ratio 0.93 against this side"
+   ],
+   "entry_distance_pct": 0.227,
+   "entry_distance_atr": 0.35,
+   "context": {
+    "score": 11.0,
+    "other_side_score": -9.0,
+    "funding": -0.007018,
+    "ls_top": 1.82,
+    "oi_1h": -0.463,
+    "perp_spot_ratio": 21.746,
+    "fng": null,
+    "adx": 34.05064413051722,
+    "rsi14": 45.384835774873906
+   },
+   "position_at_publish": {
+    "margin": 1000.0,
+    "risk_pct": 1.0,
+    "risk_usd": 10.0,
+    "qty": 0.41274212,
+    "notional": 1031.04,
+    "leverage": 1.03,
+    "liquidation": 4908.3435329,
+    "target_kinds": [
+     "derived 2.5R",
+     "derived 3.5R",
+     "observed structure"
+    ]
+   }
+  },
+  {
    "id": "XRPUSDT|1h|short@1791487535",
    "ref": "MO-261008-2255-XRP-1h-S",
    "key": "XRPUSDT|1h|short",
@@ -266,15 +517,15 @@
    "republished": 2,
    "activated_ts": null,
    "activated_time_tehran": null,
-   "resolved_ts": null,
-   "status": "pending",
-   "result": "open",
+   "resolved_ts": 1791543600,
+   "status": "expired",
+   "result": "never activated",
    "result_r": null,
-   "resolve_note": "",
+   "resolve_note": "price never reached the entry zone in 24 bars",
    "mfe_r": null,
    "mae_r": null,
    "bars_to_activate": null,
-   "bars_to_resolve": null,
+   "bars_to_resolve": 0,
    "supports": [
     "structure bearish",
     "below cloud",
@@ -1664,8 +1915,8 @@
   "losses": 12,
   "win_rate": 33.33333333333333,
   "expectancy_r": 0.16666669667411171,
-  "open": 1,
-  "expired": 1,
+  "open": 3,
+  "expired": 2,
   "invalidated": 1
  },
  "by_symbol": [
@@ -1675,7 +1926,7 @@
    "losses": 3,
    "win_rate": 40.0,
    "expectancy_r": 0.39999999990296153,
-   "open": 0,
+   "open": 2,
    "expired": 0,
    "invalidated": 0,
    "name": "ETHUSDT"
@@ -1709,7 +1960,7 @@
    "win_rate": 0.0,
    "expectancy_r": -1.0,
    "open": 1,
-   "expired": 0,
+   "expired": 1,
    "invalidated": 0,
    "name": "SOLUSDT"
   },
@@ -1744,7 +1995,7 @@
    "win_rate": 33.33333333333333,
    "expectancy_r": 0.16666676105838607,
    "open": 1,
-   "expired": 0,
+   "expired": 1,
    "invalidated": 0,
    "name": "1h"
   },
@@ -1776,7 +2027,7 @@
    "losses": 0,
    "win_rate": 100.0,
    "expectancy_r": 2.4999999999887232,
-   "open": 0,
+   "open": 2,
    "expired": 0,
    "invalidated": 0,
    "name": "2h"
@@ -1801,7 +2052,7 @@
    "win_rate": 33.33333333333333,
    "expectancy_r": 0.16666666656512272,
    "open": 1,
-   "expired": 1,
+   "expired": 2,
    "invalidated": 1,
    "name": "Trend Continuation"
   },
@@ -1811,7 +2062,7 @@
    "losses": 5,
    "win_rate": 16.666666666666664,
    "expectancy_r": -0.416666670883735,
-   "open": 0,
+   "open": 1,
    "expired": 0,
    "invalidated": 0,
    "name": "Confirmed Breakout Retest"
@@ -1822,12 +2073,12 @@
    "losses": 1,
    "win_rate": 66.66666666666666,
    "expectancy_r": 1.333333522116772,
-   "open": 0,
+   "open": 1,
    "expired": 0,
    "invalidated": 0,
    "name": "Divergence Reversal"
   }
  ],
- "updated_tehran": "2026-10-09 12:19 Tehran",
- "updated_ts": 1791535749.55193
+ "updated_tehran": "2026-10-09 15:03 Tehran",
+ "updated_ts": 1791545595.8308504
 }
