@@ -1,6 +1,169 @@
 {
  "records": [
   {
+   "id": "LINKUSDT|2h|short@1791572340",
+   "ref": "MO-261009-2229-LINK-2h-S",
+   "key": "LINKUSDT|2h|short",
+   "symbol": "LINKUSDT",
+   "tf": "2h",
+   "side": "short",
+   "strategy": "Trend Continuation",
+   "trade_style": "2h",
+   "confidence": 75.0,
+   "entry": 12.84397039,
+   "entry_zone": [
+    12.82135197,
+    12.86658881
+   ],
+   "stop": 13.12670063,
+   "targets": [
+    12.13714478,
+    12.06,
+    11.85441454
+   ],
+   "rr": 2.5,
+   "atr": 0.18848683,
+   "risk_per_unit": 0.28273023999999936,
+   "published_ts": 1791572340.5950062,
+   "published_time_tehran": "2026-10-09 22:29 Tehran",
+   "last_seen_ts": 1791572340.5950062,
+   "republished": 1,
+   "activated_ts": null,
+   "activated_time_tehran": null,
+   "resolved_ts": null,
+   "status": "pending",
+   "result": "open",
+   "result_r": null,
+   "resolve_note": "",
+   "mfe_r": null,
+   "mae_r": null,
+   "bars_to_activate": null,
+   "bars_to_resolve": null,
+   "supports": [
+    "structure bearish",
+    "below cloud",
+    "future cloud red",
+    "ADX 49 aligned",
+    "RSI 41 overbought, selling strength",
+    "room ratio 3.84",
+    "tape -58%",
+    "top traders 2.49 long - fuel below",
+    "HTF bearish agrees"
+   ],
+   "warnings": [
+    "September CPI in 4d"
+   ],
+   "blockers": [],
+   "entry_distance_pct": 0.516,
+   "entry_distance_atr": 0.35,
+   "context": {
+    "score": 14.0,
+    "other_side_score": -13.0,
+    "funding": -0.003116,
+    "ls_top": 2.49,
+    "oi_1h": -0.228,
+    "perp_spot_ratio": 5.143,
+    "fng": null,
+    "adx": 49.48895814334815,
+    "rsi14": 41.429264585749394
+   },
+   "position_at_publish": {
+    "margin": 1000.0,
+    "risk_pct": 1.0,
+    "risk_usd": 10.0,
+    "qty": 35.36940343,
+    "notional": 454.28,
+    "leverage": 0.45,
+    "liquidation": null,
+    "target_kinds": [
+     "derived 2.5R",
+     "observed structure",
+     "derived 3.5R"
+    ]
+   }
+  },
+  {
+   "id": "LINKUSDT|1h|short@1791572340",
+   "ref": "MO-261009-2229-LINK-1h-S",
+   "key": "LINKUSDT|1h|short",
+   "symbol": "LINKUSDT",
+   "tf": "1h",
+   "side": "short",
+   "strategy": "Confirmed Breakout Retest",
+   "trade_style": "1h",
+   "confidence": 68.2,
+   "entry": 12.82369238,
+   "entry_zone": [
+    12.80802642,
+    12.83935834
+   ],
+   "stop": 13.01951688,
+   "targets": [
+    12.33413114,
+    12.13830664,
+    12.06
+   ],
+   "rr": 2.5,
+   "atr": 0.13054966,
+   "risk_per_unit": 0.19582449999999874,
+   "published_ts": 1791572340.5950062,
+   "published_time_tehran": "2026-10-09 22:29 Tehran",
+   "last_seen_ts": 1791572340.5950062,
+   "republished": 1,
+   "activated_ts": null,
+   "activated_time_tehran": null,
+   "resolved_ts": null,
+   "status": "pending",
+   "result": "open",
+   "result_r": null,
+   "resolve_note": "",
+   "mfe_r": null,
+   "mae_r": null,
+   "bars_to_activate": null,
+   "bars_to_resolve": null,
+   "supports": [
+    "structure bearish",
+    "below cloud",
+    "future cloud red",
+    "ADX 25 aligned",
+    "room ratio 3.84",
+    "tape -58%",
+    "top traders 2.48 long - fuel below",
+    "HTF bearish agrees"
+   ],
+   "warnings": [
+    "September CPI in 4d"
+   ],
+   "blockers": [],
+   "entry_distance_pct": 0.358,
+   "entry_distance_atr": 0.35,
+   "context": {
+    "score": 12.0,
+    "other_side_score": -11.0,
+    "funding": -0.003116,
+    "ls_top": 2.48,
+    "oi_1h": -0.228,
+    "perp_spot_ratio": 5.142,
+    "fng": null,
+    "adx": 24.935205278035802,
+    "rsi14": 46.0716094082108
+   },
+   "position_at_publish": {
+    "margin": 1000.0,
+    "risk_pct": 1.0,
+    "risk_usd": 10.0,
+    "qty": 51.06613386,
+    "notional": 654.86,
+    "leverage": 0.65,
+    "liquidation": null,
+    "target_kinds": [
+     "derived 2.5R",
+     "derived 3.5R",
+     "observed structure"
+    ]
+   }
+  },
+  {
    "id": "SOLUSDT|2h|short@1791545595",
    "ref": "MO-261009-1503-SOL-2h-S",
    "key": "SOLUSDT|2h|short",
@@ -9,7 +172,7 @@
    "side": "short",
    "strategy": "Divergence Reversal",
    "trade_style": "2h",
-   "confidence": 70.8,
+   "confidence": 68.5,
    "entry": 110.55410631,
    "entry_zone": [
     110.37269843,
@@ -26,8 +189,8 @@
    "risk_per_unit": 2.267598460000002,
    "published_ts": 1791545595.8274338,
    "published_time_tehran": "2026-10-09 15:03 Tehran",
-   "last_seen_ts": 1791545595.8274338,
-   "republished": 1,
+   "last_seen_ts": 1791572340.5986128,
+   "republished": 2,
    "activated_ts": 1791547200,
    "activated_time_tehran": "2026-10-09 15:30 Tehran",
    "resolved_ts": null,
@@ -1915,7 +2078,7 @@
   "losses": 12,
   "win_rate": 33.33333333333333,
   "expectancy_r": 0.16666669667411171,
-  "open": 3,
+  "open": 5,
   "expired": 2,
   "invalidated": 1
  },
@@ -1981,7 +2144,7 @@
    "losses": 1,
    "win_rate": 0.0,
    "expectancy_r": -1.0,
-   "open": 0,
+   "open": 2,
    "expired": 0,
    "invalidated": 0,
    "name": "LINKUSDT"
@@ -1994,7 +2157,7 @@
    "losses": 4,
    "win_rate": 33.33333333333333,
    "expectancy_r": 0.16666676105838607,
-   "open": 1,
+   "open": 2,
    "expired": 1,
    "invalidated": 0,
    "name": "1h"
@@ -2027,7 +2190,7 @@
    "losses": 0,
    "win_rate": 100.0,
    "expectancy_r": 2.4999999999887232,
-   "open": 2,
+   "open": 3,
    "expired": 0,
    "invalidated": 0,
    "name": "2h"
@@ -2051,7 +2214,7 @@
    "losses": 6,
    "win_rate": 33.33333333333333,
    "expectancy_r": 0.16666666656512272,
-   "open": 1,
+   "open": 2,
    "expired": 2,
    "invalidated": 1,
    "name": "Trend Continuation"
@@ -2062,7 +2225,7 @@
    "losses": 5,
    "win_rate": 16.666666666666664,
    "expectancy_r": -0.416666670883735,
-   "open": 1,
+   "open": 2,
    "expired": 0,
    "invalidated": 0,
    "name": "Confirmed Breakout Retest"
@@ -2079,6 +2242,6 @@
    "name": "Divergence Reversal"
   }
  ],
- "updated_tehran": "2026-10-09 19:33 Tehran",
- "updated_ts": 1791561824.5940838
+ "updated_tehran": "2026-10-09 22:29 Tehran",
+ "updated_ts": 1791572340.5986128
 }
