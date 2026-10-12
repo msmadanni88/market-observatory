@@ -193,15 +193,15 @@
    "republished": 2,
    "activated_ts": 1791547200,
    "activated_time_tehran": "2026-10-09 15:30 Tehran",
-   "resolved_ts": null,
-   "status": "active",
-   "result": "open",
-   "result_r": null,
-   "resolve_note": "",
+   "resolved_ts": 1791777600,
+   "status": "loss",
+   "result": "stop",
+   "result_r": -1.0,
+   "resolve_note": "stop touched first",
    "mfe_r": 0.963,
-   "mae_r": 0.96,
+   "mae_r": 1.237,
    "bars_to_activate": 1,
-   "bars_to_resolve": null,
+   "bars_to_resolve": 33,
    "supports": [
     "structure bearish",
     "below cloud",
@@ -2073,12 +2073,12 @@
  ],
  "tracking_since": "2026-09-13 19:37 Tehran",
  "overall": {
-  "trades": 22,
+  "trades": 23,
   "wins": 6,
-  "losses": 16,
-  "win_rate": 27.27272727272727,
-  "expectancy_r": -0.04545452090299951,
-  "open": 1,
+  "losses": 17,
+  "win_rate": 26.08695652173913,
+  "expectancy_r": -0.08695649825504301,
+  "open": 0,
   "expired": 2,
   "invalidated": 1
  },
@@ -2128,12 +2128,12 @@
    "name": "LINKUSDT"
   },
   {
-   "trades": 2,
+   "trades": 3,
    "wins": 0,
-   "losses": 2,
+   "losses": 3,
    "win_rate": 0.0,
    "expectancy_r": -1.0,
-   "open": 1,
+   "open": 0,
    "expired": 1,
    "invalidated": 0,
    "name": "SOLUSDT"
@@ -2185,12 +2185,12 @@
    "name": "30m"
   },
   {
-   "trades": 3,
+   "trades": 4,
    "wins": 1,
-   "losses": 2,
-   "win_rate": 33.33333333333333,
-   "expectancy_r": 0.16666666666290775,
-   "open": 1,
+   "losses": 3,
+   "win_rate": 25.0,
+   "expectancy_r": -0.1250000000028192,
+   "open": 0,
    "expired": 0,
    "invalidated": 0,
    "name": "2h"
@@ -2231,17 +2231,17 @@
    "name": "Confirmed Breakout Retest"
   },
   {
-   "trades": 3,
+   "trades": 4,
    "wins": 2,
-   "losses": 1,
-   "win_rate": 66.66666666666666,
-   "expectancy_r": 1.333333522116772,
-   "open": 1,
+   "losses": 2,
+   "win_rate": 50.0,
+   "expectancy_r": 0.7500001415875791,
+   "open": 0,
    "expired": 0,
    "invalidated": 0,
    "name": "Divergence Reversal"
   }
  ],
- "updated_tehran": "2026-10-12 03:54 Tehran",
- "updated_ts": 1791764644.261829
+ "updated_tehran": "2026-10-12 10:41 Tehran",
+ "updated_ts": 1791789094.431554
 }
