@@ -29,15 +29,15 @@
    "republished": 1,
    "activated_ts": 1792072800,
    "activated_time_tehran": "2026-10-15 17:30 Tehran",
-   "resolved_ts": null,
-   "status": "active",
-   "result": "open",
-   "result_r": null,
-   "resolve_note": "",
+   "resolved_ts": 1792072800,
+   "status": "loss",
+   "result": "stop",
+   "result_r": -1.0,
+   "resolve_note": "stop touched first",
    "mfe_r": 0.941,
-   "mae_r": 0.311,
+   "mae_r": 1.387,
    "bars_to_activate": 3,
-   "bars_to_resolve": null,
+   "bars_to_resolve": 1,
    "supports": [
     "structure bearish",
     "below cloud",
@@ -106,15 +106,15 @@
    "republished": 1,
    "activated_ts": 1792072800,
    "activated_time_tehran": "2026-10-15 17:30 Tehran",
-   "resolved_ts": null,
-   "status": "active",
-   "result": "open",
-   "result_r": null,
-   "resolve_note": "",
+   "resolved_ts": 1792072800,
+   "status": "loss",
+   "result": "stop",
+   "result_r": -1.0,
+   "resolve_note": "stop touched first",
    "mfe_r": 1.027,
-   "mae_r": 0.151,
+   "mae_r": 1.007,
    "bars_to_activate": 3,
-   "bars_to_resolve": null,
+   "bars_to_resolve": 1,
    "supports": [
     "structure bearish",
     "below cloud",
@@ -2462,23 +2462,23 @@
  ],
  "tracking_since": "2026-09-13 19:37 Tehran",
  "overall": {
-  "trades": 26,
+  "trades": 28,
   "wins": 9,
-  "losses": 17,
-  "win_rate": 34.61538461538461,
-  "expectancy_r": 0.14901012849471235,
-  "open": 2,
+  "losses": 19,
+  "win_rate": 32.142857142857146,
+  "expectancy_r": 0.06693797645937574,
+  "open": 0,
   "expired": 2,
   "invalidated": 1
  },
  "by_symbol": [
   {
-   "trades": 9,
+   "trades": 10,
    "wins": 4,
-   "losses": 5,
-   "win_rate": 44.44444444444444,
-   "expectancy_r": 0.45218129669257023,
-   "open": 1,
+   "losses": 6,
+   "win_rate": 40.0,
+   "expectancy_r": 0.3069631670233133,
+   "open": 0,
    "expired": 0,
    "invalidated": 0,
    "name": "ETHUSDT"
@@ -2528,6 +2528,17 @@
    "name": "SOLUSDT"
   },
   {
+   "trades": 2,
+   "wins": 1,
+   "losses": 1,
+   "win_rate": 50.0,
+   "expectancy_r": 0.40231556500509247,
+   "open": 0,
+   "expired": 0,
+   "invalidated": 0,
+   "name": "SUIUSDT"
+  },
+  {
    "trades": 1,
    "wins": 1,
    "losses": 0,
@@ -2537,17 +2548,6 @@
    "expired": 0,
    "invalidated": 1,
    "name": "BTCUSDT"
-  },
-  {
-   "trades": 1,
-   "wins": 1,
-   "losses": 0,
-   "win_rate": 100.0,
-   "expectancy_r": 1.804631130010185,
-   "open": 1,
-   "expired": 0,
-   "invalidated": 0,
-   "name": "SUIUSDT"
   }
  ],
  "by_style": [
@@ -2563,6 +2563,17 @@
    "name": "1h"
   },
   {
+   "trades": 7,
+   "wins": 2,
+   "losses": 5,
+   "win_rate": 28.57142857142857,
+   "expectancy_r": -0.09933841000015597,
+   "open": 0,
+   "expired": 0,
+   "invalidated": 0,
+   "name": "2h"
+  },
+  {
    "trades": 6,
    "wins": 3,
    "losses": 3,
@@ -2572,17 +2583,6 @@
    "expired": 1,
    "invalidated": 1,
    "name": "15m"
-  },
-  {
-   "trades": 5,
-   "wins": 2,
-   "losses": 3,
-   "win_rate": 40.0,
-   "expectancy_r": 0.26092622599978166,
-   "open": 2,
-   "expired": 0,
-   "invalidated": 0,
-   "name": "2h"
   },
   {
    "trades": 5,
@@ -2609,23 +2609,23 @@
  ],
  "by_strategy": [
   {
-   "trades": 11,
+   "trades": 12,
    "wins": 4,
-   "losses": 7,
-   "win_rate": 36.36363636363637,
-   "expectancy_r": 0.12493297958419092,
-   "open": 1,
+   "losses": 8,
+   "win_rate": 33.33333333333333,
+   "expectancy_r": 0.031188564618841674,
+   "open": 0,
    "expired": 0,
    "invalidated": 0,
    "name": "Confirmed Breakout Retest"
   },
   {
-   "trades": 11,
+   "trades": 12,
    "wins": 3,
-   "losses": 8,
-   "win_rate": 27.27272727272727,
-   "expectancy_r": -0.04545454553762687,
-   "open": 1,
+   "losses": 9,
+   "win_rate": 25.0,
+   "expectancy_r": -0.12500000007615797,
+   "open": 0,
    "expired": 2,
    "invalidated": 1,
    "name": "Trend Continuation"
@@ -2642,6 +2642,6 @@
    "name": "Divergence Reversal"
   }
  ],
- "updated_tehran": "2026-10-15 18:18 Tehran",
- "updated_ts": 1792075726.5576098
+ "updated_tehran": "2026-10-15 21:24 Tehran",
+ "updated_ts": 1792086882.5157206
 }
