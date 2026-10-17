@@ -1,59 +1,70 @@
-MARKET BRIEF  2026-10-17 12:17 Tehran
-scanned 48 perps
+MARKET BRIEF  2026-10-17 20:08 Tehran
+scanned 36 perps
 
 SETUPS
- nothing cleared the gates. 35 combinations were checked.
-   12x  no trend
-   10x  price inside the cloud
-   5x  support under 0.6 ATR away
+ SHORT BTCUSDT 15m   confidence 64.6
+   entry 81271.3  stop 81398.9  tp1 80952.3
+   R:R 1:2.5  leverage 6.37x  risk $10.0
+   entry sits 0.04% (0.35 ATR) from market
+   + structure bearish
+   + below cloud
+   + future cloud red
+
+ SHORT LINKUSDT 15m   confidence 63.9
+   entry 11.9185  stop 11.9827  tp1 11.758
+   R:R 1:2.5  leverage 1.86x  risk $10.0
+   entry sits 0.13% (0.35 ATR) from market
+   + structure bearish
+   + below cloud
+   + future cloud red
 
 POSITIONS
  XMRUSDT long @ 508
-   now 560.33  pnl +10.30%  status open
-   R:R from here 1:0.41
+   now 547.17  pnl +7.71%  status open
+   R:R from here 1:0.64
 
 SECTOR ROTATION  7d median
- l2            -0.3%  lead ARB RSI 50.0  laggard ARB RSI 50.0
- payments      -0.5%  lead BCH RSI 47.0  laggard XRP RSI 36.0
- meme          -0.8%  lead PEPE RSI 47.8  laggard DOGE RSI 36.9
- l1_major      -3.2%  lead TIA RSI 72.3  laggard SOL RSI 39.6
- ai            -3.4%  lead TAO RSI 47.6  laggard TAO RSI 47.6
+ payments      -2.6%  lead BCH RSI 44.5  laggard XRP RSI 34.5
+ l2            -3.3%  lead ARB RSI 47.8  laggard ARB RSI 47.8
+ meme          -3.5%  lead PEPE RSI 45.2  laggard DOGE RSI 35.3
+ l1_major      -3.9%  lead INJ RSI 60.0  laggard SOL RSI 37.2
+ defi          -6.6%  lead UNI RSI 42.0  laggard UNI RSI 42.0
 
 MOST EXTENDED
- BAT     RSI 71.3  EMA20  +37.9%  7d  +41.5%
-   38% above EMA20, 78% above EMA50
- TIA     RSI 72.3  EMA20  +32.1%  7d  +19.6%
-   RSI 72 overbought, 32% above EMA20
- SOXS    RSI 72.7  EMA20  +26.5%  7d  +43.2%
-   RSI 73 overbought, 26% above EMA20
- BZ      RSI 67.1  EMA20   +4.6%  7d   +4.6%
+ BAT     RSI 64.7  EMA20  +26.5%  7d  +28.2%
+   27% above EMA20, 62% above EMA50
+ TIA     RSI 66.3  EMA20  +22.6%  7d   +9.8%
+   23% above EMA20, 4h gap -8.6% down
+ BZ      RSI 67.1  EMA20   +4.5%  7d   +4.6%
    volatility 8th pctile, hugging EMA20, 4h gap -1.6% down
- INJ     RSI 63.0  EMA20  +12.9%  7d  +14.9%
-   above rising 200, 4h gap -10.2% down
+ CL      RSI 67.1  EMA20   +5.9%  7d   +8.7%
+   volatility 6th pctile, above rising 200, 4h gap -3.7% down
+ ETH     RSI 37.4  EMA20   -4.7%  7d   -3.9%
+   hugging EMA20, above rising 200, 1d gap +6.4% up
 
 MOST COMPRESSED
- HYPE    RSI 40.1  EMA20   -5.5%  7d   -6.2%
-   RSI 40 neutral, volatility 22th pctile, 4h gap +11.3% up
- BTC     RSI 46.9  EMA20   -1.2%  7d   -1.6%
-   RSI 47 neutral, hugging EMA20, 1d gap +9.5% up
- WLD     RSI 53.0  EMA20   +1.9%  7d   -5.9%
-   RSI 53 neutral, hugging EMA20
- STRK    RSI 53.7  EMA20   +4.4%  7d  -30.5%
-   RSI 54 neutral, hugging EMA20, 4h gap -5.9% down
- XAU     RSI 44.8  EMA20   -0.4%  7d   -0.6%
-   RSI 45 neutral, volatility 0th pctile, 1d gap +5.7% up
+ BTC     RSI 45.5  EMA20   -1.7%  7d   -2.0%
+   RSI 46 neutral, hugging EMA20, 1d gap +10.1% up
+ STRK    RSI 51.1  EMA20   -3.5%  7d  -36.3%
+   RSI 51 neutral, hugging EMA20, 4h gap -10.8% down
+ WLD     RSI 49.0  EMA20   -2.9%  7d  -10.8%
+   RSI 49 neutral, hugging EMA20, 4h gap -11.6% down
+ XAU     RSI 44.3  EMA20   -0.5%  7d   -0.7%
+   RSI 44 neutral, volatility 0th pctile, 1d gap +5.8% up
+ PEPE    RSI 45.2  EMA20   -4.8%  7d   -3.5%
+   RSI 45 neutral, hugging EMA20, 4h gap -9.7% down
 
 TRENDING WITH ROOM
- BTC     RSI 46.9  EMA20   -1.2%  7d   -1.6%
-   RSI 47 neutral, hugging EMA20, 1d gap +9.5% up
- SOL     RSI 39.6  EMA20   -4.8%  7d   -4.7%
-   hugging EMA20, mid-range, 4h gap +9.4% up
- WLD     RSI 53.0  EMA20   +1.9%  7d   -5.9%
-   RSI 53 neutral, hugging EMA20
- XRP     RSI 36.0  EMA20   -6.3%  7d   -6.8%
-   mid-range, above rising 200, 4h gap -5.8% down
- CL      RSI 67.0  EMA20   +5.9%  7d   +8.7%
-   volatility 6th pctile, above rising 200, 4h gap -3.6% down
+ SAND    RSI 55.9  EMA20   +6.4%  7d   -6.9%
+   RSI 56 neutral, mid-range
+ BTC     RSI 45.5  EMA20   -1.7%  7d   -2.0%
+   RSI 46 neutral, hugging EMA20, 1d gap +10.1% up
+ SOL     RSI 37.2  EMA20   -6.0%  7d   -6.1%
+   mid-range, above rising 200, 4h gap +11.0% up
+ PUMP    RSI 39.8  EMA20  -14.0%  7d  -20.6%
+   mid-range, above rising 200
+ WLD     RSI 49.0  EMA20   -2.9%  7d  -10.8%
+   RSI 49 neutral, hugging EMA20, 4h gap -11.6% down
 
 GAP BASE RATE
  measured 13 Sep 2026, 24 symbols, 50-bar horizon
