@@ -1,78 +1,59 @@
-MARKET BRIEF  2026-10-18 20:16 Tehran
-scanned 34 perps
+MARKET BRIEF  2026-10-19 13:45 Tehran
+scanned 46 perps
 
 SETUPS
- SHORT LINKUSDT 2h   confidence 63.2
-   entry 11.7802  stop 12.0017  tp1 11.2264
-   R:R 1:2.5  leverage 0.53x  risk $10.0
-   entry sits 0.44% (0.35 ATR) from market
-   + structure bearish
-   + below cloud
-   + future cloud red
-
- SHORT XRPUSDT 2h   confidence 63.1
-   entry 1.27337  stop 1.29336  tp1 1.22338
-   R:R 1:2.5  leverage 0.64x  risk $10.0
-   entry sits 0.37% (0.35 ATR) from market
-   + structure bearish
-   + below cloud
-   + future cloud red
-
- SHORT XRPUSDT 4h   confidence 63.1
-   entry 1.2756  stop 1.3056  tp1 1.20059
-   R:R 1:2.5  leverage 0.43x  risk $10.0
-   entry sits 0.55% (0.35 ATR) from market
-   + structure bearish
-   + below cloud
-   + future cloud red
+ nothing cleared the gates. 35 combinations were checked.
+   7x  resistance under 0.6 ATR away
+   7x  support under 0.6 ATR away
+   6x  HTF bearish disagrees and there is no reversal trigger to justify fading it
 
 POSITIONS
  XMRUSDT long @ 508
-   now 593.65  pnl +16.86%  status open
-   R:R from here 1:0.03
+   now 592.51  pnl +16.64%  status open
+   R:R from here 1:0.04
 
 SECTOR ROTATION  7d median
- exchange      -5.6%  lead BNB RSI 37.1  laggard BNB RSI 37.1
- l1_major      -6.7%  lead TIA RSI 60.4  laggard ETH RSI 34.7
- meme          -8.9%  lead PEPE RSI 44.1  laggard DOGE RSI 33.1
- payments      -9.8%  lead XRP RSI 32.7  laggard XRP RSI 32.7
- defi         -10.0%  lead UNI RSI 41.1  laggard ENA RSI 40.5
+ l2            +9.6%  lead ARB RSI 53.2  laggard STRK RSI 48.4
+ meme          +4.6%  lead PEPE RSI 50.7  laggard DOGE RSI 36.2
+ ai            +0.9%  lead WLD RSI 50.4  laggard WLD RSI 50.4
+ privacy       -0.3%  lead ZEC RSI 44.5  laggard ZEC RSI 44.5
+ l1_major      -0.5%  lead INJ RSI 59.9  laggard ADA RSI 40.9
 
 MOST EXTENDED
- BAT     RSI 61.7  EMA20  +18.6%  7d   +8.2%
-   19% above EMA20, 52% above EMA50
- TIA     RSI 60.4  EMA20  +13.2%  7d   +6.2%
-   above rising 200, 4h gap -2.1% down
- ETH     RSI 34.7  EMA20   -5.7%  7d   -6.7%
-   above rising 200, 1d gap -5.2% down
- BTC     RSI 45.0  EMA20   -1.7%  7d   -3.1%
-   RSI 45 neutral, hugging EMA20, 1d gap +10.2% up
- ZEC     RSI 39.7  EMA20  -12.1%  7d  -14.9%
-   mid-range, above rising 200, 4h gap -5.8% down
+ BAT     RSI 64.8  EMA20  +23.5%  7d  +20.5%
+   23% above EMA20, 58% above EMA50
+ TIA     RSI 59.6  EMA20  +10.6%  7d  +15.4%
+   volume fading into highs, 4h gap -6.2% down
+ INJ     RSI 59.9  EMA20   +7.9%  7d  +17.0%
+   RSI 60 neutral, above rising 200
+ ETH     RSI 41.0  EMA20   -2.9%  7d   -0.5%
+   RSI 41 neutral, hugging EMA20, 1d gap +5.2% up
+ BTC     RSI 51.5  EMA20   +0.1%  7d   +1.1%
+   RSI 52 neutral, volatility 25th pctile, 1d gap +8.1% up
 
 MOST COMPRESSED
- BTC     RSI 45.0  EMA20   -1.7%  7d   -3.1%
-   RSI 45 neutral, hugging EMA20, 1d gap +10.2% up
- XAU     RSI 43.7  EMA20   -0.5%  7d   -0.8%
-   RSI 44 neutral, volatility 1th pctile, 1d gap +5.9% up
- NEAR    RSI 50.9  EMA20   -2.2%  7d  -19.0%
-   RSI 51 neutral, hugging EMA20
- HBAR    RSI 44.8  EMA20   -4.4%  7d   -8.4%
-   RSI 45 neutral, hugging EMA20, 4h gap -9.8% down
- INJ     RSI 54.8  EMA20   +3.6%  7d   +3.9%
-   RSI 55 neutral, hugging EMA20, 4h gap -2.2% down
+ BTC     RSI 51.5  EMA20   +0.1%  7d   +1.1%
+   RSI 52 neutral, volatility 25th pctile, 1d gap +8.1% up
+ HYPE    RSI 41.1  EMA20   -4.6%  7d   -1.5%
+   RSI 41 neutral, volatility 24th pctile, 4h gap +11.8% up
+ BNB     RSI 42.5  EMA20   -2.2%  7d   -0.9%
+   RSI 43 neutral, hugging EMA20, 4h gap -3.4% down
+ SOL     RSI 41.9  EMA20   -3.4%  7d   -0.3%
+   RSI 42 neutral, hugging EMA20, 4h gap +8.8% up
+ XAU     RSI 46.2  EMA20   -0.2%  7d   -0.0%
+   RSI 46 neutral, volatility 1th pctile, 1d gap +5.6% up
 
 TRENDING WITH ROOM
- SAND    RSI 52.3  EMA20   +0.4%  7d  -10.9%
+ BTC     RSI 51.5  EMA20   +0.1%  7d   +1.1%
+   RSI 52 neutral, volatility 25th pctile, 1d gap +8.1% up
+ PUMP    RSI 43.1  EMA20   -9.3%  7d   -9.8%
+   RSI 43 neutral, mid-range
+ WLD     RSI 50.4  EMA20   -0.8%  7d   +0.9%
+   RSI 50 neutral, hugging EMA20
+ SAND    RSI 52.1  EMA20   +0.1%  7d   -2.1%
    RSI 52 neutral, hugging EMA20
- TIA     RSI 60.4  EMA20  +13.2%  7d   +6.2%
-   above rising 200, 4h gap -2.1% down
- HBAR    RSI 44.8  EMA20   -4.4%  7d   -8.4%
-   RSI 45 neutral, hugging EMA20, 4h gap -9.8% down
- BTC     RSI 45.0  EMA20   -1.7%  7d   -3.1%
-   RSI 45 neutral, hugging EMA20, 1d gap +10.2% up
- WLD     RSI 46.4  EMA20   -5.9%  7d  -15.0%
-   RSI 46 neutral, mid-range, 4h gap -8.2% down
+ STRK    RSI 48.4  EMA20  -10.9%  7d  -30.4%
+   RSI 48 neutral, mid-range, 4h gap -4.8% down
 
 GAP BASE RATE
  measured 13 Sep 2026, 24 symbols, 50-bar horizon
