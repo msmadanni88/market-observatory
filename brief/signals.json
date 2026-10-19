@@ -29,15 +29,15 @@
    "republished": 1,
    "activated_ts": 1792346400,
    "activated_time_tehran": "2026-10-18 21:30 Tehran",
-   "resolved_ts": null,
-   "status": "active",
-   "result": "open",
-   "result_r": null,
-   "resolve_note": "",
+   "resolved_ts": 1792360800,
+   "status": "loss",
+   "result": "stop",
+   "result_r": -1.0,
+   "resolve_note": "stop touched first",
    "mfe_r": 1.184,
-   "mae_r": 0.938,
+   "mae_r": 1.245,
    "bars_to_activate": 1,
-   "bars_to_resolve": null,
+   "bars_to_resolve": 3,
    "supports": [
     "structure bearish",
     "below cloud",
@@ -185,15 +185,15 @@
    "republished": 1,
    "activated_ts": 1792353600,
    "activated_time_tehran": "2026-10-18 23:30 Tehran",
-   "resolved_ts": null,
-   "status": "active",
-   "result": "open",
-   "result_r": null,
-   "resolve_note": "",
+   "resolved_ts": 1792353600,
+   "status": "loss",
+   "result": "stop",
+   "result_r": -1.0,
+   "resolve_note": "stop touched first",
    "mfe_r": 0.647,
-   "mae_r": 0.897,
+   "mae_r": 1.126,
    "bars_to_activate": 1,
-   "bars_to_resolve": null,
+   "bars_to_resolve": 1,
    "supports": [
     "structure bearish",
     "below cloud",
@@ -3095,12 +3095,12 @@
  ],
  "tracking_since": "2026-09-13 19:37 Tehran",
  "overall": {
-  "trades": 34,
+  "trades": 36,
   "wins": 12,
-  "losses": 22,
-  "win_rate": 35.294117647058826,
-  "expectancy_r": 0.1872634420988093,
-  "open": 2,
+  "losses": 24,
+  "win_rate": 33.33333333333333,
+  "expectancy_r": 0.12130436198220879,
+  "open": 0,
   "expired": 2,
   "invalidated": 1
  },
@@ -3117,15 +3117,26 @@
    "name": "ETHUSDT"
   },
   {
-   "trades": 6,
+   "trades": 7,
    "wins": 2,
-   "losses": 4,
-   "win_rate": 33.33333333333333,
-   "expectancy_r": 0.16666676098881497,
-   "open": 1,
+   "losses": 5,
+   "win_rate": 28.57142857142857,
+   "expectancy_r": 8.084755569776852e-08,
+   "open": 0,
    "expired": 0,
    "invalidated": 0,
    "name": "XRPUSDT"
+  },
+  {
+   "trades": 5,
+   "wins": 0,
+   "losses": 5,
+   "win_rate": 0.0,
+   "expectancy_r": -1.0,
+   "open": 0,
+   "expired": 0,
+   "invalidated": 0,
+   "name": "LINKUSDT"
   },
   {
    "trades": 4,
@@ -3137,17 +3148,6 @@
    "expired": 1,
    "invalidated": 0,
    "name": "HYPEUSDT"
-  },
-  {
-   "trades": 4,
-   "wins": 0,
-   "losses": 4,
-   "win_rate": 0.0,
-   "expectancy_r": -1.0,
-   "open": 1,
-   "expired": 0,
-   "invalidated": 0,
-   "name": "LINKUSDT"
   },
   {
    "trades": 4,
@@ -3196,6 +3196,17 @@
    "name": "15m"
   },
   {
+   "trades": 9,
+   "wins": 2,
+   "losses": 7,
+   "win_rate": 22.22222222222222,
+   "expectancy_r": -0.2994854300001213,
+   "open": 0,
+   "expired": 0,
+   "invalidated": 0,
+   "name": "2h"
+  },
+  {
    "trades": 8,
    "wins": 2,
    "losses": 6,
@@ -3205,17 +3216,6 @@
    "expired": 1,
    "invalidated": 0,
    "name": "1h"
-  },
-  {
-   "trades": 8,
-   "wins": 2,
-   "losses": 6,
-   "win_rate": 25.0,
-   "expectancy_r": -0.21192110875013648,
-   "open": 1,
-   "expired": 0,
-   "invalidated": 0,
-   "name": "2h"
   },
   {
    "trades": 5,
@@ -3229,12 +3229,12 @@
    "name": "30m"
   },
   {
-   "trades": 2,
+   "trades": 3,
    "wins": 1,
-   "losses": 1,
-   "win_rate": 50.0,
-   "expectancy_r": 0.533404903660601,
-   "open": 1,
+   "losses": 2,
+   "win_rate": 33.33333333333333,
+   "expectancy_r": 0.022269935773734,
+   "open": 0,
    "expired": 0,
    "invalidated": 0,
    "name": "4h"
@@ -3242,23 +3242,23 @@
  ],
  "by_strategy": [
   {
-   "trades": 16,
+   "trades": 17,
    "wins": 7,
-   "losses": 9,
-   "win_rate": 43.75,
-   "expectancy_r": 0.4291847791201935,
-   "open": 1,
+   "losses": 10,
+   "win_rate": 41.17647058823529,
+   "expectancy_r": 0.34511508623077036,
+   "open": 0,
    "expired": 0,
    "invalidated": 0,
    "name": "Confirmed Breakout Retest"
   },
   {
-   "trades": 14,
+   "trades": 15,
    "wins": 3,
-   "losses": 11,
-   "win_rate": 21.428571428571427,
-   "expectancy_r": -0.2500000000652783,
-   "open": 1,
+   "losses": 12,
+   "win_rate": 20.0,
+   "expectancy_r": -0.30000000006092636,
+   "open": 0,
    "expired": 2,
    "invalidated": 1,
    "name": "Trend Continuation"
@@ -3275,6 +3275,6 @@
    "name": "Divergence Reversal"
   }
  ],
- "updated_tehran": "2026-10-19 02:27 Tehran",
- "updated_ts": 1792364230.7059882
+ "updated_tehran": "2026-10-19 04:30 Tehran",
+ "updated_ts": 1792371647.4422395
 }
