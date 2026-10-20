@@ -1,59 +1,59 @@
-MARKET BRIEF  2026-10-19 22:58 Tehran
-scanned 54 perps
+MARKET BRIEF  2026-10-20 13:09 Tehran
+scanned 48 perps
 
 SETUPS
  nothing cleared the gates. 35 combinations were checked.
-   13x  no trend
-   9x  price inside the cloud
-   6x  support under 0.6 ATR away
+   10x  price inside the cloud
+   8x  support under 0.6 ATR away
+   8x  no trend
 
 POSITIONS
  XMRUSDT long @ 508
-   now 591.64  pnl +16.46%  status open
-   R:R from here 1:0.05
+   now 616.5  pnl +21.36%  status TP1 HIT
+   R:R from here 1:0.12
 
 SECTOR ROTATION  7d median
- l2            +7.6%  lead ARB RSI 52.0  laggard STRK RSI 47.9
- meme          +5.1%  lead PEPE RSI 51.1  laggard DOGE RSI 35.5
- ai            +2.1%  lead WLD RSI 51.3  laggard WLD RSI 51.3
- exchange      -0.7%  lead BNB RSI 43.2  laggard BNB RSI 43.2
- l1_major      -1.8%  lead INJ RSI 59.7  laggard ETH RSI 37.4
+ ai            +4.2%  lead WLD RSI 54.8  laggard WLD RSI 54.8
+ payments      -0.0%  lead BCH RSI 45.2  laggard XRP RSI 35.6
+ l2            -0.7%  lead ARB RSI 50.4  laggard STRK RSI 47.0
+ meme          -0.8%  lead PEPE RSI 52.6  laggard DOGE RSI 35.0
+ exchange      -1.9%  lead BNB RSI 43.6  laggard BNB RSI 43.6
 
 MOST EXTENDED
- BAT     RSI 64.5  EMA20  +22.8%  7d  +19.7%
-   23% above EMA20, 57% above EMA50
- INJ     RSI 59.7  EMA20   +8.0%  7d  +17.1%
-   RSI 60 neutral, above rising 200
- BZ      RSI 62.8  EMA20   +3.0%  7d   +2.5%
-   volatility 10th pctile, hugging EMA20, 4h gap -2.3% down
- SOXS    RSI 61.4  EMA20  +12.5%  7d  +19.0%
-   mid-range, 4h gap -6.7% down
- ETH     RSI 37.4  EMA20   -4.1%  7d   -1.8%
-   hugging EMA20, above rising 200, 1d gap -6.5% down
+ BAT     RSI 67.9  EMA20  +29.3%  7d   +2.5%
+   29% above EMA20, 67% above EMA50
+ SOXS    RSI 66.4  EMA20  +17.5%  7d  +29.4%
+   +29% in 7d, volume fading into highs
+ CL      RSI 68.1  EMA20   +6.0%  7d   +7.2%
+   volatility 5th pctile, above rising 200, 4h gap -5.2% down
+ BZ      RSI 66.2  EMA20   +4.0%  7d   +3.9%
+   volatility 4th pctile, hugging EMA20, 4h gap -3.7% down
+ UNITREE RSI 65.9  EMA20  +14.5%  7d  +19.3%
+   mid-range, volume 8.5x
 
 MOST COMPRESSED
- BTC     RSI 48.4  EMA20   -0.7%  7d   +0.2%
-   RSI 48 neutral, hugging EMA20, 1d gap +9.1% up
- TSLA    RSI 50.9  EMA20   +0.3%  7d   -2.1%
-   RSI 51 neutral, hugging EMA20, 1d gap +7.5% up
- BNB     RSI 43.2  EMA20   -2.0%  7d   -0.7%
-   RSI 43 neutral, hugging EMA20, 4h gap -3.5% down
- NVDA    RSI 41.7  EMA20   -2.3%  7d   -2.8%
-   RSI 42 neutral, hugging EMA20, 1d gap -7.0% down
- XAU     RSI 43.2  EMA20   -0.8%  7d   -0.6%
-   RSI 43 neutral, volatility 3th pctile, 1d gap +6.2% up
+ BTC     RSI 46.0  EMA20   -1.2%  7d   -2.1%
+   RSI 46 neutral, hugging EMA20, 1d gap +9.9% up
+ BNB     RSI 43.6  EMA20   -1.9%  7d   -1.9%
+   RSI 44 neutral, hugging EMA20, 4h gap -3.6% down
+ XAU     RSI 40.8  EMA20   -1.1%  7d   -0.8%
+   RSI 41 neutral, volatility 0th pctile, 1d gap +6.8% up
+ PEPE    RSI 52.6  EMA20   +1.8%  7d   -0.8%
+   RSI 53 neutral, hugging EMA20
+ CRCL    RSI 45.0  EMA20   -3.0%  7d   -4.0%
+   RSI 45 neutral, volatility 14th pctile, 1d gap -11.1% down
 
 TRENDING WITH ROOM
- QQQ     RSI 41.7  EMA20   -1.5%  7d   -3.1%
-   RSI 42 neutral, hugging EMA20, 4h gap +1.6% up
- BTC     RSI 48.4  EMA20   -0.7%  7d   +0.2%
-   RSI 48 neutral, hugging EMA20, 1d gap +9.1% up
- PUMP    RSI 41.4  EMA20  -11.2%  7d  -11.8%
-   RSI 41 neutral, above rising 200
- WLD     RSI 51.3  EMA20   +0.2%  7d   +2.1%
-   RSI 51 neutral, hugging EMA20
- CL      RSI 64.1  EMA20   +4.4%  7d   +6.4%
-   volatility 9th pctile, hugging EMA20, 4h gap -3.2% down
+ BTC     RSI 46.0  EMA20   -1.2%  7d   -2.1%
+   RSI 46 neutral, hugging EMA20, 1d gap +9.9% up
+ WLD     RSI 54.8  EMA20   +4.3%  7d   +4.2%
+   RSI 55 neutral, hugging EMA20
+ PUMP    RSI 42.5  EMA20   -9.4%  7d  -11.7%
+   RSI 42 neutral, mid-range
+ CL      RSI 68.1  EMA20   +6.0%  7d   +7.2%
+   volatility 5th pctile, above rising 200, 4h gap -5.2% down
+ PEPE    RSI 52.6  EMA20   +1.8%  7d   -0.8%
+   RSI 53 neutral, hugging EMA20
 
 GAP BASE RATE
  measured 13 Sep 2026, 24 symbols, 50-bar horizon
