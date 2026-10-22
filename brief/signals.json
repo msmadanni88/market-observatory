@@ -1,6 +1,163 @@
 {
  "records": [
   {
+   "id": "BTCUSDT|15m|short@1792661899",
+   "ref": "MO-261022-1308-BTC-15m-S",
+   "key": "BTCUSDT|15m|short",
+   "symbol": "BTCUSDT",
+   "tf": "15m",
+   "side": "short",
+   "strategy": "Trend Continuation",
+   "trade_style": "15m",
+   "confidence": 66.2,
+   "entry": 81819.31854388,
+   "entry_zone": [
+    81796.64932884,
+    81841.98775893
+   ],
+   "stop": 82102.68373195,
+   "targets": [
+    81110.90557371,
+    80827.54038565
+   ],
+   "rr": 2.5,
+   "atr": 188.91012538,
+   "risk_per_unit": 283.3651880700054,
+   "published_ts": 1792661899.7433167,
+   "published_time_tehran": "2026-10-22 13:08 Tehran",
+   "last_seen_ts": 1792661899.7433167,
+   "republished": 1,
+   "activated_ts": null,
+   "activated_time_tehran": null,
+   "resolved_ts": null,
+   "status": "pending",
+   "result": "open",
+   "result_r": null,
+   "resolve_note": "",
+   "mfe_r": null,
+   "mae_r": null,
+   "bars_to_activate": null,
+   "bars_to_resolve": null,
+   "supports": [
+    "structure bearish",
+    "below cloud",
+    "future cloud red",
+    "ADX 67 aligned",
+    "tape -27%",
+    "top traders 1.73 long - fuel below",
+    "perp/spot 13.6x - leverage driven, thin spot bid",
+    "HTF bearish agrees"
+   ],
+   "warnings": [],
+   "blockers": [
+    "stretched low, RSI 19 - late"
+   ],
+   "entry_distance_pct": 0.081,
+   "entry_distance_atr": 0.35,
+   "context": {
+    "score": 11.0,
+    "other_side_score": -9.0,
+    "funding": 0.008382,
+    "ls_top": 1.73,
+    "oi_1h": -0.527,
+    "perp_spot_ratio": 13.648,
+    "fng": null,
+    "adx": 66.82528639912164,
+    "rsi14": 18.891440559075903
+   },
+   "position_at_publish": {
+    "margin": 1000.0,
+    "risk_pct": 1.0,
+    "risk_usd": 10.0,
+    "qty": 0.03529015,
+    "notional": 2887.42,
+    "leverage": 2.89,
+    "liquidation": 109746.74075789,
+    "target_kinds": [
+     "derived 2.5R",
+     "derived 3.5R"
+    ]
+   }
+  },
+  {
+   "id": "HYPEUSDT|15m|short@1792661899",
+   "ref": "MO-261022-1308-HYPE-15m-S",
+   "key": "HYPEUSDT|15m|short",
+   "symbol": "HYPEUSDT",
+   "tf": "15m",
+   "side": "short",
+   "strategy": "Trend Continuation",
+   "trade_style": "15m",
+   "confidence": 63.9,
+   "entry": 77.94267586,
+   "entry_zone": [
+    77.90301557,
+    77.98233616
+   ],
+   "stop": 78.43842955,
+   "targets": [
+    76.70329163,
+    76.20753794
+   ],
+   "rr": 2.5,
+   "atr": 0.33050246,
+   "risk_per_unit": 0.4957536900000008,
+   "published_ts": 1792661899.7433167,
+   "published_time_tehran": "2026-10-22 13:08 Tehran",
+   "last_seen_ts": 1792661899.7433167,
+   "republished": 1,
+   "activated_ts": null,
+   "activated_time_tehran": null,
+   "resolved_ts": null,
+   "status": "pending",
+   "result": "open",
+   "result_r": null,
+   "resolve_note": "",
+   "mfe_r": null,
+   "mae_r": null,
+   "bars_to_activate": null,
+   "bars_to_resolve": null,
+   "supports": [
+    "structure bearish",
+    "below cloud",
+    "future cloud red",
+    "ADX 56 aligned",
+    "tape -17%",
+    "top traders 2.46 long - fuel below",
+    "HTF bearish agrees"
+   ],
+   "warnings": [],
+   "blockers": [
+    "stretched low, RSI 27 - late"
+   ],
+   "entry_distance_pct": 0.149,
+   "entry_distance_atr": 0.35,
+   "context": {
+    "score": 10.0,
+    "other_side_score": -9.0,
+    "funding": 0.003342,
+    "ls_top": 2.46,
+    "oi_1h": 1.254,
+    "perp_spot_ratio": 8.749,
+    "fng": null,
+    "adx": 56.107214181960195,
+    "rsi14": 27.136969418149036
+   },
+   "position_at_publish": {
+    "margin": 1000.0,
+    "risk_pct": 1.0,
+    "risk_usd": 10.0,
+    "qty": 20.17130714,
+    "notional": 1572.21,
+    "leverage": 1.57,
+    "liquidation": 127.12833174,
+    "target_kinds": [
+     "derived 2.5R",
+     "derived 3.5R"
+    ]
+   }
+  },
+  {
    "id": "LINKUSDT|2h|short@1792341994",
    "ref": "MO-261018-2016-LINK-2h-S",
    "key": "LINKUSDT|2h|short",
@@ -3100,7 +3257,7 @@
   "losses": 24,
   "win_rate": 33.33333333333333,
   "expectancy_r": 0.12130436198220879,
-  "open": 0,
+  "open": 2,
   "expired": 2,
   "invalidated": 1
  },
@@ -3144,7 +3301,7 @@
    "losses": 3,
    "win_rate": 25.0,
    "expectancy_r": -0.1250000063256025,
-   "open": 0,
+   "open": 1,
    "expired": 1,
    "invalidated": 0,
    "name": "HYPEUSDT"
@@ -3177,7 +3334,7 @@
    "losses": 1,
    "win_rate": 50.0,
    "expectancy_r": 0.7499999999943616,
-   "open": 0,
+   "open": 1,
    "expired": 0,
    "invalidated": 1,
    "name": "BTCUSDT"
@@ -3190,7 +3347,7 @@
    "losses": 5,
    "win_rate": 54.54545454545454,
    "expectancy_r": 0.863228684335371,
-   "open": 0,
+   "open": 2,
    "expired": 1,
    "invalidated": 1,
    "name": "15m"
@@ -3258,7 +3415,7 @@
    "losses": 12,
    "win_rate": 20.0,
    "expectancy_r": -0.30000000006092636,
-   "open": 0,
+   "open": 2,
    "expired": 2,
    "invalidated": 1,
    "name": "Trend Continuation"
@@ -3275,6 +3432,6 @@
    "name": "Divergence Reversal"
   }
  ],
- "updated_tehran": "2026-10-21 21:44 Tehran",
- "updated_ts": 1792606472.7181811
+ "updated_tehran": "2026-10-22 13:08 Tehran",
+ "updated_ts": 1792661899.748916
 }
