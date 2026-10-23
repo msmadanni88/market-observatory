@@ -1,6 +1,86 @@
 {
  "records": [
   {
+   "id": "XRPUSDT|1h|short@1792748076",
+   "ref": "MO-261023-1304-XRP-1h-S",
+   "key": "XRPUSDT|1h|short",
+   "symbol": "XRPUSDT",
+   "tf": "1h",
+   "side": "short",
+   "strategy": "Confirmed Breakout Retest",
+   "trade_style": "1h",
+   "confidence": 70.5,
+   "entry": 1.3224228,
+   "entry_zone": [
+    1.32126641,
+    1.32357919
+   ],
+   "stop": 1.33687767,
+   "targets": [
+    1.2943,
+    1.28628563,
+    1.27183076
+   ],
+   "rr": 1.95,
+   "atr": 0.00963658,
+   "risk_per_unit": 0.014454870000000009,
+   "published_ts": 1792748076.6644096,
+   "published_time_tehran": "2026-10-23 13:04 Tehran",
+   "last_seen_ts": 1792748076.6644096,
+   "republished": 1,
+   "activated_ts": null,
+   "activated_time_tehran": null,
+   "resolved_ts": null,
+   "status": "pending",
+   "result": "open",
+   "result_r": null,
+   "resolve_note": "",
+   "mfe_r": null,
+   "mae_r": null,
+   "bars_to_activate": null,
+   "bars_to_resolve": null,
+   "supports": [
+    "structure bearish",
+    "below cloud",
+    "future cloud red",
+    "ADX 21 aligned",
+    "room ratio 11.51",
+    "tape -71%",
+    "top traders 3.76 long - fuel below",
+    "perp/spot 10.3x - leverage driven, thin spot bid",
+    "HTF bearish agrees"
+   ],
+   "warnings": [],
+   "blockers": [],
+   "entry_distance_pct": 0.256,
+   "entry_distance_atr": 0.35,
+   "context": {
+    "score": 13.0,
+    "other_side_score": -11.0,
+    "funding": 0.008804,
+    "ls_top": 3.76,
+    "oi_1h": 0.347,
+    "perp_spot_ratio": 10.308,
+    "fng": null,
+    "adx": 21.41557670768347,
+    "rsi14": 45.638917872332385
+   },
+   "position_at_publish": {
+    "margin": 1000.0,
+    "risk_pct": 1.0,
+    "risk_usd": 10.0,
+    "qty": 691.80838429,
+    "notional": 914.86,
+    "leverage": 0.91,
+    "liquidation": null,
+    "target_kinds": [
+     "observed structure",
+     "derived 2.5R",
+     "derived 3.5R"
+    ]
+   }
+  },
+  {
    "id": "BTCUSDT|30m|short@1792692681",
    "ref": "MO-261022-2141-BTC-30m-S",
    "key": "BTCUSDT|30m|short",
@@ -3492,7 +3572,7 @@
   "losses": 29,
   "win_rate": 29.268292682926827,
   "expectancy_r": -0.015440072405865462,
-  "open": 0,
+  "open": 1,
   "expired": 2,
   "invalidated": 1
  },
@@ -3514,7 +3594,7 @@
    "losses": 5,
    "win_rate": 28.57142857142857,
    "expectancy_r": 8.084755569776852e-08,
-   "open": 0,
+   "open": 1,
    "expired": 0,
    "invalidated": 0,
    "name": "XRPUSDT"
@@ -3604,7 +3684,7 @@
    "losses": 6,
    "win_rate": 25.0,
    "expectancy_r": -0.12499992920621045,
-   "open": 0,
+   "open": 1,
    "expired": 1,
    "invalidated": 0,
    "name": "1h"
@@ -3650,7 +3730,7 @@
    "losses": 10,
    "win_rate": 41.17647058823529,
    "expectancy_r": 0.34511508623077036,
-   "open": 0,
+   "open": 1,
    "expired": 0,
    "invalidated": 0,
    "name": "Confirmed Breakout Retest"
@@ -3667,6 +3747,6 @@
    "name": "Divergence Reversal"
   }
  ],
- "updated_tehran": "2026-10-23 10:48 Tehran",
- "updated_ts": 1792739921.4245183
+ "updated_tehran": "2026-10-23 13:04 Tehran",
+ "updated_ts": 1792748076.6700416
 }
