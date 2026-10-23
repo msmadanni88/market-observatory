@@ -35,7 +35,7 @@
    "result": "open",
    "result_r": null,
    "resolve_note": "",
-   "mfe_r": 1.447,
+   "mfe_r": 1.607,
    "mae_r": 0.109,
    "bars_to_activate": 1,
    "bars_to_resolve": null,
@@ -3747,6 +3747,6 @@
    "name": "Divergence Reversal"
   }
  ],
- "updated_tehran": "2026-10-23 21:43 Tehran",
- "updated_ts": 1792779195.550443
+ "updated_tehran": "2026-10-24 01:27 Tehran",
+ "updated_ts": 1792792665.1793182
 }
