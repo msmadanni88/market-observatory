@@ -1,59 +1,78 @@
-MARKET BRIEF  2026-10-24 12:37 Tehran
-scanned 41 perps
+MARKET BRIEF  2026-10-24 20:23 Tehran
+scanned 39 perps
 
 SETUPS
- nothing cleared the gates. 35 combinations were checked.
-   18x  support under 0.6 ATR away
-   2x  first target R:R 0.73 below floor 1.8
-   2x  confidence 59.4 below floor 62.0
+ SHORT SOLUSDT 30m   confidence 75.0
+   entry 100.706  stop 101.759  tp1 98.0727
+   R:R 1:2.5  leverage 0.96x  risk $10.0
+   entry sits 0.24% (0.35 ATR) from market
+   + structure bearish
+   + below cloud
+   + future cloud red
+
+ SHORT SOLUSDT 15m   confidence 72.0
+   entry 100.716  stop 101.565  tp1 98.5929
+   R:R 1:2.5  leverage 1.19x  risk $10.0
+   entry sits 0.20% (0.35 ATR) from market
+   + structure bearish
+   + below cloud
+   + future cloud red
+
+ SHORT BTCUSDT 15m   confidence 69.8
+   entry 80153  stop 80544.5  tp1 79174.5
+   R:R 1:2.5  leverage 2.05x  risk $10.0
+   entry sits 0.11% (0.35 ATR) from market
+   + structure bearish
+   + below cloud
+   + future cloud red
 
 POSITIONS
  XMRUSDT long @ 508
-   now 588.95  pnl +15.94%  status open
-   R:R from here 1:0.07
+   now 606.91  pnl +19.47%  status TP1 HIT
+   R:R from here 1:0.06
 
 SECTOR ROTATION  7d median
- meme         +13.1%  lead PEPE RSI 54.0  laggard DOGE RSI 34.4
- privacy       +2.7%  lead ZEC RSI 44.7  laggard ZEC RSI 44.7
- exchange      +2.1%  lead BNB RSI 46.1  laggard BNB RSI 46.1
- defi          +0.8%  lead ENA RSI 43.9  laggard UNI RSI 39.2
- payments      -1.1%  lead BCH RSI 46.2  laggard LTC RSI 35.9
+ meme         +10.2%  lead PEPE RSI 51.5  laggard DOGE RSI 32.4
+ privacy       +1.5%  lead ZEC RSI 44.0  laggard ZEC RSI 44.0
+ exchange      +0.5%  lead BNB RSI 42.6  laggard BNB RSI 42.6
+ payments      -1.7%  lead BCH RSI 44.1  laggard XRP RSI 36.3
+ perp_dex      -3.4%  lead HYPE RSI 34.7  laggard HYPE RSI 34.7
 
 MOST EXTENDED
- IRYS    RSI 96.5  EMA20 +204.3%  7d +527.4%
-   RSI 96 extreme, 204% above EMA20
- ORDER   RSI 81.5  EMA20  +67.2%  7d  +97.3%
-   RSI 82 extreme, 67% above EMA20
- DOS     RSI 66.4  EMA20  +22.5%  7d  +45.1%
-   22% above EMA20, +45% in 7d
- CL      RSI 72.9  EMA20   +7.0%  7d   +4.8%
-   RSI 73 overbought, 4h gap -9.1% down
- BZ      RSI 73.1  EMA20   +6.0%  7d   +4.7%
-   RSI 73 overbought, 4h gap -3.5% down
+ ORDER   RSI 84.0  EMA20  +83.0%  7d +119.7%
+   RSI 84 extreme, 83% above EMA20
+ IRYS    RSI 68.0  EMA20 +115.2%  7d +295.9%
+   115% above EMA20, 172% above EMA50
+ CL      RSI 73.5  EMA20   +7.1%  7d   +5.0%
+   RSI 73 overbought, 4h gap -9.2% down
+ DOS     RSI 64.0  EMA20  +18.1%  7d  +39.3%
+   18% above EMA20, +39% in 7d
+ ETH     RSI 32.6  EMA20   -6.4%  7d   -4.1%
+   above rising 200, 1d gap -2.7% down
 
 MOST COMPRESSED
- BNB     RSI 46.1  EMA20   -1.1%  7d   +2.1%
-   RSI 46 neutral, volatility 25th pctile, 4h gap +4.2% up
- BTC     RSI 43.5  EMA20   -2.0%  7d   -1.0%
-   RSI 43 neutral, hugging EMA20, 1d gap -10.4% down
- PEPE    RSI 54.0  EMA20   +3.0%  7d  +13.1%
-   RSI 54 neutral, hugging EMA20, 4h gap -2.2% down
- MSTR    RSI 48.0  EMA20   -1.3%  7d   +6.7%
-   RSI 48 neutral, hugging EMA20
- BCH     RSI 46.2  EMA20   -2.4%  7d   +0.1%
-   RSI 46 neutral, hugging EMA20, 4h gap +7.3% up
+ BNB     RSI 42.6  EMA20   -2.5%  7d   +0.5%
+   RSI 43 neutral, hugging EMA20, 4h gap -2.9% down
+ BTC     RSI 40.9  EMA20   -2.9%  7d   -2.0%
+   RSI 41 neutral, hugging EMA20, 4h gap +2.6% up
+ PEPE    RSI 51.5  EMA20   +0.6%  7d  +10.2%
+   RSI 52 neutral, hugging EMA20, 4h gap -1.6% down
+ MSTR    RSI 46.1  EMA20   -3.1%  7d   +4.5%
+   RSI 46 neutral, hugging EMA20
+ KAT     RSI 49.9  EMA20   +1.1%  7d   +8.3%
+   RSI 50 neutral, hugging EMA20
 
 TRENDING WITH ROOM
- WLD     RSI 44.2  EMA20   -9.4%  7d   -4.9%
-   RSI 44 neutral, mid-range, 4h gap -6.6% down
- PUMP    RSI 40.8  EMA20  -12.7%  7d   -3.7%
+ WLD     RSI 43.6  EMA20  -10.4%  7d   -6.0%
+   RSI 44 neutral, mid-range, 4h gap -5.8% down
+ PUMP    RSI 40.6  EMA20  -13.3%  7d   -4.4%
    RSI 41 neutral, above rising 200
- STRK    RSI 43.4  EMA20  -19.9%  7d  -24.4%
-   RSI 43 neutral, above rising 200, 4h gap -3.5% down
- ORDER   RSI 81.5  EMA20  +67.2%  7d  +97.3%
-   RSI 82 extreme, 67% above EMA20
- SOXS    RSI 66.8  EMA20  +18.8%  7d   +5.2%
-   19% above EMA20
+ STRK    RSI 42.3  EMA20  -23.3%  7d  -27.7%
+   RSI 42 neutral, above rising 200, 4h gap -1.8% down
+ IRYS    RSI 68.0  EMA20 +115.2%  7d +295.9%
+   115% above EMA20, 172% above EMA50
+ BTC     RSI 40.9  EMA20   -2.9%  7d   -2.0%
+   RSI 41 neutral, hugging EMA20, 4h gap +2.6% up
 
 GAP BASE RATE
  measured 13 Sep 2026, 24 symbols, 50-bar horizon

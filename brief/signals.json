@@ -1,6 +1,243 @@
 {
  "records": [
   {
+   "id": "SOLUSDT|30m|short@1792860780",
+   "ref": "MO-261024-2023-SOL-30m-S",
+   "key": "SOLUSDT|30m|short",
+   "symbol": "SOLUSDT",
+   "tf": "30m",
+   "side": "short",
+   "strategy": "Trend Continuation",
+   "trade_style": "30m",
+   "confidence": 75.0,
+   "entry": 100.70574649,
+   "entry_zone": [
+    100.62149055,
+    100.79000243
+   ],
+   "stop": 101.75894574,
+   "targets": [
+    98.07274837,
+    97.01954912
+   ],
+   "rr": 2.5,
+   "atr": 0.70213283,
+   "risk_per_unit": 1.0531992500000058,
+   "published_ts": 1792860780.5090094,
+   "published_time_tehran": "2026-10-24 20:23 Tehran",
+   "last_seen_ts": 1792860780.5090094,
+   "republished": 1,
+   "activated_ts": null,
+   "activated_time_tehran": null,
+   "resolved_ts": null,
+   "status": "pending",
+   "result": "open",
+   "result_r": null,
+   "resolve_note": "",
+   "mfe_r": null,
+   "mae_r": null,
+   "bars_to_activate": null,
+   "bars_to_resolve": null,
+   "supports": [
+    "structure bearish",
+    "below cloud",
+    "future cloud red",
+    "ADX 49 aligned",
+    "RSI 41 overbought, selling strength",
+    "tape -33%",
+    "top traders 3.08 long - fuel below",
+    "perp/spot 11.5x - leverage driven, thin spot bid",
+    "HTF bearish agrees"
+   ],
+   "warnings": [],
+   "blockers": [],
+   "entry_distance_pct": 0.245,
+   "entry_distance_atr": 0.35,
+   "context": {
+    "score": 14.0,
+    "other_side_score": -12.0,
+    "funding": -0.0021,
+    "ls_top": 3.08,
+    "oi_1h": -0.088,
+    "perp_spot_ratio": 11.477,
+    "fng": null,
+    "adx": 49.26409511702383,
+    "rsi14": 41.45142864566163
+   },
+   "position_at_publish": {
+    "margin": 1000.0,
+    "risk_pct": 1.0,
+    "risk_usd": 10.0,
+    "qty": 9.49487955,
+    "notional": 956.19,
+    "leverage": 0.96,
+    "liquidation": null,
+    "target_kinds": [
+     "derived 2.5R",
+     "derived 3.5R"
+    ]
+   }
+  },
+  {
+   "id": "SOLUSDT|15m|short@1792860780",
+   "ref": "MO-261024-2023-SOL-15m-S",
+   "key": "SOLUSDT|15m|short",
+   "symbol": "SOLUSDT",
+   "tf": "15m",
+   "side": "short",
+   "strategy": "Trend Continuation",
+   "trade_style": "15m",
+   "confidence": 72.0,
+   "entry": 100.71562346,
+   "entry_zone": [
+    100.64769542,
+    100.7835515
+   ],
+   "stop": 101.564724,
+   "targets": [
+    98.59287211,
+    98.54,
+    97.74377157
+   ],
+   "rr": 2.5,
+   "atr": 0.56606703,
+   "risk_per_unit": 0.8491005399999949,
+   "published_ts": 1792860780.5090094,
+   "published_time_tehran": "2026-10-24 20:23 Tehran",
+   "last_seen_ts": 1792860780.5090094,
+   "republished": 1,
+   "activated_ts": null,
+   "activated_time_tehran": null,
+   "resolved_ts": null,
+   "status": "pending",
+   "result": "open",
+   "result_r": null,
+   "resolve_note": "",
+   "mfe_r": null,
+   "mae_r": null,
+   "bars_to_activate": null,
+   "bars_to_resolve": null,
+   "supports": [
+    "structure bearish",
+    "below cloud",
+    "future cloud red",
+    "ADX 42 aligned",
+    "RSI 49 overbought, selling strength",
+    "tape -82%",
+    "top traders 3.08 long - fuel below",
+    "perp/spot 11.5x - leverage driven, thin spot bid",
+    "HTF bearish agrees"
+   ],
+   "warnings": [],
+   "blockers": [],
+   "entry_distance_pct": 0.197,
+   "entry_distance_atr": 0.35,
+   "context": {
+    "score": 14.0,
+    "other_side_score": -13.0,
+    "funding": -0.0021,
+    "ls_top": 3.08,
+    "oi_1h": -0.088,
+    "perp_spot_ratio": 11.464,
+    "fng": null,
+    "adx": 42.13940136665534,
+    "rsi14": 49.09818870750637
+   },
+   "position_at_publish": {
+    "margin": 1000.0,
+    "risk_pct": 1.0,
+    "risk_usd": 10.0,
+    "qty": 11.77716835,
+    "notional": 1186.14,
+    "leverage": 1.19,
+    "liquidation": 185.12209932,
+    "target_kinds": [
+     "derived 2.5R",
+     "observed structure",
+     "derived 3.5R"
+    ]
+   }
+  },
+  {
+   "id": "BTCUSDT|15m|short@1792860780",
+   "ref": "MO-261024-2023-BTC-15m-S",
+   "key": "BTCUSDT|15m|short",
+   "symbol": "BTCUSDT",
+   "tf": "15m",
+   "side": "short",
+   "strategy": "Trend Continuation",
+   "trade_style": "15m",
+   "confidence": 69.8,
+   "entry": 80153.03382841,
+   "entry_zone": [
+    80121.71937296,
+    80184.34828387
+   ],
+   "stop": 80544.46452161,
+   "targets": [
+    79174.45709542,
+    79168.0,
+    78783.02640222
+   ],
+   "rr": 2.5,
+   "atr": 260.95379547,
+   "risk_per_unit": 391.4306932000036,
+   "published_ts": 1792860780.5090094,
+   "published_time_tehran": "2026-10-24 20:23 Tehran",
+   "last_seen_ts": 1792860780.5090094,
+   "republished": 1,
+   "activated_ts": null,
+   "activated_time_tehran": null,
+   "resolved_ts": null,
+   "status": "pending",
+   "result": "open",
+   "result_r": null,
+   "resolve_note": "",
+   "mfe_r": null,
+   "mae_r": null,
+   "bars_to_activate": null,
+   "bars_to_resolve": null,
+   "supports": [
+    "structure bearish",
+    "below cloud",
+    "future cloud red",
+    "ADX 45 aligned",
+    "tape -49%",
+    "top traders 2.12 long - fuel below",
+    "perp/spot 15.8x - leverage driven, thin spot bid",
+    "HTF bearish agrees"
+   ],
+   "warnings": [],
+   "blockers": [],
+   "entry_distance_pct": 0.114,
+   "entry_distance_atr": 0.35,
+   "context": {
+    "score": 13.0,
+    "other_side_score": -11.0,
+    "funding": 0.002639,
+    "ls_top": 2.12,
+    "oi_1h": -1.371,
+    "perp_spot_ratio": 15.775,
+    "fng": null,
+    "adx": 45.07259952093413,
+    "rsi14": 45.82403139006701
+   },
+   "position_at_publish": {
+    "margin": 1000.0,
+    "risk_pct": 1.0,
+    "risk_usd": 10.0,
+    "qty": 0.02554731,
+    "notional": 2047.69,
+    "leverage": 2.05,
+    "liquidation": 118895.33797917,
+    "target_kinds": [
+     "derived 2.5R",
+     "observed structure",
+     "derived 3.5R"
+    ]
+   }
+  },
+  {
    "id": "XRPUSDT|1h|short@1792748076",
    "ref": "MO-261023-1304-XRP-1h-S",
    "key": "XRPUSDT|1h|short",
@@ -3572,7 +3809,7 @@
   "losses": 29,
   "win_rate": 30.952380952380953,
   "expectancy_r": 0.03125037770906426,
-  "open": 0,
+  "open": 3,
   "expired": 2,
   "invalidated": 1
  },
@@ -3627,7 +3864,7 @@
    "losses": 4,
    "win_rate": 20.0,
    "expectancy_r": -0.30146119311790975,
-   "open": 0,
+   "open": 2,
    "expired": 1,
    "invalidated": 0,
    "name": "SOLUSDT"
@@ -3638,7 +3875,7 @@
    "losses": 3,
    "win_rate": 25.0,
    "expectancy_r": -0.1250000000028192,
-   "open": 0,
+   "open": 1,
    "expired": 0,
    "invalidated": 1,
    "name": "BTCUSDT"
@@ -3662,7 +3899,7 @@
    "losses": 7,
    "win_rate": 46.15384615384615,
    "expectancy_r": 0.5765781175145447,
-   "open": 0,
+   "open": 2,
    "expired": 1,
    "invalidated": 1,
    "name": "15m"
@@ -3695,7 +3932,7 @@
    "losses": 7,
    "win_rate": 12.5,
    "expectancy_r": -0.5624999999999989,
-   "open": 0,
+   "open": 1,
    "expired": 0,
    "invalidated": 0,
    "name": "30m"
@@ -3719,7 +3956,7 @@
    "losses": 17,
    "win_rate": 15.0,
    "expectancy_r": -0.4750000000456948,
-   "open": 0,
+   "open": 3,
    "expired": 2,
    "invalidated": 1,
    "name": "Trend Continuation"
@@ -3747,6 +3984,6 @@
    "name": "Divergence Reversal"
   }
  ],
- "updated_tehran": "2026-10-24 12:37 Tehran",
- "updated_ts": 1792832828.2171998
+ "updated_tehran": "2026-10-24 20:23 Tehran",
+ "updated_ts": 1792860780.513909
 }
