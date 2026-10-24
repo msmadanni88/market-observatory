@@ -30,15 +30,15 @@
    "republished": 1,
    "activated_ts": 1792749600,
    "activated_time_tehran": "2026-10-23 13:30 Tehran",
-   "resolved_ts": null,
-   "status": "active",
-   "result": "open",
-   "result_r": null,
-   "resolve_note": "",
-   "mfe_r": 1.607,
+   "resolved_ts": 1792792800,
+   "status": "win",
+   "result": "tp1",
+   "result_r": 1.945558832421183,
+   "resolve_note": "first target touched",
+   "mfe_r": 2.886,
    "mae_r": 0.109,
    "bars_to_activate": 1,
-   "bars_to_resolve": null,
+   "bars_to_resolve": 13,
    "supports": [
     "structure bearish",
     "below cloud",
@@ -3567,12 +3567,12 @@
  ],
  "tracking_since": "2026-09-13 19:37 Tehran",
  "overall": {
-  "trades": 41,
-  "wins": 12,
+  "trades": 42,
+  "wins": 13,
   "losses": 29,
-  "win_rate": 29.268292682926827,
-  "expectancy_r": -0.015440072405865462,
-  "open": 1,
+  "win_rate": 30.952380952380953,
+  "expectancy_r": 0.03125037770906426,
+  "open": 0,
   "expired": 2,
   "invalidated": 1
  },
@@ -3589,12 +3589,12 @@
    "name": "ETHUSDT"
   },
   {
-   "trades": 7,
-   "wins": 2,
+   "trades": 8,
+   "wins": 3,
    "losses": 5,
-   "win_rate": 28.57142857142857,
-   "expectancy_r": 8.084755569776852e-08,
-   "open": 1,
+   "win_rate": 37.5,
+   "expectancy_r": 0.2431949247942591,
+   "open": 0,
    "expired": 0,
    "invalidated": 0,
    "name": "XRPUSDT"
@@ -3669,6 +3669,17 @@
   },
   {
    "trades": 9,
+   "wins": 3,
+   "losses": 6,
+   "win_rate": 33.33333333333333,
+   "expectancy_r": 0.10506215541905549,
+   "open": 0,
+   "expired": 1,
+   "invalidated": 0,
+   "name": "1h"
+  },
+  {
+   "trades": 9,
    "wins": 2,
    "losses": 7,
    "win_rate": 22.22222222222222,
@@ -3677,17 +3688,6 @@
    "expired": 0,
    "invalidated": 0,
    "name": "2h"
-  },
-  {
-   "trades": 8,
-   "wins": 2,
-   "losses": 6,
-   "win_rate": 25.0,
-   "expectancy_r": -0.12499992920621045,
-   "open": 1,
-   "expired": 1,
-   "invalidated": 0,
-   "name": "1h"
   },
   {
    "trades": 8,
@@ -3725,12 +3725,12 @@
    "name": "Trend Continuation"
   },
   {
-   "trades": 17,
-   "wins": 7,
+   "trades": 18,
+   "wins": 8,
    "losses": 10,
-   "win_rate": 41.17647058823529,
-   "expectancy_r": 0.34511508623077036,
-   "open": 1,
+   "win_rate": 44.44444444444444,
+   "expectancy_r": 0.43402862768579326,
+   "open": 0,
    "expired": 0,
    "invalidated": 0,
    "name": "Confirmed Breakout Retest"
@@ -3747,6 +3747,6 @@
    "name": "Divergence Reversal"
   }
  ],
- "updated_tehran": "2026-10-24 01:27 Tehran",
- "updated_ts": 1792792665.1793182
+ "updated_tehran": "2026-10-24 03:56 Tehran",
+ "updated_ts": 1792801569.92272
 }
