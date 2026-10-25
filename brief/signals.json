@@ -1,6 +1,162 @@
 {
  "records": [
   {
+   "id": "SUIUSDT|4h|short@1792948413",
+   "ref": "MO-261025-2043-SUI-4h-S",
+   "key": "SUIUSDT|4h|short",
+   "symbol": "SUIUSDT",
+   "tf": "4h",
+   "side": "short",
+   "strategy": "Confirmed Breakout Retest",
+   "trade_style": "4h",
+   "confidence": 72.8,
+   "entry": 0.93469548,
+   "entry_zone": [
+    0.93221131,
+    0.93717964
+   ],
+   "stop": 0.96574752,
+   "targets": [
+    0.85706536,
+    0.82601332
+   ],
+   "rr": 2.5,
+   "atr": 0.02070136,
+   "risk_per_unit": 0.031052039999999947,
+   "published_ts": 1792948413.4898984,
+   "published_time_tehran": "2026-10-25 20:43 Tehran",
+   "last_seen_ts": 1792948413.4898984,
+   "republished": 1,
+   "activated_ts": null,
+   "activated_time_tehran": null,
+   "resolved_ts": null,
+   "status": "pending",
+   "result": "open",
+   "result_r": null,
+   "resolve_note": "",
+   "mfe_r": null,
+   "mae_r": null,
+   "bars_to_activate": null,
+   "bars_to_resolve": null,
+   "supports": [
+    "structure bearish",
+    "below cloud",
+    "future cloud red",
+    "ADX 35 aligned",
+    "tape -71%",
+    "top traders 3.12 long - fuel below",
+    "perp/spot 10.2x - leverage driven, thin spot bid",
+    "HTF bearish agrees"
+   ],
+   "warnings": [],
+   "blockers": [],
+   "entry_distance_pct": 0.781,
+   "entry_distance_atr": 0.35,
+   "context": {
+    "score": 13.0,
+    "other_side_score": -11.0,
+    "funding": -0.001858,
+    "ls_top": 3.12,
+    "oi_1h": 0.168,
+    "perp_spot_ratio": 10.161,
+    "fng": null,
+    "adx": 34.79015119836549,
+    "rsi14": 35.52355232220549
+   },
+   "position_at_publish": {
+    "margin": 1000.0,
+    "risk_pct": 1.0,
+    "risk_usd": 10.0,
+    "qty": 322.03996707,
+    "notional": 301.01,
+    "leverage": 0.3,
+    "liquidation": null,
+    "target_kinds": [
+     "derived 2.5R",
+     "derived 3.5R"
+    ]
+   }
+  },
+  {
+   "id": "LINKUSDT|1h|short@1792948413",
+   "ref": "MO-261025-2043-LINK-1h-S",
+   "key": "LINKUSDT|1h|short",
+   "symbol": "LINKUSDT",
+   "tf": "1h",
+   "side": "short",
+   "strategy": "Trend Continuation",
+   "trade_style": "1h",
+   "confidence": 69.8,
+   "entry": 11.50245736,
+   "entry_zone": [
+    11.49218627,
+    11.51272846
+   ],
+   "stop": 11.63084607,
+   "targets": [
+    11.252,
+    11.18148561,
+    11.0530969
+   ],
+   "rr": 1.95,
+   "atr": 0.08559247,
+   "risk_per_unit": 0.12838871000000118,
+   "published_ts": 1792948413.4898984,
+   "published_time_tehran": "2026-10-25 20:43 Tehran",
+   "last_seen_ts": 1792948413.4898984,
+   "republished": 1,
+   "activated_ts": null,
+   "activated_time_tehran": null,
+   "resolved_ts": null,
+   "status": "pending",
+   "result": "open",
+   "result_r": null,
+   "resolve_note": "",
+   "mfe_r": null,
+   "mae_r": null,
+   "bars_to_activate": null,
+   "bars_to_resolve": null,
+   "supports": [
+    "structure bearish",
+    "below cloud",
+    "future cloud red",
+    "ADX 42 aligned",
+    "RSI 48 overbought, selling strength",
+    "top traders 3.23 long - fuel below",
+    "perp/spot 10.3x - leverage driven, thin spot bid",
+    "HTF bearish agrees"
+   ],
+   "warnings": [],
+   "blockers": [],
+   "entry_distance_pct": 0.261,
+   "entry_distance_atr": 0.35,
+   "context": {
+    "score": 13.0,
+    "other_side_score": -12.0,
+    "funding": 0.002136,
+    "ls_top": 3.23,
+    "oi_1h": 0.461,
+    "perp_spot_ratio": 10.268,
+    "fng": null,
+    "adx": 42.04531424485426,
+    "rsi14": 48.3172559516489
+   },
+   "position_at_publish": {
+    "margin": 1000.0,
+    "risk_pct": 1.0,
+    "risk_usd": 10.0,
+    "qty": 77.88847265,
+    "notional": 895.91,
+    "leverage": 0.9,
+    "liquidation": null,
+    "target_kinds": [
+     "observed structure",
+     "derived 2.5R",
+     "derived 3.5R"
+    ]
+   }
+  },
+  {
    "id": "SUIUSDT|30m|short@1792920218",
    "ref": "MO-261025-1253-SUI-30m-S",
    "key": "SUIUSDT|30m|short",
@@ -107,15 +263,15 @@
    "republished": 1,
    "activated_ts": 1792922400,
    "activated_time_tehran": "2026-10-25 13:30 Tehran",
-   "resolved_ts": null,
-   "status": "active",
-   "result": "open",
-   "result_r": null,
-   "resolve_note": "",
+   "resolved_ts": 1792944000,
+   "status": "loss",
+   "result": "stop",
+   "result_r": -1.0,
+   "resolve_note": "stop touched first",
    "mfe_r": 0.237,
-   "mae_r": 0.734,
+   "mae_r": 1.545,
    "bars_to_activate": 1,
-   "bars_to_resolve": null,
+   "bars_to_resolve": 7,
    "supports": [
     "structure bearish",
     "below cloud",
@@ -191,7 +347,7 @@
    "result_r": null,
    "resolve_note": "",
    "mfe_r": 0.243,
-   "mae_r": 0.386,
+   "mae_r": 0.912,
    "bars_to_activate": 1,
    "bars_to_resolve": null,
    "supports": [
@@ -4038,12 +4194,12 @@
  ],
  "tracking_since": "2026-09-13 19:37 Tehran",
  "overall": {
-  "trades": 46,
+  "trades": 47,
   "wins": 13,
-  "losses": 33,
-  "win_rate": 28.26086956521739,
-  "expectancy_r": -0.05842356817868046,
-  "open": 2,
+  "losses": 34,
+  "win_rate": 27.659574468085108,
+  "expectancy_r": -0.07845710928126173,
+  "open": 3,
   "expired": 2,
   "invalidated": 1
  },
@@ -4082,6 +4238,17 @@
    "name": "SOLUSDT"
   },
   {
+   "trades": 6,
+   "wins": 2,
+   "losses": 4,
+   "win_rate": 33.33333333333333,
+   "expectancy_r": 0.05077179764344897,
+   "open": 2,
+   "expired": 0,
+   "invalidated": 0,
+   "name": "SUIUSDT"
+  },
+  {
    "trades": 5,
    "wins": 1,
    "losses": 4,
@@ -4109,21 +4276,10 @@
    "losses": 5,
    "win_rate": 0.0,
    "expectancy_r": -1.0,
-   "open": 0,
+   "open": 1,
    "expired": 0,
    "invalidated": 0,
    "name": "LINKUSDT"
-  },
-  {
-   "trades": 5,
-   "wins": 2,
-   "losses": 3,
-   "win_rate": 40.0,
-   "expectancy_r": 0.26092615717213874,
-   "open": 2,
-   "expired": 0,
-   "invalidated": 0,
-   "name": "SUIUSDT"
   }
  ],
  "by_style": [
@@ -4140,6 +4296,17 @@
   },
   {
    "trades": 10,
+   "wins": 3,
+   "losses": 7,
+   "win_rate": 30.0,
+   "expectancy_r": -0.005444060122850059,
+   "open": 1,
+   "expired": 1,
+   "invalidated": 0,
+   "name": "1h"
+  },
+  {
+   "trades": 10,
    "wins": 1,
    "losses": 9,
    "win_rate": 10.0,
@@ -4148,17 +4315,6 @@
    "expired": 0,
    "invalidated": 0,
    "name": "30m"
-  },
-  {
-   "trades": 9,
-   "wins": 3,
-   "losses": 6,
-   "win_rate": 33.33333333333333,
-   "expectancy_r": 0.10506215541905549,
-   "open": 1,
-   "expired": 1,
-   "invalidated": 0,
-   "name": "1h"
   },
   {
    "trades": 9,
@@ -4177,7 +4333,7 @@
    "losses": 2,
    "win_rate": 33.33333333333333,
    "expectancy_r": 0.022269935773734,
-   "open": 0,
+   "open": 1,
    "expired": 0,
    "invalidated": 0,
    "name": "4h"
@@ -4185,11 +4341,11 @@
  ],
  "by_strategy": [
   {
-   "trades": 24,
+   "trades": 25,
    "wins": 3,
-   "losses": 21,
-   "win_rate": 12.5,
-   "expectancy_r": -0.562500000038079,
+   "losses": 22,
+   "win_rate": 12.0,
+   "expectancy_r": -0.5800000000365558,
    "open": 2,
    "expired": 2,
    "invalidated": 1,
@@ -4201,7 +4357,7 @@
    "losses": 10,
    "win_rate": 44.44444444444444,
    "expectancy_r": 0.43402862768579326,
-   "open": 0,
+   "open": 1,
    "expired": 0,
    "invalidated": 0,
    "name": "Confirmed Breakout Retest"
@@ -4218,6 +4374,6 @@
    "name": "Divergence Reversal"
   }
  ],
- "updated_tehran": "2026-10-25 19:26 Tehran",
- "updated_ts": 1792943803.94502
+ "updated_tehran": "2026-10-25 20:43 Tehran",
+ "updated_ts": 1792948413.4933887
 }
