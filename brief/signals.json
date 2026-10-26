@@ -9,7 +9,7 @@
    "side": "short",
    "strategy": "Confirmed Breakout Retest",
    "trade_style": "4h",
-   "confidence": 72.8,
+   "confidence": 69.8,
    "entry": 0.93469548,
    "entry_zone": [
     0.93221131,
@@ -25,8 +25,8 @@
    "risk_per_unit": 0.031052039999999947,
    "published_ts": 1792948413.4898984,
    "published_time_tehran": "2026-10-25 20:43 Tehran",
-   "last_seen_ts": 1792948413.4898984,
-   "republished": 1,
+   "last_seen_ts": 1793010573.2039366,
+   "republished": 2,
    "activated_ts": null,
    "activated_time_tehran": null,
    "resolved_ts": null,
@@ -4374,6 +4374,6 @@
    "name": "Divergence Reversal"
   }
  ],
- "updated_tehran": "2026-10-26 07:59 Tehran",
- "updated_ts": 1792988949.230296
+ "updated_tehran": "2026-10-26 13:59 Tehran",
+ "updated_ts": 1793010573.2039366
 }
