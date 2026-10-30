@@ -1,6 +1,82 @@
 {
  "records": [
   {
+   "id": "SUIUSDT|4h|short@1793386148",
+   "ref": "MO-261030-2219-SUI-4h-S",
+   "key": "SUIUSDT|4h|short",
+   "symbol": "SUIUSDT",
+   "tf": "4h",
+   "side": "short",
+   "strategy": "Confirmed Breakout Retest",
+   "trade_style": "4h",
+   "confidence": 66.0,
+   "entry": 0.88917721,
+   "entry_zone": [
+    0.88580788,
+    0.89254653
+   ],
+   "stop": 0.9312938,
+   "targets": [
+    0.78388572,
+    0.74176912
+   ],
+   "rr": 2.5,
+   "atr": 0.02807773,
+   "risk_per_unit": 0.0421165899999999,
+   "published_ts": 1793386148.985957,
+   "published_time_tehran": "2026-10-30 22:19 Tehran",
+   "last_seen_ts": 1793386148.985957,
+   "republished": 1,
+   "activated_ts": null,
+   "activated_time_tehran": null,
+   "resolved_ts": null,
+   "status": "pending",
+   "result": "open",
+   "result_r": null,
+   "resolve_note": "",
+   "mfe_r": null,
+   "mae_r": null,
+   "bars_to_activate": null,
+   "bars_to_resolve": null,
+   "supports": [
+    "structure bearish",
+    "below cloud",
+    "future cloud red",
+    "ADX 21 aligned",
+    "tape -35%",
+    "top traders 2.98 long - fuel below",
+    "HTF bearish agrees"
+   ],
+   "warnings": [],
+   "blockers": [],
+   "entry_distance_pct": 1.118,
+   "entry_distance_atr": 0.35,
+   "context": {
+    "score": 11.0,
+    "other_side_score": -10.0,
+    "funding": -0.010583,
+    "ls_top": 2.98,
+    "oi_1h": -0.864,
+    "perp_spot_ratio": 4.097,
+    "fng": null,
+    "adx": 21.32490927223292,
+    "rsi14": 39.51297608973249
+   },
+   "position_at_publish": {
+    "margin": 1000.0,
+    "risk_pct": 1.0,
+    "risk_usd": 10.0,
+    "qty": 237.43609515,
+    "notional": 211.12,
+    "leverage": 0.21,
+    "liquidation": null,
+    "target_kinds": [
+     "derived 2.5R",
+     "derived 3.5R"
+    ]
+   }
+  },
+  {
    "id": "ETHUSDT|1h|short@1793358157",
    "ref": "MO-261030-1432-ETH-1h-S",
    "key": "ETHUSDT|1h|short",
@@ -35,7 +111,7 @@
    "result": "open",
    "result_r": null,
    "resolve_note": "",
-   "mfe_r": 0.953,
+   "mfe_r": 1.162,
    "mae_r": 0.046,
    "bars_to_activate": 4,
    "bars_to_resolve": null,
@@ -4439,7 +4515,7 @@
   "losses": 35,
   "win_rate": 30.0,
   "expectancy_r": -0.004734189431773937,
-  "open": 3,
+  "open": 4,
   "expired": 2,
   "invalidated": 1
  },
@@ -4461,7 +4537,7 @@
    "losses": 5,
    "win_rate": 37.5,
    "expectancy_r": 0.22557892874259572,
-   "open": 0,
+   "open": 1,
    "expired": 0,
    "invalidated": 0,
    "name": "SUIUSDT"
@@ -4573,7 +4649,7 @@
    "losses": 2,
    "win_rate": 50.0,
    "expectancy_r": 0.6417026128503185,
-   "open": 0,
+   "open": 1,
    "expired": 0,
    "invalidated": 0,
    "name": "4h"
@@ -4597,7 +4673,7 @@
    "losses": 10,
    "win_rate": 47.368421052631575,
    "expectancy_r": 0.5427639969697026,
-   "open": 2,
+   "open": 3,
    "expired": 0,
    "invalidated": 0,
    "name": "Confirmed Breakout Retest"
@@ -4614,6 +4690,6 @@
    "name": "Divergence Reversal"
   }
  ],
- "updated_tehran": "2026-10-30 19:16 Tehran",
- "updated_ts": 1793375170.8083038
+ "updated_tehran": "2026-10-30 22:19 Tehran",
+ "updated_ts": 1793386148.9916162
 }
