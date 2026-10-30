@@ -1,59 +1,78 @@
-MARKET BRIEF  2026-10-29 22:41 Tehran
-scanned 59 perps
+MARKET BRIEF  2026-10-30 14:32 Tehran
+scanned 69 perps
 
 SETUPS
- nothing cleared the gates. 35 combinations were checked.
-   10x  no trend
-   9x  price inside the cloud
-   5x  support under 0.6 ATR away
+ SHORT ETHUSDT 1h   confidence 74.2
+   entry 2259.89  stop 2298.05  tp1 2171.52
+   R:R 1:2.32  leverage 0.59x  risk $10.0
+   entry sits 0.40% (0.35 ATR) from market
+   + structure bearish
+   + below cloud
+   + future cloud red
+
+ SHORT SOLUSDT 1h   confidence 72.8
+   entry 97.6754  stop 99.55  tp1 92.9889
+   R:R 1:2.5  leverage 0.52x  risk $10.0
+   entry sits 0.45% (0.35 ATR) from market
+   + structure bearish
+   + below cloud
+   + future cloud red
+
+ SHORT LINKUSDT 2h   confidence 72.0
+   entry 11.2111  stop 11.606  tp1 10.245
+   R:R 1:2.45  leverage 0.28x  risk $10.0
+   entry sits 0.83% (0.35 ATR) from market
+   + structure bearish
+   + below cloud
+   + future cloud red
 
 POSITIONS
  XMRUSDT long @ 508
-   now 600.79  pnl +18.27%  status TP1 HIT
-   R:R from here 1:0.02
+   now 593.78  pnl +16.89%  status open
+   R:R from here 1:0.03
 
 SECTOR ROTATION  7d median
- perp_dex     +21.9%  lead HYPE RSI 68.8  laggard HYPE RSI 68.8
- meme         +20.2%  lead PEPE RSI 68.7  laggard DOGE RSI 41.2
- privacy       +8.3%  lead ZEC RSI 55.8  laggard ZEC RSI 55.8
- defi          +2.3%  lead ENA RSI 51.1  laggard AAVE RSI 33.5
- exchange      +2.3%  lead OKB RSI 45.6  laggard OKB RSI 45.6
+ perp_dex     +21.0%  lead HYPE RSI 68.1  laggard HYPE RSI 68.1
+ privacy       +7.9%  lead ZEC RSI 52.3  laggard ZEC RSI 52.3
+ exchange      +1.1%  lead OKB RSI 43.5  laggard BNB RSI 38.3
+ payments      -2.7%  lead BCH RSI 51.5  laggard XRP RSI 37.8
+ meme          -3.2%  lead PEPE RSI 62.8  laggard DOGE RSI 36.5
 
 MOST EXTENDED
- PARTI   RSI 87.0  EMA20  +60.2%  7d  +74.5%
-   RSI 87 extreme, 60% above EMA20
- INIT    RSI 82.9  EMA20  +46.5%  7d  +69.6%
-   RSI 83 extreme, 47% above EMA20
- UNITREE RSI 75.8  EMA20  +18.3%  7d  +28.8%
-   RSI 76 overbought, 18% above EMA20
- BEAT    RSI 56.0  EMA20  +22.1%  7d  +43.0%
-   22% above EMA20, +43% in 7d, 4h gap -9.3% down
- PEPE    RSI 68.7  EMA20  +18.5%  7d  +20.2%
-   19% above EMA20, 4h gap -6.3% down
+ INIT    RSI 82.1  EMA20  +39.8%  7d  +46.0%
+   RSI 82 extreme, 40% above EMA20
+ PARTI   RSI 74.8  EMA20  +42.9%  7d  +64.8%
+   RSI 75 overbought, 43% above EMA20
+ BEAT    RSI 60.2  EMA20  +28.1%  7d  +53.7%
+   28% above EMA20, +54% in 7d
+ UNITREE RSI 75.3  EMA20  +15.5%  7d   +2.3%
+   RSI 75 overbought
+ APR     RSI 44.9  EMA20   +2.0%  7d +122.5%
+   +122% in 7d, volume fading into highs
 
 MOST COMPRESSED
- BTC     RSI 45.4  EMA20   -1.1%  7d   -0.7%
-   RSI 45 neutral, volatility 8th pctile, 4h gap +1.5% up
- BNB     RSI 50.1  EMA20   +0.0%  7d   +1.7%
-   RSI 50 neutral, volatility 24th pctile, 4h gap +2.6% up
- MU      RSI 47.8  EMA20   -0.3%  7d  +10.0%
-   RSI 48 neutral, hugging EMA20, 4h gap -2.8% down
- UNI     RSI 45.8  EMA20   -2.2%  7d   +2.3%
-   RSI 46 neutral, hugging EMA20, 1d gap -11.9% down
- MSTR    RSI 45.2  EMA20   -2.7%  7d   -2.4%
-   RSI 45 neutral, hugging EMA20
+ TRX     RSI 59.1  EMA20   +2.4%  7d   +3.9%
+   RSI 59 neutral, hugging EMA20
+ MU      RSI 42.3  EMA20   -4.2%  7d   +0.8%
+   RSI 42 neutral, hugging EMA20
+ OKB     RSI 43.5  EMA20   -2.0%  7d   +1.1%
+   RSI 43 neutral, hugging EMA20, 1d gap -11.8% down
+ ZEC     RSI 52.3  EMA20   +2.4%  7d   +7.9%
+   RSI 52 neutral, hugging EMA20
+ CL      RSI 68.1  EMA20   +5.0%  7d   +0.4%
+   volatility 14th pctile, hugging EMA20, 4h gap -9.5% down
 
 TRENDING WITH ROOM
- PEPE    RSI 68.7  EMA20  +18.5%  7d  +20.2%
-   19% above EMA20, 4h gap -6.3% down
- CL      RSI 64.2  EMA20   +3.5%  7d   +2.9%
-   volatility 20th pctile, hugging EMA20, 4h gap -7.7% down
- BZ      RSI 67.4  EMA20   +3.3%  7d   +2.1%
-   volatility 15th pctile, hugging EMA20, 4h gap -2.9% down
- STRK    RSI 42.1  EMA20  -17.1%  7d  -14.1%
-   RSI 42 neutral, above rising 200, 1d gap -9.1% down
- HYPE    RSI 68.8  EMA20  +15.1%  7d  +21.9%
-   volatility 21th pctile, above rising 200, 4h gap -9.1% down
+ HYPE    RSI 68.1  EMA20  +12.9%  7d  +21.0%
+   above rising 200, 4h gap -8.0% down
+ PEPE    RSI 62.8  EMA20  +15.6%  7d  +12.8%
+   above rising 200
+ TRX     RSI 59.1  EMA20   +2.4%  7d   +3.9%
+   RSI 59 neutral, hugging EMA20
+ CL      RSI 68.1  EMA20   +5.0%  7d   +0.4%
+   volatility 14th pctile, hugging EMA20, 4h gap -9.5% down
+ STRK    RSI 42.2  EMA20  -17.1%  7d   -9.8%
+   RSI 42 neutral, above rising 200
 
 GAP BASE RATE
  measured 13 Sep 2026, 24 symbols, 50-bar horizon
