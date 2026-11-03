@@ -35,7 +35,7 @@
    "result_r": null,
    "resolve_note": "",
    "mfe_r": 0.582,
-   "mae_r": 0.252,
+   "mae_r": 0.461,
    "bars_to_activate": 1,
    "bars_to_resolve": null,
    "supports": [
@@ -113,7 +113,7 @@
    "result_r": null,
    "resolve_note": "",
    "mfe_r": 0.99,
-   "mae_r": 0.181,
+   "mae_r": 0.955,
    "bars_to_activate": 1,
    "bars_to_resolve": null,
    "supports": [
@@ -190,7 +190,7 @@
    "result_r": null,
    "resolve_note": "",
    "mfe_r": 0.667,
-   "mae_r": 0.357,
+   "mae_r": 0.613,
    "bars_to_activate": 1,
    "bars_to_resolve": null,
    "supports": [
@@ -398,7 +398,7 @@
    "side": "short",
    "strategy": "Confirmed Breakout Retest",
    "trade_style": "4h",
-   "confidence": 66.0,
+   "confidence": 64.6,
    "entry": 0.88917721,
    "entry_zone": [
     0.88580788,
@@ -414,8 +414,8 @@
    "risk_per_unit": 0.0421165899999999,
    "published_ts": 1793386148.985957,
    "published_time_tehran": "2026-10-30 22:19 Tehran",
-   "last_seen_ts": 1793386148.985957,
-   "republished": 1,
+   "last_seen_ts": 1793708333.101414,
+   "republished": 2,
    "activated_ts": 1793390400,
    "activated_time_tehran": "2026-10-30 23:30 Tehran",
    "resolved_ts": null,
@@ -5079,6 +5079,6 @@
    "name": "Divergence Reversal"
   }
  ],
- "updated_tehran": "2026-11-03 12:50 Tehran",
- "updated_ts": 1793697653.539015
+ "updated_tehran": "2026-11-03 15:48 Tehran",
+ "updated_ts": 1793708333.101414
 }
