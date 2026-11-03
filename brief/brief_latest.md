@@ -1,62 +1,59 @@
-MARKET BRIEF  2026-11-03 15:48 Tehran
-scanned 52 perps
+MARKET BRIEF  2026-11-03 23:47 Tehran
+scanned 50 perps
 
 SETUPS
- SHORT SUIUSDT 4h   confidence 64.6
-   entry 0.895819  stop 0.9214  tp1 0.831866
-   R:R 1:2.5  leverage 0.35x  risk $10.0
-   entry sits 0.67% (0.35 ATR) from market
-   + structure bearish
-   + below cloud
-   + future cloud red
+ nothing cleared the gates. 35 combinations were checked.
+   9x  no trend
+   5x  price inside the cloud
+   4x  support under 0.6 ATR away
 
 POSITIONS
  XMRUSDT long @ 508
-   now 624.4  pnl +22.91%  status TP1 HIT
-   R:R from here 1:0.17
+   now 628.71  pnl +23.76%  status TP1 HIT
+   R:R from here 1:0.19
 
 SECTOR ROTATION  7d median
- perp_dex      +4.4%  lead HYPE RSI 52.7  laggard HYPE RSI 52.7
- meme          +4.3%  lead PEPE RSI 56.7  laggard DOGE RSI 34.3
- oracle_rwa    -3.7%  lead LINK RSI 40.8  laggard LINK RSI 40.8
- defi          -4.2%  lead UNI RSI 48.5  laggard AAVE RSI 38.5
- l1_major      -5.1%  lead ETH RSI 35.7  laggard SOL RSI 28.0
+ meme          +5.5%  lead PEPE RSI 57.6  laggard DOGE RSI 35.8
+ perp_dex      +4.8%  lead HYPE RSI 53.2  laggard HYPE RSI 53.2
+ l1_major      -4.2%  lead ETH RSI 37.7  laggard SOL RSI 29.6
+ payments      -4.3%  lead XRP RSI 42.1  laggard XRP RSI 42.1
+ oracle_rwa    -4.5%  lead LINK RSI 39.7  laggard LINK RSI 39.7
 
 MOST EXTENDED
- SOXS    RSI 61.9  EMA20  +13.6%  7d  +28.3%
-   +28% in 7d, 4h gap -10.8% down
- UNITREE RSI 66.1  EMA20   +6.8%  7d   -0.2%
-   +38% 30d, RSI still 66, 1d gap -11.9% down
- SKHYNIX RSI 48.0  EMA20   +0.4%  7d   +0.6%
-   funding crowded long, 4h gap -5.4% down
- KORU    RSI 37.0  EMA20  -10.7%  7d  -10.1%
-   funding crowded long
- SNXX    RSI 31.1  EMA20  -28.7%  7d  -31.2%
-   funding crowded long
+ SOXS    RSI 61.1  EMA20  +12.7%  7d  +27.1%
+   +27% in 7d, 4h gap -10.2% down
+ UNITREE RSI 66.5  EMA20   +6.9%  7d   -0.1%
+   +38% 30d, RSI still 66
+ BTC     RSI 39.0  EMA20   -2.8%  7d   -4.0%
+   hugging EMA20, above rising 200, 4h gap +5.7% up
+ ETH     RSI 37.7  EMA20   -2.9%  7d   -2.9%
+   hugging EMA20, above rising 200, 4h gap +5.3% up
+ ZEC     RSI 47.5  EMA20   -2.4%  7d   -8.2%
+   RSI 48 neutral, hugging EMA20, 4h gap +4.8% up
 
 MOST COMPRESSED
- CL      RSI 50.0  EMA20   -0.9%  7d   -1.6%
-   RSI 50 neutral, volatility 18th pctile, 4h gap +1.9% up
- BZ      RSI 48.0  EMA20   -1.6%  7d   -3.0%
-   RSI 48 neutral, volatility 18th pctile, 4h gap +2.6% up
- PIEVERSE RSI 56.3  EMA20   +7.2%  7d  +12.1%
-   RSI 56 neutral, volatility 8th pctile, 4h gap -7.3% down
- BTC     RSI 36.8  EMA20   -3.3%  7d   -4.6%
-   volatility 23th pctile, hugging EMA20, 4h gap +6.2% up
- ETH     RSI 35.7  EMA20   -3.4%  7d   -3.4%
-   volatility 23th pctile, hugging EMA20, 4h gap -5.1% down
+ PIEVERSE RSI 53.7  EMA20   +5.0%  7d   +9.5%
+   RSI 54 neutral, volatility 10th pctile, 4h gap -4.8% down
+ CL      RSI 45.0  EMA20   -2.6%  7d   -3.5%
+   RSI 45 neutral, hugging EMA20, 4h gap +2.7% up
+ BZ      RSI 42.7  EMA20   -3.3%  7d   -4.9%
+   RSI 43 neutral, hugging EMA20, 4h gap +3.1% up
+ MSTR    RSI 43.1  EMA20   -3.8%  7d   -4.5%
+   RSI 43 neutral, hugging EMA20, 4h gap +2.8% up
+ HYPE    RSI 53.2  EMA20   +1.8%  7d   +4.8%
+   RSI 53 neutral, hugging EMA20
 
 TRENDING WITH ROOM
- CL      RSI 50.0  EMA20   -0.9%  7d   -1.6%
-   RSI 50 neutral, volatility 18th pctile, 4h gap +1.9% up
- PEPE    RSI 56.7  EMA20   +4.8%  7d   +4.3%
-   RSI 57 neutral, hugging EMA20
- BZ      RSI 48.0  EMA20   -1.6%  7d   -3.0%
-   RSI 48 neutral, volatility 18th pctile, 4h gap +2.6% up
- TSLA    RSI 63.2  EMA20   +3.5%  7d   -1.5%
-   hugging EMA20, 4h gap -5.6% down
- SOXS    RSI 61.9  EMA20  +13.6%  7d  +28.3%
-   +28% in 7d, 4h gap -10.8% down
+ CL      RSI 45.0  EMA20   -2.6%  7d   -3.5%
+   RSI 45 neutral, hugging EMA20, 4h gap +2.7% up
+ BZ      RSI 42.7  EMA20   -3.3%  7d   -4.9%
+   RSI 43 neutral, hugging EMA20, 4h gap +3.1% up
+ PEPE    RSI 57.6  EMA20   +5.8%  7d   +5.5%
+   RSI 58 neutral, above rising 200
+ SOXS    RSI 61.1  EMA20  +12.7%  7d  +27.1%
+   +27% in 7d, 4h gap -10.2% down
+ AAPL    RSI 37.6  EMA20   -3.2%  7d   -4.8%
+   hugging EMA20, mid-range, 1d gap -9.9% down
 
 GAP BASE RATE
  measured 13 Sep 2026, 24 symbols, 50-bar horizon
