@@ -34,7 +34,7 @@
    "result": "open",
    "result_r": null,
    "resolve_note": "",
-   "mfe_r": 0.188,
+   "mfe_r": 0.582,
    "mae_r": 0.252,
    "bars_to_activate": 1,
    "bars_to_resolve": null,
@@ -112,7 +112,7 @@
    "result": "open",
    "result_r": null,
    "resolve_note": "",
-   "mfe_r": 0.263,
+   "mfe_r": 0.99,
    "mae_r": 0.181,
    "bars_to_activate": 1,
    "bars_to_resolve": null,
@@ -189,7 +189,7 @@
    "result": "open",
    "result_r": null,
    "resolve_note": "",
-   "mfe_r": 0.354,
+   "mfe_r": 0.667,
    "mae_r": 0.357,
    "bars_to_activate": 1,
    "bars_to_resolve": null,
@@ -346,7 +346,7 @@
    "result": "open",
    "result_r": null,
    "resolve_note": "",
-   "mfe_r": 0.81,
+   "mfe_r": 0.99,
    "mae_r": 0.707,
    "bars_to_activate": 1,
    "bars_to_resolve": null,
@@ -423,7 +423,7 @@
    "result": "open",
    "result_r": null,
    "resolve_note": "",
-   "mfe_r": 0.614,
+   "mfe_r": 0.719,
    "mae_r": 0.58,
    "bars_to_activate": 1,
    "bars_to_resolve": null,
@@ -5079,6 +5079,6 @@
    "name": "Divergence Reversal"
   }
  ],
- "updated_tehran": "2026-11-03 04:59 Tehran",
- "updated_ts": 1793669378.3010557
+ "updated_tehran": "2026-11-03 12:50 Tehran",
+ "updated_ts": 1793697653.539015
 }
