@@ -1,6 +1,84 @@
 {
  "records": [
   {
+   "id": "BTCUSDT|15m|long@1793824448",
+   "ref": "MO-261105-0004-BTC-15m-L",
+   "key": "BTCUSDT|15m|long",
+   "symbol": "BTCUSDT",
+   "tf": "15m",
+   "side": "long",
+   "strategy": "Confirmed Breakout Retest",
+   "trade_style": "15m",
+   "confidence": 69.0,
+   "entry": 80124.90892121,
+   "entry_zone": [
+    80092.30626562,
+    80157.5115768
+   ],
+   "stop": 79717.3757264,
+   "targets": [
+    81143.74190825,
+    81199.9,
+    81551.27510306
+   ],
+   "rr": 2.5,
+   "atr": 271.68879654,
+   "risk_per_unit": 407.533194809992,
+   "published_ts": 1793824448.191996,
+   "published_time_tehran": "2026-11-05 00:04 Tehran",
+   "last_seen_ts": 1793824448.191996,
+   "republished": 1,
+   "activated_ts": null,
+   "activated_time_tehran": null,
+   "resolved_ts": null,
+   "status": "pending",
+   "result": "open",
+   "result_r": null,
+   "resolve_note": "",
+   "mfe_r": null,
+   "mae_r": null,
+   "bars_to_activate": null,
+   "bars_to_resolve": null,
+   "supports": [
+    "structure bullish",
+    "above cloud",
+    "future cloud green",
+    "ADX 33 aligned",
+    "room ratio 25.79",
+    "tape +84%",
+    "HTF bullish agrees"
+   ],
+   "warnings": [],
+   "blockers": [],
+   "entry_distance_pct": 0.119,
+   "entry_distance_atr": 0.35,
+   "context": {
+    "score": 11.0,
+    "other_side_score": -8.0,
+    "funding": 0.00836,
+    "ls_top": 1.52,
+    "oi_1h": -0.676,
+    "perp_spot_ratio": 13.587,
+    "fng": null,
+    "adx": 32.658678765538575,
+    "rsi14": 57.05226137528443
+   },
+   "position_at_publish": {
+    "margin": 1000.0,
+    "risk_pct": 1.0,
+    "risk_usd": 10.0,
+    "qty": 0.02453788,
+    "notional": 1966.1,
+    "leverage": 1.97,
+    "liquidation": 39772.21398441,
+    "target_kinds": [
+     "derived 2.5R",
+     "observed structure",
+     "derived 3.5R"
+    ]
+   }
+  },
+  {
    "id": "SOLUSDT|2h|short@1793658590",
    "ref": "MO-261103-0159-SOL-2h-S",
    "key": "SOLUSDT|2h|short",
@@ -341,15 +419,15 @@
    "republished": 1,
    "activated_ts": 1793448000,
    "activated_time_tehran": "2026-10-31 15:30 Tehran",
-   "resolved_ts": null,
-   "status": "active",
-   "result": "open",
-   "result_r": null,
-   "resolve_note": "",
+   "resolved_ts": 1793793600,
+   "status": "loss",
+   "result": "stop",
+   "result_r": -1.0,
+   "resolve_note": "stop touched first",
    "mfe_r": 1.45,
-   "mae_r": 0.707,
+   "mae_r": 2.334,
    "bars_to_activate": 1,
-   "bars_to_resolve": null,
+   "bars_to_resolve": 25,
    "supports": [
     "structure bearish",
     "below cloud",
@@ -418,15 +496,15 @@
    "republished": 2,
    "activated_ts": 1793390400,
    "activated_time_tehran": "2026-10-30 23:30 Tehran",
-   "resolved_ts": null,
-   "status": "active",
-   "result": "open",
-   "result_r": null,
-   "resolve_note": "",
+   "resolved_ts": 1793793600,
+   "status": "loss",
+   "result": "stop",
+   "result_r": -1.0,
+   "resolve_note": "stop touched first",
    "mfe_r": 0.759,
-   "mae_r": 0.718,
+   "mae_r": 1.61,
    "bars_to_activate": 1,
-   "bars_to_resolve": null,
+   "bars_to_resolve": 29,
    "supports": [
     "structure bearish",
     "below cloud",
@@ -4899,12 +4977,12 @@
  ],
  "tracking_since": "2026-09-13 19:37 Tehran",
  "overall": {
-  "trades": 56,
+  "trades": 58,
   "wins": 15,
-  "losses": 41,
-  "win_rate": 26.785714285714285,
-  "expectancy_r": -0.11136981199265529,
-  "open": 2,
+  "losses": 43,
+  "win_rate": 25.862068965517242,
+  "expectancy_r": -0.14201223226877063,
+  "open": 1,
   "expired": 3,
   "invalidated": 1
  },
@@ -4921,6 +4999,17 @@
    "name": "ETHUSDT"
   },
   {
+   "trades": 10,
+   "wins": 3,
+   "losses": 7,
+   "win_rate": 30.0,
+   "expectancy_r": -0.019536857005923426,
+   "open": 0,
+   "expired": 0,
+   "invalidated": 0,
+   "name": "SUIUSDT"
+  },
+  {
    "trades": 9,
    "wins": 1,
    "losses": 8,
@@ -4930,17 +5019,6 @@
    "expired": 2,
    "invalidated": 0,
    "name": "SOLUSDT"
-  },
-  {
-   "trades": 9,
-   "wins": 3,
-   "losses": 6,
-   "win_rate": 33.33333333333333,
-   "expectancy_r": 0.08940349221564065,
-   "open": 1,
-   "expired": 0,
-   "invalidated": 0,
-   "name": "SUIUSDT"
   },
   {
    "trades": 8,
@@ -4965,11 +5043,11 @@
    "name": "LINKUSDT"
   },
   {
-   "trades": 5,
+   "trades": 6,
    "wins": 1,
-   "losses": 4,
-   "win_rate": 20.0,
-   "expectancy_r": -0.30000000000225535,
+   "losses": 5,
+   "win_rate": 16.666666666666664,
+   "expectancy_r": -0.4166666666685461,
    "open": 1,
    "expired": 0,
    "invalidated": 1,
@@ -4994,7 +5072,7 @@
    "losses": 9,
    "win_rate": 40.0,
    "expectancy_r": 0.36636770184593875,
-   "open": 0,
+   "open": 1,
    "expired": 1,
    "invalidated": 1,
    "name": "15m"
@@ -5033,12 +5111,12 @@
    "name": "30m"
   },
   {
-   "trades": 4,
+   "trades": 6,
    "wins": 2,
-   "losses": 2,
-   "win_rate": 50.0,
-   "expectancy_r": 0.6417026128503185,
-   "open": 2,
+   "losses": 4,
+   "win_rate": 33.33333333333333,
+   "expectancy_r": 0.09446840856687899,
+   "open": 0,
    "expired": 0,
    "invalidated": 0,
    "name": "4h"
@@ -5057,28 +5135,28 @@
    "name": "Trend Continuation"
   },
   {
-   "trades": 23,
+   "trades": 24,
    "wins": 9,
-   "losses": 14,
-   "win_rate": 39.130434782608695,
-   "expectancy_r": 0.2744572148880152,
+   "losses": 15,
+   "win_rate": 37.5,
+   "expectancy_r": 0.22135483093434793,
    "open": 1,
    "expired": 1,
    "invalidated": 0,
    "name": "Confirmed Breakout Retest"
   },
   {
-   "trades": 6,
+   "trades": 7,
    "wins": 2,
-   "losses": 4,
-   "win_rate": 33.33333333333333,
-   "expectancy_r": 0.16666676105838607,
-   "open": 1,
+   "losses": 5,
+   "win_rate": 28.57142857142857,
+   "expectancy_r": 8.09071880603085e-08,
+   "open": 0,
    "expired": 0,
    "invalidated": 0,
    "name": "Divergence Reversal"
   }
  ],
- "updated_tehran": "2026-11-04 17:43 Tehran",
- "updated_ts": 1793801628.9626057
+ "updated_tehran": "2026-11-05 00:04 Tehran",
+ "updated_ts": 1793824448.195649
 }
