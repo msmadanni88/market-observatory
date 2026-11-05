@@ -1,62 +1,59 @@
-MARKET BRIEF  2026-11-05 00:04 Tehran
-scanned 64 perps
+MARKET BRIEF  2026-11-05 16:14 Tehran
+scanned 55 perps
 
 SETUPS
- LONG BTCUSDT 15m   confidence 69.0
-   entry 80124.9  stop 79717.4  tp1 81143.7
-   R:R 1:2.5  leverage 1.97x  risk $10.0
-   entry sits 0.12% (0.35 ATR) from market
-   + structure bullish
-   + above cloud
-   + future cloud green
+ nothing cleared the gates. 35 combinations were checked.
+   11x  no trend
+   9x  resistance under 0.6 ATR away
+   6x  price inside the cloud
 
 POSITIONS
  XMRUSDT long @ 508
-   now 635.41  pnl +25.08%  status TP1 HIT
-   R:R from here 1:0.22
+   now 638.72  pnl +25.73%  status TP1 HIT
+   R:R from here 1:0.24
 
 SECTOR ROTATION  7d median
- perp_dex      +4.1%  lead HYPE RSI 50.8  laggard HYPE RSI 50.8
- privacy       -1.1%  lead ZEC RSI 53.9  laggard ZEC RSI 53.9
- exchange      -1.1%  lead OKB RSI 44.7  laggard OKB RSI 44.7
- meme          -1.2%  lead PEPE RSI 59.7  laggard DOGE RSI 42.1
- l1_major      -2.2%  lead ETH RSI 53.6  laggard SOL RSI 35.0
+ defi          +9.5%  lead UNI RSI 49.9  laggard AAVE RSI 41.2
+ meme          +7.4%  lead PEPE RSI 57.4  laggard DOGE RSI 39.7
+ oracle_rwa    +7.3%  lead LINK RSI 44.3  laggard LINK RSI 44.3
+ privacy       +5.5%  lead ZEC RSI 53.6  laggard ZEC RSI 53.6
+ payments      +5.2%  lead BCH RSI 52.5  laggard XRP RSI 47.2
 
 MOST EXTENDED
- SOXS    RSI 65.0  EMA20  +21.6%  7d  +41.0%
-   22% above EMA20, +41% in 7d
- CAP     RSI 58.2  EMA20  +19.3%  7d  +30.3%
-   19% above EMA20, +30% in 7d
- UNITREE RSI 68.4  EMA20   +8.2%  7d   -0.8%
-   +40% 30d, RSI still 68
- SNDK    RSI 29.8  EMA20  -17.6%  7d  -24.2%
-   funding crowded long
- SOXL    RSI 30.9  EMA20  -27.5%  7d  -35.3%
+ SOXS    RSI 69.0  EMA20  +28.4%  7d  +36.8%
+   28% above EMA20, +37% in 7d
+ UNITREE RSI 72.2  EMA20  +10.9%  7d   +2.8%
+   RSI 72 overbought
+ CAP     RSI 60.5  EMA20  +23.2%  7d  +29.8%
+   23% above EMA20, +30% in 7d
+ LIT     RSI 51.3  EMA20   +3.6%  7d  +23.7%
+   +24% in 7d, volume fading into highs, 4h gap -8.2% down
+ SNDK    RSI 27.4  EMA20  -20.5%  7d  -23.9%
    funding crowded long
 
 MOST COMPRESSED
- ETH     RSI 53.6  EMA20   +2.6%  7d   +2.5%
-   RSI 54 neutral, hugging EMA20, 1d gap +2.9% up
- MSTR    RSI 51.7  EMA20   +2.3%  7d   -0.3%
-   RSI 52 neutral, hugging EMA20
- BTC     RSI 49.8  EMA20   +0.4%  7d   -1.4%
-   RSI 50 neutral, hugging EMA20, 4h gap +2.2% up
- CRCL    RSI 44.4  EMA20   -2.4%  7d   -4.2%
-   RSI 44 neutral, volatility 4th pctile, 1d gap -9.8% down
- XAU     RSI 51.2  EMA20   +1.0%  7d   +0.2%
-   RSI 51 neutral, hugging EMA20, 4h gap +0.7% up
+ BTC     RSI 48.0  EMA20   -0.2%  7d   +2.2%
+   RSI 48 neutral, hugging EMA20, 4h gap +3.0% up
+ ZEC     RSI 53.6  EMA20   +3.8%  7d   +5.5%
+   RSI 54 neutral, hugging EMA20
+ SUI     RSI 43.6  EMA20   -3.3%  7d   +4.7%
+   RSI 44 neutral, hugging EMA20, 4h gap +7.8% up
+ ETH     RSI 50.9  EMA20   +1.3%  7d   +6.2%
+   RSI 51 neutral, hugging EMA20, 1d gap +4.2% up
+ XRP     RSI 47.2  EMA20   -0.1%  7d   +5.2%
+   RSI 47 neutral, hugging EMA20, 4h gap -10.4% down
 
 TRENDING WITH ROOM
- PEPE    RSI 59.7  EMA20   +7.7%  7d   -1.2%
-   RSI 60 neutral, above rising 200
- TSLA    RSI 51.2  EMA20   -0.4%  7d   -3.9%
-   RSI 51 neutral, hugging EMA20, 4h gap +2.0% up
- AAPL    RSI 58.5  EMA20   +2.8%  7d   +1.9%
+ PEPE    RSI 57.4  EMA20   +5.2%  7d   +7.4%
+   RSI 57 neutral, above rising 200
+ INJ     RSI 57.6  EMA20   +7.4%  7d  +13.2%
+   RSI 58 neutral, above rising 200, 4h gap -7.1% down
+ AAPL    RSI 58.7  EMA20   +2.5%  7d   -0.0%
    RSI 59 neutral, hugging EMA20
- SOXS    RSI 65.0  EMA20  +21.6%  7d  +41.0%
-   22% above EMA20, +41% in 7d
- CAP     RSI 58.2  EMA20  +19.3%  7d  +30.3%
-   19% above EMA20, +30% in 7d
+ SOXS    RSI 69.0  EMA20  +28.4%  7d  +36.8%
+   28% above EMA20, +37% in 7d
+ CAP     RSI 60.5  EMA20  +23.2%  7d  +29.8%
+   23% above EMA20, +30% in 7d
 
 GAP BASE RATE
  measured 13 Sep 2026, 24 symbols, 50-bar horizon
