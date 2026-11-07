@@ -1,6 +1,160 @@
 {
  "records": [
   {
+   "id": "XRPUSDT|2h|short@1794050399",
+   "ref": "MO-261107-1449-XRP-2h-S",
+   "key": "XRPUSDT|2h|short",
+   "symbol": "XRPUSDT",
+   "tf": "2h",
+   "side": "short",
+   "strategy": "Trend Continuation",
+   "trade_style": "2h",
+   "confidence": 70.5,
+   "entry": 1.17533948,
+   "entry_zone": [
+    1.1733888,
+    1.17729015
+   ],
+   "stop": 1.19972295,
+   "targets": [
+    1.1143808,
+    1.08999733
+   ],
+   "rr": 2.5,
+   "atr": 0.01625565,
+   "risk_per_unit": 0.02438346999999985,
+   "published_ts": 1794050399.0888946,
+   "published_time_tehran": "2026-11-07 14:49 Tehran",
+   "last_seen_ts": 1794050399.0888946,
+   "republished": 1,
+   "activated_ts": null,
+   "activated_time_tehran": null,
+   "resolved_ts": null,
+   "status": "pending",
+   "result": "open",
+   "result_r": null,
+   "resolve_note": "",
+   "mfe_r": null,
+   "mae_r": null,
+   "bars_to_activate": null,
+   "bars_to_resolve": null,
+   "supports": [
+    "structure bearish",
+    "below cloud",
+    "future cloud red",
+    "ADX 45 aligned",
+    "tape -72%",
+    "top traders 3.96 long - fuel below",
+    "HTF bearish agrees"
+   ],
+   "warnings": [],
+   "blockers": [],
+   "entry_distance_pct": 0.486,
+   "entry_distance_atr": 0.35,
+   "context": {
+    "score": 12.0,
+    "other_side_score": -10.0,
+    "funding": 0.005517,
+    "ls_top": 3.96,
+    "oi_1h": 0.105,
+    "perp_spot_ratio": 4.523,
+    "fng": null,
+    "adx": 45.4939473412722,
+    "rsi14": 32.29750557613566
+   },
+   "position_at_publish": {
+    "margin": 1000.0,
+    "risk_pct": 1.0,
+    "risk_usd": 10.0,
+    "qty": 410.11389206,
+    "notional": 482.02,
+    "leverage": 0.48,
+    "liquidation": null,
+    "target_kinds": [
+     "derived 2.5R",
+     "derived 3.5R"
+    ]
+   }
+  },
+  {
+   "id": "XRPUSDT|30m|short@1794050399",
+   "ref": "MO-261107-1449-XRP-30m-S",
+   "key": "XRPUSDT|30m|short",
+   "symbol": "XRPUSDT",
+   "tf": "30m",
+   "side": "short",
+   "strategy": "Confirmed Breakout Retest",
+   "trade_style": "30m",
+   "confidence": 66.0,
+   "entry": 1.17183298,
+   "entry_zone": [
+    1.17110167,
+    1.17256429
+   ],
+   "stop": 1.18097432,
+   "targets": [
+    1.1512,
+    1.14897963,
+    1.13983829
+   ],
+   "rr": 2.26,
+   "atr": 0.00609423,
+   "risk_per_unit": 0.009141339999999998,
+   "published_ts": 1794050399.0888946,
+   "published_time_tehran": "2026-11-07 14:49 Tehran",
+   "last_seen_ts": 1794050399.0888946,
+   "republished": 1,
+   "activated_ts": null,
+   "activated_time_tehran": null,
+   "resolved_ts": null,
+   "status": "pending",
+   "result": "open",
+   "result_r": null,
+   "resolve_note": "",
+   "mfe_r": null,
+   "mae_r": null,
+   "bars_to_activate": null,
+   "bars_to_resolve": null,
+   "supports": [
+    "structure bearish",
+    "below cloud",
+    "future cloud red",
+    "ADX 21 aligned",
+    "tape -75%",
+    "top traders 3.96 long - fuel below",
+    "HTF bearish agrees"
+   ],
+   "warnings": [],
+   "blockers": [],
+   "entry_distance_pct": 0.182,
+   "entry_distance_atr": 0.35,
+   "context": {
+    "score": 11.0,
+    "other_side_score": -11.0,
+    "funding": 0.005517,
+    "ls_top": 3.96,
+    "oi_1h": 0.105,
+    "perp_spot_ratio": 4.524,
+    "fng": null,
+    "adx": 20.80192721301477,
+    "rsi14": 46.285183367861
+   },
+   "position_at_publish": {
+    "margin": 1000.0,
+    "risk_pct": 1.0,
+    "risk_usd": 10.0,
+    "qty": 1093.9317195,
+    "notional": 1281.91,
+    "leverage": 1.28,
+    "liquidation": 2.08010765,
+    "target_kinds": [
+     "observed structure",
+     "derived 2.5R",
+     "derived 3.5R"
+    ]
+   }
+  },
+  {
    "id": "LINKUSDT|15m|short@1793911844",
    "ref": "MO-261106-0020-LINK-15m-S",
    "key": "LINKUSDT|15m|short",
@@ -5140,7 +5294,7 @@
   "losses": 45,
   "win_rate": 25.0,
   "expectancy_r": -0.17061182452647827,
-  "open": 1,
+  "open": 3,
   "expired": 3,
   "invalidated": 1
  },
@@ -5195,7 +5349,7 @@
    "losses": 5,
    "win_rate": 37.5,
    "expectancy_r": 0.2431949247942591,
-   "open": 0,
+   "open": 2,
    "expired": 0,
    "invalidated": 0,
    "name": "XRPUSDT"
@@ -5241,7 +5395,7 @@
    "losses": 12,
    "win_rate": 14.285714285714285,
    "expectancy_r": -0.549669205000078,
-   "open": 0,
+   "open": 1,
    "expired": 0,
    "invalidated": 0,
    "name": "2h"
@@ -5263,7 +5417,7 @@
    "losses": 9,
    "win_rate": 10.0,
    "expectancy_r": -0.6499999999999991,
-   "open": 1,
+   "open": 2,
    "expired": 0,
    "invalidated": 0,
    "name": "30m"
@@ -5287,7 +5441,7 @@
    "losses": 24,
    "win_rate": 14.285714285714285,
    "expectancy_r": -0.5196152135844059,
-   "open": 1,
+   "open": 2,
    "expired": 2,
    "invalidated": 1,
    "name": "Trend Continuation"
@@ -5298,7 +5452,7 @@
    "losses": 16,
    "win_rate": 36.0,
    "expectancy_r": 0.17250063769697402,
-   "open": 0,
+   "open": 1,
    "expired": 1,
    "invalidated": 0,
    "name": "Confirmed Breakout Retest"
@@ -5315,6 +5469,6 @@
    "name": "Divergence Reversal"
   }
  ],
- "updated_tehran": "2026-11-07 10:29 Tehran",
- "updated_ts": 1794034746.8866086
+ "updated_tehran": "2026-11-07 14:49 Tehran",
+ "updated_ts": 1794050399.0940728
 }
