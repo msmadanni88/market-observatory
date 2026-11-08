@@ -264,15 +264,15 @@
    "republished": 1,
    "activated_ts": 1793914200,
    "activated_time_tehran": "2026-11-06 01:00 Tehran",
-   "resolved_ts": null,
-   "status": "active",
-   "result": "open",
+   "resolved_ts": 1794130200,
+   "status": "expired",
+   "result": "unresolved after 120 bars",
    "result_r": null,
-   "resolve_note": "",
+   "resolve_note": "neither level was reached in the window",
    "mfe_r": 1.76,
    "mae_r": 0.809,
    "bars_to_activate": 2,
-   "bars_to_resolve": null,
+   "bars_to_resolve": 121,
    "supports": [
     "structure bearish",
     "below cloud",
@@ -5294,8 +5294,8 @@
   "losses": 45,
   "win_rate": 26.229508196721312,
   "expectancy_r": -0.13081315976133318,
-  "open": 2,
-  "expired": 3,
+  "open": 1,
+  "expired": 4,
   "invalidated": 1
  },
  "by_symbol": [
@@ -5371,8 +5371,8 @@
    "losses": 4,
    "win_rate": 20.0,
    "expectancy_r": -0.30000000506048197,
-   "open": 1,
-   "expired": 1,
+   "open": 0,
+   "expired": 2,
    "invalidated": 0,
    "name": "HYPEUSDT"
   }
@@ -5417,8 +5417,8 @@
    "losses": 9,
    "win_rate": 18.181818181818183,
    "expectancy_r": -0.38571757035023796,
-   "open": 1,
-   "expired": 0,
+   "open": 0,
+   "expired": 1,
    "invalidated": 0,
    "name": "30m"
   },
@@ -5441,8 +5441,8 @@
    "losses": 24,
    "win_rate": 14.285714285714285,
    "expectancy_r": -0.5196152135844059,
-   "open": 2,
-   "expired": 2,
+   "open": 1,
+   "expired": 3,
    "invalidated": 1,
    "name": "Trend Continuation"
   },
@@ -5469,6 +5469,6 @@
    "name": "Divergence Reversal"
   }
  ],
- "updated_tehran": "2026-11-08 05:44 Tehran",
- "updated_ts": 1794104075.3055944
+ "updated_tehran": "2026-11-08 13:35 Tehran",
+ "updated_ts": 1794132348.0658474
 }
