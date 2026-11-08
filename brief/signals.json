@@ -1,6 +1,84 @@
 {
  "records": [
   {
+   "id": "XRPUSDT|4h|short@1794137484",
+   "ref": "MO-261108-1501-XRP-4h-S",
+   "key": "XRPUSDT|4h|short",
+   "symbol": "XRPUSDT",
+   "tf": "4h",
+   "side": "short",
+   "strategy": "Trend Continuation",
+   "trade_style": "4h",
+   "confidence": 62.4,
+   "entry": 1.17182894,
+   "entry_zone": [
+    1.16943616,
+    1.17422171
+   ],
+   "stop": 1.20173866,
+   "targets": [
+    1.09705462,
+    1.06714489
+   ],
+   "rr": 2.5,
+   "atr": 0.01993982,
+   "risk_per_unit": 0.02990972000000003,
+   "published_ts": 1794137484.6883793,
+   "published_time_tehran": "2026-11-08 15:01 Tehran",
+   "last_seen_ts": 1794137484.6883793,
+   "republished": 1,
+   "activated_ts": null,
+   "activated_time_tehran": null,
+   "resolved_ts": null,
+   "status": "pending",
+   "result": "open",
+   "result_r": null,
+   "resolve_note": "",
+   "mfe_r": null,
+   "mae_r": null,
+   "bars_to_activate": null,
+   "bars_to_resolve": null,
+   "supports": [
+    "structure bearish",
+    "below cloud",
+    "future cloud red",
+    "ADX 41 aligned",
+    "RSI 33 overbought, selling strength",
+    "top traders 4.07 long - fuel below",
+    "HTF bearish agrees"
+   ],
+   "warnings": [],
+   "blockers": [
+    "tape +24% against"
+   ],
+   "entry_distance_pct": 0.599,
+   "entry_distance_atr": 0.35,
+   "context": {
+    "score": 11.0,
+    "other_side_score": -11.0,
+    "funding": 0.002173,
+    "ls_top": 4.07,
+    "oi_1h": -0.325,
+    "perp_spot_ratio": 6.534,
+    "fng": null,
+    "adx": 40.55309373529291,
+    "rsi14": 33.17213903807574
+   },
+   "position_at_publish": {
+    "margin": 1000.0,
+    "risk_pct": 1.0,
+    "risk_usd": 10.0,
+    "qty": 334.33937938,
+    "notional": 391.79,
+    "leverage": 0.39,
+    "liquidation": null,
+    "target_kinds": [
+     "derived 2.5R",
+     "derived 3.5R"
+    ]
+   }
+  },
+  {
    "id": "XRPUSDT|2h|short@1794050399",
    "ref": "MO-261107-1449-XRP-2h-S",
    "key": "XRPUSDT|2h|short",
@@ -5294,7 +5372,7 @@
   "losses": 45,
   "win_rate": 26.229508196721312,
   "expectancy_r": -0.13081315976133318,
-  "open": 1,
+  "open": 2,
   "expired": 4,
   "invalidated": 1
  },
@@ -5338,7 +5416,7 @@
    "losses": 5,
    "win_rate": 44.44444444444444,
    "expectancy_r": 0.46696290272238294,
-   "open": 1,
+   "open": 2,
    "expired": 0,
    "invalidated": 0,
    "name": "XRPUSDT"
@@ -5428,7 +5506,7 @@
    "losses": 4,
    "win_rate": 33.33333333333333,
    "expectancy_r": 0.09446840856687899,
-   "open": 0,
+   "open": 1,
    "expired": 0,
    "invalidated": 0,
    "name": "4h"
@@ -5441,7 +5519,7 @@
    "losses": 24,
    "win_rate": 14.285714285714285,
    "expectancy_r": -0.5196152135844059,
-   "open": 1,
+   "open": 2,
    "expired": 3,
    "invalidated": 1,
    "name": "Trend Continuation"
@@ -5469,6 +5547,6 @@
    "name": "Divergence Reversal"
   }
  ],
- "updated_tehran": "2026-11-08 13:35 Tehran",
- "updated_ts": 1794132348.0658474
+ "updated_tehran": "2026-11-08 15:01 Tehran",
+ "updated_ts": 1794137484.695107
 }
