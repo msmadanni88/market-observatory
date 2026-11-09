@@ -1,6 +1,87 @@
 {
  "records": [
   {
+   "id": "ETHUSDT|1h|short@1794265761",
+   "ref": "MO-261110-0239-ETH-1h-S",
+   "key": "ETHUSDT|1h|short",
+   "symbol": "ETHUSDT",
+   "tf": "1h",
+   "side": "short",
+   "strategy": "Confirmed Breakout Retest",
+   "trade_style": "1h",
+   "confidence": 63.1,
+   "entry": 2137.44178278,
+   "entry_zone": [
+    2135.12860011,
+    2139.75496544
+   ],
+   "stop": 2166.3565661,
+   "targets": [
+    2081.19,
+    2065.15482446,
+    2036.24004114
+   ],
+   "rr": 1.95,
+   "atr": 19.27652222,
+   "risk_per_unit": 28.91478331999997,
+   "published_ts": 1794265761.3033485,
+   "published_time_tehran": "2026-11-10 02:39 Tehran",
+   "last_seen_ts": 1794265761.3033485,
+   "republished": 1,
+   "activated_ts": null,
+   "activated_time_tehran": null,
+   "resolved_ts": null,
+   "status": "pending",
+   "result": "open",
+   "result_r": null,
+   "resolve_note": "",
+   "mfe_r": null,
+   "mae_r": null,
+   "bars_to_activate": null,
+   "bars_to_resolve": null,
+   "supports": [
+    "structure bearish",
+    "below cloud",
+    "future cloud red",
+    "ADX 26 aligned",
+    "room ratio 2.45",
+    "top traders 3.45 long - fuel below",
+    "perp/spot 16.6x - leverage driven, thin spot bid",
+    "HTF bearish agrees"
+   ],
+   "warnings": [],
+   "blockers": [
+    "tape +69% against"
+   ],
+   "entry_distance_pct": 0.317,
+   "entry_distance_atr": 0.35,
+   "context": {
+    "score": 11.0,
+    "other_side_score": -9.0,
+    "funding": 0.000111,
+    "ls_top": 3.45,
+    "oi_1h": -0.309,
+    "perp_spot_ratio": 16.61,
+    "fng": null,
+    "adx": 25.558287745659804,
+    "rsi14": 44.187903911012704
+   },
+   "position_at_publish": {
+    "margin": 1000.0,
+    "risk_pct": 1.0,
+    "risk_usd": 10.0,
+    "qty": 0.34584385,
+    "notional": 739.22,
+    "leverage": 0.74,
+    "liquidation": null,
+    "target_kinds": [
+     "observed structure",
+     "derived 2.5R",
+     "derived 3.5R"
+    ]
+   }
+  },
+  {
    "id": "BTCUSDT|4h|short@1794230301",
    "ref": "MO-261109-1648-BTC-4h-S",
    "key": "BTCUSDT|4h|short",
@@ -256,8 +337,8 @@
    "risk_per_unit": 0.02990972000000003,
    "published_ts": 1794137484.6883793,
    "published_time_tehran": "2026-11-08 15:01 Tehran",
-   "last_seen_ts": 1794137484.6883793,
-   "republished": 1,
+   "last_seen_ts": 1794265761.3087935,
+   "republished": 2,
    "activated_ts": null,
    "activated_time_tehran": null,
    "resolved_ts": null,
@@ -5603,7 +5684,7 @@
   "losses": 45,
   "win_rate": 26.229508196721312,
   "expectancy_r": -0.13081315976133318,
-  "open": 4,
+  "open": 5,
   "expired": 5,
   "invalidated": 1
  },
@@ -5614,7 +5695,7 @@
    "losses": 8,
    "win_rate": 38.46153846153847,
    "expectancy_r": 0.2745870515745514,
-   "open": 1,
+   "open": 2,
    "expired": 0,
    "invalidated": 0,
    "name": "ETHUSDT"
@@ -5715,7 +5796,7 @@
    "losses": 9,
    "win_rate": 30.76923076923077,
    "expectancy_r": -0.007974352359843725,
-   "open": 0,
+   "open": 1,
    "expired": 2,
    "invalidated": 0,
    "name": "1h"
@@ -5761,7 +5842,7 @@
    "losses": 16,
    "win_rate": 38.46153846153847,
    "expectancy_r": 0.25267779494506626,
-   "open": 0,
+   "open": 1,
    "expired": 1,
    "invalidated": 0,
    "name": "Confirmed Breakout Retest"
@@ -5778,6 +5859,6 @@
    "name": "Divergence Reversal"
   }
  ],
- "updated_tehran": "2026-11-09 22:08 Tehran",
- "updated_ts": 1794249480.1322181
+ "updated_tehran": "2026-11-10 02:39 Tehran",
+ "updated_ts": 1794265761.3087935
 }
