@@ -1,6 +1,237 @@
 {
  "records": [
   {
+   "id": "BTCUSDT|4h|short@1794230301",
+   "ref": "MO-261109-1648-BTC-4h-S",
+   "key": "BTCUSDT|4h|short",
+   "symbol": "BTCUSDT",
+   "tf": "4h",
+   "side": "short",
+   "strategy": "Trend Continuation",
+   "trade_style": "4h",
+   "confidence": 69.8,
+   "entry": 74993.3543831,
+   "entry_zone": [
+    74891.31859461,
+    75095.39017159
+   ],
+   "stop": 76268.80173923,
+   "targets": [
+    71804.73599276,
+    70529.28863662
+   ],
+   "rr": 2.5,
+   "atr": 850.29823742,
+   "risk_per_unit": 1275.4473561299965,
+   "published_ts": 1794230301.782439,
+   "published_time_tehran": "2026-11-09 16:48 Tehran",
+   "last_seen_ts": 1794230301.782439,
+   "republished": 1,
+   "activated_ts": null,
+   "activated_time_tehran": null,
+   "resolved_ts": null,
+   "status": "pending",
+   "result": "open",
+   "result_r": null,
+   "resolve_note": "",
+   "mfe_r": null,
+   "mae_r": null,
+   "bars_to_activate": null,
+   "bars_to_resolve": null,
+   "supports": [
+    "structure bearish",
+    "below cloud",
+    "future cloud red",
+    "ADX 42 aligned",
+    "tape -41%",
+    "top traders 2.92 long - fuel below",
+    "perp/spot 10.0x - leverage driven, thin spot bid",
+    "HTF bearish agrees"
+   ],
+   "warnings": [],
+   "blockers": [],
+   "entry_distance_pct": 0.398,
+   "entry_distance_atr": 0.35,
+   "context": {
+    "score": 13.0,
+    "other_side_score": -10.0,
+    "funding": 0.005809,
+    "ls_top": 2.92,
+    "oi_1h": 0.738,
+    "perp_spot_ratio": 10.02,
+    "fng": null,
+    "adx": 41.741341521187294,
+    "rsi14": 37.23961909836507
+   },
+   "position_at_publish": {
+    "margin": 1000.0,
+    "risk_pct": 1.0,
+    "risk_usd": 10.0,
+    "qty": 0.00784039,
+    "notional": 587.98,
+    "leverage": 0.59,
+    "liquidation": null,
+    "target_kinds": [
+     "derived 2.5R",
+     "derived 3.5R"
+    ]
+   }
+  },
+  {
+   "id": "ETHUSDT|4h|short@1794230301",
+   "ref": "MO-261109-1648-ETH-4h-S",
+   "key": "ETHUSDT|4h|short",
+   "symbol": "ETHUSDT",
+   "tf": "4h",
+   "side": "short",
+   "strategy": "Trend Continuation",
+   "trade_style": "4h",
+   "confidence": 69.8,
+   "entry": 2133.76118841,
+   "entry_zone": [
+    2129.22135238,
+    2138.30102443
+   ],
+   "stop": 2190.50913872,
+   "targets": [
+    1991.89131262,
+    1935.1433623
+   ],
+   "rr": 2.5,
+   "atr": 37.83196688,
+   "risk_per_unit": 56.74795030999985,
+   "published_ts": 1794230301.782439,
+   "published_time_tehran": "2026-11-09 16:48 Tehran",
+   "last_seen_ts": 1794230301.782439,
+   "republished": 1,
+   "activated_ts": null,
+   "activated_time_tehran": null,
+   "resolved_ts": null,
+   "status": "pending",
+   "result": "open",
+   "result_r": null,
+   "resolve_note": "",
+   "mfe_r": null,
+   "mae_r": null,
+   "bars_to_activate": null,
+   "bars_to_resolve": null,
+   "supports": [
+    "structure bearish",
+    "below cloud",
+    "future cloud red",
+    "ADX 41 aligned",
+    "tape -78%",
+    "top traders 3.67 long - fuel below",
+    "perp/spot 15.7x - leverage driven, thin spot bid",
+    "HTF bearish agrees"
+   ],
+   "warnings": [],
+   "blockers": [],
+   "entry_distance_pct": 0.624,
+   "entry_distance_atr": 0.35,
+   "context": {
+    "score": 13.0,
+    "other_side_score": -10.0,
+    "funding": 0.002617,
+    "ls_top": 3.67,
+    "oi_1h": 0.125,
+    "perp_spot_ratio": 15.673,
+    "fng": null,
+    "adx": 40.83911120821682,
+    "rsi14": 30.422756955327856
+   },
+   "position_at_publish": {
+    "margin": 1000.0,
+    "risk_pct": 1.0,
+    "risk_usd": 10.0,
+    "qty": 0.17621782,
+    "notional": 376.01,
+    "leverage": 0.38,
+    "liquidation": null,
+    "target_kinds": [
+     "derived 2.5R",
+     "derived 3.5R"
+    ]
+   }
+  },
+  {
+   "id": "SOLUSDT|4h|short@1794230301",
+   "ref": "MO-261109-1648-SOL-4h-S",
+   "key": "SOLUSDT|4h|short",
+   "symbol": "SOLUSDT",
+   "tf": "4h",
+   "side": "short",
+   "strategy": "Trend Continuation",
+   "trade_style": "4h",
+   "confidence": 69.8,
+   "entry": 87.07539797,
+   "entry_zone": [
+    86.87571866,
+    87.27507727
+   ],
+   "stop": 89.57138926,
+   "targets": [
+    80.83541975,
+    78.33942846
+   ],
+   "rr": 2.5,
+   "atr": 1.66399419,
+   "risk_per_unit": 2.4959912900000063,
+   "published_ts": 1794230301.782439,
+   "published_time_tehran": "2026-11-09 16:48 Tehran",
+   "last_seen_ts": 1794230301.782439,
+   "republished": 1,
+   "activated_ts": null,
+   "activated_time_tehran": null,
+   "resolved_ts": null,
+   "status": "pending",
+   "result": "open",
+   "result_r": null,
+   "resolve_note": "",
+   "mfe_r": null,
+   "mae_r": null,
+   "bars_to_activate": null,
+   "bars_to_resolve": null,
+   "supports": [
+    "structure bearish",
+    "below cloud",
+    "future cloud red",
+    "ADX 36 aligned",
+    "tape -69%",
+    "top traders 3.63 long - fuel below",
+    "perp/spot 11.7x - leverage driven, thin spot bid",
+    "HTF bearish agrees"
+   ],
+   "warnings": [],
+   "blockers": [],
+   "entry_distance_pct": 0.673,
+   "entry_distance_atr": 0.35,
+   "context": {
+    "score": 13.0,
+    "other_side_score": -10.0,
+    "funding": 0.004027,
+    "ls_top": 3.63,
+    "oi_1h": 0.745,
+    "perp_spot_ratio": 11.714,
+    "fng": null,
+    "adx": 36.2389812441991,
+    "rsi14": 34.59356793663828
+   },
+   "position_at_publish": {
+    "margin": 1000.0,
+    "risk_pct": 1.0,
+    "risk_usd": 10.0,
+    "qty": 4.00642424,
+    "notional": 348.86,
+    "leverage": 0.35,
+    "liquidation": null,
+    "target_kinds": [
+     "derived 2.5R",
+     "derived 3.5R"
+    ]
+   }
+  },
+  {
    "id": "XRPUSDT|4h|short@1794137484",
    "ref": "MO-261108-1501-XRP-4h-S",
    "key": "XRPUSDT|4h|short",
@@ -107,15 +338,15 @@
    "republished": 1,
    "activated_ts": null,
    "activated_time_tehran": null,
-   "resolved_ts": null,
-   "status": "pending",
-   "result": "open",
+   "resolved_ts": 1794218400,
+   "status": "expired",
+   "result": "never activated",
    "result_r": null,
-   "resolve_note": "",
+   "resolve_note": "price never reached the entry zone in 24 bars",
    "mfe_r": null,
    "mae_r": null,
    "bars_to_activate": null,
-   "bars_to_resolve": null,
+   "bars_to_resolve": 0,
    "supports": [
     "structure bearish",
     "below cloud",
@@ -5372,8 +5603,8 @@
   "losses": 45,
   "win_rate": 26.229508196721312,
   "expectancy_r": -0.13081315976133318,
-  "open": 2,
-  "expired": 4,
+  "open": 4,
+  "expired": 5,
   "invalidated": 1
  },
  "by_symbol": [
@@ -5383,7 +5614,7 @@
    "losses": 8,
    "win_rate": 38.46153846153847,
    "expectancy_r": 0.2745870515745514,
-   "open": 0,
+   "open": 1,
    "expired": 0,
    "invalidated": 0,
    "name": "ETHUSDT"
@@ -5405,7 +5636,7 @@
    "losses": 8,
    "win_rate": 11.11111111111111,
    "expectancy_r": -0.6119228850655054,
-   "open": 0,
+   "open": 1,
    "expired": 2,
    "invalidated": 0,
    "name": "SOLUSDT"
@@ -5416,8 +5647,8 @@
    "losses": 5,
    "win_rate": 44.44444444444444,
    "expectancy_r": 0.46696290272238294,
-   "open": 2,
-   "expired": 0,
+   "open": 1,
+   "expired": 1,
    "invalidated": 0,
    "name": "XRPUSDT"
   },
@@ -5438,7 +5669,7 @@
    "losses": 6,
    "win_rate": 14.285714285714285,
    "expectancy_r": -0.5000000000016109,
-   "open": 0,
+   "open": 1,
    "expired": 0,
    "invalidated": 1,
    "name": "BTCUSDT"
@@ -5473,8 +5704,8 @@
    "losses": 12,
    "win_rate": 14.285714285714285,
    "expectancy_r": -0.549669205000078,
-   "open": 1,
-   "expired": 0,
+   "open": 0,
+   "expired": 1,
    "invalidated": 0,
    "name": "2h"
   },
@@ -5506,7 +5737,7 @@
    "losses": 4,
    "win_rate": 33.33333333333333,
    "expectancy_r": 0.09446840856687899,
-   "open": 1,
+   "open": 4,
    "expired": 0,
    "invalidated": 0,
    "name": "4h"
@@ -5519,8 +5750,8 @@
    "losses": 24,
    "win_rate": 14.285714285714285,
    "expectancy_r": -0.5196152135844059,
-   "open": 2,
-   "expired": 3,
+   "open": 4,
+   "expired": 4,
    "invalidated": 1,
    "name": "Trend Continuation"
   },
@@ -5547,6 +5778,6 @@
    "name": "Divergence Reversal"
   }
  ],
- "updated_tehran": "2026-11-09 11:19 Tehran",
- "updated_ts": 1794210579.1270485
+ "updated_tehran": "2026-11-09 16:48 Tehran",
+ "updated_ts": 1794230301.7855785
 }
