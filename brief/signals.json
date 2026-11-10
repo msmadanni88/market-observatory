@@ -28,17 +28,17 @@
    "published_time_tehran": "2026-11-10 16:28 Tehran",
    "last_seen_ts": 1794315500.578767,
    "republished": 1,
-   "activated_ts": null,
-   "activated_time_tehran": null,
-   "resolved_ts": null,
-   "status": "pending",
-   "result": "open",
-   "result_r": null,
-   "resolve_note": "",
-   "mfe_r": null,
-   "mae_r": null,
-   "bars_to_activate": null,
-   "bars_to_resolve": null,
+   "activated_ts": 1794315600,
+   "activated_time_tehran": "2026-11-10 16:30 Tehran",
+   "resolved_ts": 1794324600,
+   "status": "win",
+   "result": "tp1",
+   "result_r": 2.49999994749792,
+   "resolve_note": "first target touched",
+   "mfe_r": 4.428,
+   "mae_r": 0.895,
+   "bars_to_activate": 1,
+   "bars_to_resolve": 6,
    "supports": [
     "structure bearish",
     "below cloud",
@@ -109,15 +109,15 @@
    "republished": 1,
    "activated_ts": 1794268800,
    "activated_time_tehran": "2026-11-10 03:30 Tehran",
-   "resolved_ts": null,
-   "status": "active",
-   "result": "open",
-   "result_r": null,
-   "resolve_note": "",
-   "mfe_r": 1.915,
+   "resolved_ts": 1794315600,
+   "status": "win",
+   "result": "tp1",
+   "result_r": 1.9454333154587795,
+   "resolve_note": "first target touched",
+   "mfe_r": 3.992,
    "mae_r": -0.057,
    "bars_to_activate": 1,
-   "bars_to_resolve": null,
+   "bars_to_resolve": 14,
    "supports": [
     "structure bearish",
     "below cloud",
@@ -194,7 +194,7 @@
    "result": "open",
    "result_r": null,
    "resolve_note": "",
-   "mfe_r": 0.721,
+   "mfe_r": 1.807,
    "mae_r": 0.403,
    "bars_to_activate": 1,
    "bars_to_resolve": null,
@@ -271,7 +271,7 @@
    "result": "open",
    "result_r": null,
    "resolve_note": "",
-   "mfe_r": 0.911,
+   "mfe_r": 2.309,
    "mae_r": 0.238,
    "bars_to_activate": 1,
    "bars_to_resolve": null,
@@ -348,7 +348,7 @@
    "result": "open",
    "result_r": null,
    "resolve_note": "",
-   "mfe_r": 1.184,
+   "mfe_r": 2.334,
    "mae_r": 0.334,
    "bars_to_activate": 1,
    "bars_to_resolve": null,
@@ -5758,23 +5758,23 @@
  ],
  "tracking_since": "2026-09-13 19:37 Tehran",
  "overall": {
-  "trades": 61,
-  "wins": 16,
+  "trades": 63,
+  "wins": 18,
   "losses": 45,
-  "win_rate": 26.229508196721312,
-  "expectancy_r": -0.13081315976133318,
-  "open": 6,
+  "win_rate": 28.57142857142857,
+  "expectancy_r": -0.056097928293406735,
+  "open": 4,
   "expired": 5,
   "invalidated": 1
  },
  "by_symbol": [
   {
-   "trades": 13,
-   "wins": 5,
+   "trades": 14,
+   "wins": 6,
    "losses": 8,
-   "win_rate": 38.46153846153847,
-   "expectancy_r": 0.2745870515745514,
-   "open": 2,
+   "win_rate": 42.857142857142854,
+   "expectancy_r": 0.3939332132805677,
+   "open": 1,
    "expired": 0,
    "invalidated": 0,
    "name": "ETHUSDT"
@@ -5789,6 +5789,17 @@
    "expired": 0,
    "invalidated": 0,
    "name": "SUIUSDT"
+  },
+  {
+   "trades": 9,
+   "wins": 2,
+   "losses": 7,
+   "win_rate": 22.22222222222222,
+   "expectancy_r": -0.28324733688350534,
+   "open": 0,
+   "expired": 0,
+   "invalidated": 0,
+   "name": "LINKUSDT"
   },
   {
    "trades": 9,
@@ -5811,17 +5822,6 @@
    "expired": 1,
    "invalidated": 0,
    "name": "XRPUSDT"
-  },
-  {
-   "trades": 8,
-   "wins": 1,
-   "losses": 7,
-   "win_rate": 12.5,
-   "expectancy_r": -0.6311532474311835,
-   "open": 1,
-   "expired": 0,
-   "invalidated": 0,
-   "name": "LINKUSDT"
   },
   {
    "trades": 7,
@@ -5860,6 +5860,17 @@
   },
   {
    "trades": 14,
+   "wins": 5,
+   "losses": 9,
+   "win_rate": 35.714285714285715,
+   "expectancy_r": 0.13155476677005792,
+   "open": 0,
+   "expired": 2,
+   "invalidated": 0,
+   "name": "1h"
+  },
+  {
+   "trades": 14,
    "wins": 2,
    "losses": 12,
    "win_rate": 14.285714285714285,
@@ -5870,23 +5881,12 @@
    "name": "2h"
   },
   {
-   "trades": 13,
-   "wins": 4,
+   "trades": 12,
+   "wins": 3,
    "losses": 9,
-   "win_rate": 30.76923076923077,
-   "expectancy_r": -0.007974352359843725,
-   "open": 1,
-   "expired": 2,
-   "invalidated": 0,
-   "name": "1h"
-  },
-  {
-   "trades": 11,
-   "wins": 2,
-   "losses": 9,
-   "win_rate": 18.181818181818183,
-   "expectancy_r": -0.38571757035023796,
-   "open": 1,
+   "win_rate": 25.0,
+   "expectancy_r": -0.14524111052955815,
+   "open": 0,
    "expired": 1,
    "invalidated": 0,
    "name": "30m"
@@ -5906,6 +5906,17 @@
  "by_strategy": [
   {
    "trades": 28,
+   "wins": 12,
+   "losses": 16,
+   "win_rate": 42.857142857142854,
+   "expectancy_r": 0.3933948546974437,
+   "open": 0,
+   "expired": 1,
+   "invalidated": 0,
+   "name": "Confirmed Breakout Retest"
+  },
+  {
+   "trades": 28,
    "wins": 4,
    "losses": 24,
    "win_rate": 14.285714285714285,
@@ -5914,17 +5925,6 @@
    "expired": 4,
    "invalidated": 1,
    "name": "Trend Continuation"
-  },
-  {
-   "trades": 26,
-   "wins": 10,
-   "losses": 16,
-   "win_rate": 38.46153846153847,
-   "expectancy_r": 0.25267779494506626,
-   "open": 2,
-   "expired": 1,
-   "invalidated": 0,
-   "name": "Confirmed Breakout Retest"
   },
   {
    "trades": 7,
@@ -5938,6 +5938,6 @@
    "name": "Divergence Reversal"
   }
  ],
- "updated_tehran": "2026-11-10 16:28 Tehran",
- "updated_ts": 1794315500.583631
+ "updated_tehran": "2026-11-10 21:07 Tehran",
+ "updated_ts": 1794332260.8979313
 }
