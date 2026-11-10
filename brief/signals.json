@@ -1,6 +1,85 @@
 {
  "records": [
   {
+   "id": "LINKUSDT|30m|short@1794315500",
+   "ref": "MO-261110-1628-LINK-30m-S",
+   "key": "LINKUSDT|30m|short",
+   "symbol": "LINKUSDT",
+   "tf": "30m",
+   "side": "short",
+   "strategy": "Confirmed Breakout Retest",
+   "trade_style": "30m",
+   "confidence": 68.2,
+   "entry": 10.51472134,
+   "entry_zone": [
+    10.5071026,
+    10.52234009
+   ],
+   "stop": 10.60995567,
+   "targets": [
+    10.27663552,
+    10.204,
+    10.18140119
+   ],
+   "rr": 2.5,
+   "atr": 0.06348955,
+   "risk_per_unit": 0.09523433000000026,
+   "published_ts": 1794315500.578767,
+   "published_time_tehran": "2026-11-10 16:28 Tehran",
+   "last_seen_ts": 1794315500.578767,
+   "republished": 1,
+   "activated_ts": null,
+   "activated_time_tehran": null,
+   "resolved_ts": null,
+   "status": "pending",
+   "result": "open",
+   "result_r": null,
+   "resolve_note": "",
+   "mfe_r": null,
+   "mae_r": null,
+   "bars_to_activate": null,
+   "bars_to_resolve": null,
+   "supports": [
+    "structure bearish",
+    "below cloud",
+    "future cloud red",
+    "ADX 22 aligned",
+    "room ratio 2.04",
+    "tape -32%",
+    "top traders 2.49 long - fuel below",
+    "HTF bearish agrees"
+   ],
+   "warnings": [],
+   "blockers": [],
+   "entry_distance_pct": 0.212,
+   "entry_distance_atr": 0.35,
+   "context": {
+    "score": 12.0,
+    "other_side_score": -11.0,
+    "funding": 0.01,
+    "ls_top": 2.49,
+    "oi_1h": -0.188,
+    "perp_spot_ratio": 7.717,
+    "fng": null,
+    "adx": 21.574029366819733,
+    "rsi14": 40.64008476923272
+   },
+   "position_at_publish": {
+    "margin": 1000.0,
+    "risk_pct": 1.0,
+    "risk_usd": 10.0,
+    "qty": 105.00415077,
+    "notional": 1104.09,
+    "leverage": 1.1,
+    "liquidation": 19.98558079,
+    "target_kinds": [
+     "derived 2.5R",
+     "observed structure",
+     "derived 3.5R"
+    ]
+   }
+  },
+  {
    "id": "ETHUSDT|1h|short@1794265761",
    "ref": "MO-261110-0239-ETH-1h-S",
    "key": "ETHUSDT|1h|short",
@@ -35,7 +114,7 @@
    "result": "open",
    "result_r": null,
    "resolve_note": "",
-   "mfe_r": 1.71,
+   "mfe_r": 1.915,
    "mae_r": -0.057,
    "bars_to_activate": 1,
    "bars_to_resolve": null,
@@ -115,7 +194,7 @@
    "result": "open",
    "result_r": null,
    "resolve_note": "",
-   "mfe_r": 0.671,
+   "mfe_r": 0.721,
    "mae_r": 0.403,
    "bars_to_activate": 1,
    "bars_to_resolve": null,
@@ -192,7 +271,7 @@
    "result": "open",
    "result_r": null,
    "resolve_note": "",
-   "mfe_r": 0.806,
+   "mfe_r": 0.911,
    "mae_r": 0.238,
    "bars_to_activate": 1,
    "bars_to_resolve": null,
@@ -269,7 +348,7 @@
    "result": "open",
    "result_r": null,
    "resolve_note": "",
-   "mfe_r": 0.932,
+   "mfe_r": 1.184,
    "mae_r": 0.334,
    "bars_to_activate": 1,
    "bars_to_resolve": null,
@@ -5684,7 +5763,7 @@
   "losses": 45,
   "win_rate": 26.229508196721312,
   "expectancy_r": -0.13081315976133318,
-  "open": 5,
+  "open": 6,
   "expired": 5,
   "invalidated": 1
  },
@@ -5739,7 +5818,7 @@
    "losses": 7,
    "win_rate": 12.5,
    "expectancy_r": -0.6311532474311835,
-   "open": 0,
+   "open": 1,
    "expired": 0,
    "invalidated": 0,
    "name": "LINKUSDT"
@@ -5807,7 +5886,7 @@
    "losses": 9,
    "win_rate": 18.181818181818183,
    "expectancy_r": -0.38571757035023796,
-   "open": 0,
+   "open": 1,
    "expired": 1,
    "invalidated": 0,
    "name": "30m"
@@ -5842,7 +5921,7 @@
    "losses": 16,
    "win_rate": 38.46153846153847,
    "expectancy_r": 0.25267779494506626,
-   "open": 1,
+   "open": 2,
    "expired": 1,
    "invalidated": 0,
    "name": "Confirmed Breakout Retest"
@@ -5859,6 +5938,6 @@
    "name": "Divergence Reversal"
   }
  ],
- "updated_tehran": "2026-11-10 13:05 Tehran",
- "updated_ts": 1794303300.834671
+ "updated_tehran": "2026-11-10 16:28 Tehran",
+ "updated_ts": 1794315500.583631
 }
