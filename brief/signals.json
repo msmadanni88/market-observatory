@@ -110,7 +110,7 @@
    "result": "open",
    "result_r": null,
    "resolve_note": "",
-   "mfe_r": 0.852,
+   "mfe_r": 0.98,
    "mae_r": 0.538,
    "bars_to_activate": 1,
    "bars_to_resolve": null,
@@ -572,15 +572,15 @@
    "republished": 2,
    "activated_ts": null,
    "activated_time_tehran": null,
-   "resolved_ts": null,
-   "status": "pending",
-   "result": "open",
+   "resolved_ts": 1794470400,
+   "status": "expired",
+   "result": "never activated",
    "result_r": null,
-   "resolve_note": "",
+   "resolve_note": "price never reached the entry zone in 24 bars",
    "mfe_r": null,
    "mae_r": null,
    "bars_to_activate": null,
-   "bars_to_resolve": null,
+   "bars_to_resolve": 0,
    "supports": [
     "structure bearish",
     "below cloud",
@@ -5915,8 +5915,8 @@
   "losses": 46,
   "win_rate": 28.125,
   "expectancy_r": -0.07084639816382225,
-  "open": 5,
-  "expired": 5,
+  "open": 4,
+  "expired": 6,
   "invalidated": 1
  },
  "by_symbol": [
@@ -5970,8 +5970,8 @@
    "losses": 5,
    "win_rate": 44.44444444444444,
    "expectancy_r": 0.46696290272238294,
-   "open": 2,
-   "expired": 1,
+   "open": 1,
+   "expired": 2,
    "invalidated": 0,
    "name": "XRPUSDT"
   },
@@ -6049,8 +6049,8 @@
    "losses": 4,
    "win_rate": 33.33333333333333,
    "expectancy_r": 0.09446840856687899,
-   "open": 4,
-   "expired": 0,
+   "open": 3,
+   "expired": 1,
    "invalidated": 0,
    "name": "4h"
   }
@@ -6062,8 +6062,8 @@
    "losses": 25,
    "win_rate": 13.793103448275861,
    "expectancy_r": -0.5361802062194263,
-   "open": 5,
-   "expired": 4,
+   "open": 4,
+   "expired": 5,
    "invalidated": 1,
    "name": "Trend Continuation"
   },
@@ -6090,6 +6090,6 @@
    "name": "Divergence Reversal"
   }
  ],
- "updated_tehran": "2026-11-12 04:56 Tehran",
- "updated_ts": 1794446761.2329905
+ "updated_tehran": "2026-11-12 13:07 Tehran",
+ "updated_ts": 1794476262.269423
 }
