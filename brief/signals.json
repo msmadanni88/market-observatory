@@ -186,15 +186,15 @@
    "republished": 1,
    "activated_ts": 1794492000,
    "activated_time_tehran": "2026-11-12 17:30 Tehran",
-   "resolved_ts": null,
-   "status": "active",
-   "result": "open",
-   "result_r": null,
-   "resolve_note": "",
+   "resolved_ts": 1794513600,
+   "status": "loss",
+   "result": "stop",
+   "result_r": -1.0,
+   "resolve_note": "stop touched first",
    "mfe_r": 0.432,
-   "mae_r": 0.966,
+   "mae_r": 1.158,
    "bars_to_activate": 1,
-   "bars_to_resolve": null,
+   "bars_to_resolve": 4,
    "supports": [
     "structure bearish",
     "below cloud",
@@ -6145,12 +6145,12 @@
  ],
  "tracking_since": "2026-09-13 19:37 Tehran",
  "overall": {
-  "trades": 68,
+  "trades": 69,
   "wins": 21,
-  "losses": 47,
-  "win_rate": 30.88235294117647,
-  "expectancy_r": 0.02890927229100376,
-  "open": 3,
+  "losses": 48,
+  "win_rate": 30.434782608695656,
+  "expectancy_r": 0.013997543707076168,
+  "open": 2,
   "expired": 6,
   "invalidated": 1
  },
@@ -6222,12 +6222,12 @@
    "name": "BTCUSDT"
   },
   {
-   "trades": 5,
+   "trades": 6,
    "wins": 1,
-   "losses": 4,
-   "win_rate": 20.0,
-   "expectancy_r": -0.30000000506048197,
-   "open": 1,
+   "losses": 5,
+   "win_rate": 16.666666666666664,
+   "expectancy_r": -0.416666670883735,
+   "open": 0,
    "expired": 2,
    "invalidated": 0,
    "name": "HYPEUSDT"
@@ -6246,12 +6246,12 @@
    "name": "15m"
   },
   {
-   "trades": 15,
+   "trades": 16,
    "wins": 2,
-   "losses": 13,
-   "win_rate": 13.333333333333334,
-   "expectancy_r": -0.5796912580000728,
-   "open": 2,
+   "losses": 14,
+   "win_rate": 12.5,
+   "expectancy_r": -0.6059605543750682,
+   "open": 1,
    "expired": 1,
    "invalidated": 0,
    "name": "2h"
@@ -6292,12 +6292,12 @@
  ],
  "by_strategy": [
   {
-   "trades": 32,
+   "trades": 33,
    "wins": 7,
-   "losses": 25,
-   "win_rate": 21.875,
-   "expectancy_r": -0.2515383119403276,
-   "open": 2,
+   "losses": 26,
+   "win_rate": 21.21212121212121,
+   "expectancy_r": -0.2742189691542571,
+   "open": 1,
    "expired": 5,
    "invalidated": 1,
    "name": "Trend Continuation"
@@ -6325,6 +6325,6 @@
    "name": "Divergence Reversal"
   }
  ],
- "updated_tehran": "2026-11-13 00:34 Tehran",
- "updated_ts": 1794517442.672941
+ "updated_tehran": "2026-11-13 02:59 Tehran",
+ "updated_ts": 1794526188.4103897
 }
