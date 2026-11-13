@@ -34,7 +34,7 @@
    "result": "open",
    "result_r": null,
    "resolve_note": "",
-   "mfe_r": 0.861,
+   "mfe_r": 1.371,
    "mae_r": 0.053,
    "bars_to_activate": 1,
    "bars_to_resolve": null,
@@ -182,16 +182,16 @@
    "published_time_tehran": "2026-11-13 16:05 Tehran",
    "last_seen_ts": 1794573306.8634994,
    "republished": 1,
-   "activated_ts": null,
-   "activated_time_tehran": null,
+   "activated_ts": 1794585600,
+   "activated_time_tehran": "2026-11-13 19:30 Tehran",
    "resolved_ts": null,
-   "status": "pending",
+   "status": "active",
    "result": "open",
    "result_r": null,
    "resolve_note": "",
-   "mfe_r": null,
-   "mae_r": null,
-   "bars_to_activate": null,
+   "mfe_r": 0.618,
+   "mae_r": -0.043,
+   "bars_to_activate": 1,
    "bars_to_resolve": null,
    "supports": [
     "structure bearish",
@@ -6555,6 +6555,6 @@
    "name": "Divergence Reversal"
   }
  ],
- "updated_tehran": "2026-11-13 18:45 Tehran",
- "updated_ts": 1794582929.8857143
+ "updated_tehran": "2026-11-14 00:10 Tehran",
+ "updated_ts": 1794602412.456591
 }
