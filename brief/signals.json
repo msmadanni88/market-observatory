@@ -27,16 +27,16 @@
    "published_time_tehran": "2026-11-13 16:05 Tehran",
    "last_seen_ts": 1794573306.8634994,
    "republished": 1,
-   "activated_ts": null,
-   "activated_time_tehran": null,
+   "activated_ts": 1794578400,
+   "activated_time_tehran": "2026-11-13 17:30 Tehran",
    "resolved_ts": null,
-   "status": "pending",
+   "status": "active",
    "result": "open",
    "result_r": null,
    "resolve_note": "",
-   "mfe_r": null,
-   "mae_r": null,
-   "bars_to_activate": null,
+   "mfe_r": 0.861,
+   "mae_r": 0.053,
+   "bars_to_activate": 1,
    "bars_to_resolve": null,
    "supports": [
     "structure bearish",
@@ -259,15 +259,15 @@
    "republished": 1,
    "activated_ts": null,
    "activated_time_tehran": null,
-   "resolved_ts": null,
-   "status": "pending",
-   "result": "open",
+   "resolved_ts": 1794574800,
+   "status": "expired",
+   "result": "never activated",
    "result_r": null,
-   "resolve_note": "",
+   "resolve_note": "price never reached the entry zone in 24 bars",
    "mfe_r": null,
    "mae_r": null,
    "bars_to_activate": null,
-   "bars_to_resolve": null,
+   "bars_to_resolve": 0,
    "supports": [
     "structure bearish",
     "below cloud",
@@ -6380,8 +6380,8 @@
   "losses": 48,
   "win_rate": 30.434782608695656,
   "expectancy_r": 0.013997543707076168,
-  "open": 5,
-  "expired": 6,
+  "open": 4,
+  "expired": 7,
   "invalidated": 1
  },
  "by_symbol": [
@@ -6446,8 +6446,8 @@
    "losses": 6,
    "win_rate": 25.0,
    "expectancy_r": -0.12499999999993922,
-   "open": 1,
-   "expired": 0,
+   "open": 0,
+   "expired": 1,
    "invalidated": 1,
    "name": "BTCUSDT"
   },
@@ -6492,8 +6492,8 @@
    "losses": 9,
    "win_rate": 35.714285714285715,
    "expectancy_r": 0.13155476677005792,
-   "open": 1,
-   "expired": 2,
+   "open": 0,
+   "expired": 3,
    "invalidated": 0,
    "name": "1h"
   },
@@ -6538,8 +6538,8 @@
    "losses": 17,
    "win_rate": 41.37931034482759,
    "expectancy_r": 0.34534675625960076,
-   "open": 1,
-   "expired": 1,
+   "open": 0,
+   "expired": 2,
    "invalidated": 0,
    "name": "Confirmed Breakout Retest"
   },
@@ -6555,6 +6555,6 @@
    "name": "Divergence Reversal"
   }
  ],
- "updated_tehran": "2026-11-13 16:05 Tehran",
- "updated_ts": 1794573306.8678448
+ "updated_tehran": "2026-11-13 18:45 Tehran",
+ "updated_ts": 1794582929.8857143
 }
