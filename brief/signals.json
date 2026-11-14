@@ -34,7 +34,7 @@
    "result": "open",
    "result_r": null,
    "resolve_note": "",
-   "mfe_r": 1.371,
+   "mfe_r": 2.208,
    "mae_r": 0.053,
    "bars_to_activate": 1,
    "bars_to_resolve": null,
@@ -189,7 +189,7 @@
    "result": "open",
    "result_r": null,
    "resolve_note": "",
-   "mfe_r": 0.902,
+   "mfe_r": 1.558,
    "mae_r": -0.043,
    "bars_to_activate": 1,
    "bars_to_resolve": null,
@@ -570,15 +570,15 @@
    "republished": 1,
    "activated_ts": 1794348000,
    "activated_time_tehran": "2026-11-11 01:30 Tehran",
-   "resolved_ts": null,
-   "status": "active",
-   "result": "open",
-   "result_r": null,
-   "resolve_note": "",
-   "mfe_r": 2.362,
+   "resolved_ts": 1794621600,
+   "status": "win",
+   "result": "tp1",
+   "result_r": 2.499999826354221,
+   "resolve_note": "first target touched",
+   "mfe_r": 2.821,
    "mae_r": 0.538,
    "bars_to_activate": 1,
-   "bars_to_resolve": null,
+   "bars_to_resolve": 39,
    "supports": [
     "structure bearish",
     "below cloud",
@@ -6375,12 +6375,12 @@
  ],
  "tracking_since": "2026-09-13 19:37 Tehran",
  "overall": {
-  "trades": 69,
-  "wins": 21,
+  "trades": 70,
+  "wins": 22,
   "losses": 48,
-  "win_rate": 30.434782608695656,
-  "expectancy_r": 0.013997543707076168,
-  "open": 4,
+  "win_rate": 31.428571428571427,
+  "expectancy_r": 0.049511862030606806,
+  "open": 3,
   "expired": 7,
   "invalidated": 1
  },
@@ -6419,6 +6419,17 @@
    "name": "SUIUSDT"
   },
   {
+   "trades": 10,
+   "wins": 5,
+   "losses": 5,
+   "win_rate": 50.0,
+   "expectancy_r": 0.6702665950855666,
+   "open": 1,
+   "expired": 2,
+   "invalidated": 0,
+   "name": "XRPUSDT"
+  },
+  {
    "trades": 9,
    "wins": 2,
    "losses": 7,
@@ -6428,17 +6439,6 @@
    "expired": 0,
    "invalidated": 0,
    "name": "LINKUSDT"
-  },
-  {
-   "trades": 9,
-   "wins": 4,
-   "losses": 5,
-   "win_rate": 44.44444444444444,
-   "expectancy_r": 0.46696290272238294,
-   "open": 2,
-   "expired": 2,
-   "invalidated": 0,
-   "name": "XRPUSDT"
   },
   {
    "trades": 8,
@@ -6476,12 +6476,12 @@
    "name": "15m"
   },
   {
-   "trades": 16,
-   "wins": 2,
+   "trades": 17,
+   "wins": 3,
    "losses": 14,
-   "win_rate": 12.5,
-   "expectancy_r": -0.6059605543750682,
-   "open": 2,
+   "win_rate": 17.647058823529413,
+   "expectancy_r": -0.42325700256746296,
+   "open": 1,
    "expired": 1,
    "invalidated": 0,
    "name": "2h"
@@ -6522,12 +6522,12 @@
  ],
  "by_strategy": [
   {
-   "trades": 33,
-   "wins": 7,
+   "trades": 34,
+   "wins": 8,
    "losses": 26,
-   "win_rate": 21.21212121212121,
-   "expectancy_r": -0.2742189691542571,
-   "open": 4,
+   "win_rate": 23.52941176470588,
+   "expectancy_r": -0.1926242986981254,
+   "open": 3,
    "expired": 5,
    "invalidated": 1,
    "name": "Trend Continuation"
@@ -6555,6 +6555,6 @@
    "name": "Divergence Reversal"
   }
  ],
- "updated_tehran": "2026-11-14 05:40 Tehran",
- "updated_ts": 1794622240.7821145
+ "updated_tehran": "2026-11-14 13:31 Tehran",
+ "updated_ts": 1794650512.9895806
 }
