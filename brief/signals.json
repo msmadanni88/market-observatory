@@ -106,15 +106,15 @@
    "republished": 1,
    "activated_ts": 1794682800,
    "activated_time_tehran": "2026-11-14 22:30 Tehran",
-   "resolved_ts": null,
-   "status": "active",
-   "result": "open",
-   "result_r": null,
-   "resolve_note": "",
-   "mfe_r": 2.122,
+   "resolved_ts": 1794693600,
+   "status": "win",
+   "result": "tp1",
+   "result_r": 2.500000000684831,
+   "resolve_note": "first target touched",
+   "mfe_r": 2.948,
    "mae_r": 0.15,
    "bars_to_activate": 1,
-   "bars_to_resolve": null,
+   "bars_to_resolve": 4,
    "supports": [
     "structure bearish",
     "below cloud",
@@ -6844,23 +6844,23 @@
  ],
  "tracking_since": "2026-09-13 19:37 Tehran",
  "overall": {
-  "trades": 75,
-  "wins": 27,
+  "trades": 76,
+  "wins": 28,
   "losses": 48,
-  "win_rate": 36.0,
-  "expectancy_r": 0.21287774772421492,
-  "open": 4,
+  "win_rate": 36.84210526315789,
+  "expectancy_r": 0.24297146157895985,
+  "open": 3,
   "expired": 7,
   "invalidated": 1
  },
  "by_symbol": [
   {
-   "trades": 17,
-   "wins": 9,
+   "trades": 18,
+   "wins": 10,
    "losses": 8,
-   "win_rate": 52.94117647058824,
-   "expectancy_r": 0.7655920579441606,
-   "open": 1,
+   "win_rate": 55.55555555555556,
+   "expectancy_r": 0.8619480547630869,
+   "open": 0,
    "expired": 0,
    "invalidated": 0,
    "name": "ETHUSDT"
@@ -6956,12 +6956,12 @@
    "name": "15m"
   },
   {
-   "trades": 14,
-   "wins": 5,
+   "trades": 15,
+   "wins": 6,
    "losses": 9,
-   "win_rate": 35.714285714285715,
-   "expectancy_r": 0.13155476677005792,
-   "open": 1,
+   "win_rate": 40.0,
+   "expectancy_r": 0.2894511156977095,
+   "open": 0,
    "expired": 3,
    "invalidated": 0,
    "name": "1h"
@@ -6991,12 +6991,12 @@
  ],
  "by_strategy": [
   {
-   "trades": 37,
-   "wins": 11,
+   "trades": 38,
+   "wins": 12,
    "losses": 26,
-   "win_rate": 29.72972972972973,
-   "expectancy_r": 0.025696610583319863,
-   "open": 4,
+   "win_rate": 31.57894736842105,
+   "expectancy_r": 0.09080985769125437,
+   "open": 3,
    "expired": 5,
    "invalidated": 1,
    "name": "Trend Continuation"
@@ -7024,6 +7024,6 @@
    "name": "Divergence Reversal"
   }
  ],
- "updated_tehran": "2026-11-15 00:46 Tehran",
- "updated_ts": 1794691010.9922018
+ "updated_tehran": "2026-11-15 05:12 Tehran",
+ "updated_ts": 1794706949.0499384
 }
