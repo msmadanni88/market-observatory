@@ -1,6 +1,84 @@
 {
  "records": [
   {
+   "id": "SUIUSDT|2h|short@1794870080",
+   "ref": "MO-261117-0231-SUI-2h-S",
+   "key": "SUIUSDT|2h|short",
+   "symbol": "SUIUSDT",
+   "tf": "2h",
+   "side": "short",
+   "strategy": "Confirmed Breakout Retest",
+   "trade_style": "2h",
+   "confidence": 66.0,
+   "entry": 0.72334306,
+   "entry_zone": [
+    0.72156259,
+    0.72512354
+   ],
+   "stop": 0.74559905,
+   "targets": [
+    0.6747,
+    0.66770309,
+    0.6454471
+   ],
+   "rr": 2.19,
+   "atr": 0.01483733,
+   "risk_per_unit": 0.022255990000000003,
+   "published_ts": 1794870080.2226937,
+   "published_time_tehran": "2026-11-17 02:31 Tehran",
+   "last_seen_ts": 1794870080.2226937,
+   "republished": 1,
+   "activated_ts": null,
+   "activated_time_tehran": null,
+   "resolved_ts": null,
+   "status": "pending",
+   "result": "open",
+   "result_r": null,
+   "resolve_note": "",
+   "mfe_r": null,
+   "mae_r": null,
+   "bars_to_activate": null,
+   "bars_to_resolve": null,
+   "supports": [
+    "structure bearish",
+    "below cloud",
+    "future cloud red",
+    "ADX 24 aligned",
+    "room ratio 2.02",
+    "top traders 2.86 long - fuel below",
+    "HTF bearish agrees"
+   ],
+   "warnings": [],
+   "blockers": [],
+   "entry_distance_pct": 0.723,
+   "entry_distance_atr": 0.35,
+   "context": {
+    "score": 11.0,
+    "other_side_score": -10.0,
+    "funding": -0.006183,
+    "ls_top": 2.86,
+    "oi_1h": 0.927,
+    "perp_spot_ratio": 4.436,
+    "fng": null,
+    "adx": 24.370213301667924,
+    "rsi14": 43.86320972437204
+   },
+   "position_at_publish": {
+    "margin": 1000.0,
+    "risk_pct": 1.0,
+    "risk_usd": 10.0,
+    "qty": 449.31723748,
+    "notional": 325.01,
+    "leverage": 0.33,
+    "liquidation": null,
+    "target_kinds": [
+     "observed structure",
+     "derived 2.5R",
+     "derived 3.5R"
+    ]
+   }
+  },
+  {
    "id": "XRPUSDT|2h|short@1794834409",
    "ref": "MO-261116-1636-XRP-2h-S",
    "key": "XRPUSDT|2h|short",
@@ -88,7 +166,7 @@
    "side": "short",
    "strategy": "Confirmed Breakout Retest",
    "trade_style": "2h",
-   "confidence": 67.5,
+   "confidence": 68.2,
    "entry": 9.15528779,
    "entry_zone": [
     9.13461769,
@@ -105,8 +183,8 @@
    "risk_per_unit": 0.25837623000000143,
    "published_ts": 1794834409.2609415,
    "published_time_tehran": "2026-11-16 16:36 Tehran",
-   "last_seen_ts": 1794834409.2609415,
-   "republished": 1,
+   "last_seen_ts": 1794870080.2274885,
+   "republished": 2,
    "activated_ts": 1794837600,
    "activated_time_tehran": "2026-11-16 17:30 Tehran",
    "resolved_ts": null,
@@ -642,7 +720,7 @@
    "side": "short",
    "strategy": "Trend Continuation",
    "trade_style": "2h",
-   "confidence": 67.5,
+   "confidence": 72.0,
    "entry": 72.65754969,
    "entry_zone": [
     72.48696123,
@@ -658,8 +736,8 @@
    "risk_per_unit": 2.1323558300000087,
    "published_ts": 1794682318.2880793,
    "published_time_tehran": "2026-11-14 22:21 Tehran",
-   "last_seen_ts": 1794834409.2661242,
-   "republished": 2,
+   "last_seen_ts": 1794870080.2274885,
+   "republished": 3,
    "activated_ts": 1794736800,
    "activated_time_tehran": "2026-11-15 13:30 Tehran",
    "resolved_ts": null,
@@ -7326,7 +7404,7 @@
   "losses": 48,
   "win_rate": 36.84210526315789,
   "expectancy_r": 0.24297146157895985,
-  "open": 8,
+  "open": 9,
   "expired": 8,
   "invalidated": 1
  },
@@ -7370,7 +7448,7 @@
    "losses": 7,
    "win_rate": 30.0,
    "expectancy_r": -0.019536857005923426,
-   "open": 0,
+   "open": 1,
    "expired": 0,
    "invalidated": 0,
    "name": "SUIUSDT"
@@ -7416,7 +7494,7 @@
    "losses": 14,
    "win_rate": 26.31578947368421,
    "expectancy_r": -0.11554573893015663,
-   "open": 4,
+   "open": 5,
    "expired": 2,
    "invalidated": 0,
    "name": "2h"
@@ -7484,7 +7562,7 @@
    "losses": 17,
    "win_rate": 45.16129032258064,
    "expectancy_r": 0.48435664262525696,
-   "open": 5,
+   "open": 6,
    "expired": 2,
    "invalidated": 0,
    "name": "Confirmed Breakout Retest"
@@ -7501,6 +7579,6 @@
    "name": "Divergence Reversal"
   }
  ],
- "updated_tehran": "2026-11-16 23:43 Tehran",
- "updated_ts": 1794860037.839726
+ "updated_tehran": "2026-11-17 02:31 Tehran",
+ "updated_ts": 1794870080.2274885
 }
