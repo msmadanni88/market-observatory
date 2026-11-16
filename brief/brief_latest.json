@@ -1,145 +1,126 @@
 {
   "digest": {
-    "generated_tehran": "2026-11-15 22:59",
-    "generated_ts": 1794770980.8854353,
-    "scanned": 44,
+    "generated_tehran": "2026-11-16 16:36",
+    "generated_ts": 1794834409.2609415,
+    "scanned": 40,
     "sectors": [
       {
         "sector": "perp_dex",
-        "median_7d_pct": -9.88,
-        "median_30d_pct": -16.41,
+        "median_7d_pct": -12.95,
+        "median_30d_pct": -16.17,
         "leader": "HYPE",
-        "leader_rsi": 33.1,
+        "leader_rsi": 32.2,
         "laggard": "HYPE",
-        "laggard_rsi": 33.1
-      },
-      {
-        "sector": "oracle_rwa",
-        "median_7d_pct": -11.28,
-        "median_30d_pct": -25.18,
-        "leader": "LINK",
-        "leader_rsi": 31.8,
-        "laggard": "ONDO",
-        "laggard_rsi": 31.3
-      },
-      {
-        "sector": "l1_major",
-        "median_7d_pct": -12.11,
-        "median_30d_pct": -27.43,
-        "leader": "AVAX",
-        "leader_rsi": 32.6,
-        "laggard": "SOL",
-        "laggard_rsi": 18.3
+        "laggard_rsi": 32.2
       },
       {
         "sector": "payments",
-        "median_7d_pct": -12.6,
-        "median_30d_pct": -24.7,
-        "leader": "LTC",
-        "leader_rsi": 28.1,
+        "median_7d_pct": -13.41,
+        "median_30d_pct": -26.46,
+        "leader": "XRP",
+        "leader_rsi": 25.7,
         "laggard": "XRP",
-        "laggard_rsi": 24.1
+        "laggard_rsi": 25.7
       },
       {
         "sector": "exchange",
-        "median_7d_pct": -13.58,
-        "median_30d_pct": -17.93,
+        "median_7d_pct": -14.94,
+        "median_30d_pct": -18.1,
         "leader": "BNB",
-        "leader_rsi": 24.7,
+        "leader_rsi": 25.4,
         "laggard": "BNB",
-        "laggard_rsi": 24.7
+        "laggard_rsi": 25.4
+      },
+      {
+        "sector": "l1_major",
+        "median_7d_pct": -15.53,
+        "median_30d_pct": -26.86,
+        "leader": "NEAR",
+        "leader_rsi": 34.1,
+        "laggard": "SOL",
+        "laggard_rsi": 19.8
       },
       {
         "sector": "meme",
-        "median_7d_pct": -14.54,
-        "median_30d_pct": -2.94,
+        "median_7d_pct": -16.53,
+        "median_30d_pct": -2.82,
         "leader": "DOGE",
-        "leader_rsi": 24.1,
+        "leader_rsi": 25.3,
         "laggard": "DOGE",
-        "laggard_rsi": 24.1
+        "laggard_rsi": 25.3
+      },
+      {
+        "sector": "defi",
+        "median_7d_pct": -17.64,
+        "median_30d_pct": -28.6,
+        "leader": "AAVE",
+        "leader_rsi": 35.2,
+        "laggard": "UNI",
+        "laggard_rsi": 31.9
       },
       {
         "sector": "ai",
-        "median_7d_pct": -15.04,
-        "median_30d_pct": -48.71,
+        "median_7d_pct": -17.9,
+        "median_30d_pct": -46.85,
         "leader": "WLD",
-        "leader_rsi": 26.3,
+        "leader_rsi": 27.1,
         "laggard": "WLD",
-        "laggard_rsi": 26.3
+        "laggard_rsi": 27.1
       },
       {
-        "sector": "l2",
-        "median_7d_pct": -18.63,
-        "median_30d_pct": -29.35,
-        "leader": "ARB",
-        "leader_rsi": 35.9,
-        "laggard": "ARB",
-        "laggard_rsi": 35.9
+        "sector": "privacy",
+        "median_7d_pct": -25.88,
+        "median_30d_pct": -23.47,
+        "leader": "ZEC",
+        "leader_rsi": 31.8,
+        "laggard": "ZEC",
+        "laggard_rsi": 31.8
       }
     ],
     "most_extended": [
       {
-        "sym": "PIEVERSE",
-        "px": 1.7655,
-        "rsi": 65.4,
-        "ema20": 19.57,
-        "d7": 22.42,
-        "d30": 56.95,
-        "atr_ptl": 91.0,
-        "vol_surge": 1.16,
-        "fund": 5e-05,
-        "sector": null,
-        "gap": null,
-        "why": [
-          "20% above EMA20",
-          "+22% in 7d"
-        ]
-      },
-      {
         "sym": "AKE",
-        "px": 0.011629,
-        "rsi": 48.5,
-        "ema20": 7.63,
-        "d7": 122.82,
-        "d30": -61.98,
-        "atr_ptl": 42.0,
-        "vol_surge": 0.69,
-        "fund": -0.0003014618879572,
+        "px": 0.011155,
+        "rsi": 47.8,
+        "ema20": 3.02,
+        "d7": 289.08,
+        "d30": -63.47,
+        "atr_ptl": 44.0,
+        "vol_surge": 0.45,
+        "fund": -0.0001737227706048,
         "sector": null,
         "gap": null,
         "why": [
-          "+123% in 7d",
+          "+289% in 7d",
           "volume fading into highs"
         ]
       },
       {
-        "sym": "SOXL",
-        "px": 56.28,
-        "rsi": 39.4,
-        "ema20": -15.61,
-        "d7": 27.79,
-        "d30": -40.53,
-        "atr_ptl": 93.0,
-        "vol_surge": 0.17,
-        "fund": 0.0014921527868184,
+        "sym": "PIEVERSE",
+        "px": 1.9412,
+        "rsi": 71.8,
+        "ema20": 26.84,
+        "d7": -3.68,
+        "d30": 77.65,
+        "atr_ptl": 85.0,
+        "vol_surge": 0.45,
+        "fund": 5e-05,
         "sector": null,
         "gap": null,
         "why": [
-          "+28% in 7d",
-          "volume fading into highs",
-          "funding crowded long"
+          "27% above EMA20"
         ]
       },
       {
         "sym": "NVDA",
-        "px": 164.44,
-        "rsi": 30.3,
-        "ema20": -10.67,
-        "d7": -8.55,
-        "d30": -23.2,
+        "px": 158.55,
+        "rsi": 28.4,
+        "ema20": -12.77,
+        "d7": -12.11,
+        "d30": -25.82,
         "atr_ptl": 99.0,
-        "vol_surge": 0.55,
-        "fund": 0.0010015871284489,
+        "vol_surge": 1.1,
+        "fund": 0.0004200436166227,
         "sector": null,
         "gap": null,
         "why": [
@@ -148,14 +129,14 @@
       },
       {
         "sym": "BTC",
-        "px": 64956.4,
+        "px": 64233.0,
         "rsi": 22.9,
-        "ema20": -12.15,
-        "d7": -13.18,
-        "d30": -20.38,
+        "ema20": -12.06,
+        "d7": -14.72,
+        "d30": -21.14,
         "atr_ptl": 99.0,
-        "vol_surge": 1.45,
-        "fund": 2.526767429e-05,
+        "vol_surge": 0.53,
+        "fund": 2.97276890715e-05,
         "sector": "l1_major",
         "gap": {
           "tf": "4h",
@@ -163,85 +144,81 @@
           "hi": 69387.55,
           "mid": 69264.3,
           "side": "above",
-          "dist_pct": 6.49,
+          "dist_pct": 7.54,
           "size_pct": 0.38,
-          "age_bars": 5
+          "age_bars": 10
         },
         "why": []
       },
       {
         "sym": "ETH",
-        "px": 1823.67,
-        "rsi": 25.0,
-        "ema20": -14.18,
-        "d7": -14.25,
-        "d30": -24.72,
+        "px": 1801.49,
+        "rsi": 24.9,
+        "ema20": -14.01,
+        "d7": -15.58,
+        "d30": -24.99,
         "atr_ptl": 99.0,
-        "vol_surge": 1.27,
-        "fund": -3.9009125043e-06,
-        "sector": "l1_major",
-        "gap": null,
-        "why": []
-      },
-      {
-        "sym": "SOL",
-        "px": 71.58,
-        "rsi": 18.3,
-        "ema20": -17.82,
-        "d7": -17.24,
-        "d30": -31.44,
-        "atr_ptl": 99.0,
-        "vol_surge": 1.44,
-        "fund": -8.883892184e-07,
+        "vol_surge": 0.52,
+        "fund": -6.81241090167e-05,
         "sector": "l1_major",
         "gap": null,
         "why": []
       },
       {
         "sym": "ZEC",
-        "px": 900.3,
-        "rsi": 32.9,
-        "ema20": -18.32,
-        "d7": -25.77,
-        "d30": -21.61,
+        "px": 862.5,
+        "rsi": 31.8,
+        "ema20": -20.19,
+        "d7": -25.88,
+        "d30": -23.47,
         "atr_ptl": 91.0,
-        "vol_surge": 0.87,
+        "vol_surge": 0.47,
         "fund": 0.0001,
         "sector": "privacy",
         "gap": null,
         "why": [
           "above rising 200"
         ]
+      },
+      {
+        "sym": "SOL",
+        "px": 70.8,
+        "rsi": 19.8,
+        "ema20": -17.34,
+        "d7": -18.31,
+        "d30": -31.53,
+        "atr_ptl": 98.0,
+        "vol_surge": 0.53,
+        "fund": -3.3750843323e-06,
+        "sector": "l1_major",
+        "gap": null,
+        "why": []
+      },
+      {
+        "sym": "SOXL",
+        "px": 51.48,
+        "rsi": 37.6,
+        "ema20": -21.3,
+        "d7": -10.16,
+        "d30": -44.37,
+        "atr_ptl": 96.0,
+        "vol_surge": 0.61,
+        "fund": 0.0,
+        "sector": null,
+        "gap": null,
+        "why": []
       }
     ],
     "most_compressed": [
       {
-        "sym": "INIT",
-        "px": 0.10796,
-        "rsi": 43.3,
-        "ema20": -20.26,
-        "d7": -9.96,
-        "d30": -14.22,
-        "atr_ptl": 98.0,
-        "vol_surge": 1.97,
-        "fund": -0.0018219376018173,
-        "sector": null,
-        "gap": null,
-        "why": [
-          "RSI 43 neutral",
-          "above rising 200",
-          "volume 2.0x"
-        ]
-      },
-      {
         "sym": "SPCX",
-        "px": 138.98,
-        "rsi": 47.7,
-        "ema20": -0.61,
-        "d7": 2.88,
-        "d30": -4.64,
-        "atr_ptl": 59.0,
-        "vol_surge": 0.21,
+        "px": 139.11,
+        "rsi": 47.9,
+        "ema20": -0.55,
+        "d7": -2.43,
+        "d30": -4.28,
+        "atr_ptl": 57.0,
+        "vol_surge": 0.41,
         "fund": 0.0,
         "sector": null,
         "gap": {
@@ -250,9 +227,9 @@
           "hi": 157.755,
           "mid": 156.65,
           "side": "above",
-          "dist_pct": 11.91,
+          "dist_pct": 11.77,
           "size_pct": 1.62,
-          "age_bars": 17
+          "age_bars": 18
         },
         "why": [
           "RSI 48 neutral",
@@ -261,75 +238,92 @@
         ]
       },
       {
-        "sym": "INJ",
-        "px": 6.962,
-        "rsi": 41.5,
-        "ema20": -9.11,
-        "d7": -13.46,
-        "d30": -20.22,
-        "atr_ptl": 85.0,
-        "vol_surge": 1.19,
-        "fund": -0.0001677086695587,
-        "sector": "l1_major",
-        "gap": {
-          "tf": "4h",
-          "lo": 7.5395,
-          "hi": 7.565,
-          "mid": 7.55225,
-          "side": "above",
-          "dist_pct": 8.33,
-          "size_pct": 0.37,
-          "age_bars": 5
-        },
-        "why": [
-          "RSI 41 neutral",
-          "mid-range",
-          "above rising 200"
-        ]
-      },
-      {
-        "sym": "SOPH",
-        "px": 0.001263,
-        "rsi": 41.8,
-        "ema20": -19.92,
-        "d7": 2.6,
-        "d30": -46.14,
-        "atr_ptl": 97.0,
-        "vol_surge": 5.68,
-        "fund": -0.0019792622757088,
-        "sector": null,
-        "gap": null,
-        "why": [
-          "RSI 42 neutral",
-          "volume 5.7x"
-        ]
-      },
-      {
-        "sym": "MU",
-        "px": 765.04,
-        "rsi": 43.1,
-        "ema20": -4.06,
-        "d7": 13.17,
-        "d30": -12.84,
-        "atr_ptl": 84.0,
-        "vol_surge": 0.17,
+        "sym": "SOXS",
+        "px": 56.89,
+        "rsi": 52.6,
+        "ema20": 4.35,
+        "d7": 5.04,
+        "d30": 13.42,
+        "atr_ptl": 94.0,
+        "vol_surge": 0.65,
         "fund": 0.0,
         "sector": null,
         "gap": null,
+        "why": [
+          "RSI 53 neutral",
+          "hugging EMA20",
+          "mid-range"
+        ]
+      },
+      {
+        "sym": "AKE",
+        "px": 0.011155,
+        "rsi": 47.8,
+        "ema20": 3.02,
+        "d7": 289.08,
+        "d30": -63.47,
+        "atr_ptl": 44.0,
+        "vol_surge": 0.45,
+        "fund": -0.0001737227706048,
+        "sector": null,
+        "gap": null,
+        "why": [
+          "+289% in 7d",
+          "volume fading into highs"
+        ]
+      },
+      {
+        "sym": "QQQ",
+        "px": 672.39,
+        "rsi": 43.2,
+        "ema20": -1.72,
+        "d7": -1.3,
+        "d30": -5.1,
+        "atr_ptl": 99.0,
+        "vol_surge": 1.13,
+        "fund": 0.0,
+        "sector": null,
+        "gap": {
+          "tf": "1d",
+          "lo": 701.435,
+          "hi": 714.9375,
+          "mid": 708.18625,
+          "side": "above",
+          "dist_pct": 4.31,
+          "size_pct": 2.09,
+          "age_bars": 12
+        },
         "why": [
           "RSI 43 neutral",
           "hugging EMA20"
         ]
       },
       {
+        "sym": "INIT",
+        "px": 0.09632,
+        "rsi": 40.9,
+        "ema20": -26.69,
+        "d7": -47.93,
+        "d30": -22.54,
+        "atr_ptl": 98.0,
+        "vol_surge": 0.35,
+        "fund": -0.0023462953858184,
+        "sector": null,
+        "gap": null,
+        "why": [
+          "RSI 41 neutral",
+          "above rising 200"
+        ]
+      },
+      {
         "sym": "ZEC",
-        "px": 900.3,
-        "rsi": 32.9,
-        "ema20": -18.32,
-        "d7": -25.77,
-        "d30": -21.61,
+        "px": 862.5,
+        "rsi": 31.8,
+        "ema20": -20.19,
+        "d7": -25.88,
+        "d30": -23.47,
         "atr_ptl": 91.0,
-        "vol_surge": 0.87,
+        "vol_surge": 0.47,
         "fund": 0.0001,
         "sector": "privacy",
         "gap": null,
@@ -338,31 +332,14 @@
         ]
       },
       {
-        "sym": "AKE",
-        "px": 0.011629,
-        "rsi": 48.5,
-        "ema20": 7.63,
-        "d7": 122.82,
-        "d30": -61.98,
-        "atr_ptl": 42.0,
-        "vol_surge": 0.69,
-        "fund": -0.0003014618879572,
-        "sector": null,
-        "gap": null,
-        "why": [
-          "+123% in 7d",
-          "volume fading into highs"
-        ]
-      },
-      {
         "sym": "XAU",
-        "px": 3854.4,
-        "rsi": 36.2,
-        "ema20": -3.31,
-        "d7": -5.14,
-        "d30": -7.57,
-        "atr_ptl": 92.0,
-        "vol_surge": 0.42,
+        "px": 3878.8,
+        "rsi": 39.4,
+        "ema20": -2.55,
+        "d7": -6.43,
+        "d30": -6.84,
+        "atr_ptl": 94.0,
+        "vol_surge": 0.58,
         "fund": 0.0,
         "sector": null,
         "gap": {
@@ -371,61 +348,101 @@
           "hi": 4040.9,
           "mid": 4024.675,
           "side": "above",
-          "dist_pct": 4.0,
+          "dist_pct": 3.31,
           "size_pct": 0.84,
-          "age_bars": 20
+          "age_bars": 25
         },
         "why": [
           "hugging EMA20"
+        ]
+      },
+      {
+        "sym": "MU",
+        "px": 734.87,
+        "rsi": 40.7,
+        "ema20": -7.32,
+        "d7": -0.74,
+        "d30": -14.9,
+        "atr_ptl": 88.0,
+        "vol_surge": 0.9,
+        "fund": 0.0,
+        "sector": null,
+        "gap": null,
+        "why": [
+          "RSI 41 neutral"
         ]
       }
     ],
     "trending_with_room": [
       {
-        "sym": "INIT",
-        "px": 0.10796,
-        "rsi": 43.3,
-        "ema20": -20.26,
-        "d7": -9.96,
-        "d30": -14.22,
-        "atr_ptl": 98.0,
-        "vol_surge": 1.97,
-        "fund": -0.0018219376018173,
+        "sym": "SOXS",
+        "px": 56.89,
+        "rsi": 52.6,
+        "ema20": 4.35,
+        "d7": 5.04,
+        "d30": 13.42,
+        "atr_ptl": 94.0,
+        "vol_surge": 0.65,
+        "fund": 0.0,
         "sector": null,
         "gap": null,
         "why": [
-          "RSI 43 neutral",
-          "above rising 200",
-          "volume 2.0x"
+          "RSI 53 neutral",
+          "hugging EMA20",
+          "mid-range"
+        ]
+      },
+      {
+        "sym": "UNITREE",
+        "px": 103.3,
+        "rsi": 62.1,
+        "ema20": 4.87,
+        "d7": -2.87,
+        "d30": 63.97,
+        "atr_ptl": 60.0,
+        "vol_surge": 0.85,
+        "fund": -0.0001526554997934,
+        "sector": null,
+        "gap": {
+          "tf": "4h",
+          "lo": 95.765,
+          "hi": 97.58,
+          "mid": 96.6725,
+          "side": "below",
+          "dist_pct": -5.53,
+          "size_pct": 1.73,
+          "age_bars": 46
+        },
+        "why": [
+          "hugging EMA20"
         ]
       },
       {
         "sym": "PIEVERSE",
-        "px": 1.7655,
-        "rsi": 65.4,
-        "ema20": 19.57,
-        "d7": 22.42,
-        "d30": 56.95,
-        "atr_ptl": 91.0,
-        "vol_surge": 1.16,
+        "px": 1.9412,
+        "rsi": 71.8,
+        "ema20": 26.84,
+        "d7": -3.68,
+        "d30": 77.65,
+        "atr_ptl": 85.0,
+        "vol_surge": 0.45,
         "fund": 5e-05,
         "sector": null,
         "gap": null,
         "why": [
-          "20% above EMA20",
-          "+22% in 7d"
+          "27% above EMA20"
         ]
       },
       {
         "sym": "PEPE",
-        "px": 3.9088e-06,
-        "rsi": 38.0,
-        "ema20": -14.55,
-        "d7": -21.08,
-        "d30": -2.94,
+        "px": 3.76e-06,
+        "rsi": 35.9,
+        "ema20": -16.34,
+        "d7": -26.67,
+        "d30": -2.82,
         "atr_ptl": 98.0,
-        "vol_surge": 0.61,
-        "fund": -0.0001502132121496,
+        "vol_surge": 0.42,
+        "fund": -8.85469524239e-05,
         "sector": "meme",
         "gap": {
           "tf": "4h",
@@ -433,50 +450,40 @@
           "hi": 4e-06,
           "mid": 4e-06,
           "side": "below",
-          "dist_pct": -10.05,
+          "dist_pct": -6.73,
           "size_pct": 0.57,
-          "age_bars": 350
+          "age_bars": 355
         },
         "why": [
           "above rising 200"
         ]
       },
       {
-        "sym": "INJ",
-        "px": 6.962,
-        "rsi": 41.5,
-        "ema20": -9.11,
-        "d7": -13.46,
-        "d30": -20.22,
-        "atr_ptl": 85.0,
-        "vol_surge": 1.19,
-        "fund": -0.0001677086695587,
-        "sector": "l1_major",
-        "gap": {
-          "tf": "4h",
-          "lo": 7.5395,
-          "hi": 7.565,
-          "mid": 7.55225,
-          "side": "above",
-          "dist_pct": 8.33,
-          "size_pct": 0.37,
-          "age_bars": 5
-        },
+        "sym": "INIT",
+        "px": 0.09632,
+        "rsi": 40.9,
+        "ema20": -26.69,
+        "d7": -47.93,
+        "d30": -22.54,
+        "atr_ptl": 98.0,
+        "vol_surge": 0.35,
+        "fund": -0.0023462953858184,
+        "sector": null,
+        "gap": null,
         "why": [
           "RSI 41 neutral",
-          "mid-range",
           "above rising 200"
         ]
       },
       {
         "sym": "ZEC",
-        "px": 900.3,
-        "rsi": 32.9,
-        "ema20": -18.32,
-        "d7": -25.77,
-        "d30": -21.61,
+        "px": 862.5,
+        "rsi": 31.8,
+        "ema20": -20.19,
+        "d7": -25.88,
+        "d30": -23.47,
         "atr_ptl": 91.0,
-        "vol_surge": 0.87,
+        "vol_surge": 0.47,
         "fund": 0.0001,
         "sector": "privacy",
         "gap": null,
@@ -486,14 +493,14 @@
       },
       {
         "sym": "NEAR",
-        "px": 3.15,
-        "rsi": 33.3,
-        "ema20": -16.48,
-        "d7": -12.11,
-        "d30": -37.86,
-        "atr_ptl": 73.0,
-        "vol_surge": 0.78,
-        "fund": 9.97271917624e-05,
+        "px": 3.142,
+        "rsi": 34.1,
+        "ema20": -15.48,
+        "d7": -13.37,
+        "d30": -35.35,
+        "atr_ptl": 62.0,
+        "vol_surge": 0.35,
+        "fund": 6.87056347476e-05,
         "sector": "l1_major",
         "gap": {
           "tf": "4h",
@@ -501,9 +508,9 @@
           "hi": 3.44025,
           "mid": 3.393875,
           "side": "above",
-          "dist_pct": 6.34,
+          "dist_pct": 6.64,
           "size_pct": 3.06,
-          "age_bars": 6
+          "age_bars": 11
         },
         "why": [
           "above rising 200"
@@ -511,14 +518,14 @@
       },
       {
         "sym": "UNI",
-        "px": 5.172,
-        "rsi": 32.5,
-        "ema20": -20.22,
-        "d7": -23.78,
-        "d30": -29.44,
-        "atr_ptl": 99.0,
-        "vol_surge": 1.06,
-        "fund": -3.8138666355e-05,
+        "px": 5.077,
+        "rsi": 31.9,
+        "ema20": -20.05,
+        "d7": -27.28,
+        "d30": -28.97,
+        "atr_ptl": 98.0,
+        "vol_surge": 0.47,
+        "fund": -4.02775878073e-05,
         "sector": "defi",
         "gap": {
           "tf": "1d",
@@ -526,34 +533,9 @@
           "hi": 4.5655,
           "mid": 4.447,
           "side": "below",
-          "dist_pct": -11.69,
+          "dist_pct": -10.32,
           "size_pct": 4.06,
-          "age_bars": 76
-        },
-        "why": [
-          "above rising 200"
-        ]
-      },
-      {
-        "sym": "LIT",
-        "px": 2.8375,
-        "rsi": 40.0,
-        "ema20": -10.75,
-        "d7": -7.2,
-        "d30": -10.73,
-        "atr_ptl": 85.0,
-        "vol_surge": 0.62,
-        "fund": 5e-05,
-        "sector": null,
-        "gap": {
-          "tf": "4h",
-          "lo": 3.1033,
-          "hi": 3.19425,
-          "mid": 3.148775,
-          "side": "above",
-          "dist_pct": 9.49,
-          "size_pct": 3.16,
-          "age_bars": 6
+          "age_bars": 77
         },
         "why": [
           "above rising 200"
@@ -570,114 +552,51 @@
         "tp2": 700,
         "opened": "2026-09-08",
         "note": "privacy laggard - RSI 72 while ZEC was 86",
-        "price": 499.77,
-        "pnl_pct": -1.62,
-        "rr_remaining": 3.09,
+        "price": 499.68,
+        "pnl_pct": -1.64,
+        "rr_remaining": 3.1,
         "status": "open",
         "flags": []
       }
     ],
     "events_next_14d": [],
     "setups_considered": 35,
-    "setups_approved": 10,
+    "setups_approved": 4,
     "setups_published": 3,
     "publication_cap": 3,
-    "setups_over_cap": 7
+    "setups_over_cap": 1
   },
   "signals": [
     {
-      "symbol": "ETHUSDT",
+      "symbol": "XRPUSDT",
       "tf": "2h",
-      "side": "short",
-      "strategy": "Trend Continuation",
-      "confidence": 74.2,
-      "market_price": 1822.52,
-      "entry": 1836.01887615,
-      "entry_zone": [
-        1831.39069004,
-        1840.64706226
-      ],
-      "stop": 1893.8712025,
-      "targets": [
-        1709.08,
-        1691.38806028,
-        1633.53573393
-      ],
-      "rr": 2.19,
-      "atr": 38.56821757,
-      "entry_distance_pct": 0.741,
-      "entry_distance_atr": 0.35,
-      "supports": [
-        "structure bearish",
-        "below cloud",
-        "future cloud red",
-        "ADX 47 aligned",
-        "RSI 43 overbought, selling strength",
-        "room ratio 5.10",
-        "tape -41%",
-        "top traders 2.61 long - fuel below",
-        "perp/spot 18.1x - leverage driven, thin spot bid",
-        "HTF bearish agrees"
-      ],
-      "blockers": [],
-      "warnings": [],
-      "position": {
-        "margin": 1000.0,
-        "risk_pct": 1.0,
-        "risk_usd": 10.0,
-        "qty": 0.1728539,
-        "notional": 317.36,
-        "leverage": 0.32,
-        "liquidation": null,
-        "target_kinds": [
-          "observed structure",
-          "derived 2.5R",
-          "derived 3.5R"
-        ]
-      },
-      "context": {
-        "score": 15.0,
-        "other_side_score": -13.0,
-        "funding": -0.000382,
-        "ls_top": 2.61,
-        "oi_1h": 0.07,
-        "perp_spot_ratio": 18.141,
-        "fng": null,
-        "adx": 46.792238287710084,
-        "rsi14": 43.34771487352282
-      },
-      "rejected": ""
-    },
-    {
-      "symbol": "BTCUSDT",
-      "tf": "1h",
       "side": "short",
       "strategy": "Confirmed Breakout Retest",
       "confidence": 68.2,
-      "market_price": 64901.65,
-      "entry": 65150.53006519,
+      "market_price": 0.95135,
+      "entry": 0.9578905,
       "entry_zone": [
-        65065.19975713,
-        65235.86037326
+        0.95564804,
+        0.96013295
       ],
-      "stop": 66217.15891602,
+      "stop": 0.98592119,
       "targets": [
-        62483.95793813,
-        61931.1,
-        61417.3290873
+        0.8922,
+        0.88781376,
+        0.85978306
       ],
-      "rr": 2.5,
-      "atr": 711.08590055,
-      "entry_distance_pct": 0.383,
+      "rr": 2.34,
+      "atr": 0.01868713,
+      "entry_distance_pct": 0.687,
       "entry_distance_atr": 0.35,
       "supports": [
         "structure bearish",
         "below cloud",
         "future cloud red",
         "ADX 25 aligned",
-        "room ratio 4.55",
-        "tape -61%",
-        "top traders 2.67 long - fuel below",
+        "room ratio 2.15",
+        "tape -67%",
+        "top traders 2.22 long - fuel below",
         "HTF bearish agrees"
       ],
       "blockers": [],
@@ -686,59 +605,58 @@
         "margin": 1000.0,
         "risk_pct": 1.0,
         "risk_usd": 10.0,
-        "qty": 0.00937533,
-        "notional": 610.81,
-        "leverage": 0.61,
+        "qty": 356.75176492,
+        "notional": 341.73,
+        "leverage": 0.34,
         "liquidation": null,
         "target_kinds": [
-          "derived 2.5R",
           "observed structure",
+          "derived 2.5R",
           "derived 3.5R"
         ]
       },
       "context": {
         "score": 12.0,
         "other_side_score": -11.0,
-        "funding": 0.002481,
-        "ls_top": 2.67,
-        "oi_1h": -0.181,
-        "perp_spot_ratio": 9.864,
+        "funding": -0.00362,
+        "ls_top": 2.22,
+        "oi_1h": -0.126,
+        "perp_spot_ratio": 6.65,
         "fng": null,
-        "adx": 25.330755222845017,
-        "rsi14": 46.990298824867814
+        "adx": 25.46493794962628,
+        "rsi14": 44.971999071000845
       },
       "rejected": ""
     },
     {
       "symbol": "SOLUSDT",
-      "tf": "1h",
+      "tf": "2h",
       "side": "short",
-      "strategy": "Confirmed Breakout Retest",
-      "confidence": 68.2,
-      "market_price": 71.5615,
-      "entry": 71.94268698,
+      "strategy": "Trend Continuation",
+      "confidence": 67.5,
+      "market_price": 70.88,
+      "entry": 71.38218982,
       "entry_zone": [
-        71.8119943,
-        72.07337966
+        71.21001045,
+        71.55436918
       ],
-      "stop": 73.57634549,
+      "stop": 73.53443189,
       "targets": [
-        67.85854073,
         67.33,
-        66.22488222
+        66.00158464,
+        63.84934256
       ],
-      "rr": 2.5,
-      "atr": 1.08910567,
-      "entry_distance_pct": 0.533,
+      "rr": 1.88,
+      "atr": 1.43482805,
+      "entry_distance_pct": 0.709,
       "entry_distance_atr": 0.35,
       "supports": [
         "structure bearish",
         "below cloud",
         "future cloud red",
-        "ADX 28 aligned",
-        "room ratio 10.11",
-        "tape -23%",
-        "top traders 2.86 long - fuel below",
+        "ADX 41 aligned",
+        "tape -47%",
+        "top traders 2.89 long - fuel below",
         "HTF bearish agrees"
       ],
       "blockers": [],
@@ -747,26 +665,86 @@
         "margin": 1000.0,
         "risk_pct": 1.0,
         "risk_usd": 10.0,
-        "qty": 6.12123034,
-        "notional": 440.38,
-        "leverage": 0.44,
+        "qty": 4.6463175,
+        "notional": 331.66,
+        "leverage": 0.33,
         "liquidation": null,
         "target_kinds": [
-          "derived 2.5R",
           "observed structure",
+          "derived 2.5R",
           "derived 3.5R"
         ]
       },
       "context": {
         "score": 12.0,
         "other_side_score": -11.0,
-        "funding": -1.8e-05,
-        "ls_top": 2.86,
-        "oi_1h": -0.073,
-        "perp_spot_ratio": 9.908,
+        "funding": -0.000353,
+        "ls_top": 2.89,
+        "oi_1h": -0.76,
+        "perp_spot_ratio": 9.781,
         "fng": null,
-        "adx": 27.821642108123548,
-        "rsi14": 47.209562364564455
+        "adx": 40.89111116549392,
+        "rsi14": 41.37064413832678
+      },
+      "rejected": ""
+    },
+    {
+      "symbol": "LINKUSDT",
+      "tf": "2h",
+      "side": "short",
+      "strategy": "Confirmed Breakout Retest",
+      "confidence": 67.5,
+      "market_price": 9.095,
+      "entry": 9.15528779,
+      "entry_zone": [
+        9.13461769,
+        9.17595789
+      ],
+      "stop": 9.41366402,
+      "targets": [
+        8.567,
+        8.50934721,
+        8.25097098
+      ],
+      "rr": 2.28,
+      "atr": 0.17225082,
+      "entry_distance_pct": 0.663,
+      "entry_distance_atr": 0.35,
+      "supports": [
+        "structure bearish",
+        "below cloud",
+        "future cloud red",
+        "ADX 31 aligned",
+        "tape -30%",
+        "top traders 2.35 long - fuel below",
+        "HTF bearish agrees"
+      ],
+      "blockers": [],
+      "warnings": [],
+      "position": {
+        "margin": 1000.0,
+        "risk_pct": 1.0,
+        "risk_usd": 10.0,
+        "qty": 38.70325061,
+        "notional": 354.34,
+        "leverage": 0.35,
+        "liquidation": null,
+        "target_kinds": [
+          "observed structure",
+          "derived 2.5R",
+          "derived 3.5R"
+        ]
+      },
+      "context": {
+        "score": 12.0,
+        "other_side_score": -11.0,
+        "funding": -0.003093,
+        "ls_top": 2.35,
+        "oi_1h": -0.533,
+        "perp_spot_ratio": 5.016,
+        "fng": null,
+        "adx": 31.061124232048847,
+        "rsi14": 42.66795676673853
       },
       "rejected": ""
     }
@@ -777,40 +755,60 @@
     "losses": 48,
     "win_rate": 36.84210526315789,
     "expectancy_r": 0.24297146157895985,
-    "open": 7,
-    "expired": 7,
+    "open": 8,
+    "expired": 8,
     "invalidated": 1
   },
   "rejected": [
     {
       "symbol": "BTCUSDT",
       "tf": "15m",
-      "reason": "price inside the cloud"
+      "reason": "no trend, ADX 20"
     },
     {
       "symbol": "BTCUSDT",
       "tf": "30m",
-      "reason": "no trend, ADX 18"
+      "reason": "price inside the cloud"
+    },
+    {
+      "symbol": "BTCUSDT",
+      "tf": "1h",
+      "reason": "no trend, ADX 12"
+    },
+    {
+      "symbol": "BTCUSDT",
+      "tf": "2h",
+      "reason": "confidence 60.9 below floor 62.0"
+    },
+    {
+      "symbol": "BTCUSDT",
+      "tf": "4h",
+      "reason": "first target R:R 1.44 below floor 1.8"
     },
     {
       "symbol": "ETHUSDT",
       "tf": "15m",
-      "reason": "no trend, ADX 14"
+      "reason": "no trend, ADX 16"
     },
     {
       "symbol": "ETHUSDT",
       "tf": "30m",
-      "reason": "no trend, ADX 13"
+      "reason": "price inside the cloud"
     },
     {
       "symbol": "ETHUSDT",
       "tf": "1h",
-      "reason": "first target R:R 1.03 below floor 1.8"
+      "reason": "no trend, ADX 11"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "tf": "4h",
+      "reason": "first target R:R 1.60 below floor 1.8"
     },
     {
       "symbol": "SOLUSDT",
       "tf": "15m",
-      "reason": "price inside the cloud"
+      "reason": "no trend, ADX 17"
     },
     {
       "symbol": "SOLUSDT",
@@ -818,129 +816,109 @@
       "reason": "price inside the cloud"
     },
     {
-      "symbol": "LINKUSDT",
-      "tf": "15m",
-      "reason": "no trend, ADX 13"
+      "symbol": "SOLUSDT",
+      "tf": "1h",
+      "reason": "no trend, ADX 14"
+    },
+    {
+      "symbol": "SOLUSDT",
+      "tf": "4h",
+      "reason": "first target R:R 1.39 below floor 1.8"
     },
     {
       "symbol": "LINKUSDT",
-      "tf": "30m",
+      "tf": "15m",
       "reason": "no trend, ADX 16"
     },
     {
       "symbol": "LINKUSDT",
-      "tf": "1h",
-      "reason": "confidence 50.5 below floor 62.0"
+      "tf": "30m",
+      "reason": "price inside the cloud"
     },
     {
       "symbol": "LINKUSDT",
-      "tf": "2h",
-      "reason": "confidence 57.4 below floor 62.0"
+      "tf": "1h",
+      "reason": "no trend, ADX 13"
     },
     {
       "symbol": "LINKUSDT",
       "tf": "4h",
-      "reason": "first target R:R 1.79 below floor 1.8"
+      "reason": "first target R:R 1.67 below floor 1.8"
     },
     {
       "symbol": "SUIUSDT",
       "tf": "15m",
-      "reason": "price inside the cloud"
-    },
-    {
-      "symbol": "SUIUSDT",
-      "tf": "30m",
-      "reason": "price inside the cloud"
-    },
-    {
-      "symbol": "SUIUSDT",
-      "tf": "1h",
-      "reason": "first target R:R 0.74 below floor 1.8"
-    },
-    {
-      "symbol": "SUIUSDT",
-      "tf": "2h",
-      "reason": "confidence 57.4 below floor 62.0"
-    },
-    {
-      "symbol": "SUIUSDT",
-      "tf": "4h",
-      "reason": "entry 1.22% / 0.35 ATR away - beyond reach gate"
-    },
-    {
-      "symbol": "HYPEUSDT",
-      "tf": "15m",
-      "reason": "price inside the cloud"
-    },
-    {
-      "symbol": "HYPEUSDT",
-      "tf": "30m",
-      "reason": "no trend, ADX 15"
-    },
-    {
-      "symbol": "HYPEUSDT",
-      "tf": "1h",
-      "reason": "confidence 57.8 below floor 62.0"
-    },
-    {
-      "symbol": "HYPEUSDT",
-      "tf": "4h",
-      "reason": "entry 1.34% / 0.35 ATR away - beyond reach gate"
-    },
-    {
-      "symbol": "XRPUSDT",
-      "tf": "15m",
-      "reason": "price inside the cloud"
-    },
-    {
-      "symbol": "XRPUSDT",
-      "tf": "30m",
       "reason": "no trend, ADX 14"
     },
     {
-      "symbol": "XRPUSDT",
+      "symbol": "SUIUSDT",
+      "tf": "30m",
+      "reason": "price inside the cloud"
+    },
+    {
+      "symbol": "SUIUSDT",
       "tf": "1h",
-      "reason": "no trend, ADX 19"
+      "reason": "no trend, ADX 13"
     },
     {
-      "symbol": "XRPUSDT",
-      "tf": "4h",
-      "reason": "first target R:R 1.70 below floor 1.8"
-    },
-    {
-      "symbol": "SOLUSDT",
-      "tf": "4h",
-      "reason": "below the publication cap - ranked 4 of 10 approved at 68% confidence, cap is 3 per run"
-    },
-    {
-      "symbol": "BTCUSDT",
-      "tf": "4h",
-      "reason": "below the publication cap - ranked 5 of 10 approved at 66% confidence, cap is 3 per run"
-    },
-    {
-      "symbol": "ETHUSDT",
-      "tf": "4h",
-      "reason": "below the publication cap - ranked 6 of 10 approved at 66% confidence, cap is 3 per run"
-    },
-    {
-      "symbol": "BTCUSDT",
+      "symbol": "SUIUSDT",
       "tf": "2h",
-      "reason": "below the publication cap - ranked 7 of 10 approved at 65% confidence, cap is 3 per run"
+      "reason": "confidence 60.2 below floor 62.0"
     },
     {
-      "symbol": "SOLUSDT",
-      "tf": "2h",
-      "reason": "below the publication cap - ranked 8 of 10 approved at 65% confidence, cap is 3 per run"
+      "symbol": "SUIUSDT",
+      "tf": "4h",
+      "reason": "first target R:R 1.43 below floor 1.8"
+    },
+    {
+      "symbol": "HYPEUSDT",
+      "tf": "15m",
+      "reason": "first target R:R 0.82 below floor 1.8"
+    },
+    {
+      "symbol": "HYPEUSDT",
+      "tf": "30m",
+      "reason": "first target R:R 1.09 below floor 1.8"
+    },
+    {
+      "symbol": "HYPEUSDT",
+      "tf": "1h",
+      "reason": "no trend, ADX 14"
     },
     {
       "symbol": "HYPEUSDT",
       "tf": "2h",
-      "reason": "below the publication cap - ranked 9 of 10 approved at 65% confidence, cap is 3 per run"
+      "reason": "confidence 59.4 below floor 62.0"
+    },
+    {
+      "symbol": "HYPEUSDT",
+      "tf": "4h",
+      "reason": "entry 1.21% / 0.35 ATR away - beyond reach gate"
     },
     {
       "symbol": "XRPUSDT",
+      "tf": "15m",
+      "reason": "no trend, ADX 18"
+    },
+    {
+      "symbol": "XRPUSDT",
+      "tf": "30m",
+      "reason": "price inside the cloud"
+    },
+    {
+      "symbol": "XRPUSDT",
+      "tf": "1h",
+      "reason": "no trend, ADX 10"
+    },
+    {
+      "symbol": "XRPUSDT",
+      "tf": "4h",
+      "reason": "first target R:R 1.77 below floor 1.8"
+    },
+    {
+      "symbol": "ETHUSDT",
       "tf": "2h",
-      "reason": "below the publication cap - ranked 10 of 10 approved at 65% confidence, cap is 3 per run"
+      "reason": "below the publication cap - ranked 4 of 4 approved at 65% confidence, cap is 3 per run"
     }
   ],
   "narrative": null,
