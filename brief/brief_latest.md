@@ -1,59 +1,62 @@
-MARKET BRIEF  2026-11-18 16:53 Tehran
-scanned 54 perps
+MARKET BRIEF  2026-11-19 01:04 Tehran
+scanned 48 perps
 
 SETUPS
- nothing cleared the gates. 35 combinations were checked.
-   17x  no trend
-   6x  support under 0.6 ATR away
-   4x  price inside the cloud
+ SHORT HYPEUSDT 15m   confidence 66.7
+   entry 66.9294  stop 67.576  tp1 65.3128
+   R:R 1:2.5  leverage 1.04x  risk $10.0
+   entry sits 0.23% (0.35 ATR) from market
+   + structure bearish
+   + below cloud
+   + future cloud red
 
 POSITIONS
  XMRUSDT long @ 508
-   now 505.49  pnl -0.49%  status open
-   R:R from here 1:2.47
+   now 501.76  pnl -1.23%  status open
+   R:R from here 1:2.85
 
 SECTOR ROTATION  7d median
- privacy       -3.2%  lead ZEC RSI 37.6  laggard ZEC RSI 37.6
- perp_dex      -4.6%  lead HYPE RSI 37.2  laggard HYPE RSI 37.2
- payments      -6.3%  lead XRP RSI 31.1  laggard XRP RSI 31.1
- oracle_rwa   -10.2%  lead LINK RSI 33.0  laggard LINK RSI 33.0
- l1_major     -11.6%  lead NEAR RSI 39.8  laggard BTC RSI 22.7
+ privacy       -5.5%  lead ZEC RSI 36.4  laggard ZEC RSI 36.4
+ perp_dex      -7.3%  lead HYPE RSI 34.9  laggard HYPE RSI 34.9
+ payments      -7.8%  lead XRP RSI 29.7  laggard XRP RSI 29.7
+ l1_major     -12.5%  lead NEAR RSI 38.5  laggard BTC RSI 20.9
+ meme         -13.0%  lead DOGE RSI 27.4  laggard DOGE RSI 27.4
 
 MOST EXTENDED
- MMT     RSI 80.2  EMA20  +85.6%  7d +111.0%
-   RSI 80 extreme, 86% above EMA20
- PIEVERSE RSI 85.1  EMA20  +67.9%  7d  +74.9%
-   RSI 85 extreme, 68% above EMA20
- PIPPIN  RSI 71.5  EMA20  +40.8%  7d  +52.3%
-   41% above EMA20, +52% in 7d
- AKE     RSI 46.3  EMA20   -4.4%  7d +308.9%
-   +309% in 7d, volume fading into highs
- BREV    RSI 56.0  EMA20  +16.4%  7d  +33.2%
-   +33% in 7d
+ PIEVERSE RSI 88.2  EMA20  +92.8%  7d +106.6%
+   RSI 88 extreme, 93% above EMA20
+ MMT     RSI 79.3  EMA20  +80.0%  7d +103.5%
+   RSI 79 overbought, 80% above EMA20
+ PIPPIN  RSI 70.0  EMA20  +36.3%  7d  +46.7%
+   36% above EMA20, +47% in 7d, 4h gap -10.0% down
+ AKE     RSI 46.6  EMA20   -3.4%  7d +313.5%
+   +313% in 7d, volume fading into highs
+ BREV    RSI 54.4  EMA20  +12.5%  7d  +28.3%
+   +28% in 7d
 
 MOST COMPRESSED
- AMD     RSI 48.6  EMA20   -1.1%  7d  -11.2%
-   RSI 49 neutral, hugging EMA20, 4h gap -8.2% down
- BREV    RSI 56.0  EMA20  +16.4%  7d  +33.2%
-   +33% in 7d
- SOXS    RSI 51.6  EMA20   +2.1%  7d  +16.4%
-   volume fading into highs
- SPCX    RSI 51.0  EMA20   +1.4%  7d   +3.3%
-   RSI 51 neutral, hugging EMA20, 1d gap +9.3% up
- LIT     RSI 40.5  EMA20   -9.3%  7d  -13.6%
-   RSI 40 neutral, above rising 200, 4h gap +10.4% up
+ AMD     RSI 51.3  EMA20   +2.0%  7d   -8.1%
+   RSI 51 neutral, hugging EMA20, 4h gap -11.3% down
+ BREV    RSI 54.4  EMA20  +12.5%  7d  +28.3%
+   +28% in 7d
+ SPCX    RSI 52.3  EMA20   +2.3%  7d   +4.3%
+   RSI 52 neutral, hugging EMA20, 1d gap +8.3% up
+ PIEVERSE RSI 88.2  EMA20  +92.8%  7d +106.6%
+   RSI 88 extreme, 93% above EMA20
+ AKE     RSI 46.6  EMA20   -3.4%  7d +313.5%
+   +313% in 7d, volume fading into highs
 
 TRENDING WITH ROOM
- BREV    RSI 56.0  EMA20  +16.4%  7d  +33.2%
-   +33% in 7d
- PIPPIN  RSI 71.5  EMA20  +40.8%  7d  +52.3%
-   41% above EMA20, +52% in 7d
- SOXS    RSI 51.6  EMA20   +2.1%  7d  +16.4%
-   volume fading into highs
- PEPE    RSI 36.2  EMA20  -13.7%  7d  -16.5%
-   above rising 200, 4h gap -7.0% down
- ZEC     RSI 37.6  EMA20  -12.0%  7d   -3.2%
-   above rising 200
+ SOXS    RSI 53.2  EMA20   +6.0%  7d  +21.3%
+   RSI 53 neutral, mid-range
+ BREV    RSI 54.4  EMA20  +12.5%  7d  +28.3%
+   +28% in 7d
+ PEPE    RSI 35.6  EMA20  -14.6%  7d  -17.4%
+   above rising 200, 4h gap -5.9% down
+ PIPPIN  RSI 70.0  EMA20  +36.3%  7d  +46.7%
+   36% above EMA20, +47% in 7d, 4h gap -10.0% down
+ PIEVERSE RSI 88.2  EMA20  +92.8%  7d +106.6%
+   RSI 88 extreme, 93% above EMA20
 
 GAP BASE RATE
  measured 13 Sep 2026, 24 symbols, 50-bar horizon
