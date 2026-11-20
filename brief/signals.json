@@ -1,6 +1,241 @@
 {
  "records": [
   {
+   "id": "XRPUSDT|15m|short@1795210147",
+   "ref": "MO-261121-0059-XRP-15m-S",
+   "key": "XRPUSDT|15m|short",
+   "symbol": "XRPUSDT",
+   "tf": "15m",
+   "side": "short",
+   "strategy": "Divergence Reversal",
+   "trade_style": "15m",
+   "confidence": 66.2,
+   "entry": 0.899202,
+   "entry_zone": [
+    0.89822417,
+    0.90017983
+   ],
+   "stop": 0.91142487,
+   "targets": [
+    0.86864483,
+    0.85642197
+   ],
+   "rr": 2.5,
+   "atr": 0.00814858,
+   "risk_per_unit": 0.012222870000000108,
+   "published_ts": 1795210147.2994637,
+   "published_time_tehran": "2026-11-21 00:59 Tehran",
+   "last_seen_ts": 1795210147.2994637,
+   "republished": 1,
+   "activated_ts": null,
+   "activated_time_tehran": null,
+   "resolved_ts": null,
+   "status": "pending",
+   "result": "open",
+   "result_r": null,
+   "resolve_note": "",
+   "mfe_r": null,
+   "mae_r": null,
+   "bars_to_activate": null,
+   "bars_to_resolve": null,
+   "supports": [
+    "structure bearish",
+    "below cloud",
+    "future cloud red",
+    "ADX 37 aligned",
+    "RSI 41 overbought, selling strength",
+    "tape -42%",
+    "top traders 2.20 long - fuel below",
+    "HTF bearish agrees"
+   ],
+   "warnings": [],
+   "blockers": [
+    "bullish divergence"
+   ],
+   "entry_distance_pct": 0.318,
+   "entry_distance_atr": 0.35,
+   "context": {
+    "score": 11.0,
+    "other_side_score": -11.0,
+    "funding": 0.000332,
+    "ls_top": 2.2,
+    "oi_1h": 0.493,
+    "perp_spot_ratio": 5.315,
+    "fng": null,
+    "adx": 36.659570288781474,
+    "rsi14": 40.977544095767804
+   },
+   "position_at_publish": {
+    "margin": 1000.0,
+    "risk_pct": 1.0,
+    "risk_usd": 10.0,
+    "qty": 818.13860838,
+    "notional": 735.67,
+    "leverage": 0.74,
+    "liquidation": null,
+    "target_kinds": [
+     "derived 2.5R",
+     "derived 3.5R"
+    ]
+   }
+  },
+  {
+   "id": "SUIUSDT|15m|short@1795210147",
+   "ref": "MO-261121-0059-SUI-15m-S",
+   "key": "SUIUSDT|15m|short",
+   "symbol": "SUIUSDT",
+   "tf": "15m",
+   "side": "short",
+   "strategy": "Divergence Reversal",
+   "trade_style": "15m",
+   "confidence": 63.9,
+   "entry": 0.63959139,
+   "entry_zone": [
+    0.63875434,
+    0.64042843
+   ],
+   "stop": 0.65005447,
+   "targets": [
+    0.61343368,
+    0.6029706
+   ],
+   "rr": 2.5,
+   "atr": 0.00697539,
+   "risk_per_unit": 0.010463080000000069,
+   "published_ts": 1795210147.2994637,
+   "published_time_tehran": "2026-11-21 00:59 Tehran",
+   "last_seen_ts": 1795210147.2994637,
+   "republished": 1,
+   "activated_ts": null,
+   "activated_time_tehran": null,
+   "resolved_ts": null,
+   "status": "pending",
+   "result": "open",
+   "result_r": null,
+   "resolve_note": "",
+   "mfe_r": null,
+   "mae_r": null,
+   "bars_to_activate": null,
+   "bars_to_resolve": null,
+   "supports": [
+    "structure bearish",
+    "below cloud",
+    "future cloud red",
+    "ADX 44 aligned",
+    "tape -51%",
+    "top traders 3.17 long - fuel below",
+    "HTF bearish agrees"
+   ],
+   "warnings": [],
+   "blockers": [
+    "bullish divergence"
+   ],
+   "entry_distance_pct": 0.383,
+   "entry_distance_atr": 0.35,
+   "context": {
+    "score": 10.0,
+    "other_side_score": -9.0,
+    "funding": -0.018845,
+    "ls_top": 3.17,
+    "oi_1h": -0.614,
+    "perp_spot_ratio": 4.832,
+    "fng": null,
+    "adx": 44.05043027962847,
+    "rsi14": 34.88870865146423
+   },
+   "position_at_publish": {
+    "margin": 1000.0,
+    "risk_pct": 1.0,
+    "risk_usd": 10.0,
+    "qty": 955.74138818,
+    "notional": 611.28,
+    "leverage": 0.61,
+    "liquidation": null,
+    "target_kinds": [
+     "derived 2.5R",
+     "derived 3.5R"
+    ]
+   }
+  },
+  {
+   "id": "SUIUSDT|30m|short@1795210147",
+   "ref": "MO-261121-0059-SUI-30m-S",
+   "key": "SUIUSDT|30m|short",
+   "symbol": "SUIUSDT",
+   "tf": "30m",
+   "side": "short",
+   "strategy": "Trend Continuation",
+   "trade_style": "30m",
+   "confidence": 63.9,
+   "entry": 0.64043547,
+   "entry_zone": [
+    0.63932617,
+    0.64154477
+   ],
+   "stop": 0.65430176,
+   "targets": [
+    0.60576973,
+    0.59190344
+   ],
+   "rr": 2.5,
+   "atr": 0.0092442,
+   "risk_per_unit": 0.013866289999999948,
+   "published_ts": 1795210147.2994637,
+   "published_time_tehran": "2026-11-21 00:59 Tehran",
+   "last_seen_ts": 1795210147.2994637,
+   "republished": 1,
+   "activated_ts": null,
+   "activated_time_tehran": null,
+   "resolved_ts": null,
+   "status": "pending",
+   "result": "open",
+   "result_r": null,
+   "resolve_note": "",
+   "mfe_r": null,
+   "mae_r": null,
+   "bars_to_activate": null,
+   "bars_to_resolve": null,
+   "supports": [
+    "structure bearish",
+    "below cloud",
+    "future cloud red",
+    "ADX 59 aligned",
+    "tape -48%",
+    "top traders 3.16 long - fuel below",
+    "HTF bearish agrees"
+   ],
+   "warnings": [],
+   "blockers": [
+    "stretched low, RSI 25 - late"
+   ],
+   "entry_distance_pct": 0.508,
+   "entry_distance_atr": 0.35,
+   "context": {
+    "score": 10.0,
+    "other_side_score": -9.0,
+    "funding": -0.018845,
+    "ls_top": 3.16,
+    "oi_1h": -0.614,
+    "perp_spot_ratio": 4.831,
+    "fng": null,
+    "adx": 58.56306670015869,
+    "rsi14": 24.95947850958123
+   },
+   "position_at_publish": {
+    "margin": 1000.0,
+    "risk_pct": 1.0,
+    "risk_usd": 10.0,
+    "qty": 721.17322266,
+    "notional": 461.86,
+    "leverage": 0.46,
+    "liquidation": null,
+    "target_kinds": [
+     "derived 2.5R",
+     "derived 3.5R"
+    ]
+   }
+  },
+  {
    "id": "SOLUSDT|15m|short@1795181529",
    "ref": "MO-261120-1702-SOL-15m-S",
    "key": "SOLUSDT|15m|short",
@@ -7873,7 +8108,7 @@
   "losses": 56,
   "win_rate": 37.77777777777778,
   "expectancy_r": 0.27358333929942286,
-  "open": 0,
+  "open": 3,
   "expired": 9,
   "invalidated": 1
  },
@@ -7906,7 +8141,7 @@
    "losses": 7,
    "win_rate": 46.15384615384615,
    "expectancy_r": 0.5540512845627936,
-   "open": 0,
+   "open": 1,
    "expired": 2,
    "invalidated": 0,
    "name": "XRPUSDT"
@@ -7928,7 +8163,7 @@
    "losses": 7,
    "win_rate": 36.36363636363637,
    "expectancy_r": 0.18093163421070194,
-   "open": 0,
+   "open": 2,
    "expired": 0,
    "invalidated": 0,
    "name": "SUIUSDT"
@@ -7974,7 +8209,7 @@
    "losses": 15,
    "win_rate": 31.818181818181817,
    "expectancy_r": 0.09070525059571306,
-   "open": 0,
+   "open": 2,
    "expired": 1,
    "invalidated": 1,
    "name": "15m"
@@ -7996,7 +8231,7 @@
    "losses": 11,
    "win_rate": 26.666666666666668,
    "expectancy_r": -0.08285955513548056,
-   "open": 0,
+   "open": 1,
    "expired": 1,
    "invalidated": 0,
    "name": "30m"
@@ -8020,7 +8255,7 @@
    "losses": 29,
    "win_rate": 30.952380952380953,
    "expectancy_r": 0.06297529812882081,
-   "open": 0,
+   "open": 1,
    "expired": 7,
    "invalidated": 1,
    "name": "Trend Continuation"
@@ -8042,12 +8277,12 @@
    "losses": 5,
    "win_rate": 28.57142857142857,
    "expectancy_r": 8.09071880603085e-08,
-   "open": 0,
+   "open": 2,
    "expired": 0,
    "invalidated": 0,
    "name": "Divergence Reversal"
   }
  ],
- "updated_tehran": "2026-11-20 23:24 Tehran",
- "updated_ts": 1795204472.5304399
+ "updated_tehran": "2026-11-21 00:59 Tehran",
+ "updated_ts": 1795210147.303956
 }
