@@ -269,7 +269,7 @@
    "result": "open",
    "result_r": null,
    "resolve_note": "",
-   "mfe_r": 1.256,
+   "mfe_r": 1.741,
    "mae_r": 0.915,
    "bars_to_activate": 2,
    "bars_to_resolve": null,
@@ -426,7 +426,7 @@
    "result": "open",
    "result_r": null,
    "resolve_note": "",
-   "mfe_r": 1.422,
+   "mfe_r": 1.572,
    "mae_r": 0.959,
    "bars_to_activate": 1,
    "bars_to_resolve": null,
@@ -504,7 +504,7 @@
    "result": "open",
    "result_r": null,
    "resolve_note": "",
-   "mfe_r": 1.971,
+   "mfe_r": 2.057,
    "mae_r": 0.533,
    "bars_to_activate": 1,
    "bars_to_resolve": null,
@@ -7813,6 +7813,6 @@
    "name": "Divergence Reversal"
   }
  ],
- "updated_tehran": "2026-11-20 05:41 Tehran",
- "updated_ts": 1795140717.8461344
+ "updated_tehran": "2026-11-20 14:45 Tehran",
+ "updated_ts": 1795173305.6810102
 }
