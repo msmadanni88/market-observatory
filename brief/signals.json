@@ -1,6 +1,165 @@
 {
  "records": [
   {
+   "id": "ETHUSDT|4h|short@1795292137",
+   "ref": "MO-261121-2345-ETH-4h-S",
+   "key": "ETHUSDT|4h|short",
+   "symbol": "ETHUSDT",
+   "tf": "4h",
+   "side": "short",
+   "strategy": "Trend Continuation",
+   "trade_style": "4h",
+   "confidence": 67.7,
+   "entry": 1702.05650685,
+   "entry_zone": [
+    1696.26856164,
+    1707.84445205
+   ],
+   "stop": 1774.4058219,
+   "targets": [
+    1521.1832192,
+    1448.83390415
+   ],
+   "rr": 2.5,
+   "atr": 48.2328767,
+   "risk_per_unit": 72.34931505000009,
+   "published_ts": 1795292137.4279726,
+   "published_time_tehran": "2026-11-21 23:45 Tehran",
+   "last_seen_ts": 1795292137.4279726,
+   "republished": 1,
+   "activated_ts": null,
+   "activated_time_tehran": null,
+   "resolved_ts": null,
+   "status": "pending",
+   "result": "open",
+   "result_r": null,
+   "resolve_note": "",
+   "mfe_r": null,
+   "mae_r": null,
+   "bars_to_activate": null,
+   "bars_to_resolve": null,
+   "supports": [
+    "structure bearish",
+    "below cloud",
+    "future cloud red",
+    "ADX 47 aligned",
+    "RSI 43 overbought, selling strength",
+    "top traders 2.46 long - fuel below",
+    "perp/spot 15.5x - leverage driven, thin spot bid",
+    "HTF bearish agrees"
+   ],
+   "warnings": [],
+   "blockers": [
+    "tape +36% against"
+   ],
+   "entry_distance_pct": 1.002,
+   "entry_distance_atr": 0.35,
+   "context": {
+    "score": 12.0,
+    "other_side_score": -11.0,
+    "funding": -0.003142,
+    "ls_top": 2.46,
+    "oi_1h": -0.212,
+    "perp_spot_ratio": 15.527,
+    "fng": null,
+    "adx": 46.596433315492426,
+    "rsi14": 43.16517561700795
+   },
+   "position_at_publish": {
+    "margin": 1000.0,
+    "risk_pct": 1.0,
+    "risk_usd": 10.0,
+    "qty": 0.13821831,
+    "notional": 235.26,
+    "leverage": 0.24,
+    "liquidation": null,
+    "target_kinds": [
+     "derived 2.5R",
+     "derived 3.5R"
+    ]
+   }
+  },
+  {
+   "id": "ETHUSDT|15m|long@1795292137",
+   "ref": "MO-261121-2345-ETH-15m-L",
+   "key": "ETHUSDT|15m|long",
+   "symbol": "ETHUSDT",
+   "tf": "15m",
+   "side": "long",
+   "strategy": "Confirmed Breakout Retest",
+   "trade_style": "15m",
+   "confidence": 62.4,
+   "entry": 1682.48116883,
+   "entry_zone": [
+    1681.58328386,
+    1683.3790538
+   ],
+   "stop": 1671.25760668,
+   "targets": [
+    1710.54007421,
+    1716.0,
+    1721.76363636
+   ],
+   "rr": 2.5,
+   "atr": 7.48237477,
+   "risk_per_unit": 11.223562149999907,
+   "published_ts": 1795292137.4279726,
+   "published_time_tehran": "2026-11-21 23:45 Tehran",
+   "last_seen_ts": 1795292137.4279726,
+   "republished": 1,
+   "activated_ts": null,
+   "activated_time_tehran": null,
+   "resolved_ts": null,
+   "status": "pending",
+   "result": "open",
+   "result_r": null,
+   "resolve_note": "",
+   "mfe_r": null,
+   "mae_r": null,
+   "bars_to_activate": null,
+   "bars_to_resolve": null,
+   "supports": [
+    "structure bullish",
+    "above cloud",
+    "future cloud green",
+    "ADX 35 aligned",
+    "room ratio 2.42",
+    "tape +20%",
+    "HTF bullish agrees"
+   ],
+   "warnings": [],
+   "blockers": [
+    "top traders 2.46 long - crowded"
+   ],
+   "entry_distance_pct": 0.155,
+   "entry_distance_atr": 0.35,
+   "context": {
+    "score": 9.0,
+    "other_side_score": -6.0,
+    "funding": -0.003088,
+    "ls_top": 2.46,
+    "oi_1h": -0.212,
+    "perp_spot_ratio": 15.527,
+    "fng": null,
+    "adx": 34.65412194976442,
+    "rsi14": 57.80615619219565
+   },
+   "position_at_publish": {
+    "margin": 1000.0,
+    "risk_pct": 1.0,
+    "risk_usd": 10.0,
+    "qty": 0.89098273,
+    "notional": 1499.06,
+    "leverage": 1.5,
+    "liquidation": 568.53735965,
+    "target_kinds": [
+     "derived 2.5R",
+     "observed structure",
+     "derived 3.5R"
+    ]
+   }
+  },
+  {
    "id": "LINKUSDT|4h|short@1795265932",
    "ref": "MO-261121-1628-LINK-4h-S",
    "key": "LINKUSDT|4h|short",
@@ -35,7 +194,7 @@
    "result_r": null,
    "resolve_note": "",
    "mfe_r": 0.091,
-   "mae_r": 0.063,
+   "mae_r": 0.175,
    "bars_to_activate": 1,
    "bars_to_resolve": null,
    "supports": [
@@ -8338,7 +8497,7 @@
   "losses": 59,
   "win_rate": 36.55913978494624,
   "expectancy_r": 0.23250000577363503,
-  "open": 3,
+  "open": 5,
   "expired": 9,
   "invalidated": 1
  },
@@ -8349,7 +8508,7 @@
    "losses": 8,
    "win_rate": 60.0,
    "expectancy_r": 1.0104626457676598,
-   "open": 1,
+   "open": 3,
    "expired": 0,
    "invalidated": 0,
    "name": "ETHUSDT"
@@ -8428,7 +8587,7 @@
    "losses": 17,
    "win_rate": 29.166666666666668,
    "expectancy_r": -0.00018685362059635743,
-   "open": 0,
+   "open": 1,
    "expired": 1,
    "invalidated": 1,
    "name": "15m"
@@ -8472,7 +8631,7 @@
    "losses": 4,
    "win_rate": 60.0,
    "expectancy_r": 1.0566811198134805,
-   "open": 1,
+   "open": 2,
    "expired": 2,
    "invalidated": 0,
    "name": "4h"
@@ -8485,7 +8644,7 @@
    "losses": 30,
    "win_rate": 30.23255813953488,
    "expectancy_r": 0.03825494235838312,
-   "open": 3,
+   "open": 4,
    "expired": 7,
    "invalidated": 1,
    "name": "Trend Continuation"
@@ -8496,7 +8655,7 @@
    "losses": 22,
    "win_rate": 46.34146341463415,
    "expectancy_r": 0.536037498760665,
-   "open": 0,
+   "open": 1,
    "expired": 2,
    "invalidated": 0,
    "name": "Confirmed Breakout Retest"
@@ -8513,6 +8672,6 @@
    "name": "Divergence Reversal"
   }
  ],
- "updated_tehran": "2026-11-21 20:46 Tehran",
- "updated_ts": 1795281407.4243598
+ "updated_tehran": "2026-11-21 23:45 Tehran",
+ "updated_ts": 1795292137.431947
 }
