@@ -1,6 +1,86 @@
 {
  "records": [
   {
+   "id": "BTCUSDT|4h|short@1795351877",
+   "ref": "MO-261122-1621-BTC-4h-S",
+   "key": "BTCUSDT|4h|short",
+   "symbol": "BTCUSDT",
+   "tf": "4h",
+   "side": "short",
+   "strategy": "Trend Continuation",
+   "trade_style": "4h",
+   "confidence": 72.0,
+   "entry": 61281.2868994,
+   "entry_zone": [
+    61105.01139104,
+    61457.56240777
+   ],
+   "stop": 63484.73075398,
+   "targets": [
+    55772.67726295,
+    55100.0,
+    53569.23340837
+   ],
+   "rr": 2.5,
+   "atr": 1468.96256972,
+   "risk_per_unit": 2203.4438545800003,
+   "published_ts": 1795351877.0504935,
+   "published_time_tehran": "2026-11-22 16:21 Tehran",
+   "last_seen_ts": 1795351877.0504935,
+   "republished": 1,
+   "activated_ts": null,
+   "activated_time_tehran": null,
+   "resolved_ts": null,
+   "status": "pending",
+   "result": "open",
+   "result_r": null,
+   "resolve_note": "",
+   "mfe_r": null,
+   "mae_r": null,
+   "bars_to_activate": null,
+   "bars_to_resolve": null,
+   "supports": [
+    "structure bearish",
+    "below cloud",
+    "future cloud red",
+    "ADX 48 aligned",
+    "RSI 48 overbought, selling strength",
+    "tape -64%",
+    "top traders 2.25 long - fuel below",
+    "perp/spot 13.2x - leverage driven, thin spot bid",
+    "HTF bearish agrees"
+   ],
+   "warnings": [],
+   "blockers": [],
+   "entry_distance_pct": 0.846,
+   "entry_distance_atr": 0.35,
+   "context": {
+    "score": 14.0,
+    "other_side_score": -13.0,
+    "funding": 0.004146,
+    "ls_top": 2.25,
+    "oi_1h": 0.533,
+    "perp_spot_ratio": 13.205,
+    "fng": null,
+    "adx": 47.78267349085097,
+    "rsi14": 47.96545088873618
+   },
+   "position_at_publish": {
+    "margin": 1000.0,
+    "risk_pct": 1.0,
+    "risk_usd": 10.0,
+    "qty": 0.00453835,
+    "notional": 278.12,
+    "leverage": 0.28,
+    "liquidation": null,
+    "target_kinds": [
+     "derived 2.5R",
+     "observed structure",
+     "derived 3.5R"
+    ]
+   }
+  },
+  {
    "id": "ETHUSDT|4h|short@1795292137",
    "ref": "MO-261121-2345-ETH-4h-S",
    "key": "ETHUSDT|4h|short",
@@ -9,7 +89,7 @@
    "side": "short",
    "strategy": "Trend Continuation",
    "trade_style": "4h",
-   "confidence": 67.7,
+   "confidence": 69.8,
    "entry": 1702.05650685,
    "entry_zone": [
     1696.26856164,
@@ -25,8 +105,8 @@
    "risk_per_unit": 72.34931505000009,
    "published_ts": 1795292137.4279726,
    "published_time_tehran": "2026-11-21 23:45 Tehran",
-   "last_seen_ts": 1795292137.4279726,
-   "republished": 1,
+   "last_seen_ts": 1795351877.0557451,
+   "republished": 2,
    "activated_ts": 1795334400,
    "activated_time_tehran": "2026-11-22 11:30 Tehran",
    "resolved_ts": null,
@@ -35,7 +115,7 @@
    "result_r": null,
    "resolve_note": "",
    "mfe_r": 0.512,
-   "mae_r": 0.303,
+   "mae_r": 0.435,
    "bars_to_activate": 3,
    "bars_to_resolve": null,
    "supports": [
@@ -194,7 +274,7 @@
    "result_r": null,
    "resolve_note": "",
    "mfe_r": 0.248,
-   "mae_r": 0.633,
+   "mae_r": 0.789,
    "bars_to_activate": 1,
    "bars_to_resolve": null,
    "supports": [
@@ -270,7 +350,7 @@
    "result_r": null,
    "resolve_note": "",
    "mfe_r": 0.498,
-   "mae_r": 0.792,
+   "mae_r": 0.951,
    "bars_to_activate": 1,
    "bars_to_resolve": null,
    "supports": [
@@ -341,15 +421,15 @@
    "republished": 1,
    "activated_ts": 1795269600,
    "activated_time_tehran": "2026-11-21 17:30 Tehran",
-   "resolved_ts": null,
-   "status": "active",
-   "result": "open",
-   "result_r": null,
-   "resolve_note": "",
+   "resolved_ts": 1795348800,
+   "status": "loss",
+   "result": "stop",
+   "result_r": -1.0,
+   "resolve_note": "stop touched first",
    "mfe_r": 0.252,
-   "mae_r": 0.873,
+   "mae_r": 1.073,
    "bars_to_activate": 1,
-   "bars_to_resolve": null,
+   "bars_to_resolve": 12,
    "supports": [
     "structure bearish",
     "below cloud",
@@ -8492,11 +8572,11 @@
  ],
  "tracking_since": "2026-09-13 19:37 Tehran",
  "overall": {
-  "trades": 94,
+  "trades": 95,
   "wins": 34,
-  "losses": 60,
-  "win_rate": 36.17021276595745,
-  "expectancy_r": 0.2193883035845538,
+  "losses": 61,
+  "win_rate": 35.78947368421053,
+  "expectancy_r": 0.20655263723103218,
   "open": 4,
   "expired": 9,
   "invalidated": 1
@@ -8552,10 +8632,21 @@
    "losses": 7,
    "win_rate": 36.36363636363637,
    "expectancy_r": 0.27272727272645086,
-   "open": 0,
+   "open": 1,
    "expired": 2,
    "invalidated": 1,
    "name": "BTCUSDT"
+  },
+  {
+   "trades": 11,
+   "wins": 3,
+   "losses": 8,
+   "win_rate": 27.27272727272727,
+   "expectancy_r": -0.11566918645359091,
+   "open": 1,
+   "expired": 0,
+   "invalidated": 0,
+   "name": "LINKUSDT"
   },
   {
    "trades": 10,
@@ -8567,17 +8658,6 @@
    "expired": 2,
    "invalidated": 0,
    "name": "HYPEUSDT"
-  },
-  {
-   "trades": 10,
-   "wins": 3,
-   "losses": 7,
-   "win_rate": 30.0,
-   "expectancy_r": -0.027236105098950004,
-   "open": 2,
-   "expired": 0,
-   "invalidated": 0,
-   "name": "LINKUSDT"
   }
  ],
  "by_style": [
@@ -8593,12 +8673,12 @@
    "name": "15m"
   },
   {
-   "trades": 24,
+   "trades": 25,
    "wins": 8,
-   "losses": 16,
-   "win_rate": 33.33333333333333,
-   "expectancy_r": 0.10255418403370149,
-   "open": 2,
+   "losses": 17,
+   "win_rate": 32.0,
+   "expectancy_r": 0.05845201667235344,
+   "open": 1,
    "expired": 2,
    "invalidated": 0,
    "name": "2h"
@@ -8631,7 +8711,7 @@
    "losses": 4,
    "win_rate": 60.0,
    "expectancy_r": 1.0566811198134805,
-   "open": 2,
+   "open": 3,
    "expired": 2,
    "invalidated": 0,
    "name": "4h"
@@ -8639,11 +8719,11 @@
  ],
  "by_strategy": [
   {
-   "trades": 43,
+   "trades": 44,
    "wins": 13,
-   "losses": 30,
-   "win_rate": 30.23255813953488,
-   "expectancy_r": 0.03825494235838312,
+   "losses": 31,
+   "win_rate": 29.545454545454547,
+   "expectancy_r": 0.014658239122965322,
    "open": 4,
    "expired": 7,
    "invalidated": 1,
@@ -8672,6 +8752,6 @@
    "name": "Divergence Reversal"
   }
  ],
- "updated_tehran": "2026-11-22 14:29 Tehran",
- "updated_ts": 1795345161.1237357
+ "updated_tehran": "2026-11-22 16:21 Tehran",
+ "updated_ts": 1795351877.0557451
 }
