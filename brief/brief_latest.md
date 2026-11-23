@@ -1,70 +1,59 @@
-MARKET BRIEF  2026-11-22 23:59 Tehran
-scanned 29 perps
+MARKET BRIEF  2026-11-23 18:45 Tehran
+scanned 56 perps
 
 SETUPS
- SHORT BTCUSDT 4h   confidence 64.7
-   entry 61049.4  stop 63057.4  tp1 56029.5
-   R:R 1:2.5  leverage 0.3x  risk $10.0
-   entry sits 0.77% (0.35 ATR) from market
-   + structure bearish
-   + below cloud
-   + future cloud red
-
- SHORT SUIUSDT 4h   confidence 64.7
-   entry 0.659837  stop 0.687639  tp1 0.590332
-   R:R 1:2.5  leverage 0.24x  risk $10.0
-   entry sits 0.99% (0.35 ATR) from market
-   + structure bearish
-   + below cloud
-   + future cloud red
+ nothing cleared the gates. 35 combinations were checked.
+   7x  HTF bearish disagrees and there is no reversal trigger to justify fading it
+   5x  resistance under 0.6 ATR away
+   3x  confidence 49.8 below floor 62.0
 
 POSITIONS
  XMRUSDT long @ 508
-   now 494.07  pnl -2.74%  status open
-   R:R from here 1:3.99
+   now 510.11  pnl +0.42%  status open
+   R:R from here 1:2.09
 
 SECTOR ROTATION  7d median
- payments      -5.2%  lead XRP RSI 28.7  laggard XRP RSI 28.7
- exchange      -7.0%  lead BNB RSI 26.5  laggard BNB RSI 26.5
- l1_major      -7.3%  lead SOL RSI 26.8  laggard BTC RSI 24.0
- meme          -8.1%  lead DOGE RSI 25.4  laggard DOGE RSI 25.4
- perp_dex      -8.4%  lead HYPE RSI 31.9  laggard HYPE RSI 31.9
+ oracle_rwa    +2.1%  lead LINK RSI 41.3  laggard LINK RSI 41.3
+ payments      +0.5%  lead XRP RSI 40.2  laggard LTC RSI 35.6
+ meme          -0.2%  lead DOGE RSI 36.0  laggard DOGE RSI 36.0
+ l1_major      -0.5%  lead SOL RSI 39.7  laggard BTC RSI 33.1
+ perp_dex      -3.0%  lead HYPE RSI 42.9  laggard HYPE RSI 42.9
 
 MOST EXTENDED
- PIEVERSE RSI 78.2  EMA20  +59.2%  7d  +92.7%
-   RSI 78 overbought, 59% above EMA20
- DGAI    RSI 69.5  EMA20  +27.2%  7d  +49.1%
-   27% above EMA20, +49% in 7d
- SOXS    RSI 62.3  EMA20  +23.8%  7d  +48.5%
-   24% above EMA20, +48% in 7d
- MMT     RSI 63.3  EMA20  +29.3%  7d +107.2%
-   29% above EMA20, +107% in 7d
- VVV     RSI 63.4  EMA20  +20.0%  7d  +28.4%
-   20% above EMA20, +28% in 7d
+ PIEVERSE RSI 68.7  EMA20  +38.2%  7d  +67.3%
+   38% above EMA20, 82% above EMA50
+ DGAI    RSI 72.2  EMA20  +28.7%  7d  +45.9%
+   RSI 72 overbought, 29% above EMA20
+ MMT     RSI 56.9  EMA20  +13.9%  7d  +73.1%
+   +73% in 7d, volume fading into highs, 4h gap -2.4% down
+ VVV     RSI 61.8  EMA20  +16.6%  7d  +28.4%
+   +28% in 7d
+ SKHYNIX RSI 47.9  EMA20   +0.4%  7d   +7.0%
+   funding crowded long
 
 MOST COMPRESSED
- ENSO    RSI 43.8  EMA20   -0.3%  7d  +20.1%
-   RSI 44 neutral, hugging EMA20
- PIEVERSE RSI 78.2  EMA20  +59.2%  7d  +92.7%
-   RSI 78 overbought, 59% above EMA20
- VVV     RSI 63.4  EMA20  +20.0%  7d  +28.4%
-   20% above EMA20, +28% in 7d
- MMT     RSI 63.3  EMA20  +29.3%  7d +107.2%
-   29% above EMA20, +107% in 7d
- NEAR    RSI 35.4  EMA20  -13.5%  7d   -7.8%
-   above rising 200, 4h gap +5.3% up
+ NVDA    RSI 48.1  EMA20   +2.0%  7d   +6.7%
+   RSI 48 neutral, hugging EMA20, 1d gap +10.3% up
+ INJ     RSI 46.2  EMA20   -3.5%  7d   -0.5%
+   RSI 46 neutral, hugging EMA20
+ QQQ     RSI 43.8  EMA20   -1.6%  7d   -1.7%
+   RSI 44 neutral, hugging EMA20, 1d gap +5.1% up
+ ZHONGJI RSI 46.4  EMA20   +0.2%  7d   +8.3%
+   funding crowded long, 4h gap +9.9% up
+ DRAM    RSI 46.0  EMA20   -1.5%  7d   +1.4%
+   RSI 46 neutral, hugging EMA20
 
 TRENDING WITH ROOM
- MMT     RSI 63.3  EMA20  +29.3%  7d +107.2%
-   29% above EMA20, +107% in 7d
- SOXS    RSI 62.3  EMA20  +23.8%  7d  +48.5%
-   24% above EMA20, +48% in 7d
- DGAI    RSI 69.5  EMA20  +27.2%  7d  +49.1%
-   27% above EMA20, +49% in 7d
- VVV     RSI 63.4  EMA20  +20.0%  7d  +28.4%
-   20% above EMA20, +28% in 7d
- PIEVERSE RSI 78.2  EMA20  +59.2%  7d  +92.7%
-   RSI 78 overbought, 59% above EMA20
+ MMT     RSI 56.9  EMA20  +13.9%  7d  +73.1%
+   +73% in 7d, volume fading into highs, 4h gap -2.4% down
+ TSLA    RSI 54.8  EMA20   +3.5%  7d   +2.5%
+   RSI 55 neutral, hugging EMA20
+ PIEVERSE RSI 68.7  EMA20  +38.2%  7d  +67.3%
+   38% above EMA20, 82% above EMA50
+ UNITREE RSI 64.5  EMA20  +12.9%  7d   +6.1%
+   volume 1.9x, 4h gap -9.3% down
+ VVV     RSI 61.8  EMA20  +16.6%  7d  +28.4%
+   +28% in 7d
 
 GAP BASE RATE
  measured 13 Sep 2026, 24 symbols, 50-bar horizon
