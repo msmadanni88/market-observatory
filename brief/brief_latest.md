@@ -1,59 +1,57 @@
-MARKET BRIEF  2026-11-24 18:44 Tehran
-scanned 51 perps
+MARKET BRIEF  2026-11-25 02:44 Tehran
+scanned 52 perps
 
 SETUPS
- SHORT BTCUSDT 4h   confidence 63.9
-   entry 60493.8  stop 62578.9  tp1 55281.2
-   R:R 1:2.5  leverage 0.29x  risk $10.0
-   entry sits 0.81% (0.35 ATR) from market
-   + structure bearish
-   + below cloud
-   + ADX 27 aligned
+ nothing cleared the gates. 35 combinations were checked.
+   14x  no trend
+   7x  price inside the cloud
+   6x  support under 0.6 ATR away
 
 POSITIONS
  XMRUSDT long @ 508
-   now 495.0  pnl -2.56%  status open
-   R:R from here 1:3.81
+   now 509.58  pnl +0.31%  status open
+   R:R from here 1:2.13
 
 SECTOR ROTATION  7d median
- oracle_rwa    -5.5%  lead LINK RSI 34.6  laggard LINK RSI 34.6
- payments      -6.9%  lead XRP RSI 29.2  laggard XRP RSI 29.2
- l1_major      -7.6%  lead ADA RSI 28.8  laggard BTC RSI 24.8
- exchange      -8.3%  lead BNB RSI 26.2  laggard BNB RSI 26.2
- meme          -8.6%  lead DOGE RSI 27.3  laggard DOGE RSI 27.3
+ oracle_rwa    -5.2%  lead LINK RSI 35.0  laggard LINK RSI 35.0
+ payments      -6.0%  lead XRP RSI 30.0  laggard XRP RSI 30.0
+ l1_major      -7.7%  lead SOL RSI 29.0  laggard BTC RSI 24.7
+ exchange      -8.1%  lead BNB RSI 26.5  laggard BNB RSI 26.5
+ meme          -8.1%  lead DOGE RSI 27.8  laggard DOGE RSI 27.8
 
 MOST EXTENDED
- PIEVERSE RSI 62.7  EMA20  +22.2%  7d  +46.4%
-   22% above EMA20, 62% above EMA50
- MMT     RSI 63.7  EMA20  +26.5%  7d  +54.1%
-   26% above EMA20, +54% in 7d
- BTC     RSI 24.8  EMA20   -9.8%  7d   -7.6%
- ETH     RSI 28.0  EMA20  -10.8%  7d   -7.8%
- SOXL    RSI 35.1  EMA20  -34.5%  7d  -38.2%
+ PIEVERSE RSI 64.3  EMA20  +25.3%  7d  +50.5%
+   25% above EMA20, 66% above EMA50
+ MMT     RSI 62.8  EMA20  +23.6%  7d  +50.2%
+   24% above EMA20, +50% in 7d
+ AAOI    RSI 35.2  EMA20  -15.9%  7d   -6.2%
+   funding crowded long
+ BTC     RSI 24.7  EMA20   -9.9%  7d   -7.7%
+ ETH     RSI 28.0  EMA20  -10.9%  7d   -7.9%
 
 MOST COMPRESSED
- SOXS    RSI 51.1  EMA20   +0.6%  7d  +14.1%
+ SOXS    RSI 51.0  EMA20   +0.3%  7d  +13.7%
    RSI 51 neutral, hugging EMA20
- TSLA    RSI 52.4  EMA20   +1.8%  7d   -0.2%
-   RSI 52 neutral, hugging EMA20
- MMT     RSI 63.7  EMA20  +26.5%  7d  +54.1%
-   26% above EMA20, +54% in 7d
- QQQ     RSI 40.0  EMA20   -3.1%  7d   -4.1%
-   RSI 40 neutral, hugging EMA20, 1d gap +7.2% up
- UNITREE RSI 59.6  EMA20   +8.3%  7d  +13.2%
-   RSI 60 neutral, volume 2.1x, 4h gap -5.2% down
+ TSLA    RSI 53.6  EMA20   +2.4%  7d   +0.5%
+   RSI 54 neutral, hugging EMA20
+ BZ      RSI 34.9  EMA20   -4.7%  7d   -2.5%
+   volatility 23th pctile, hugging EMA20
+ NVDA    RSI 42.7  EMA20   -5.1%  7d   -4.5%
+   RSI 43 neutral, volume 2.2x
+ MMT     RSI 62.8  EMA20  +23.6%  7d  +50.2%
+   24% above EMA20, +50% in 7d
 
 TRENDING WITH ROOM
- MMT     RSI 63.7  EMA20  +26.5%  7d  +54.1%
-   26% above EMA20, +54% in 7d
- TSLA    RSI 52.4  EMA20   +1.8%  7d   -0.2%
-   RSI 52 neutral, hugging EMA20
- UNITREE RSI 59.6  EMA20   +8.3%  7d  +13.2%
-   RSI 60 neutral, volume 2.1x, 4h gap -5.2% down
- SOXS    RSI 51.1  EMA20   +0.6%  7d  +14.1%
+ MMT     RSI 62.8  EMA20  +23.6%  7d  +50.2%
+   24% above EMA20, +50% in 7d
+ TSLA    RSI 53.6  EMA20   +2.4%  7d   +0.5%
+   RSI 54 neutral, hugging EMA20
+ SOXS    RSI 51.0  EMA20   +0.3%  7d  +13.7%
    RSI 51 neutral, hugging EMA20
- PIEVERSE RSI 62.7  EMA20  +22.2%  7d  +46.4%
-   22% above EMA20, 62% above EMA50
+ UNITREE RSI 58.7  EMA20   +7.8%  7d  +12.6%
+   RSI 59 neutral, volume 2.2x, 4h gap -4.4% down
+ PIEVERSE RSI 64.3  EMA20  +25.3%  7d  +50.5%
+   25% above EMA20, 66% above EMA50
 
 GAP BASE RATE
  measured 13 Sep 2026, 24 symbols, 50-bar horizon
