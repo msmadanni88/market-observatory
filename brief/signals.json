@@ -1,6 +1,86 @@
 {
  "records": [
   {
+   "id": "BTCUSDT|4h|short@1795533273",
+   "ref": "MO-261124-1844-BTC-4h-S",
+   "key": "BTCUSDT|4h|short",
+   "symbol": "BTCUSDT",
+   "tf": "4h",
+   "side": "short",
+   "strategy": "Confirmed Breakout Retest",
+   "trade_style": "4h",
+   "confidence": 63.9,
+   "entry": 60493.81318693,
+   "entry_zone": [
+    60327.0086657,
+    60660.61770816
+   ],
+   "stop": 62578.86970234,
+   "targets": [
+    55281.1718984,
+    55100.0,
+    53196.11538299
+   ],
+   "rr": 2.5,
+   "atr": 1390.03767694,
+   "risk_per_unit": 2085.056515410004,
+   "published_ts": 1795533273.310405,
+   "published_time_tehran": "2026-11-24 18:44 Tehran",
+   "last_seen_ts": 1795533273.310405,
+   "republished": 1,
+   "activated_ts": null,
+   "activated_time_tehran": null,
+   "resolved_ts": null,
+   "status": "pending",
+   "result": "open",
+   "result_r": null,
+   "resolve_note": "",
+   "mfe_r": null,
+   "mae_r": null,
+   "bars_to_activate": null,
+   "bars_to_resolve": null,
+   "supports": [
+    "structure bearish",
+    "below cloud",
+    "ADX 27 aligned",
+    "tape -67%",
+    "top traders 2.49 long - fuel below",
+    "perp/spot 16.3x - leverage driven, thin spot bid",
+    "HTF bearish agrees"
+   ],
+   "warnings": [],
+   "blockers": [
+    "future cloud green"
+   ],
+   "entry_distance_pct": 0.811,
+   "entry_distance_atr": 0.35,
+   "context": {
+    "score": 10.0,
+    "other_side_score": -9.0,
+    "funding": 0.003301,
+    "ls_top": 2.49,
+    "oi_1h": -0.265,
+    "perp_spot_ratio": 16.306,
+    "fng": null,
+    "adx": 26.51013746189392,
+    "rsi14": 42.82596364964491
+   },
+   "position_at_publish": {
+    "margin": 1000.0,
+    "risk_pct": 1.0,
+    "risk_usd": 10.0,
+    "qty": 0.00479603,
+    "notional": 290.13,
+    "leverage": 0.29,
+    "liquidation": null,
+    "target_kinds": [
+     "derived 2.5R",
+     "observed structure",
+     "derived 3.5R"
+    ]
+   }
+  },
+  {
    "id": "SUIUSDT|4h|short@1795379380",
    "ref": "MO-261122-2359-SUI-4h-S",
    "key": "SUIUSDT|4h|short",
@@ -8658,7 +8738,7 @@
   "losses": 66,
   "win_rate": 34.0,
   "expectancy_r": 0.14622500536948055,
-  "open": 0,
+  "open": 1,
   "expired": 9,
   "invalidated": 1
  },
@@ -8713,7 +8793,7 @@
    "losses": 8,
    "win_rate": 33.33333333333333,
    "expectancy_r": 0.16666666666591326,
-   "open": 0,
+   "open": 1,
    "expired": 2,
    "invalidated": 1,
    "name": "BTCUSDT"
@@ -8792,7 +8872,7 @@
    "losses": 8,
    "win_rate": 42.857142857142854,
    "expectancy_r": 0.4690579427239146,
-   "open": 0,
+   "open": 1,
    "expired": 2,
    "invalidated": 0,
    "name": "4h"
@@ -8816,7 +8896,7 @@
    "losses": 23,
    "win_rate": 45.23809523809524,
    "expectancy_r": 0.4994651773616015,
-   "open": 0,
+   "open": 1,
    "expired": 2,
    "invalidated": 0,
    "name": "Confirmed Breakout Retest"
@@ -8833,6 +8913,6 @@
    "name": "Divergence Reversal"
   }
  ],
- "updated_tehran": "2026-11-24 04:42 Tehran",
- "updated_ts": 1795482732.1994672
+ "updated_tehran": "2026-11-24 18:44 Tehran",
+ "updated_ts": 1795533273.315051
 }
