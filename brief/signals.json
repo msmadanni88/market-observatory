@@ -28,17 +28,17 @@
    "published_time_tehran": "2026-11-28 01:46 Tehran",
    "last_seen_ts": 1795817815.2408657,
    "republished": 1,
-   "activated_ts": null,
-   "activated_time_tehran": null,
-   "resolved_ts": null,
-   "status": "pending",
-   "result": "open",
-   "result_r": null,
-   "resolve_note": "",
-   "mfe_r": null,
-   "mae_r": null,
-   "bars_to_activate": null,
-   "bars_to_resolve": null,
+   "activated_ts": 1795818600,
+   "activated_time_tehran": "2026-11-28 02:00 Tehran",
+   "resolved_ts": 1795828500,
+   "status": "loss",
+   "result": "stop",
+   "result_r": -1.0,
+   "resolve_note": "stop touched first",
+   "mfe_r": 0.43,
+   "mae_r": 1.151,
+   "bars_to_activate": 1,
+   "bars_to_resolve": 12,
    "supports": [
     "structure bearish",
     "below cloud",
@@ -9045,23 +9045,23 @@
  ],
  "tracking_since": "2026-09-13 19:37 Tehran",
  "overall": {
-  "trades": 102,
+  "trades": 103,
   "wins": 34,
-  "losses": 68,
-  "win_rate": 33.33333333333333,
-  "expectancy_r": 0.12375000526419662,
-  "open": 2,
+  "losses": 69,
+  "win_rate": 33.00970873786408,
+  "expectancy_r": 0.11283981103833063,
+  "open": 1,
   "expired": 9,
   "invalidated": 2
  },
  "by_symbol": [
   {
-   "trades": 24,
+   "trades": 25,
    "wins": 12,
-   "losses": 12,
-   "win_rate": 50.0,
-   "expectancy_r": 0.6753855381397164,
-   "open": 1,
+   "losses": 13,
+   "win_rate": 48.0,
+   "expectancy_r": 0.6083701166141277,
+   "open": 0,
    "expired": 0,
    "invalidated": 1,
    "name": "ETHUSDT"
@@ -9135,12 +9135,12 @@
  ],
  "by_style": [
   {
-   "trades": 26,
+   "trades": 27,
    "wins": 7,
-   "losses": 19,
-   "win_rate": 26.923076923076923,
-   "expectancy_r": -0.07709555718824279,
-   "open": 1,
+   "losses": 20,
+   "win_rate": 25.925925925925924,
+   "expectancy_r": -0.11127720321830788,
+   "open": 0,
    "expired": 1,
    "invalidated": 2,
    "name": "15m"
@@ -9192,12 +9192,12 @@
  ],
  "by_strategy": [
   {
-   "trades": 50,
+   "trades": 51,
    "wins": 13,
-   "losses": 37,
-   "win_rate": 26.0,
-   "expectancy_r": -0.10710074957179051,
-   "open": 1,
+   "losses": 38,
+   "win_rate": 25.49019607843137,
+   "expectancy_r": -0.12460857801155932,
+   "open": 0,
    "expired": 7,
    "invalidated": 1,
    "name": "Trend Continuation"
@@ -9225,6 +9225,6 @@
    "name": "Divergence Reversal"
   }
  ],
- "updated_tehran": "2026-11-28 01:46 Tehran",
- "updated_ts": 1795817815.2452025
+ "updated_tehran": "2026-11-28 04:48 Tehran",
+ "updated_ts": 1795828709.8054419
 }
